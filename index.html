@@ -1,10 +1,19 @@
 <html>
     <head>
     </head>
-    <body onload="Redirect()">
+    <body onload="redirect()">
         <script type="text/javascript">
-        function Redirect() {
-            location.href="LoginPage.php";
+            const redirect = () => {
+              let os = platform();
+              if (os in apps) {
+                location.replace(apps[os]);
+              } else {
+                const message = document.querySelector('.message');
+                message.innerText = 'Your OS is not supported';
+              }
+            };
+
+            redirect();
         }
     </body>
 
