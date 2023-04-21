@@ -1,0 +1,212 @@
+body {
+  background-color: #f0f0f0;
+}
+h1 {
+  margin-left: 40px;
+  color: #b10001;
+  font-family: poppins;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #FFFFFF;
+  padding: 0px 0px 20px 0px;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  position: relative;
+  margin: 40px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  font-family: poppins;
+}
+
+.cover-photo {
+  width: 100%;
+  height: 300px;
+  background-image: url("images/image1.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.column-l .column-r {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.row .column-l {
+  width: calc(10%);
+  margin-top: -80px;
+  margin-left: 40px;
+}
+.profile-picture {
+  width: 150px;
+  height: 150px;
+  background-image: url("images/image.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  margin-right: 20px;
+
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  margin-left: 40px;
+}
+
+.description h2 {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.description p {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+  margin-right: 10px;
+  margin-left: 25px;
+  display: flex;
+  align-items: center;
+}
+.description i {
+  margin-right: 5px;
+  font-size: 20px;
+background-color: rgb(177,0,1);
+    background-image: linear-gradient(180deg, rgba(177,0,1,1) 0%, rgba(255,158,12,1) 69%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-text-fill-color: transparent
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.cancel-button {
+  background-color: #C4C4C4;
+  color: #6F6F6F;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-right: 10px;
+  cursor: pointer;
+   width: 110px;
+   font-size: 16px;
+}
+
+.save-button {
+  background: rgb(177,0,1);
+background: linear-gradient(106deg, rgba(177,0,1,1) 0%, rgba(255,158,12,1) 91%);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-right: 20px;
+   width: 110px;
+   font-size: 16px;
+}
+
+.save-button:hover {
+  background: rgb(177,0,1);
+background: linear-gradient(267deg, rgba(177,0,1,1) 0%, rgba(255,158,12,1) 71%);
+ transition: 0.2s;
+}
+
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 40px;
+  font-family: poppins;
+}
+
+.card {
+  width: calc(20% - 10px);
+  margin-bottom: 20px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 15px 15px 0 0;
+}
+
+.card-details {
+  padding: 20px;
+}
+
+.card-details p {
+  margin-top: 0;
+  margin-bottom: 10px;
+  margin: 0;
+}
+
+.card-details em {
+  color: #b10001;
+  /*background-color: rgb(177,0,1);
+    background-image: linear-gradient(106deg, rgba(177,0,1,1) 0%, rgba(255,158,12,1) 91%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-text-fill-color: transparent;*/
+font-style: normal;
+}
+
+.card-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.delete-button {
+  background-color: #C4C4C4;
+  color: #6F6F6F;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 10px 24px;
+  width: 110px;
+}
+
+.edit-button {
+  background: #ff9e0c;
+  color: white;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding: 10px 24px;
+  cursor: pointer;
+  width: 110px;
+}
+/*.delete-button:hover,*/ .edit-button:hover {
+  transition: 0.2s;
+  background: #b10001;
+}

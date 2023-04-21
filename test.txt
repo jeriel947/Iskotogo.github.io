@@ -1,0 +1,329 @@
+    <script type="text/javascript">
+        //test
+        const testDisplay = document.querySelector('#test')
+
+        const populaTetest = () => {
+            const titleBlock = document.createElement('div')
+            const titleHeading = document.createElement('h3')
+            titleHeading.textContent = "javascript input"
+
+            titleBlock.append(titleHeading)
+
+            testDisplay.append(titleBlock)
+        }
+        //populaTetest()
+        //test
+
+        const featuredDisplay = document.querySelector('#featured')
+
+        id = <?php echo json_encode($id); ?>;
+        orderName = <?php echo json_encode($orderName); ?>;
+        price = <?php echo json_encode($price); ?>;
+
+        i = 0;
+        const populateFeatured = () => {
+            orderName.forEach(order => {
+            //create container
+                const titleBlock = document.createElement('div')
+                titleBlock.classList.add('swiper-slide', 'card')
+                //create card
+                const card = document.createElement('div')
+                card.classList.add('card_content')
+                    //create image
+                const featureBlock = document.createElement('div')
+                featureBlock.classList.add('image')
+                const image = document.createElement('img')
+                image.setAttribute('src', './imgs/CLUBHOUSE.jpg')
+                        //create details
+                const detail = document.createElement('div')
+                detail.classList.add('fItem_details')
+                            //create text
+                const text = document.createElement('div')
+                text.classList.add('fItem_texts')
+                            //input the text details
+                const itemName = document.createElement('p')
+                itemName.setAttribute("id", "item_name");
+                itemName.textContent = orderName[i]
+                const itemPrice = document.createElement('p')
+                itemPrice.setAttribute("id", "item_price");
+                itemPrice.textContent = "P " + price[i]
+                        //create icon
+                const icon = document.createElement('div')
+                icon.classList.add('icon')
+                const chevron = document.createElement('i')
+                chevron.classList.add('bi bi-chevron-right')
+                
+                text.append(itemName)
+                text.append(itemPrice)
+                
+                detail.append(text)
+                detail.append(icon)
+                icon.append(chevron)
+                
+                card.append(featureBlock)
+                card.append(detail)
+                card.append(icon)
+                
+                featureBlock.append(image)
+                titleBlock.append(card)
+                
+                featuredDisplay.append(titleBlock)
+                i+=1
+            })
+        }
+        populateFeatured()
+    </script>
+
+////////////////////////////////////////////////////////////
+
+    <script type="text/javascript">
+
+        const featuredDisplay = document.querySelector('#featured')
+
+            // Create a div element with the class "swiper-slide" and "card"
+            const swiperSlide = document.createElement("div");
+            swiperSlide.classList.add("swiper-slide", "card");
+
+            // Create a div element with the class "card_content"
+            const cardContent = document.createElement("div");
+            cardContent.classList.add("card_content");
+
+            // Create a div element with the class "image"
+            const image = document.createElement("div");
+            image.classList.add("image");
+
+            // Create an img element with the src "./imgs/SUBMARINE.webp" and alt attribute
+            const img = document.createElement("img");
+            img.setAttribute("src", "./imgs/SUBMARINE.webp");
+            img.setAttribute("alt", "");
+
+            // Append the img element to the image element
+            image.appendChild(img);
+
+            // Create a div element with the class "fItem_details"
+            const fItemDetails = document.createElement("div");
+            fItemDetails.classList.add("fItem_details");
+
+            // Create a div element with the class "fItem_texts"
+            const fItemTexts = document.createElement("div");
+            fItemTexts.classList.add("fItem_texts");
+
+            // Create a p element with the id "item_name" and text content "SUBMARINE"
+            const itemName = document.createElement("p");
+            itemName.setAttribute("id", "item_name");
+            itemName.textContent = orderName[i];
+
+            // Create a p element with the id "item_price" and text content "P 40.00"
+            const itemPrice = document.createElement("p");
+            itemPrice.setAttribute("id", "item_price");
+            itemPrice.textContent = "P " + price[i];
+
+            // Append the itemName and itemPrice elements to the fItemTexts element
+            fItemTexts.appendChild(itemName);
+            fItemTexts.appendChild(itemPrice);
+
+            // Create a div element with the class "icon"
+            const icon = document.createElement("div");
+            icon.classList.add("icon");
+
+            // Create an i element with the class "bi bi-chevron-right"
+            const i = document.createElement("i");
+            i.classList.add("bi", "bi-chevron-right");
+
+            // Append the i element to the icon element
+            icon.appendChild(i);
+
+            // Append the image, fItemTexts, and icon elements to the fItemDetails element
+            fItemDetails.appendChild(image);
+            fItemDetails.appendChild(fItemTexts);
+            fItemDetails.appendChild(icon);
+
+            // Append the fItemDetails element to the cardContent element
+            cardContent.appendChild(fItemDetails);
+
+            // Append the cardContent element to the swiperSlide element
+            swiperSlide.appendChild(cardContent);
+        
+        featuredDisplay.append(swiperSlide)
+    </script>
+
+
+/////////////////////////////////////////////////////////////
+
+        <script type="text/javascript">
+        //test
+        const testDisplay = document.querySelector('#test')
+
+        const populaTetest = () => {
+            const titleBlock = document.createElement('div')
+            const titleHeading = document.createElement('h3')
+            titleHeading.textContent = "javascript input"
+
+            titleBlock.append(titleHeading)
+
+            testDisplay.append(titleBlock)
+        }
+        //populaTetest()
+        //test
+
+        const featuredDisplay = document.querySelector('#featured')
+
+        id = <?php echo json_encode($id); ?>;
+        orderName = <?php echo json_encode($orderName); ?>;
+        price = <?php echo json_encode($price); ?>;
+
+        i = 0;
+        //create container
+        const titleBlock = document.createElement('div')
+        titleBlock.classList.add('swiper-slide', 'card')
+        //create card
+        const card = document.createElement('div')
+        card.classList.add('card_content')
+        //create image
+        const featureBlock = document.createElement('div')
+        featureBlock.classList.add('image')
+        const image = document.createElement('img')
+        image.setAttribute('src', './imgs/CLUBHOUSE.jpg')
+        featureBlock.append(image)
+                //create details
+        const detail = document.createElement('div')
+        detail.classList.add('fItem_details')
+                    //create text
+        const text = document.createElement('div')
+        text.classList.add('fItem_texts')
+                    //input the text details
+        const itemName = document.createElement('p')
+        itemName.setAttribute("id", "item_name");
+        itemName.textContent = orderName[i]
+        const itemPrice = document.createElement('p')
+        itemPrice.setAttribute("id", "item_price");
+        itemPrice.textContent = "P " + price[i]
+                //append price and name
+        text.appendChild(itemName)
+        text.appendChild(itemPrice)
+                //create icon
+        const icon = document.createElement('div')
+        icon.classList.add('icon')
+        
+        const i = document.createElement('i')
+        i.classList.add('bi', 'bi-chevron-right')
+        
+        icon.appendChild(i)
+        
+        detail.append(featureBlock)
+        detail.append(text)
+        detail.append(icon)
+        
+        card.appendChild(detail)
+        
+        titleBlock.appendChild(card)
+        
+        featuredDisplay.appendChild(titleBlock)
+        
+        i+=1
+        populateFeatured()
+    </script>
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+        //test
+        const testDisplay = document.querySelector('#test')
+
+        const populaTetest = () => {
+            const titleBlock = document.createElement('div')
+            const titleHeading = document.createElement('h3')
+            titleHeading.textContent = "javascript input"
+
+            titleBlock.append(titleHeading)
+
+            testDisplay.append(titleBlock)
+        }
+        //populaTetest()
+        //test
+
+        const featuredDisplay = document.querySelector('#featured')
+
+        id = <?php echo json_encode($id); ?>;
+        orderName = <?php echo json_encode($orderName); ?>;
+        price = <?php echo json_encode($price); ?>;
+
+        index = 0;
+        const populateFeature = () => {
+        id.forEach(feature => {
+            // Create a div element with the class "swiper-slide" and "card"
+            const swiperSlide = document.createElement("div");
+            swiperSlide.classList.add("swiper-slide", "card");
+
+            // Create a div element with the class "card_content"
+            const cardContent = document.createElement("div");
+            cardContent.classList.add("card_content");
+
+            // Create a div element with the class "image"
+            const image = document.createElement("div");
+            image.classList.add("image");
+
+            // Create an img element with the src "./imgs/SUBMARINE.webp" and alt attribute
+            const img = document.createElement("img");
+            img.setAttribute("src", "./imgs/SUBMARINE.webp");
+
+            // Append the img element to the image element
+            image.append(img);
+
+            // Create a div element with the class "fItem_details"
+            const fItemDetails = document.createElement("div");
+            fItemDetails.classList.add("fItem_details");
+
+            // Create a div element with the class "fItem_texts"
+            const fItemTexts = document.createElement("div");
+            fItemTexts.classList.add("fItem_texts");
+
+            // Create a p element with the id "item_name" and text content "SUBMARINE"
+            const itemName = document.createElement("p");
+            itemName.setAttribute("id", "item_name");
+            itemName.textContent = "orderName[0]";
+
+            // Create a p element with the id "item_price" and text content "P 40.00"
+            const itemPrice = document.createElement("p");
+            itemPrice.setAttribute("id", "item_price");
+            itemPrice.textContent = "price[0]";
+
+            // Append the itemName and itemPrice elements to the fItemTexts element
+            fItemTexts.append(itemName);
+            fItemTexts.append(itemPrice);
+
+            // Create a div element with the class "icon"
+            const icon = document.createElement("div");
+            icon.classList.add("icon");
+
+            // Create an i element with the class "bi bi-chevron-right"
+            const i = document.createElement("i");
+            i.classList.add("bi", "bi-chevron-right");
+
+            // Append the i element to the icon element
+            icon.append(i);
+
+            // Append the image, fItemTexts, and icon elements to the fItemDetails element
+            fItemDetails.append(image);
+            fItemDetails.append(fItemTexts);
+            fItemDetails.append(icon);
+
+            // Append the fItemDetails element to the cardContent element
+            cardContent.append(fItemDetails);
+
+            // Append the cardContent element to the swiperSlide element
+            swiperSlide.append(cardContent);
+            
+            featuredDisplay.append(swiperSlide)
+            
+            index+=1
+        })
+        }
+        populateFeature()
+    </script>
