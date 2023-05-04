@@ -251,8 +251,7 @@
         const featuredDisplay = document.querySelector('#featured')
 
         id = <?php echo json_encode($id); ?>;
-        orderName = <?php echo json_encode($orderName); ?>;
-        price = <?php echo json_encode($price); ?>;
+        orderName = <?php echo json_encode($orderName); ?>;prounice); ?>;
 
         index = 0;
         const populateFeature = () => {

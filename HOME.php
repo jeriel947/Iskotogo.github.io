@@ -135,7 +135,6 @@
                 <div class="swiper mySwiper featured_items_container">
                     <div class="swiper-wrapper content">
                         <div id="featured"></div>
-                        <div id="test"></div>
                         
                         <!-- <div class="swiper-slide card">
                             <div class="card_content">
@@ -430,113 +429,25 @@
     
     <script type="text/javascript">
 
-        //test
-        const testDisplay = document.querySelector('#test')
+        const testDisplay = document.querySelector('#featured')
 
-        
-        
-        const populaTetest = () => {
-            orderNames = <?php echo json_encode($orderName); ?>;
+        const test = ["test1", "test2", "test3"]
+        const ids = <?php echo json_encode($id); ?>;
+        const orders = <?php echo json_encode($orderName); ?>;
+        const prices = <?php echo json_encode($price); ?>;
 
-            const titleBlock = document.createElement('div')
-            const titleHeading = document.createElement('h3')
-            const appendHeading = document.createElement('h3')
-            
-            titleHeading.textContent = "javascript input"
-            appendHeading.textContent = orderNames.length
+        orders.forEach(item => {
+            swiperSlide = document.createElement('div')
+            swiperSlide.classList.add("swiper-slide", "card")
 
-            // for(int aaa = 0; aaa < orderNames.length; aaa++){
-            //     const append = document.createElement('h3')
-            //     append.textContent = "test"
-            //     titleBlock.append(append)
-            // }
+            const titleHeading = document.createElement('h1')
+            titleHeading.textContent = item
+    
+            swiperSlide.append(titleHeading)
+            testDisplay.append(swiperSlide)
 
-            titleBlock.append(titleHeading)
-            titleBlock.append(appendHeading)
+        })
 
-            testDisplay.append(titleBlock)
-        }
-        populaTetest()
-        //test
-
-        const featuredDisplay = document.querySelector('#featured')
-
-        id = <?php echo json_encode($id); ?>;
-        orderName = <?php echo json_encode($orderName); ?>;
-        price = <?php echo json_encode($price); ?>;
-
-        index = 0;
-        const populateFeature = () => {
-            id.forEach(feature => {
-                // Create a div element with the class "swiper-slide" and "card"
-                const swiperSlide = document.createElement("div");
-                swiperSlide.classList.add("swiper-slide", "card");
-
-                // Create a div element with the class "card_content"
-                const cardContent = document.createElement("div");
-                cardContent.classList.add("card_content");
-
-                // Create a div element with the class "image"
-                const image = document.createElement("div");
-                image.classList.add("image");
-
-                // Create an img element with the src "./imgs/SUBMARINE.webp" and alt attribute
-                const img = document.createElement("img");
-                img.setAttribute("src", "./imgs/SUBMARINE.webp");
-
-                // Append the img element to the image element
-                image.append(img);
-
-                // Create a div element with the class "fItem_details"
-                const fItemDetails = document.createElement("div");
-                fItemDetails.classList.add("fItem_details");
-
-                // Create a div element with the class "fItem_texts"
-                const fItemTexts = document.createElement("div");
-                fItemTexts.classList.add("fItem_texts");
-
-                // Create a p element with the id "item_name" and text content "SUBMARINE"
-                const itemName = document.createElement("p");
-                itemName.setAttribute("id", "item_name");
-                itemName.textContent = "orderName[0]";
-
-                // Create a p element with the id "item_price" and text content "P 40.00"
-                const itemPrice = document.createElement("p");
-                itemPrice.setAttribute("id", "item_price");
-                itemPrice.textContent = "price[0]";
-
-                // Append the itemName and itemPrice elements to the fItemTexts element
-                fItemTexts.append(itemName);
-                fItemTexts.append(itemPrice);
-
-                // Create a div element with the class "icon"
-                const icon = document.createElement("div");
-                icon.classList.add("icon");
-
-                // Create an i element with the class "bi bi-chevron-right"
-                const i = document.createElement("i");
-                i.classList.add("bi", "bi-chevron-right");
-
-                // Append the i element to the icon element
-                icon.append(i);
-
-                // Append the image, fItemTexts, and icon elements to the fItemDetails element
-                fItemDetails.append(fItemTexts);
-                fItemDetails.append(icon);
-                
-                // Append the fItemDetails element to the cardContent element
-                cardContent.append(image);
-                cardContent.append(fItemDetails);
-
-                // Append the cardContent element to the swiperSlide element
-                swiperSlide.append(cardContent);
-                
-                featuredDisplay.append(swiperSlide)
-                
-                index+=1
-            })
-        }
-        populateFeature()
     </script>
 
     <!-- JAVASCRIPT -->
