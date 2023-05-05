@@ -8,7 +8,7 @@
     <?php 
         session_start();
         
-        $con = mysqli_connect('localhost', 'iskotogo', '1357','submissions');
+        $con = mysqli_connect('localhost', 'iskotogo', '13579','submissions');
         $sql = "SELECT * from tb_submissions";
         $res = mysqli_query($con, $sql);
         $photoID=array();
