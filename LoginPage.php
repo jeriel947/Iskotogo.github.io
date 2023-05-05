@@ -3,7 +3,6 @@
 <html>
 
 <head>
-    <?php session_start(); ?>
 
     <?php 
         session_start();
@@ -11,16 +10,12 @@
         $con = mysqli_connect('localhost', 'iskotogo', '13579','db_users');
         $sql = "SELECT * from tbl_users";
         $res = mysqli_query($con, $sql);
-        $photoID=array();
-        $photoNames=array();
         $userNames=array();
         
         if ($res->num_rows > 0) {
             // output data of each row
             while($row = $res->fetch_assoc()) {
-                array_push($photoID, $row['submission_id']);
-                array_push($photoNames, $row['photoname']);
-                array_push($userNames, $row['user']);
+                array_push($userNames, $row['User_Name']);
             }
         } else {
             echo "0 results";
