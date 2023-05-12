@@ -1,7 +1,8 @@
 <?php 
     session_start();
 
-    $conn = mysqli_connect('localhost', 'root', '','db_users');
+    //$conn = mysqli_connect('localhost', 'root', '','db_users');
+    $conn = mysqli_connect('localhost', 'iskotogo', '13579','db_users');
 
     if (isset($_POST['user_name']) && isset($_POST['password'])) {
 
@@ -81,7 +82,8 @@
 
                 } else{
 
-                    header("Location: index.php?error=Incorect student id or password");
+                    //header("Location: index.php?error=Incorect student id or password");
+                    header("Location: LoginError.php");
 
                     exit();
 
@@ -89,7 +91,8 @@
 
             }else{
 
-                header("Location: index.php?error=Incorect student id or password");
+                //header("Location: index.php?error=Incorect student id or password");
+                header("Location: LoginError.php");
 
                 exit();
 
