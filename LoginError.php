@@ -1,3 +1,3 @@
 <?php 
-    echo invalid credentiatls;
+    echo "invalid credentiatl";
 ?>
