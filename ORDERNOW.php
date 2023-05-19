@@ -276,34 +276,12 @@
 
     <!-- JAVASCRIPT -->
     <script src="./SCRIPT.js"></script>
-    <script type="text/javascript">
-        var counter=1;
-        setInterval(function(){
-            document.getElementById('radio' + counter).checked=true;
-            counter++;
-            if(counter > 5){
-                counter = 1;
-            }
-        },5000);
-    </script>
 
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
-    <!-- Initialize Swiper -->
-    <script>
-        var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 4.5,
-        spaceBetween: 30,
-        grabCursor: true
-        });
-    </script>
-
     <!-- SCROLL EFFECTS -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-      AOS.init();
-    </script>
 </body>
 
 <!-- JAVASCRIPT -->

@@ -1,0 +1,10 @@
+database location for GODADDY
+mysqli_connect('localhost', 'iskotogo', '13579','db_users');
+
+database location for XAMPP
+mysqli_connect('localhost', 'root', '','db_users');
+
+NEED TO DO:
+the other pages should not be accessible if 
+the redirection of the page after the log in should not include the file type
+in order now page fix the profile image
