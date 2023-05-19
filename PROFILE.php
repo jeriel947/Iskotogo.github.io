@@ -116,113 +116,55 @@
                     </h3>
                 </div>
 
-                <div class="swiper mySwiper featured_items_container">
-                    <div class="swiper-wrapper content">
-                        <div class="swiper-slide card">
-                            <div class="card_content">
-                                <div class="image">
-                                    <img src="./imgs/FEWA.webp" alt="">
-                                </div>
+                <?php
+$items = [
+    [
+        'name' => 'FEWA',
+        'price' => 'P 39.00',
+        'image' => './imgs/FEWA.webp'
+    ],
+    [
+        'name' => 'SUBMARINE',
+        'price' => 'P 40.00',
+        'image' => './imgs/SUBMARINE.webp'
+    ],
+    [
+        'name' => 'CLUBHOUSE',
+        'price' => 'P 39.00',
+        'image' => './imgs/CLUBHOUSE.jpg'
+    ],
+    [
+        'name' => 'CORNDOG',
+        'price' => 'P 15.00',
+        'image' => './imgs/CORNDOG.jpg'
+    ]
+];
 
-                                <div class="fItem_details">
-                                    <div class="fItem_texts">
-                                        <p id="item_name">FEWA</p>
-                                        <P id="item_price">P 39.00</P>
-                                    </div>
-                                    <div class="icon">
-                                        <i class="bi bi-chevron-right"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide card">
-                            <div class="card_content">
-                                <div class="image">
-                                    <img src="./imgs/SUBMARINE.webp" alt="">
-                                </div>
+?>
 
-                                <div class="fItem_details">
-                                    <div class="fItem_texts">
-                                        <p id="item_name">SUBMARINE</p>
-                                        <P id="item_price">P 40.00</P>
-                                    </div>
-                                    <div class="icon">
-                                        <i class="bi bi-chevron-right"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide card">
-                            <div class="card_content">
-                                <div class="image">
-                                    <img src="./imgs/CLUBHOUSE.jpg" alt="">
-                                </div>
+<div class="swiper mySwiper featured_items_container">
+    <div class="swiper-wrapper content">
+        <?php foreach ($items as $item): ?>
+        <div class="swiper-slide card">
+            <div class="card_content">
+                <div class="image">
+                    <img src="<?php echo $item['image']; ?>" alt="">
+                </div>
 
-                                <div class="fItem_details">
-                                    <div class="fItem_texts">
-                                        <p id="item_name">CLUBHOUSE</p>
-                                        <P id="item_price">P 39.00</P>
-                                    </div>
-                                    <div class="icon">
-                                        <i class="bi bi-chevron-right"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide card">
-                            <div class="card_content">
-                                <div class="image">
-                                    <img src="./imgs/CORNDOG.jpg" alt="">
-                                </div>
-
-                                <div class="fItem_details">
-                                    <div class="fItem_texts">
-                                        <p id="item_name">CORNDOG</p>
-                                        <P id="item_price">P 15.00</P>
-                                    </div>
-                                    <div class="icon">
-                                        <i class="bi bi-chevron-right"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide card">
-                            <div class="card_content">
-                                <div class="image">
-                                    <img src="./imgs/FEWA.webp" alt="">
-                                </div>
-
-                                <div class="fItem_details">
-                                    <div class="fItem_texts">
-                                        <p id="item_name">FEWA</p>
-                                        <P id="item_price">P 39.00</P>
-                                    </div>
-                                    <div class="icon">
-                                        <i class="bi bi-chevron-right"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide card">
-                            <div class="card_content">
-                                <div class="image">
-                                    <img src="./imgs/SUBMARINE.webp" alt="">
-                                </div>
-
-                                <div class="fItem_details">
-                                    <div class="fItem_texts">
-                                        <p id="item_name">SUBMARINE</p>
-                                        <P id="item_price">P 40.00</P>
-                                    </div>
-                                    <div class="icon">
-                                        <i class="bi bi-chevron-right"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="fItem_details">
+                    <div class="fItem_texts">
+                        <p id="item_name"><?php echo $item['name']; ?></p>
+                        <P id="item_price"><?php echo $item['price']; ?></P>
+                    </div>
+                    <div class="icon">
+                        <i class="bi bi-chevron-right"></i>
                     </div>
                 </div>
             </div>
+        </div>
+        <?php endforeach; ?>
+    </div>
+</div>
 
             <!--CAFETERIAS-->
             <div class="cafeterias">
