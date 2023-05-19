@@ -7,19 +7,19 @@
     <?php 
         session_start();
         
-        $con = mysqli_connect('localhost', 'iskotogo', '13579','db_users');
-        $sql = "SELECT * from tbl_users";
-        $res = mysqli_query($con, $sql);
-        $userNames=array();
+        // $con = mysqli_connect('localhost', 'iskotogo', '13579','db_users');
+        // $sql = "SELECT * from tbl_users";
+        // $res = mysqli_query($con, $sql);
+        // $userNames=array();
         
-        if ($res->num_rows > 0) {
-            // output data of each row
-            while($row = $res->fetch_assoc()) {
-                array_push($userNames, $row['User_Name']);
-            }
-        } else {
-            echo "0 results";
-        }
+        // if ($res->num_rows > 0) {
+        //     // output data of each row
+        //     while($row = $res->fetch_assoc()) {
+        //         array_push($userNames, $row['User_Name']);
+        //     }
+        // } else {
+        //     echo "0 results";
+        // }
     ?>
 
     <title>LOGIN</title>

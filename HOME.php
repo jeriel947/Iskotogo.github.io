@@ -1,34 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-    <?php 
-        session_start();
-        
-        $con = mysqli_connect('localhost', 'root', '','db_store');
-        $sql = "SELECT * from tbl_menu";
-        $res = mysqli_query($con, $sql);
-        $id=array();
-        $orderName=array();
-        $price=array();
-        
-        if ($res->num_rows > 0) {
-            // output data of each row
-            while($row = $res->fetch_assoc()) {
-                array_push($id, $row['id']);
-                array_push($orderName, $row['order_name']);
-                array_push($price, $row['price']);
-            }
-        } else {
-            echo "0 results";
+    <?php
+    session_start();
+
+    $con = mysqli_connect('localhost', 'root', '', 'db_users');
+    $sql = "SELECT * from tbl_menu";
+    $res = mysqli_query($con, $sql);
+    $id = array();
+    $orderName = array();
+    $price = array();
+
+    if ($res->num_rows > 0) {
+        // output data of each row
+        while ($row = $res->fetch_assoc()) {
+            array_push($id, $row['id']);
+            array_push($orderName, $row['item_name']);
+            array_push($price, $row['item_price']);
         }
+    } else {
+        echo "0 results";
+    }
     ?>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>HOME</title>
-    <link rel="shortcut icon" type="image/x-icon" href="./imgs/LOGO.png"/>
+    <link rel="shortcut icon" type="image/x-icon" href="./imgs/LOGO.png" />
 
     <!-- CSS -->
     <link rel="stylesheet" href="./CSS/MAIN.css">
@@ -41,29 +42,37 @@
     <!-- GOOGLE FONTS (POPPINS) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <!-- GOOGLE ICONS -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- FONT AWESOME -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- SWIPER JS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 </head>
+
 <body>
     <!--================================ NAVIGATION BAR ================================-->
     <nav>
         <div class="container nav__container">
-            <a href="HOME.html" id="logo"><img src="./imgs/logo.png" alt="" class="logo__img"><h4>PUP Cafeteria Automation System</h4></a>
+            <a href="HOME.html" id="logo"><img src="./imgs/logo.png" alt="" class="logo__img">
+                <h4>PUP Cafeteria Automation System</h4>
+            </a>
             <ul class="nav_menu">
                 <li id="search">
-                    <input type="text" class="other_details_text" name="Other Details" placeholder="Type a keyword" autocomplete="off">
+                    <input type="text" class="other_details_text" name="Other Details" placeholder="Type a keyword"
+                        autocomplete="off">
                     <span class="material-symbols-outlined">search</span>
                 </li>
                 <li id="homepage_icon">
                     <span class="material-symbols-outlined">home</span>
                 </li>
                 <li id="profile">
-                    <img src="profile_pics/<?php echo $_SESSION['Lastname'];?>_profile.jpg" alt="">
+                    <img src="profile_pics/<?php echo $_SESSION['Lastname']; ?>_profile.jpg" alt="">
                 </li>
             </ul>
             <button id="open_menu_btn"><i class="bi bi-list"></i></button>
@@ -130,125 +139,64 @@
                         Featured Items
                     </h3>
                 </div>
-                
+
 
                 <div class="swiper mySwiper featured_items_container">
                     <div class="swiper-wrapper content">
                         <div id="featured"></div>
-                        
-                        <!-- <div class="swiper-slide card">
-                            <div class="card_content">
-                                <div class="image">
-                                    <img src="./imgs/FEWA.webp" alt="">
-                                </div>
 
-                                <div class="fItem_details">
-                                    <div class="fItem_texts">
-                                        <p id="item_name">FEWA</p>
-                                        <P id="item_price">P 39.00</P>
+                        $items = [
+                        [
+                        'name' => 'FEWA',
+                        'price' => 'P 39.00',
+                        'image' => './imgs/FEWA.webp'
+                        ],
+                        [
+                        'name' => 'SUBMARINE',
+                        'price' => 'P 40.00',
+                        'image' => './imgs/SUBMARINE.webp'
+                        ],
+                        [
+                        'name' => 'CLUBHOUSE',
+                        'price' => 'P 39.00',
+                        'image' => './imgs/CLUBHOUSE.jpg'
+                        ],
+                        [
+                        'name' => 'CORNDOG',
+                        'price' => 'P 15.00',
+                        'image' => './imgs/CORNDOG.jpg'
+                        ]
+                        ];
+
+                        ?>
+
+                        <div class="swiper mySwiper featured_items_container">
+                            <div class="swiper-wrapper content">
+                                <?php foreach ($items as $item): ?>
+                                    <div class="swiper-slide card">
+                                        <div class="card_content">
+                                            <div class="image">
+                                                <img src="<?php echo $item['image']; ?>" alt="">
+                                            </div>
+
+                                            <div class="fItem_details">
+                                                <div class="fItem_texts">
+                                                    <p id="item_name">
+                                                        <?php echo $item['name']; ?>
+                                                    </p>
+                                                    <P id="item_price">
+                                                        <?php echo $item['price']; ?>
+                                                    </P>
+                                                </div>
+                                                <div class="icon">
+                                                    <i class="bi bi-chevron-right"></i>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="icon">
-                                        <i class="bi bi-chevron-right"></i>
-                                    </div>
-                                </div>
+                                <?php endforeach; ?>
                             </div>
                         </div>
-
-                        <div class="swiper-slide card">
-
-                            <div class="card_content">
-
-                                <div class="image">
-                                    <img src="./imgs/SUBMARINE.webp" alt="">
-                                </div>
-
-                                <div class="fItem_details">
-                                    <div class="fItem_texts">
-                                        <p id="item_name">SUBMARINE</p>
-                                        <P id="item_price">P 40.00</P>
-                                    </div>
-
-                                    <div class="icon">
-                                        <i class="bi bi-chevron-right"></i>
-                                    </div>
-                                    
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="swiper-slide card">
-                            <div class="card_content">
-                                <div class="image">
-                                    <img src="./imgs/CLUBHOUSE.jpg" alt="">
-                                </div>
-
-                                <div class="fItem_details">
-                                    <div class="fItem_texts">
-                                        <p id="item_name">CLUBHOUSE</p>
-                                        <P id="item_price">P 39.00</P>
-                                    </div>
-                                    <div class="icon">
-                                        <i class="bi bi-chevron-right"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide card">
-                            <div class="card_content">
-                                <div class="image">
-                                    <img src="./imgs/CORNDOG.jpg" alt="">
-                                </div>
-
-                                <div class="fItem_details">
-                                    <div class="fItem_texts">
-                                        <p id="item_name">CORNDOG</p>
-                                        <P id="item_price">P 15.00</P>
-                                    </div>
-                                    <div class="icon">
-                                        <i class="bi bi-chevron-right"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide card">
-                            <div class="card_content">
-                                <div class="image">
-                                    <img src="./imgs/FEWA.webp" alt="">
-                                </div>
-
-                                <div class="fItem_details">
-                                    <div class="fItem_texts">
-                                        <p id="item_name">FEWA</p>
-                                        <P id="item_price">P 39.00</P>
-                                    </div>
-                                    <div class="icon">
-                                        <i class="bi bi-chevron-right"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide card">
-                            <div class="card_content">
-                                <div class="image">
-                                    <img src="./imgs/SUBMARINE.webp" alt="">
-                                </div>
-
-                                <div class="fItem_details">
-                                    <div class="fItem_texts">
-                                        <p id="item_name">SUBMARINE</p>
-                                        <P id="item_price">P 40.00</P>
-                                    </div>
-                                    <div class="icon">
-                                        <i class="bi bi-chevron-right"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
 
                     </div>
                 </div>
@@ -263,7 +211,7 @@
                         Cafeterias/Stalls
                     </h3>
                 </div>
-                
+
                 <div class="cafeterias__container">
                     <form method="post">
                         <article class="cafeteria" id="caf1">
@@ -339,7 +287,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="my_orders" id="order2">
                 <div class="my_order_profile">
                     <div class="image">
@@ -393,12 +341,13 @@
                             <i class="bi bi-dash"></i>
                             <p id="text">1</p>
                             <i class="bi bi-plus"></i>
-                        </div>                        
+                        </div>
                     </div>
                 </div>
                 <div class="other_details">
                     <p>Other details (please specify)</p>
-                    <input type="text" class="other_details_text" name="Other Details" placeholder="e.g: no hotdog; additional fork; etc." autocomplete="off">
+                    <input type="text" class="other_details_text" name="Other Details"
+                        placeholder="e.g: no hotdog; additional fork; etc." autocomplete="off">
                 </div>
                 <div class="order_summary">
                     <p>Summary</p>
@@ -426,7 +375,7 @@
         </div>
     </section>
     <!--================================ END OF CONTAINER ================================-->
-    
+
     <script type="text/javascript">
 
         const testDisplay = document.querySelector('#featured')
@@ -442,7 +391,7 @@
 
             const titleHeading = document.createElement('h1')
             titleHeading.textContent = item
-    
+
             swiperSlide.append(titleHeading)
             testDisplay.append(swiperSlide)
 
@@ -453,14 +402,14 @@
     <!-- JAVASCRIPT -->
     <script src="./SCRIPT.js"></script>
     <script type="text/javascript">
-        var counter=1;
-        setInterval(function(){
-            document.getElementById('radio' + counter).checked=true;
+        var counter = 1;
+        setInterval(function () {
+            document.getElementById('radio' + counter).checked = true;
             counter++;
-            if(counter > 5){
+            if (counter > 5) {
                 counter = 1;
             }
-        },5000);
+        }, 5000);
     </script>
 
     <!-- Swiper JS -->
@@ -469,33 +418,33 @@
     <!-- Initialize Swiper -->
     <script>
         var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 4.5,
-        spaceBetween: 30,
-        grabCursor: true
+            slidesPerView: 4.5,
+            spaceBetween: 30,
+            grabCursor: true
         });
     </script>
 
     <!-- SCROLL EFFECTS -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-      AOS.init();
+        AOS.init();
     </script>
 
     <!-- SHOW/HIDE POP MESSAGE -->
     <script>
-    const showPopup = document.querySelectorAll('.card_content');
-    const closePopup = document.querySelector('#close_btn');
-    const popUpMessage = document.querySelector('.popUp__message__container');
+        const showPopup = document.querySelectorAll('.card_content');
+        const closePopup = document.querySelector('#close_btn');
+        const popUpMessage = document.querySelector('.popUp__message__container');
 
-    showPopup.forEach(course => {
-        course.addEventListener('click', () => {
-            popUpMessage.style.display = "flex";
+        showPopup.forEach(course => {
+            course.addEventListener('click', () => {
+                popUpMessage.style.display = "flex";
+            })
         })
-    })
 
-    closePopup.addEventListener('click', () => {
-        popUpMessage.style.display = "none";
-    })
+        closePopup.addEventListener('click', () => {
+            popUpMessage.style.display = "none";
+        })
     </script>
 </body>
 
