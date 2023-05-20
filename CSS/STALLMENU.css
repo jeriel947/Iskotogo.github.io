@@ -1,0 +1,490 @@
+.stallmenu_container {
+    padding: 4rem 0;
+    display: flex;
+    gap: 2rem;
+    margin-top: 5rem;
+}
+
+/*=================     STALL MENU - NAVIGATION     =================*/
+.stallmenu_navigation_section {
+    height: 100%;
+    width: 70%;
+}
+
+/*=====  STALL PROFILE  =====*/
+.stall_profile {
+    background: white;
+    border-radius: 1.2rem;
+    box-shadow: var(--card-shadow);
+}
+
+.stall_profile .image {
+    height: 15.625rem;
+    width: 100%;
+}
+
+.stall_profile .image .img_container {
+    width: auto;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.2rem;
+}
+
+.profile_image {
+    width: 8.5rem;
+    height: 8.5rem;
+    border-radius: 50%;
+    border: .2rem solid white;
+    background: var(--color-gradient);
+    position: absolute;
+    left: 4rem;
+    bottom: 14rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.profile_details {
+    width: 100%;
+    display: flex;
+    gap: 6rem;
+    align-items: center;
+    padding: 1rem 0 1rem 12rem;
+}
+
+.profile_details_texts {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.stall_details {
+    margin-left: 2rem;
+}
+
+.stall_details p {
+    font-weight: 500;
+    color: var(--color-dark-gray);
+}
+
+.profile_details i {
+    background: var(--color-gradient2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hearts_num {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 500;
+    color: var(--color-dark-gray);
+}
+
+.hearts_num i {
+    font-size: 2rem;
+    line-height: 1rem;
+}
+
+/*=====  STALL MENU  =====*/
+.stall_menu_title {
+    padding: 2rem 0 1rem;
+}
+
+.menu_container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.menu_item {
+    padding: .5rem .5rem 1rem;
+    width: 12rem;
+    background: white;
+    box-shadow: var(--card-shadow);
+    border-radius: 1rem;
+}
+
+.menu_item .image {
+    height: 9rem;
+    width: 100%;
+    overflow: hidden;
+    border-radius: .7rem;
+}
+
+.menu_item .image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.menu_item .item_details p {
+    line-height: 0px;
+    padding-top: 6px;
+    margin: 1rem 0 0;
+}
+
+.item_texts {
+margin-bottom: 1rem;
+}
+
+.menu_item #item_name {
+    font-weight: 500;
+}
+
+.menu_container .btn {
+    background: var(--color-main2);
+    width: 100%;
+    color: white;
+}
+
+/*=================     MY ORDERS     =================*/
+.my_orders_section {
+    height: 100%;
+    width: 30%;
+}
+
+.my_orders_section .my_orders_texts {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+    color: var(--color-main2);
+    margin-bottom: 1rem;
+}
+
+.my_orders_section .my_orders_texts span{
+    font-size: 2rem;
+}
+
+.my_orders_section .my_orders_texts h3 {
+    color: var(--color-main2);
+}
+
+.my_orders_section .my_orders {
+    background: white;
+    padding: 1rem;  
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    box-shadow: var(--card-shadow);
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+}
+
+/*--- BASIC ITEM DETAILS ---*/
+.my_orders_section .my_orders .my_order_profile {
+   display: flex;
+   gap: .5rem;
+}
+
+.my_orders_section .my_orders .my_order_profile .image {
+    width: 40%;
+    height: 7rem;
+    overflow: hidden;
+    border-radius: 1rem;
+}
+
+.my_orders_section .my_orders .my_order_profile .image img{
+    height: 100%;
+}
+
+.my_orders_section .my_orders .my_order_profile .my_order_profile_details {
+    width: 60%;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    padding-top: .5rem;
+}
+
+.my_orders_section .my_orders .my_order_profile .my_order_profile_details p {
+    font-weight: 500;
+    padding-top: .5rem;
+}
+
+.my_orders_section .my_orders .my_order_profile .my_order_profile_details .my_order_price span {
+    color: var(--color-main2);
+}
+
+.my_orders_section .my_orders .my_order_profile .my_order_profile_details .my_order_stall i {
+    color: var(--color-main1);
+    font-size: 1rem;
+}
+
+.my_orders_section .my_orders .my_order_profile .my_order_profile_details .my_order_stall {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    color: var(--color-main2);
+    font-size: .8rem;
+}
+
+/*--- ORDER DETAILS ---*/
+.my_orders_section .my_orders .my_order_details {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.my_orders_section .my_orders .my_order_details p {
+    font-weight: 500;
+}
+
+.my_orders_section .my_orders .my_order_details .text {
+    color: var(--color-main1);
+}
+
+.my_orders_section .my_orders .my_order_details .item_name_quantity {
+    display: flex;
+    gap: .5rem;
+    width: 100%;
+    padding: 0 !important;
+}
+
+.my_orders_section .my_orders .my_order_details .item_name_quantity .item_name {
+    padding: .5rem;
+    box-shadow: var(--card-shadow);
+    border-radius: .4rem;
+}
+
+.my_orders_section .my_orders .my_order_details .item_name_quantity .item_quantity {
+    padding: .5rem;
+    border-radius: .4rem;
+    box-shadow: var(--card-shadow);
+}
+
+.my_orders_section .my_orders .my_order_details .order_detail {
+    padding: .5rem;
+    border-radius: .4rem;
+}
+
+.my_orders_section .my_orders .my_order_details .item_name_quantity .item_name {
+    width: 60%;
+    font-weight: 500;   
+}
+
+.my_orders_section .my_orders .my_order_details .item_name_quantity .item_quantity {
+    width: 40%;
+}
+
+.my_orders_section .my_orders .my_order_details .item_others {
+    box-shadow: var(--card-shadow);
+}
+
+.my_orders_section .my_orders .my_order_details .my_order_total {
+    box-shadow: var(--card-shadow);
+    background: var(--color-gradient);
+}
+
+.my_orders_section .my_orders .my_order_details .my_order_total p {
+    color: white;
+}
+
+.my_orders_section .my_orders .my_order_details .my_order_total .text {
+    font-weight: 600;
+    font-size: 1.4rem;
+}
+
+/* ========================= POP MESSAGE ========================= */
+.popUp__message__container {
+    background: rgba(0, 0, 0, 0.466);
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    z-index: 11;
+    top: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.popUp__message {
+    background: var(--color-white);
+    padding: 1rem;
+    border-radius: 1rem;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    color: var(--color-dark);
+    transition: var(--transition);
+}
+
+/*----- ITEM DETAILS -----*/
+.popUp__message .popUp__item__details {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+.popUp__message .popUp__item__details .image {
+    width: 7rem;
+    height: 7rem;
+    overflow: hidden;
+    border-radius: 1rem;
+}
+
+.popUp__message .popUp__item__details .image img {
+    height: 100%;
+}
+
+.popUp__message .popUp__item__details .name_price {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.popUp__message .popUp__item__details .name_price p {
+    font-weight: 500;
+}
+
+.popUp__message .popUp__item__details .name_price h4 {
+    font-weight: 500;
+}
+
+.popUp__message .popUp__item__details .name_price span {
+    color: var(--color-main2);
+}
+
+.popUp__message .popUp__item__details .quantity {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .5rem;
+    align-items: center;
+}
+
+.popUp__message .popUp__item__details .quantity #label{
+    font-weight: 500;
+}
+
+.popUp__message .popUp__item__details .quantity .input {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+}
+
+.popUp__message .popUp__item__details .quantity .input #text {
+    font-weight: 500;
+    color: var(--color-main2);
+}
+
+.popUp__message .popUp__item__details .quantity .input .bi {
+    border: 2px solid var(--color-main2);
+    border-radius: .2rem;
+    padding: .2rem;
+    cursor: pointer;
+}
+
+.popUp__message .other_details {
+}
+
+.popUp__message .other_details p {
+    font-weight: 500;
+}
+
+.popUp__message .other_details input {
+    border-bottom: solid 2px var(--color-gray);
+    width: 100%;
+}
+
+.popUp__message .order_summary {
+    display: flex;
+    flex-direction: column;
+}
+
+.popUp__message .order_summary > p {
+    font-weight: 500;
+}
+
+.popUp__message .order_summary .content {
+    display: flex;
+    flex-direction: row;
+    gap: .5rem;
+}
+
+.popUp__message .order_summary .content .left {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    width: 70%;
+}
+
+.popUp__message .order_summary .content .left .top {
+    gap: .5rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.popUp__message .order_summary .content .left .top p {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+    box-shadow: var(--card-shadow);
+    border-radius: .4rem;
+    width: 50%;
+    justify-content: center;
+}
+
+.popUp__message .order_summary .content .left .bottom { 
+    padding: 1rem;
+    border-radius: .4rem;
+    box-shadow: var(--card-shadow);
+}
+
+.popUp__message .order_summary .content .right {
+    width: 30%;
+    padding: 1rem;
+    border-radius: .4rem;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+}
+
+.popUp__message .order_summary .content .right h4 {
+    background: var(--color-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.popUp__message .order_summary .content p {
+    font-weight: 500;
+}
+
+.popUp__message .order_summary .content p span {
+    background: var(--color-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/*----- BUTTONS -----*/
+.popUp__message .buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    margin-top: .5rem;
+}
+
+.popUp__message .buttons button {
+    background: var(--color-gradient);
+    width: 50%;
+    box-shadow: var(--card-shadow);
+    color: white;
+    cursor: pointer;
+}
+
+.popUp__message .buttons #close_btn {
+    background: white;
+    color: var(--color-dark);
+}

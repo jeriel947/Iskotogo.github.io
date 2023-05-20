@@ -157,7 +157,7 @@
     padding: 2rem 0 1rem;
 }
 
-.swiper-slide {
+.swiper-slide.card {
     position: relative;
     padding: .5rem .5rem 1rem;
     border-radius: 1rem;
@@ -165,16 +165,16 @@
     background: white;
 }
 
-.swiper-slide:hover {
+.swiper-slide.card:hover {
     background: var(--color-gradient2);
     transition: var(--transition);
 }
 
-.swiper-slide:hover #item_name {
+.swiper-slide.card:hover #item_name {
     color: var(--color-main2) !important;
 }
 
-.swiper-slide:hover #item_price {
+.swiper-slide.card:hover #item_price {
     color: white !important;
 }
 

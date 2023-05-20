@@ -60,7 +60,7 @@
 
                     $_SESSION['Middlename'] = $row['Middle_Name'];
                     
-                    header("Location: HOME.php");
+                    header("Location: HomePage.php");
 
                     exit();
 
@@ -78,7 +78,7 @@
 
                     $_SESSION['Middlename'] = $row['Middle_Name'];
                     
-                    header("Location: adminorders.php");
+                    header("Location: AdminPage.php");
 
                 } else{
 
