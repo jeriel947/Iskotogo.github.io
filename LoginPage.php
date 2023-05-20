@@ -7,7 +7,7 @@
     <?php 
         session_start();
         
-        // $con = mysqli_connect('localhost', 'iskotogo', '13579','db_users');
+        // $con = mysqli_connect('localhost', 'iskotogo', '13579','db_iskotogo');
         // $sql = "SELECT * from tbl_users";
         // $res = mysqli_query($con, $sql);
         // $userNames=array();

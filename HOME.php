@@ -6,23 +6,13 @@
     <?php
     session_start();
 
-    $con = mysqli_connect('localhost', 'root', '', 'db_users');
-    $sql = "SELECT * from tbl_menu";
-    $res = mysqli_query($con, $sql);
-    $id = array();
-    $orderName = array();
-    $price = array();
+    $con = mysqli_connect('localhost', 'root', '', 'db_iskotogo');
 
-    if ($res->num_rows > 0) {
-        // output data of each row
-        while ($row = $res->fetch_assoc()) {
-            array_push($id, $row['id']);
-            array_push($orderName, $row['item_name']);
-            array_push($price, $row['item_price']);
-        }
-    } else {
-        echo "0 results";
+    // Check if the connection was successful
+    if (!$con) {
+        die("Connection failed: " . mysqli_connect_error());
     }
+
     ?>
 
     <meta charset="UTF-8">
@@ -132,6 +122,7 @@
                 </div>
 
             </div>
+
             <!--FEATURED ITEMS-->
             <div class="featured_items">
                 <div class="featured_items_texts">
@@ -140,67 +131,62 @@
                     </h3>
                 </div>
 
+                <?php
+                $query = "SELECT item_name, item_price, item_image FROM tbl_menu";
+                $result = mysqli_query($con, $query);
+
+                // Check if the query was successful
+                if ($result) {
+                    $items = array();
+                    
+                    // Iterate over the result set and populate the $items array
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $imageData = base64_encode($row['item_image']);
+                        $items[] = array(
+                            'name' => $row['item_name'],
+                            'price' => $row['item_price'],
+                            'image' => $imageData
+                        );
+                    }
+
+                    // Free the result set
+                    mysqli_free_result($result);
+
+                    // Close the database connection
+                    mysqli_close($con);
+                } else {
+                    // Query execution failed
+                    die("Error executing query: " . mysqli_error($con));
+                }
+                ?>
 
                 <div class="swiper mySwiper featured_items_container">
                     <div class="swiper-wrapper content">
-                        <div id="featured"></div>
+                        <?php foreach ($items as $item): ?>
+                            <div class="swiper-slide card">
+                                <div class="card_content">
+                                    <div class="image">
+                                    <img src="data:image/jpeg;base64,<?php echo $item['image']; ?>" alt="">
+                                    </div>
 
-                        $items = [
-                        [
-                        'name' => 'FEWA',
-                        'price' => 'P 39.00',
-                        'image' => './imgs/FEWA.webp'
-                        ],
-                        [
-                        'name' => 'SUBMARINE',
-                        'price' => 'P 40.00',
-                        'image' => './imgs/SUBMARINE.webp'
-                        ],
-                        [
-                        'name' => 'CLUBHOUSE',
-                        'price' => 'P 39.00',
-                        'image' => './imgs/CLUBHOUSE.jpg'
-                        ],
-                        [
-                        'name' => 'CORNDOG',
-                        'price' => 'P 15.00',
-                        'image' => './imgs/CORNDOG.jpg'
-                        ]
-                        ];
-
-                        ?>
-
-                        <div class="swiper mySwiper featured_items_container">
-                            <div class="swiper-wrapper content">
-                                <?php foreach ($items as $item): ?>
-                                    <div class="swiper-slide card">
-                                        <div class="card_content">
-                                            <div class="image">
-                                                <img src="<?php echo $item['image']; ?>" alt="">
-                                            </div>
-
-                                            <div class="fItem_details">
-                                                <div class="fItem_texts">
-                                                    <p id="item_name">
-                                                        <?php echo $item['name']; ?>
-                                                    </p>
-                                                    <P id="item_price">
-                                                        <?php echo $item['price']; ?>
-                                                    </P>
-                                                </div>
-                                                <div class="icon">
-                                                    <i class="bi bi-chevron-right"></i>
-                                                </div>
-                                            </div>
+                                    <div class="fItem_details">
+                                        <div class="fItem_texts">
+                                            <p id="item_name">
+                                                <?php echo $item['name']; ?>
+                                            </p>
+                                            <P id="item_price">
+                                                <?php echo $item['price']; ?>
+                                            </P>
+                                        </div>
+                                        <div class="icon">
+                                            <i class="bi bi-chevron-right"></i>
                                         </div>
                                     </div>
-                                <?php endforeach; ?>
+                                </div>
                             </div>
-                        </div>
-
+                        <?php endforeach; ?>
                     </div>
                 </div>
-
             </div>
 
             <!--CAFETERIAS-->
@@ -375,29 +361,6 @@
         </div>
     </section>
     <!--================================ END OF CONTAINER ================================-->
-
-    <script type="text/javascript">
-
-        const testDisplay = document.querySelector('#featured')
-
-        const test = ["test1", "test2", "test3"]
-        const ids = <?php echo json_encode($id); ?>;
-        const orders = <?php echo json_encode($orderName); ?>;
-        const prices = <?php echo json_encode($price); ?>;
-
-        orders.forEach(item => {
-            swiperSlide = document.createElement('div')
-            swiperSlide.classList.add("swiper-slide", "card")
-
-            const titleHeading = document.createElement('h1')
-            titleHeading.textContent = item
-
-            swiperSlide.append(titleHeading)
-            testDisplay.append(swiperSlide)
-
-        })
-
-    </script>
 
     <!-- JAVASCRIPT -->
     <script src="./SCRIPT.js"></script>

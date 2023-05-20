@@ -117,222 +117,226 @@
                 </div>
 
                 <?php
-$items = [
-    [
-        'name' => 'FEWA',
-        'price' => 'P 39.00',
-        'image' => './imgs/FEWA.webp'
-    ],
-    [
-        'name' => 'SUBMARINE',
-        'price' => 'P 40.00',
-        'image' => './imgs/SUBMARINE.webp'
-    ],
-    [
-        'name' => 'CLUBHOUSE',
-        'price' => 'P 39.00',
-        'image' => './imgs/CLUBHOUSE.jpg'
-    ],
-    [
-        'name' => 'CORNDOG',
-        'price' => 'P 15.00',
-        'image' => './imgs/CORNDOG.jpg'
-    ]
-];
+                $items = [
+                    [
+                        'name' => 'FEWA',
+                        'price' => 'P 39.00',
+                        'image' => './imgs/FEWA.webp'
+                    ],
+                    [
+                        'name' => 'SUBMARINE',
+                        'price' => 'P 40.00',
+                        'image' => './imgs/SUBMARINE.webp'
+                    ],
+                    [
+                        'name' => 'CLUBHOUSE',
+                        'price' => 'P 39.00',
+                        'image' => './imgs/CLUBHOUSE.jpg'
+                    ],
+                    [
+                        'name' => 'CORNDOG',
+                        'price' => 'P 15.00',
+                        'image' => './imgs/CORNDOG.jpg'
+                    ]
+                ];
 
-?>
+                ?>
 
-<div class="swiper mySwiper featured_items_container">
-    <div class="swiper-wrapper content">
-        <?php foreach ($items as $item): ?>
-        <div class="swiper-slide card">
-            <div class="card_content">
-                <div class="image">
-                    <img src="<?php echo $item['image']; ?>" alt="">
-                </div>
+                <div class="swiper mySwiper featured_items_container">
+                    <div class="swiper-wrapper content">
+                        <?php foreach ($items as $item): ?>
+                            <div class="swiper-slide card">
+                                <div class="card_content">
+                                    <div class="image">
+                                        <img src="<?php echo $item['image']; ?>" alt="">
+                                    </div>
 
-                <div class="fItem_details">
-                    <div class="fItem_texts">
-                        <p id="item_name"><?php echo $item['name']; ?></p>
-                        <P id="item_price"><?php echo $item['price']; ?></P>
-                    </div>
-                    <div class="icon">
-                        <i class="bi bi-chevron-right"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <?php endforeach; ?>
-    </div>
-</div>
-
-            <!--CAFETERIAS-->
-            <div class="cafeterias">
-                <div class="cafeterias_texts">
-                    <h3>
-                        Cafeterias/Stalls
-                    </h3>
-                </div>
-
-                <div class="cafeterias__container">
-                    <article class="cafeteria" id="caf1">
-                        <div class="shadow"></div>
-                        <h3>Unlimited and Refillable Lugaw</h3>
-                        <div class="cafeteria_tags">
-                            <p>lugaw</p>
-                            <p>lumpia</p>
-                            <p>egg</p>
-                        </div>
-                        <a href="#">
-                            <p>View Stall</p>
-                            <i class="bi bi-arrow-right-circle-fill"></i>
-                        </a>
-                    </article>
-
-                    <article class="cafeteria" id="caf2">
-                        <div class="shadow"></div>
-                        <h3>PUP Lagoon Food Stall 1</h3>
-                        <div class="cafeteria_tags">
-                            <p>carbonara</p>
-                            <p>submarine</p>
-                            <p>corndog</p>
-                        </div>
-                        <a href="#">
-                            <p>View Stall</p>
-                            <i class="bi bi-arrow-right-circle-fill"></i>
-                        </a>
-                    </article>
-                </div>
-            </div>
-        </div>
-
-        <!--================== HOME - ORDERS ===================-->
-        <div class="my_orders_section">
-            <div class="my_orders_texts">
-                <span class="material-symbols-outlined">receipt</span>
-                <h3>My Orders</h3>
-            </div>
-
-            <div class="my_orders" id="order1">
-                <div class="my_order_profile">
-                    <div class="image">
-                        <img src="./imgs/SUBMARINE.webp" alt="">
-                    </div>
-                    <div class="my_order_profile_details">
-                        <h4>Carbonara</h4>
-                        <p class="my_order_price">Unit Price:<span>&nbsp; P 20.00</span></p>
-                        <p class="my_order_stall"><i class="bi bi-shop-window"></i>
-                            PUP Lagoon Food Stall 1
-                        </p>
-                    </div>
-                </div>
-                <div class="my_order_details">
-                    <div class="item_name_quantity order_detail">
-                        <div class="item_name">
-                            <p class="label">Item:</p>
-                            <p class="text">Carbonara</p>
-                        </div>
-                        <div class="item_quantity">
-                            <p class="label">Quantity:</p>
-                            <p class="text">2</p>
-                        </div>
-                    </div>
-                    <div class="item_others order_detail">
-                        <p class="label">Others:</p>
-                        <p class="text">None</p>
-                    </div>
-                    <div class="my_order_total order_detail">
-                        <p class="label">Total:</p>
-                        <p class="text">P 40.00</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="my_orders" id="order2">
-                <div class="my_order_profile">
-                    <div class="image">
-                        <img src="./imgs/FEWA.webp" alt="">
-                    </div>
-                    <div class="my_order_profile_details">
-                        <h4>FEWA</h4>
-                        <p class="my_order_price">Unit Price:<span>&nbsp; P 20.00</span></p>
-                        <p class="my_order_stall"><i class="bi bi-shop-window"></i>
-                            FEWA Stall
-                        </p>
-                    </div>
-                </div>
-                <div class="my_order_details">
-                    <div class="item_name_quantity order_detail">
-                        <div class="item_name">
-                            <p class="label">Item:</p>
-                            <p class="text">FEWA</p>
-                        </div>
-                        <div class="item_quantity">
-                            <p class="label">Quantity:</p>
-                            <p class="text">4</p>
-                        </div>
-                    </div>
-                    <div class="item_others order_detail">
-                        <p class="label">Others:</p>
-                        <p class="text">Hotdog istead of footlong. No Cheese</p>
-                    </div>
-                    <div class="my_order_total order_detail">
-                        <p class="label">Total:</p>
-                        <p class="text">P 80.00</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!--POPUP MESSAGE-->
-        <div class="popUp__message__container">
-            <div class="popUp__message">
-                <div class="popUp__item__details">
-                    <div class="image">
-                        <img src="./imgs/CORNDOG.jpg" alt="">
-                    </div>
-                    <div class="name_price">
-                        <h4>Corndog</h4>
-                        <p>Unit Price:<span>&nbsp;P 15.00</span></p>
-                    </div>
-                    <div class="quantity">
-                        <p id="label">Quantity</p>
-                        <div class="input">
-                            <i class="bi bi-dash"></i>
-                            <p id="text">1</p>
-                            <i class="bi bi-plus"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="other_details">
-                    <p>Other details (please specify)</p>
-                    <input type="text" class="other_details_text" name="Other Details"
-                        placeholder="e.g: no hotdog; additional fork; etc." autocomplete="off">
-                </div>
-                <div class="order_summary">
-                    <p>Summary</p>
-                    <div class="content">
-                        <div class="left">
-                            <div class="top">
-                                <p>Item: <span>&nbsp;Corndog</span></p>
-                                <p>Quantity: <span>&nbsp;2</span></p>
+                                    <div class="fItem_details">
+                                        <div class="fItem_texts">
+                                            <p id="item_name">
+                                                <?php echo $item['name']; ?>
+                                            </p>
+                                            <P id="item_price">
+                                                <?php echo $item['price']; ?>
+                                            </P>
+                                        </div>
+                                        <div class="icon">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="bottom">
-                                <p>Others: <span>&nbsp;None</span></p>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+
+                <!--CAFETERIAS-->
+                <div class="cafeterias">
+                    <div class="cafeterias_texts">
+                        <h3>
+                            Cafeterias/Stalls
+                        </h3>
+                    </div>
+
+                    <div class="cafeterias__container">
+                        <article class="cafeteria" id="caf1">
+                            <div class="shadow"></div>
+                            <h3>Unlimited and Refillable Lugaw</h3>
+                            <div class="cafeteria_tags">
+                                <p>lugaw</p>
+                                <p>lumpia</p>
+                                <p>egg</p>
+                            </div>
+                            <a href="#">
+                                <p>View Stall</p>
+                                <i class="bi bi-arrow-right-circle-fill"></i>
+                            </a>
+                        </article>
+
+                        <article class="cafeteria" id="caf2">
+                            <div class="shadow"></div>
+                            <h3>PUP Lagoon Food Stall 1</h3>
+                            <div class="cafeteria_tags">
+                                <p>carbonara</p>
+                                <p>submarine</p>
+                                <p>corndog</p>
+                            </div>
+                            <a href="#">
+                                <p>View Stall</p>
+                                <i class="bi bi-arrow-right-circle-fill"></i>
+                            </a>
+                        </article>
+                    </div>
+                </div>
+            </div>
+
+            <!--================== HOME - ORDERS ===================-->
+            <div class="my_orders_section">
+                <div class="my_orders_texts">
+                    <span class="material-symbols-outlined">receipt</span>
+                    <h3>My Orders</h3>
+                </div>
+
+                <div class="my_orders" id="order1">
+                    <div class="my_order_profile">
+                        <div class="image">
+                            <img src="./imgs/SUBMARINE.webp" alt="">
+                        </div>
+                        <div class="my_order_profile_details">
+                            <h4>Carbonara</h4>
+                            <p class="my_order_price">Unit Price:<span>&nbsp; P 20.00</span></p>
+                            <p class="my_order_stall"><i class="bi bi-shop-window"></i>
+                                PUP Lagoon Food Stall 1
+                            </p>
+                        </div>
+                    </div>
+                    <div class="my_order_details">
+                        <div class="item_name_quantity order_detail">
+                            <div class="item_name">
+                                <p class="label">Item:</p>
+                                <p class="text">Carbonara</p>
+                            </div>
+                            <div class="item_quantity">
+                                <p class="label">Quantity:</p>
+                                <p class="text">2</p>
                             </div>
                         </div>
-                        <div class="right">
-                            <p>Total:</p>
-                            <h4 id="total_price">&nbsp;P 30.00</h4>
+                        <div class="item_others order_detail">
+                            <p class="label">Others:</p>
+                            <p class="text">None</p>
+                        </div>
+                        <div class="my_order_total order_detail">
+                            <p class="label">Total:</p>
+                            <p class="text">P 40.00</p>
                         </div>
                     </div>
                 </div>
-                <div class="buttons">
-                    <button type="button" class="order-btn btn" id="close_btn">Cancel</button>
-                    <button type="submit" class="order-btn btn">Place Order</button>
+
+                <div class="my_orders" id="order2">
+                    <div class="my_order_profile">
+                        <div class="image">
+                            <img src="./imgs/FEWA.webp" alt="">
+                        </div>
+                        <div class="my_order_profile_details">
+                            <h4>FEWA</h4>
+                            <p class="my_order_price">Unit Price:<span>&nbsp; P 20.00</span></p>
+                            <p class="my_order_stall"><i class="bi bi-shop-window"></i>
+                                FEWA Stall
+                            </p>
+                        </div>
+                    </div>
+                    <div class="my_order_details">
+                        <div class="item_name_quantity order_detail">
+                            <div class="item_name">
+                                <p class="label">Item:</p>
+                                <p class="text">FEWA</p>
+                            </div>
+                            <div class="item_quantity">
+                                <p class="label">Quantity:</p>
+                                <p class="text">4</p>
+                            </div>
+                        </div>
+                        <div class="item_others order_detail">
+                            <p class="label">Others:</p>
+                            <p class="text">Hotdog istead of footlong. No Cheese</p>
+                        </div>
+                        <div class="my_order_total order_detail">
+                            <p class="label">Total:</p>
+                            <p class="text">P 80.00</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+
+            <!--POPUP MESSAGE-->
+            <div class="popUp__message__container">
+                <div class="popUp__message">
+                    <div class="popUp__item__details">
+                        <div class="image">
+                            <img src="./imgs/CORNDOG.jpg" alt="">
+                        </div>
+                        <div class="name_price">
+                            <h4>Corndog</h4>
+                            <p>Unit Price:<span>&nbsp;P 15.00</span></p>
+                        </div>
+                        <div class="quantity">
+                            <p id="label">Quantity</p>
+                            <div class="input">
+                                <i class="bi bi-dash"></i>
+                                <p id="text">1</p>
+                                <i class="bi bi-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="other_details">
+                        <p>Other details (please specify)</p>
+                        <input type="text" class="other_details_text" name="Other Details"
+                            placeholder="e.g: no hotdog; additional fork; etc." autocomplete="off">
+                    </div>
+                    <div class="order_summary">
+                        <p>Summary</p>
+                        <div class="content">
+                            <div class="left">
+                                <div class="top">
+                                    <p>Item: <span>&nbsp;Corndog</span></p>
+                                    <p>Quantity: <span>&nbsp;2</span></p>
+                                </div>
+                                <div class="bottom">
+                                    <p>Others: <span>&nbsp;None</span></p>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <p>Total:</p>
+                                <h4 id="total_price">&nbsp;P 30.00</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <button type="button" class="order-btn btn" id="close_btn">Cancel</button>
+                        <button type="submit" class="order-btn btn">Place Order</button>
+                    </div>
+                </div>
+            </div>
     </section>
     <!--================================ END OF CONTAINER ================================-->
 
@@ -364,99 +368,99 @@ $items = [
             <div class="mySwiper profile-history-container">
                 <!-- INFORMATION -->
                 <div class="swiper-wrapper">
-                <div class="swiper-slide profile-information-details-container">
-                    <div class="profile-information-details">
-                        <div class="profile-information">
-                            <i class="bi bi-circle-fill"></i>
-                            <div class="detail">
-                                <p class="label">Name</p>
-                                <p class="name">Mark Zuckerberg</p>
+                    <div class="swiper-slide profile-information-details-container">
+                        <div class="profile-information-details">
+                            <div class="profile-information">
+                                <i class="bi bi-circle-fill"></i>
+                                <div class="detail">
+                                    <p class="label">Name</p>
+                                    <p class="name">Mark Zuckerberg</p>
+                                </div>
                             </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                            </svg>
                         </div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                            class="bi bi-chevron-right" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
-                        </svg>
-                    </div>
-                    <div class="profile-information-details">
-                        <div class="profile-information">
-                            <i class="bi bi-circle-fill"></i>
-                            <div class="detail">
-                                <p class="label">Section</p>
-                                <p class="name">BSIT 2-2</p>
+                        <div class="profile-information-details">
+                            <div class="profile-information">
+                                <i class="bi bi-circle-fill"></i>
+                                <div class="detail">
+                                    <p class="label">Section</p>
+                                    <p class="name">BSIT 2-2</p>
+                                </div>
                             </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                            </svg>
                         </div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                            class="bi bi-chevron-right" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
-                        </svg>
-                    </div>
-                    <div class="profile-information-details">
-                        <div class="profile-information">
-                            <i class="bi bi-circle-fill"></i>
-                            <div class="detail">
-                                <p class="label">Student Number</p>
-                                <p class="name">2024-03201-MN-0</p>
+                        <div class="profile-information-details">
+                            <div class="profile-information">
+                                <i class="bi bi-circle-fill"></i>
+                                <div class="detail">
+                                    <p class="label">Student Number</p>
+                                    <p class="name">2024-03201-MN-0</p>
+                                </div>
                             </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                            </svg>
                         </div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                            class="bi bi-chevron-right" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
-                        </svg>
-                    </div>
-                    <div class="profile-information-details">
-                        <div class="profile-information">
-                            <i class="bi bi-circle-fill"></i>
-                            <div class="detail">
-                                <p class="label">Password</p>
-                                <p class="name">************</p>
+                        <div class="profile-information-details">
+                            <div class="profile-information">
+                                <i class="bi bi-circle-fill"></i>
+                                <div class="detail">
+                                    <p class="label">Password</p>
+                                    <p class="name">************</p>
+                                </div>
                             </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                            </svg>
                         </div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                            class="bi bi-chevron-right" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
-                        </svg>
                     </div>
-                </div>
 
-                <!-- ORDER HISTORY -->
-                <div class="swiper-slide profile-order-details-container">
-                    <div class="order-history-card">
-                        <p class="date">Today 11:12AM</p>
-                        <div class="order-history-details">
-                            <div class="image">
-                                <img src="./imgs/Arroz Caldo.jpg" alt="">
+                    <!-- ORDER HISTORY -->
+                    <div class="swiper-slide profile-order-details-container">
+                        <div class="order-history-card">
+                            <p class="date">Today 11:12AM</p>
+                            <div class="order-history-details">
+                                <div class="image">
+                                    <img src="./imgs/Arroz Caldo.jpg" alt="">
+                                </div>
+                                <div class="details">
+                                    <p class="name"><span>2 </span>Carbonara</p>
+                                    <p class="prize">P 40.00</p>
+                                </div>
+                                <button class="btn">delete</button>
                             </div>
-                            <div class="details">
-                                <p class="name"><span>2 </span>Carbonara</p>
-                                <p class="prize">P 40.00</p>
+                        </div>
+                        <div class="order-history-card">
+                            <p class="date">Today 11:12AM</p>
+                            <div class="order-history-details">
+                                <div class="image">
+                                    <img src="./imgs/Arroz Caldo.jpg" alt="">
+                                </div>
+                                <div class="details">
+                                    <p class="name"><span>2 </span>Carbonara</p>
+                                    <p class="prize">P 40.00</p>
+                                </div>
+                                <button class="btn">delete</button>
                             </div>
-                            <button class="btn">delete</button>
+                        </div>
+                        <div class="end-line">
+                            <div class="line"></div>
+                            <p>end</p>
+                            <div class="line"></div>
                         </div>
                     </div>
-                    <div class="order-history-card">
-                        <p class="date">Today 11:12AM</p>
-                        <div class="order-history-details">
-                            <div class="image">
-                                <img src="./imgs/Arroz Caldo.jpg" alt="">
-                            </div>
-                            <div class="details">
-                                <p class="name"><span>2 </span>Carbonara</p>
-                                <p class="prize">P 40.00</p>
-                            </div>
-                            <button class="btn">delete</button>
-                        </div>
-                    </div>
-                    <div class="end-line">
-                        <div class="line"></div>
-                        <p>end</p>
-                        <div class="line"></div>
-                    </div>
-                </div>
                 </div>
                 <div class="swiper-pagination profile-history-pagination"></div>
 
