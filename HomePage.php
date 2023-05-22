@@ -138,7 +138,7 @@
                 // Check if the query was successful
                 if ($result) {
                     $items = array();
-                    
+
                     // Iterate over the result set and populate the $items array
                     while ($row = mysqli_fetch_assoc($result)) {
                         $imageData = base64_encode($row['item_image']);
@@ -160,7 +160,7 @@
                     die("Error executing query: " . mysqli_error($con));
                 }
 
-                
+
                 ?>
 
                 <div class="swiper mySwiper featured_items_container">
@@ -169,7 +169,7 @@
                             <div class="swiper-slide card">
                                 <div class="card_content">
                                     <div class="image">
-                                    <img src="data:image/jpeg;base64,<?php echo $item['image']; ?>" alt="">
+                                        <img src="data:image/jpeg;base64,<?php echo $item['image']; ?>" alt="">
                                     </div>
 
                                     <div class="fItem_details">
@@ -398,24 +398,28 @@
 
     <!-- SHOW/HIDE POP MESSAGE -->
     <script>
-        const showPopup = document.querySelectorAll('.card_content');
-        const closePopup = document.querySelector('#close_btn');
-        const popUpMessage = document.querySelector('.popUp__message__container');
+        document.addEventListener('DOMContentLoaded', () => {
+            const cardContents = document.querySelectorAll('.card_content');
+            const closePopup = document.querySelector('#close_btn');
+            const popUpMessage = document.querySelector('.popUp__message__container');
 
-        showPopup.forEach(course => {
-            course.addEventListener('click', () => {
-                popUpMessage.style.display = "flex";
-            })
-        })
+            cardContents.forEach((cardContent) => {
+                const showPopup = cardContent.querySelector('.icon');
 
-        closePopup.addEventListener('click', () => {
-            popUpMessage.style.display = "none";
-        })
+                showPopup.addEventListener('click', () => {
+                    popUpMessage.style.display = "flex";
+                });
+            });
+
+            closePopup.addEventListener('click', () => {
+                popUpMessage.style.display = "none";
+            });
+        });
     </script>
 </body>
-
 <!-- JAVASCRIPT -->
 <script src="./SCRIPT.js"></script>
+
 
 
 </html>

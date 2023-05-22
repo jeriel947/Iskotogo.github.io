@@ -40,7 +40,9 @@ form {
 
     border-radius: 20px;
 
-    /* display: flex */
+    display: flex;
+
+    margin-top: 15vh;
 
 }
 
