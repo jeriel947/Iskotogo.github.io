@@ -153,8 +153,6 @@
                     // Free the result set
                     mysqli_free_result($result);
 
-                    // Close the database connection
-                    mysqli_close($con);
                 } else {
                     // Query execution failed
                     die("Error executing query: " . mysqli_error($con));
@@ -194,6 +192,33 @@
 
             <!--CAFETERIAS-->
 
+            <?php
+            $query = "SELECT store_name, store_image FROM tbl_stores";
+            $result = mysqli_query($con, $query);
+
+            // Check if the query was successful
+            if ($result) {
+                $cafeterias = array();
+                // ...
+                while ($row = mysqli_fetch_assoc($result)) {
+                    // ...
+                    $cafeterias[] = array(
+                        'name' => $row['store_name'],
+                        'image' => $imageData,
+                    );
+                }
+
+                // Free the result set
+                mysqli_free_result($result);
+
+                // Close the database connection
+                mysqli_close($con);
+            } else {
+                // Query execution failed
+                die("Error executing query: " . mysqli_error($con));
+            }
+            ?>
+
             <div class="cafeterias">
                 <div class="cafeterias_texts">
                     <h3>
@@ -201,7 +226,7 @@
                     </h3>
                 </div>
 
-                <div class="cafeterias__container">
+                <!-- <div class="cafeterias__container">
                     <form method="post">
                         <article class="cafeteria" id="caf1">
                             <div class="shadow"></div>
@@ -231,10 +256,34 @@
                             <i class="bi bi-arrow-right-circle-fill"></i>
                         </a>
                     </article>
+                </div> -->
+
+                <div class="swiper mySwiper cafeterias__container">
+                    <div class="swiper-wrapper content">
+                        <?php foreach ($cafeterias as $cafeteria): ?>
+
+                            <form method="post">
+                                <article class="cafeteria" id="caf1">
+                                    <div class="shadow"></div>
+                                    <h3>
+                                        <?php echo $cafeteria['name']; ?>
+                                    </h3>
+                                    <div class="cafeteria_tags">
+                                        <p>lugaw</p>
+                                        <p>lumpia</p>
+                                        <p>egg</p>
+                                    </div>
+                                    <a href="">
+                                        <p>View Stall</p>
+                                        <i class="bi bi-arrow-right-circle-fill"></i>
+                                    </a>
+                                </article>
+                            </form>
+                        <?php endforeach; ?>
+                    </div>
                 </div>
             </div>
         </div>
-
         <!--================== HOME - ORDERS ===================-->
         <div class="my_orders_section">
             <div class="my_orders_texts">
@@ -362,6 +411,7 @@
                 </div>
             </div>
         </div>
+
     </section>
     <!--================================ END OF CONTAINER ================================-->
 
