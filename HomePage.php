@@ -7,6 +7,7 @@
     session_start();
 
     $con = mysqli_connect('localhost', 'root', '', 'db_iskotogo');
+    //$con = mysqli_connect('localhost', 'iskotogo', '13579','db_iskotogo');
 
     // Check if the connection was successful
     if (!$con) {
