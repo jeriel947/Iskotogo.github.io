@@ -8,7 +8,7 @@
 
     $con = mysqli_connect('localhost', 'root', '', 'db_iskotogo');
     //$con = mysqli_connect('localhost', 'iskotogo', '13579','db_iskotogo');
-
+    
     // Check if the connection was successful
     if (!$con) {
         die("Connection failed: " . mysqli_connect_error());
@@ -134,19 +134,20 @@
 
                 <?php
                 $query = "SELECT item_name, item_price, item_image, store_id FROM tbl_menu GROUP BY store_id";
+                
                 $result = mysqli_query($con, $query);
-
+                
                 // Check if the query was successful
                 if ($result) {
-                    $items = array();
-
+                    $items = array();   
                     // Iterate over the result set and populate the $items array
                     while ($row = mysqli_fetch_assoc($result)) {
                         $imageData = base64_encode($row['item_image']);
+                        $image = $row['item_image'] ? "data:image/jpeg;base64, {$imageData}" : '.\images\logo.png';
                         $items[] = array(
                             'name' => $row['item_name'],
                             'price' => $row['item_price'],
-                            'image' => $imageData,
+                            'image' => $image,
                             'store_id' => $row['store_id']
                         );
                     }
@@ -168,7 +169,7 @@
                             <div class="swiper-slide card">
                                 <div class="card_content">
                                     <div class="image">
-                                        <img src="data:image/jpeg;base64,<?php echo $item['image']; ?>" alt="">
+                                        <img src="<?php echo $item['image']; ?>" alt="">
                                     </div>
 
                                     <div class="fItem_details">
@@ -193,95 +194,70 @@
 
             <!--CAFETERIAS-->
 
+
             <?php
-            $query = "SELECT store_name, store_image FROM tbl_stores";
+            // Assuming you have already established a database connection
+            
+            // Retrieve data from tbl_store
+            $query = "SELECT s.id, s.store_image, s.store_name, m.item_name 
+          FROM tbl_stores s
+          JOIN tbl_menu m ON s.id = m.store_id";
+
             $result = mysqli_query($con, $query);
 
-            // Check if the query was successful
-            if ($result) {
-                $cafeterias = array();
-                // ...
-                while ($row = mysqli_fetch_assoc($result)) {
-                    // ...
-                    $cafeterias[] = array(
-                        'name' => $row['store_name'],
-                        'image' => $imageData,
+            $articles = array();
+
+            // Fetch the data and organize it into an array
+            while ($row = mysqli_fetch_assoc($result)) {
+                $storeID = $row['id'];
+                $tag = $row['item_name'];
+
+                // Check if the store already exists in the articles array
+                $imageData = base64_encode($row['store_image']);
+                if (!isset($articles[$storeID])) {
+                    $image = $row['store_image'] ? "data:image/jpeg;base64, {$imageData}" : '.\images\logo.png';
+                    $articles[$storeID] = array(
+                        'image' => $image,
+                        'title' => $row['store_name'],
+                        'tags' => array($tag),
                     );
+                } else {
+                    if (count($articles[$storeID]['tags']) < 3) {
+                        $articles[$storeID]['tags'][] = $tag;
+                    }
                 }
-
-                // Free the result set
-                mysqli_free_result($result);
-
-                // Close the database connection
-                mysqli_close($con);
-            } else {
-                // Query execution failed
-                die("Error executing query: " . mysqli_error($con));
             }
-            ?>
 
+            ?>
             <div class="cafeterias">
                 <div class="cafeterias_texts">
                     <h3>
                         Cafeterias/Stalls
                     </h3>
                 </div>
-
-                <!-- <div class="cafeterias__container">
-                    <form method="post">
-                        <article class="cafeteria" id="caf1">
-                            <div class="shadow"></div>
-                            <h3>Unlimited and Refillable Lugaw</h3>
-                            <div class="cafeteria_tags">
-                                <p>lugaw</p>
-                                <p>lumpia</p>
-                                <p>egg</p>
+                <div class="cafeterias__container">
+                    <?php foreach ($articles as $article): ?>
+                        <article class="cafeteria">
+                            <div class="caf-image">
+                                <img src="<?php echo $article['image']; ?>" alt="">D
                             </div>
-                            <a href="">
+                            <div class="shadow"></div>
+                            <h3>
+                                <?php echo $article['title']; ?>
+                            </h3>
+                            <div class="cafeteria_tags">
+                                <?php foreach ($article['tags'] as $tag): ?>
+                                    <p>
+                                        <?php echo $tag; ?>
+                                    </p>
+                                <?php endforeach; ?>
+                            </div>
+                            <a href="#">
                                 <p>View Stall</p>
                                 <i class="bi bi-arrow-right-circle-fill"></i>
                             </a>
                         </article>
-                    </form>
-
-                    <article class="cafeteria" id="caf2">
-                        <div class="shadow"></div>
-                        <h3>PUP Lagoon Food Stall 1</h3>
-                        <div class="cafeteria_tags">
-                            <p>carbonara</p>
-                            <p>submarine</p>
-                            <p>corndog</p>
-                        </div>
-                        <a href="#">
-                            <p>View Stall</p>
-                            <i class="bi bi-arrow-right-circle-fill"></i>
-                        </a>
-                    </article>
-                </div> -->
-
-                <div class="swiper mySwiper cafeterias__container">
-                    <div class="swiper-wrapper content">
-                        <?php foreach ($cafeterias as $cafeteria): ?>
-
-                            <form method="post">
-                                <article class="cafeteria" id="caf1">
-                                    <div class="shadow"></div>
-                                    <h3>
-                                        <?php echo $cafeteria['name']; ?>
-                                    </h3>
-                                    <div class="cafeteria_tags">
-                                        <p>lugaw</p>
-                                        <p>lumpia</p>
-                                        <p>egg</p>
-                                    </div>
-                                    <a href="">
-                                        <p>View Stall</p>
-                                        <i class="bi bi-arrow-right-circle-fill"></i>
-                                    </a>
-                                </article>
-                            </form>
-                        <?php endforeach; ?>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>

@@ -275,16 +275,17 @@
     background: linear-gradient(90deg, rgba(0, 0, 0, 0.788) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
-#caf1 {
-    background-image: url('../imgs/UNLI\ LUGAW\ STALL.png');
-    background-position: center; 
-    background-repeat: no-repeat; 
+.caf-image {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
 }
 
-#caf2 {
-    background-image: url('../imgs/PUP\ LAGOON\ STALL.png');
-    background-position: center; 
-    background-repeat: no-repeat; 
+.caf-image img {
+    height: 100%;
 }
 
 .cafeterias .cafeteria h3 {
