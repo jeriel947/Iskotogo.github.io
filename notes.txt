@@ -1,10 +1,96 @@
 database location for GODADDY
-mysqli_connect('localhost', 'iskotogo', '13579','db_users');
+mysqli_connect('localhost', 'iskotogo', '13579','db_iskotogo');
 
 database location for XAMPP
-mysqli_connect('localhost', 'root', '','db_users');
+mysqli_connect('localhost', 'root', '','db_iskotogo');
+
+
 
 NEED TO DO:
+
 the other pages should not be accessible if 
 the redirection of the page after the log in should not include the file type
 in order now page fix the profile image
+error messages when you enter the wrong password in LoginPage
+
+
+
+
+
+
+
+
+``````````````````BACKUP``````````````````````````````````````````
+
+            <div class="cafeterias">
+                <div class="cafeterias_texts">
+                    <h3>
+                        Cafeterias/Stalls
+                    </h3>
+                </div>
+
+                <!-- <div class="cafeterias__container">
+                    <form method="post">
+                        <article class="cafeteria" id="caf1">
+                            <div class="shadow"></div>
+                            <h3>Unlimited and Refillable Lugaw</h3>
+                            <div class="cafeteria_tags">
+                                <p>lugaw</p>
+                                <p>lumpia</p>
+                                <p>egg</p>
+                            </div>
+                            <a href="">
+                                <p>View Stall</p>
+                                <i class="bi bi-arrow-right-circle-fill"></i>
+                            </a>
+                        </article>
+                    </form>
+
+                    <article class="cafeteria" id="caf2">
+                        <div class="shadow"></div>
+                        <h3>PUP Lagoon Food Stall 1</h3>
+                        <div class="cafeteria_tags">
+                            <p>carbonara</p>
+                            <p>submarine</p>
+                            <p>corndog</p>
+                        </div>
+                        <a href="#">
+                            <p>View Stall</p>
+                            <i class="bi bi-arrow-right-circle-fill"></i>
+                        </a>
+                    </article>
+                </div> -->
+
+                <!-- <?php foreach ($cafeterias as $cafeteria): ?>
+                    <div class="cafeterias__container">
+                        <form method="post">
+                            <article class="cafeteria" id="caf1">
+                                <div class="shadow"></div>
+                                <h3><?php echo $cafeteria['name'] ?></h3>
+                                <div class="cafeteria_tags">
+                                    <p>lugaw</p>
+                                    <p>lumpia</p>
+                                    <p>egg</p>
+                                </div>
+                                <a href="">
+                                    <p>View Stall</p>
+                                    <i class="bi bi-arrow-right-circle-fill"></i>
+                                </a>
+                            </article>
+                        </form>
+
+                        <article class="cafeteria" id="caf2">
+                            <div class="shadow"></div>
+                            <h3><?php echo $cafeteria['name'] ?></h3>
+                            <div class="cafeteria_tags">
+                                <p>carbonara</p>
+                                <p>submarine</p>
+                                <p>corndog</p>
+                            </div>
+                            <a href="#">
+                                <p>View Stall</p>
+                                <i class="bi bi-arrow-right-circle-fill"></i>
+                            </a>
+                        </article>
+                    </div>
+                <?php endforeach; ?> -->D

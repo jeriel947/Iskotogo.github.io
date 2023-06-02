@@ -6,8 +6,8 @@
     <?php
     session_start();
 
-    $con = mysqli_connect('localhost', 'root', '', 'db_iskotogo');
-    //$con = mysqli_connect('localhost', 'iskotogo', '13579','db_iskotogo');
+    //$con = mysqli_connect('localhost', 'root', '', 'db_iskotogo');
+    $con = mysqli_connect('localhost', 'iskotogo', '13579','db_iskotogo');
     
     // Check if the connection was successful
     if (!$con) {
@@ -134,12 +134,12 @@
 
                 <?php
                 $query = "SELECT item_name, item_price, item_image, store_id FROM tbl_menu GROUP BY store_id";
-                
+
                 $result = mysqli_query($con, $query);
-                
+
                 // Check if the query was successful
                 if ($result) {
-                    $items = array();   
+                    $items = array();
                     // Iterate over the result set and populate the $items array
                     while ($row = mysqli_fetch_assoc($result)) {
                         $imageData = base64_encode($row['item_image']);
@@ -174,10 +174,10 @@
 
                                     <div class="fItem_details">
                                         <div class="fItem_texts">
-                                            <p id="item_name">
+                                            <p class="item_name">
                                                 <?php echo $item['name']; ?>
                                             </p>
-                                            <P id="item_price">
+                                            <P class="item_price">
                                                 <?php echo $item['price']; ?>
                                             </P>
                                         </div>
@@ -347,8 +347,8 @@
                         <img src="./imgs/CORNDOG.jpg" alt="">
                     </div>
                     <div class="name_price">
-                        <h4>Corndog</h4>
-                        <p>Unit Price:<span>&nbsp;P 15.00</span></p>
+                        <h4 class="item_name_txt">Corndog</h4>
+                        <p>Unit Price:<span class="item_price_txt">&nbsp;P 15.00</span></p>
                     </div>
                     <div class="quantity">
                         <p id="label">Quantity</p>
@@ -429,19 +429,53 @@
             const cardContents = document.querySelectorAll('.card_content');
             const closePopup = document.querySelector('#close_btn');
             const popUpMessage = document.querySelector('.popUp__message__container');
+            const iteminformation = document.querySelector('.item_name');
 
             cardContents.forEach((cardContent) => {
+                const itemname = document.querySelector('.item_name_txt');
+                const itemprice = document.querySelector('.item_price_txt');
                 const showPopup = cardContent.querySelector('.icon');
 
                 showPopup.addEventListener('click', () => {
                     popUpMessage.style.display = "flex";
+
+
+                    itemname.innerHTML = iteminformation.nodeValue;
+                    itemprice.innerHTML = "DI MO AFFORD"
                 });
             });
 
             closePopup.addEventListener('click', () => {
                 popUpMessage.style.display = "none";
+
             });
         });
+
+        // $(document).ready(function () {
+        //     // Click event handler for the cards
+        //     $('.card_content').click(function () {
+        //         // Get the selected item's details
+        //         var itemName = $(this).find('.item_name').text().trim();
+        //         var itemPrice = $(this).find('.item_price').text().trim();
+
+        //         // Populate the popup with the selected item's details
+        //         $('.popUp__item__details .image img').attr('src', '<?php echo $item['image']; ?>');
+        //         $('.popUp__item__details .name_price h4').text(itemName);
+        //         $('.popUp__item__details .name_price p span').text(itemPrice);
+        //         $('.order_summary .content .left .top p span:first-child').text(itemName);
+        //         $('.order_summary .right h4').text(itemPrice);
+
+        //         // Show the popup
+        //         $('.popUp').fadeIn();
+        //     });
+
+        //     // Close the popup
+        //     $('#close_btn').click(function () {
+        //         $('.popUp').fadeOut();
+        //     });
+        // });
+
+
     </script>
 </body>
 <!-- JAVASCRIPT -->
