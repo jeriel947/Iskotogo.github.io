@@ -12,7 +12,7 @@ the other pages should not be accessible if
 the redirection of the page after the log in should not include the file type
 in order now page fix the profile image
 error messages when you enter the wrong password in LoginPage
-
+in home page fix the phone view of the featured item card
 
 
 

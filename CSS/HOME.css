@@ -15,7 +15,7 @@
 .carousel_container {                   /*SECTION*/
     width: 100%;
     height: 300px;
-    display: flex;
+    /*display: flex;*/
     justify-content: center;
     align-items: center;
     margin: auto;
@@ -45,6 +45,7 @@
     width: 20%;
     border-radius: 1.2rem;
     transition: var(--transition);
+
 }
 
 .img_container img {
@@ -52,6 +53,8 @@
     height: 100%;
     width: fit-content;
     object-fit: cover;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* -------------- BUTTONS (FRONT) -------------- */

@@ -12,7 +12,7 @@ setInterval(function () {
     }
 }, 5000);
 
-// // Initialize Swiper
+// Initialize Swiper
 // var swiper = new Swiper(".featured_items_container", {
 //     slidesPerView: 4.5,
 //     spaceBetween: 30,
@@ -20,19 +20,19 @@ setInterval(function () {
 // });
 
 // Initialize Swiper
-var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 4.5,
-    spaceBetween: 30,
-    grabCursor: true
-    });
+// var swiper = new Swiper(".mySwiper", {
+//     slidesPerView: 4.5,
+//     spaceBetween: 30,
+//     grabCursor: true
+//     });
 
-var swiper = new Swiper(".profile-history-container", {
-    spaceBetween: 30,
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-});
+// var swiper = new Swiper(".profile-history-container", {
+//     spaceBetween: 30,
+//     pagination: {
+//         el: ".swiper-pagination",
+//         clickable: true,
+//     },
+// });
 
 // Scroll Effects
 AOS.init();
@@ -43,21 +43,6 @@ AOS.init();
 // CHANGE NAVBAR STYLE ON SCROLL
 window.addEventListener('scroll', () => {
     document.querySelector('nav').classList.toggle('window-scroll', window.scrollY > 20)
-})
-
-/* SHOW/HIDE POP MESSAGE */
-const showPopup = document.querySelectorAll('.card_content');
-const closePopup = document.querySelector('#close_btn');
-const popUpMessage = document.querySelector('.popUp__message__container');
-
-showPopup.forEach(course => {
-    course.addEventListener('click', () => {
-        popUpMessage.style.display = "flex";
-    })
-})
-
-closePopup.addEventListener('click', () => {
-    popUpMessage.style.display = "none";
 })
 
 /* SHOW PROFILE */

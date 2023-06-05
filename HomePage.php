@@ -6,8 +6,8 @@
     <?php
     session_start();
 
-    //$con = mysqli_connect('localhost', 'root', '', 'db_iskotogo');
-    $con = mysqli_connect('localhost', 'iskotogo', '13579','db_iskotogo');
+    $con = mysqli_connect('localhost', 'root', '', 'db_iskotogo');
+    //$con = mysqli_connect('localhost', 'iskotogo', '13579','db_iskotogo');
     
     // Check if the connection was successful
     if (!$con) {
@@ -174,10 +174,10 @@
 
                                     <div class="fItem_details">
                                         <div class="fItem_texts">
-                                            <p class="item_name">
+                                            <p id="item_name">
                                                 <?php echo $item['name']; ?>
                                             </p>
-                                            <P class="item_price">
+                                            <P id="item_price">
                                                 <?php echo $item['price']; ?>
                                             </P>
                                         </div>
@@ -426,54 +426,30 @@
     <!-- SHOW/HIDE POP MESSAGE -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const cardContents = document.querySelectorAll('.card_content');
-            const closePopup = document.querySelector('#close_btn');
+            const showPopup = document.querySelectorAll('.featured_items_container .card_content');
+            const closePopup = document.querySelector('.popUp__message #close_btn');
             const popUpMessage = document.querySelector('.popUp__message__container');
-            const iteminformation = document.querySelector('.item_name');
+            const itemname = document.querySelector('.popUp__message  .name_price h4');
+            const itemprice = document.querySelector('.popUp__message  .name_price p');
 
-            cardContents.forEach((cardContent) => {
-                const itemname = document.querySelector('.item_name_txt');
-                const itemprice = document.querySelector('.item_price_txt');
-                const showPopup = cardContent.querySelector('.icon');
+            showPopup.forEach(featuredItem => {
+                featuredItem.addEventListener('click', () => {
+                    const item = featuredItem.querySelector('#item_name').textContent.trim();
+                    const price = featuredItem.querySelector('#item_price').textContent.trim();
+                    const image = featuredItem.querySelector('img').src;
 
-                showPopup.addEventListener('click', () => {
+                    itemname.textContent = item;
+                    itemprice.querySelector('span').textContent = price;
+                    popUpMessage.querySelector('.image img').src = image;
+
                     popUpMessage.style.display = "flex";
-
-
-                    itemname.innerHTML = iteminformation.nodeValue;
-                    itemprice.innerHTML = "DI MO AFFORD"
                 });
             });
 
             closePopup.addEventListener('click', () => {
                 popUpMessage.style.display = "none";
-
             });
         });
-
-        // $(document).ready(function () {
-        //     // Click event handler for the cards
-        //     $('.card_content').click(function () {
-        //         // Get the selected item's details
-        //         var itemName = $(this).find('.item_name').text().trim();
-        //         var itemPrice = $(this).find('.item_price').text().trim();
-
-        //         // Populate the popup with the selected item's details
-        //         $('.popUp__item__details .image img').attr('src', '<?php echo $item['image']; ?>');
-        //         $('.popUp__item__details .name_price h4').text(itemName);
-        //         $('.popUp__item__details .name_price p span').text(itemPrice);
-        //         $('.order_summary .content .left .top p span:first-child').text(itemName);
-        //         $('.order_summary .right h4').text(itemPrice);
-
-        //         // Show the popup
-        //         $('.popUp').fadeIn();
-        //     });
-
-        //     // Close the popup
-        //     $('#close_btn').click(function () {
-        //         $('.popUp').fadeOut();
-        //     });
-        // });
 
 
     </script>
