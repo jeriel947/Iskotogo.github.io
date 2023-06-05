@@ -8,7 +8,6 @@
     display: flex;
     visibility: hidden;
     justify-content: flex-end;
-    opacity: 0;
     transition: var(--transition);
 }
 
@@ -202,7 +201,7 @@
     text-align: center;
 }
 
-#log-out-btn {
+.show-profile #log-out-btn {
     color: var(--color-main1);
     position: absolute;
     bottom: 2rem;
@@ -210,12 +209,10 @@
     border-radius: .3rem;
     padding: 0 .2rem;
     transform: scale(2);
-    cursor: pointer;
     z-index: 11;
 }
 
-#log-out-btn:hover {
+.show-profile #log-out-btn:hover {
     transition: var(--transition);
     box-shadow: var(--card-shadow);
 }
-

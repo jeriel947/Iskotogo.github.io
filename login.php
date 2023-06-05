@@ -1,8 +1,8 @@
 <?php 
     session_start();
 
-    //$conn = mysqli_connect('localhost', 'root', '','db_iskotogo');
-    $conn = mysqli_connect('localhost', 'iskotogo', '13579','db_iskotogo');
+    $conn = mysqli_connect('localhost', 'root', '','db_iskotogo'); // For XAMPP
+    // $conn = mysqli_connect('localhost', 'iskotogo', '13579','db_iskotogo'); // For GoDaddy
 
     if (isset($_POST['user_name']) && isset($_POST['password'])) {
 

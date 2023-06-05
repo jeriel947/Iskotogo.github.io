@@ -6,8 +6,8 @@
     <?php
     session_start();
 
-    $con = mysqli_connect('localhost', 'root', '', 'db_iskotogo');
-    //$con = mysqli_connect('localhost', 'iskotogo', '13579','db_iskotogo');
+    $con = mysqli_connect('localhost', 'root', '', 'db_iskotogo'); // For XAMPP
+    //$con = mysqli_connect('localhost', 'iskotogo', '13579','db_iskotogo'); // For GoDaddy
     
     // Check if the connection was successful
     if (!$con) {
@@ -25,6 +25,8 @@
     <!-- CSS -->
     <link rel="stylesheet" href="./CSS/MAIN.css">
     <link rel="stylesheet" href="./CSS/HOME.css">
+    <link rel="stylesheet" href="./CSS/responsiveness.css">
+    <link rel="stylesheet" href="./CSS/PROFILE.css">    
     <!-- SCROLL EFFECTS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <!-- BOOTSTRAP ICONS -->
@@ -50,7 +52,90 @@
     <!--================================ NAVIGATION BAR ================================-->
     <nav>
         <div class="container nav__container">
-            <a href="HOME.html" id="logo"><img src="./imgs/logo.png" alt="" class="logo__img">
+            <!-- MOBILE NAV -->
+            <button id="open_menu_btn">
+                <span class="material-symbols-outlined">
+                    menu
+                </span>
+            </button>
+
+            <h3 id="sys_name"><b>Cafeteria Automation System</b></h3>
+            <div class="mobile_nav_container">
+                <div class="container mobile_nav">
+                    <div class="capstone_name">
+                        <a href="HOME.html">
+                            <img src="./imgs/logo.png" alt="" class="logo__img">
+                            <p>PUP Cafeteria Automation System</p>
+                        </a>
+                    </div>
+                    <ul class="menu">
+                        <li>
+                            <a href="">
+                                <div class="icons">
+                                    <span class="material-symbols-outlined">
+                                        home
+                                    </span>
+                                </div>
+                                <p>Home</p>
+                            </a>
+                            <hr>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class="icons">
+                                    <span class="material-symbols-outlined">
+                                        shopping_cart
+                                    </span>
+                                </div>
+                                <p>Order Now</p>
+                            </a>
+                            <hr>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class="icons">
+                                    <span class="material-symbols-outlined">
+                                        receipt
+                                    </span>
+                                </div>
+                                <p>My Orders</p>
+                            </a>
+                            <hr>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class="icons">
+                                    <span class="material-symbols-outlined">
+                                        person
+                                    </span>
+                                </div>
+                                <p>My Profile</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="side_bar_profile">
+                        <div class="left">
+                            <div class="image">
+                                <img src="profile_pics/<?php echo $_SESSION['Lastname']; ?>_profile.jpg" alt="">
+                            </div>
+                            <div class="details">
+                                <p><b>Fname Lname</b></p>
+                                <p>Section</p>
+                            </div>
+                        </div>
+                        <i class="bi bi-box-arrow-left" id="log-out-btn"></i>
+                    </div>
+                    <button id="close_menu_btn">
+                        <span class="material-symbols-outlined">
+                            close
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <!-- END -- MOBILE NAV -->
+
+            <a href="HOME.html" id="logo">
+                <img src="./imgs/logo.png" alt="" class="logo__img">
                 <h4>PUP Cafeteria Automation System</h4>
             </a>
             <ul class="nav_menu">
@@ -66,8 +151,6 @@
                     <img src="profile_pics/<?php echo $_SESSION['Lastname']; ?>_profile.jpg" alt="">
                 </li>
             </ul>
-            <button id="open_menu_btn"><i class="bi bi-list"></i></button>
-            <button id="close_menu_btn"><i class="bi bi-x-lg"></i></button>
         </div>
     </nav>
     <!--================================ END OF NAVIGATION BAR ================================-->
@@ -347,8 +430,8 @@
                         <img src="./imgs/CORNDOG.jpg" alt="">
                     </div>
                     <div class="name_price">
-                        <h4 class="item_name_txt">Corndog</h4>
-                        <p>Unit Price:<span class="item_price_txt">&nbsp;P 15.00</span></p>
+                        <h4>Corndog</h4>
+                        <p>Unit Price:<span>&nbsp;</span></p>
                     </div>
                     <div class="quantity">
                         <p id="label">Quantity</p>
@@ -369,16 +452,16 @@
                     <div class="content">
                         <div class="left">
                             <div class="top">
-                                <p>Item: <span>&nbsp;Corndog</span></p>
-                                <p>Quantity: <span>&nbsp;2</span></p>
+                                <p class="summary_item_name">Item: <span>&nbsp;Corndog</span></p>
+                                <p class="summary_item_quantity">Quantity: <span>&nbsp;2</span></p>
                             </div>
                             <div class="bottom">
-                                <p>Others: <span>&nbsp;None</span></p>
+                                <p>Others:<span>&nbsp;None</span></p>
                             </div>
                         </div>
                         <div class="right">
                             <p>Total:</p>
-                            <h4 id="total_price">&nbsp;P 30.00</h4>
+                            <h4 id="total_price">&nbsp;</h4>
                         </div>
                     </div>
                 </div>
@@ -392,8 +475,143 @@
     </section>
     <!--================================ END OF CONTAINER ================================-->
 
+
+    <!--================================ SHOW PROFILE ================================-->
+    <section class="show-profile">
+        <div class="profile-container">
+            <i class="bi bi-x-square-fill close-profile"></i>
+            <i class="bi bi-box-arrow-left" id="log-out-btn"></i>
+            <div class="profile-header-container">
+                <div class="profile-header">
+                    <div class="img-container">
+                        <img src="./imgs/CORNDOG.jpg" alt="">
+                    </div>
+                    <h4 id="name">Mark Zuckerberg</h4>
+                    <p id="section">BSIT 2-2</p>
+                    <div class="profile-label">
+                        <p class="information-label">
+                            Information
+                        </p>
+                        <p class="order-history-label">
+                            Order History
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mySwiper profile-history-container">
+                <!-- INFORMATION -->
+                <div class="swiper-wrapper">
+                <div class="swiper-slide profile-information-details-container">
+                    <div class="profile-information-details">
+                        <div class="profile-information">
+                            <i class="bi bi-circle-fill"></i>
+                            <div class="detail">
+                                <p class="label">Name</p>
+                                <p class="name">Mark Zuckerberg</p>
+                            </div>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                            class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                        </svg>
+                    </div>
+                    <div class="profile-information-details">
+                        <div class="profile-information">
+                            <i class="bi bi-circle-fill"></i>
+                            <div class="detail">
+                                <p class="label">Section</p>
+                                <p class="name">BSIT 2-2</p>
+                            </div>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                            class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                        </svg>
+                    </div>
+                    <div class="profile-information-details">
+                        <div class="profile-information">
+                            <i class="bi bi-circle-fill"></i>
+                            <div class="detail">
+                                <p class="label">Student Number</p>
+                                <p class="name">2024-03201-MN-0</p>
+                            </div>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                            class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                        </svg>
+                    </div>
+                    <div class="profile-information-details">
+                        <div class="profile-information">
+                            <i class="bi bi-circle-fill"></i>
+                            <div class="detail">
+                                <p class="label">Password</p>
+                                <p class="name">************</p>
+                            </div>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                            class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- ORDER HISTORY -->
+                <div class="swiper-slide profile-order-details-container">
+                    <div class="order-history-card">
+                        <p class="date">Today 11:12AM</p>
+                        <div class="order-history-details">
+                            <div class="image">
+                                <img src="./imgs/Arroz Caldo.jpg" alt="">
+                            </div>
+                            <div class="details">
+                                <p class="name"><span>2 </span>Carbonara</p>
+                                <p class="prize">P 40.00</p>
+                            </div>
+                            <button class="btn">delete</button>
+                        </div>
+                    </div>
+                    <div class="order-history-card">
+                        <p class="date">Today 11:12AM</p>
+                        <div class="order-history-details">
+                            <div class="image">
+                                <img src="./imgs/Arroz Caldo.jpg" alt="">
+                            </div>
+                            <div class="details">
+                                <p class="name"><span>2 </span>Carbonara</p>
+                                <p class="prize">P 40.00</p>
+                            </div>
+                            <button class="btn">delete</button>
+                        </div>
+                    </div>
+                    <div class="end-line">
+                        <div class="line"></div>
+                        <p>end</p>
+                        <div class="line"></div>
+                    </div>
+                </div>
+                </div>
+                <div class="swiper-pagination profile-history-pagination"></div>
+
+            </div>
+        </div>
+    </section>
+    <!--================================ END - SHOW PROFILE ================================-->
+
+
     <!-- JAVASCRIPT -->
     <script src="./SCRIPT.js"></script>
+    <script src="./SCRIPTS/navbar.js"></script>
+    <script src="./SCRIPTS/show-profile.js"></script>
+    <script src="./SCRIPTS/place-order.js"></script>
+    <script src="./SCRIPTS/profile-section.js"></script>
+    <script src="./SCRIPTS/featured-items.js"></script>
+
     <script type="text/javascript">
         var counter = 1;
         setInterval(function () {
@@ -408,55 +626,10 @@
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
-    <!-- Initialize Swiper -->
-    <script>
-        var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 4.5,
-            spaceBetween: 30,
-            grabCursor: true
-        });
-    </script>
-
     <!-- SCROLL EFFECTS -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         AOS.init();
     </script>
-
-    <!-- SHOW/HIDE POP MESSAGE -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const showPopup = document.querySelectorAll('.featured_items_container .card_content');
-            const closePopup = document.querySelector('.popUp__message #close_btn');
-            const popUpMessage = document.querySelector('.popUp__message__container');
-            const itemname = document.querySelector('.popUp__message  .name_price h4');
-            const itemprice = document.querySelector('.popUp__message  .name_price p');
-
-            showPopup.forEach(featuredItem => {
-                featuredItem.addEventListener('click', () => {
-                    const item = featuredItem.querySelector('#item_name').textContent.trim();
-                    const price = featuredItem.querySelector('#item_price').textContent.trim();
-                    const image = featuredItem.querySelector('img').src;
-
-                    itemname.textContent = item;
-                    itemprice.querySelector('span').textContent = price;
-                    popUpMessage.querySelector('.image img').src = image;
-
-                    popUpMessage.style.display = "flex";
-                });
-            });
-
-            closePopup.addEventListener('click', () => {
-                popUpMessage.style.display = "none";
-            });
-        });
-
-
-    </script>
 </body>
-<!-- JAVASCRIPT -->
-<script src="./SCRIPT.js"></script>
-
-
-
 </html>

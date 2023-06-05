@@ -104,6 +104,10 @@ img {
     transition: var(--transition);
 }
 
+#log-out-btn {
+    cursor: pointer;
+}
+
 /* =============== NAVBAR =============== */
 nav {
     background: white;
@@ -129,6 +133,22 @@ nav {
 }
 
 nav button {
+    box-shadow: var(--card-shadow);
+    border-radius: .7rem;
+    font-size: 2rem;
+    height: 2.5rem;
+    width: 2.5rem;
+    cursor: pointer;
+
+    display: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+nav #sys_name,
+.mobile_nav_container {
     display: none;
 }
 
@@ -205,6 +225,7 @@ nav button {
     padding: .2rem;
     border-radius: 50%;
     box-shadow: var(--card-shadow);
+    cursor: pointer;
 }
 
 #profile  img {
