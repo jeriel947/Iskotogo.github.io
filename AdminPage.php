@@ -40,7 +40,8 @@
                     <span class="material-symbols-outlined">home</span>
                 </li>
                 <li id="profile">
-                    <img src="./imgs/CORNDOG.jpg" alt="">
+                    <!-- <img src="./imgs/CORNDOG.jpg" alt=""> -->
+                    <img src="<?php echo $_SESSION['user_profile']; ?>" alt="">
                 </li>
             </ul>
             <button id="open_menu_btn"><i class="bi bi-list"></i></button>
