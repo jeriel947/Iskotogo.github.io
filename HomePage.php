@@ -25,8 +25,8 @@
     <!-- CSS -->
     <link rel="stylesheet" href="./CSS/MAIN.css">
     <link rel="stylesheet" href="./CSS/HOME.css">
+    <link rel="stylesheet" href="./CSS/PROFILE.css">    
     <link rel="stylesheet" href="./CSS/responsiveness.css">
-    <link rel="stylesheet" href="./CSS/PROFILE.css">
     <!-- SCROLL EFFECTS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <!-- BOOTSTRAP ICONS -->
@@ -63,7 +63,7 @@
             <div class="mobile_nav_container">
                 <div class="container mobile_nav">
                     <div class="capstone_name">
-                        <a href="HOME.html">
+                        <a href="HomePage.php">
                             <img src="./imgs/logo.png" alt="" class="logo__img">
                             <p>PUP Cafeteria Automation System</p>
                         </a>
@@ -92,18 +92,23 @@
                             <hr>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="MyOrders.php">
                                 <div class="icons">
                                     <span class="material-symbols-outlined">
                                         receipt
                                     </span>
                                 </div>
                                 <p>My Orders</p>
+                                <div id="num-of-orders">
+                                    <p>
+                                        2
+                                    </p>
+                                </div>
                             </a>
                             <hr>
                         </li>
-                        <li>
-                            <a href="">
+                        <li class="open-profile">
+                            <a>
                                 <div class="icons">
                                     <span class="material-symbols-outlined">
                                         person
@@ -134,22 +139,38 @@
             </div>
             <!-- END -- MOBILE NAV -->
 
-            <a href="HOME.html" id="logo">
+            <a href="HomePage.php" id="logo">
                 <img src="./imgs/logo.png" alt="" class="logo__img">
                 <h4>PUP Cafeteria Automation System</h4>
             </a>
             <ul class="nav_menu">
-                <li id="search">
-                    <input type="text" class="other_details_text" name="Other Details" placeholder="Type a keyword"
-                        autocomplete="off">
-                    <span class="material-symbols-outlined">search</span>
-                </li>
                 <li id="homepage_icon">
-                    <span class="material-symbols-outlined">home</span>
+                    <a href="HomePage.php">
+                        <span class="material-symbols-outlined">home</span>
+                    </a>
                 </li>
-                <li id="profile">
-                    <!-- <img src="profile_pics/<?php echo $_SESSION['Lastname']; ?>_profile.jpg" alt=""> -->
-                    <img src="<?php echo $_SESSION['user_profile']; ?>" alt="">
+                <li id="order-now">
+                    <a href="">
+                        <span class="material-symbols-outlined">
+                            shopping_cart
+                        </span>
+                        <p>
+                            Order Now
+                        </p>
+                    </a>
+                </li>
+                <li id="my-orders">
+                    <a href="MyOrders.php">
+                        <span class="material-symbols-outlined">
+                            receipt
+                        </span>
+                        <p>
+                            My Orders
+                        </p>
+                    </a>
+                </li>
+                <li id="profile" class="open-profile">
+                    <img src="profile_pics/<?php echo $_SESSION['Lastname']; ?>_profile.jpg" alt="">
                 </li>
             </ul>
         </div>

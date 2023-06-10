@@ -26,16 +26,23 @@
     }
 
 /* =============== NAVBAR =============== NAVBAR =============== NAVBAR =============== */    
-    #open_menu_btn {
+    #open_menu_btn,
+    #back-to-prev {
         background: white;
-        color: var(--color-main1);
+        color: var(--color-main1) !important;
         display: flex;
         align-items: center;
         justify-content: center;
     }
+    
+    #back-to-prev a {
+        color: var(--color-main1) !important;
+    }
 
     nav #sys_name {
-        display: inline-block;
+        display: flex;
+        align-items: center;
+        gap: .5rem;
         font-weight: 500;
         text-align: center;
         color: var(--color-main1);
@@ -47,8 +54,10 @@
     }
 
     #logo,
-    .nav_menu #search,
-    .nav_menu #homepage_icon {
+    .nav_menu #order-now,
+    .nav_menu #homepage_icon,
+    .nav_menu #my-orders
+    {
         display: none;
     }
 
@@ -125,6 +134,23 @@
         align-items: center;
         gap: 1.5rem;
         padding: .8rem 1rem;
+    }
+
+    #num-of-orders {
+        background: var(--color-main2);
+        color: var(--color-main1);
+        height: 1.5rem;
+        width: 1.5rem;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        right: 1rem;
+    }
+
+    #num-of-orders p {
+        color: var(--color-main);
     }
 
     .mobile_nav_container .menu .icons {
@@ -329,5 +355,22 @@
         width: 100%;
         align-self: flex-end;
         transform: translateY(100%);
+    }
+
+    /* =============== MY ORDERS PAGE =============== MY ORDERS PAGE =============== MY ORDERS PAGE =============== */    
+    /*  MY ORDERS PAGE */
+    .ordersPage-myOrdersSec {
+        width: 100%;
+        flex-direction: column;
+        border: 0;
+        gap: 0;
+    }
+
+    .ordersPage-myOrdersSec .my_orders {
+        width: unset;
+    }   
+
+    .my_orders_texts {
+        display: none;
     }
 }
