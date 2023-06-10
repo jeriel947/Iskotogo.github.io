@@ -19,13 +19,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HOME</title>
+    <title>My Orders</title>
     <link rel="shortcut icon" type="image/x-icon" href="./imgs/LOGO.png" />
 
     <!-- CSS -->
     <link rel="stylesheet" href="./CSS/MAIN.css">
     <link rel="stylesheet" href="./CSS/HOME.css">
-    <link rel="stylesheet" href="./CSS/PROFILE.css">    
+    <link rel="stylesheet" href="./CSS/PROFILE.css">
+    <link rel="stylesheet" href="./CSS/my-orders.css">    
     <link rel="stylesheet" href="./CSS/responsiveness.css">
     <!-- SCROLL EFFECTS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -53,13 +54,19 @@
     <nav>
         <div class="container nav__container">
             <!-- MOBILE NAV -->
-            <button id="open_menu_btn">
+            <button id="back-to-prev">
                 <span class="material-symbols-outlined">
-                    menu
+                    chevron_left
                 </span>
             </button>
 
-            <h3 id="sys_name"><b>Cafeteria Automation System</b></h3>
+            <h3 id="sys_name">
+                <span class="material-symbols-outlined">
+                    receipt
+                </span>
+                <b>My Orders</b>
+            </h3>
+            
             <div class="mobile_nav_container">
                 <div class="container mobile_nav">
                     <div class="capstone_name">
@@ -92,7 +99,7 @@
                             <hr>
                         </li>
                         <li>
-                            <a href="MyOrders.php">
+                            <a href="">
                                 <div class="icons">
                                     <span class="material-symbols-outlined">
                                         receipt
@@ -101,7 +108,7 @@
                                 <p>My Orders</p>
                                 <div id="num-of-orders">
                                     <p>
-                                        2
+                                        0
                                     </p>
                                 </div>
                             </a>
@@ -144,7 +151,7 @@
                 <h4>PUP Cafeteria Automation System</h4>
             </a>
             <ul class="nav_menu">
-                <li id="homepage_icon">
+            <li id="homepage_icon">
                     <a href="HomePage.php">
                         <span class="material-symbols-outlined">home</span>
                     </a>
@@ -181,198 +188,13 @@
 
     <!--================================ CONTAINER ================================-->
     <section class="container homepage_container">
-        <!--================== HOME - NAVIGATION ===================-->
-        <div class="home_navigation_section">
-            <!--CAROUSEL-->
-            <div class="carousel_container">
-                <div class="slider">
-                    <div class="slide">
-                        <input type="radio" name="radio-btn" id="radio1">
-                        <input type="radio" name="radio-btn" id="radio2">
-                        <input type="radio" name="radio-btn" id="radio3">
-                        <input type="radio" name="radio-btn" id="radio4">
-                        <input type="radio" name="radio-btn" id="radio5">
-
-                        <div class="img_container first">
-                            <img src="./imgs/CarItem1.png" alt="...">
-                        </div>
-                        <div class="img_container">
-                            <img src="./imgs/CarItem1.png" alt="...">
-                        </div>
-                        <div class="img_container">
-                            <img src="./imgs/CarItem1.png" alt="...">
-                        </div>
-                        <div class="img_container">
-                            <img src="./imgs/CarItem1.png" alt="...">
-                        </div>
-                        <div class="img_container">
-                            <img src="./imgs/CarItem1.png" alt="...">
-                        </div>
-
-                        <div class="nav_auto">
-                            <div class="a-b1"></div>
-                            <div class="a-b2"></div>
-                            <div class="a-b3"></div>
-                            <div class="a-b4"></div>
-                            <div class="a-b5"></div>
-                        </div>
-                    </div>
-
-                    <div class="nav-m">
-                        <label for="radio1" class="m-btn"></label>
-                        <label for="radio2" class="m-btn"></label>
-                        <label for="radio3" class="m-btn"></label>
-                        <label for="radio4" class="m-btn"></label>
-                        <label for="radio5" class="m-btn"></label>
-                    </div>
-                </div>
-
-            </div>
-
-            <!--FEATURED ITEMS-->
-            <div class="featured_items">
-                <div class="featured_items_texts">
-                    <h3>
-                        Featured Items
-                    </h3>
-                </div>
-
-                <?php
-                $query = "SELECT item_name, item_price, item_image, store_id FROM tbl_menu GROUP BY store_id";
-
-                $result = mysqli_query($con, $query);
-
-                // Check if the query was successful
-                if ($result) {
-                    $items = array();
-                    // Iterate over the result set and populate the $items array
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        $imageData = base64_encode($row['item_image']);
-                        $image = $row['item_image'] ? "data:image/jpeg;base64, {$imageData}" : '.\images\logo.png';
-                        $items[] = array(
-                            'name' => $row['item_name'],
-                            'price' => $row['item_price'],
-                            'image' => $image,
-                            'store_id' => $row['store_id']
-                        );
-                    }
-
-                    // Free the result set
-                    mysqli_free_result($result);
-
-                } else {
-                    // Query execution failed
-                    die("Error executing query: " . mysqli_error($con));
-                }
-
-
-                ?>
-
-                <div class="swiper mySwiper featured_items_container">
-                    <div class="swiper-wrapper content">
-                        <?php foreach ($items as $item): ?>
-                            <div class="swiper-slide card">
-                                <div class="card_content">
-                                    <div class="image">
-                                        <img src="<?php echo $item['image']; ?>" alt="">
-                                    </div>
-
-                                    <div class="fItem_details">
-                                        <div class="fItem_texts">
-                                            <p id="item_name">
-                                                <?php echo $item['name']; ?>
-                                            </p>
-                                            <P id="item_price">
-                                                <?php echo $item['price']; ?>
-                                            </P>
-                                        </div>
-                                        <div class="icon">
-                                            <i class="bi bi-chevron-right"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
-            </div>
-
-            <!--CAFETERIAS-->
-
-
-            <?php
-            // Assuming you have already established a database connection
-            
-            // Retrieve data from tbl_store
-            $query = "SELECT s.id, s.store_image, s.store_name, m.item_name 
-          FROM tbl_stores s
-          JOIN tbl_menu m ON s.id = m.store_id";
-
-            $result = mysqli_query($con, $query);
-
-            $articles = array();
-
-            // Fetch the data and organize it into an array
-            while ($row = mysqli_fetch_assoc($result)) {
-                $storeID = $row['id'];
-                $tag = $row['item_name'];
-
-                // Check if the store already exists in the articles array
-                $imageData = base64_encode($row['store_image']);
-                if (!isset($articles[$storeID])) {
-                    $image = $row['store_image'] ? "data:image/jpeg;base64, {$imageData}" : '.\images\logo.png';
-                    $articles[$storeID] = array(
-                        'image' => $image,
-                        'title' => $row['store_name'],
-                        'tags' => array($tag),
-                    );
-                } else {
-                    if (count($articles[$storeID]['tags']) < 3) {
-                        $articles[$storeID]['tags'][] = $tag;
-                    }
-                }
-            }
-
-            ?>
-            <div class="cafeterias">
-                <div class="cafeterias_texts">
-                    <h3>
-                        Cafeterias/Stalls
-                    </h3>
-                </div>
-                <div class="cafeterias__container">
-                    <?php foreach ($articles as $article): ?>
-                        <article class="cafeteria">
-                            <div class="caf-image">
-                                <img src="<?php echo $article['image']; ?>" alt="">D
-                            </div>
-                            <div class="shadow"></div>
-                            <h3>
-                                <?php echo $article['title']; ?>
-                            </h3>
-                            <div class="cafeteria_tags">
-                                <?php foreach ($article['tags'] as $tag): ?>
-                                    <p>
-                                        <?php echo $tag; ?>
-                                    </p>
-                                <?php endforeach; ?>
-                            </div>
-                            <a href="#">
-                                <p>View Stall</p>
-                                <i class="bi bi-arrow-right-circle-fill"></i>
-                            </a>
-                        </article>
-                    <?php endforeach; ?>
-                </div>
-            </div>
+        <div class="my_orders_texts">
+            <span class="material-symbols-outlined">receipt</span>
+            <h3>My Orders</h3>
         </div>
         <!--================== HOME - ORDERS ===================-->
-        <div class="my_orders_section">
-            <div class="my_orders_texts">
-                <span class="material-symbols-outlined">receipt</span>
-                <h3>My Orders</h3>
-            </div>
-
+        <div class="ordersPage-myOrdersSec">
+            
             <div class="my_orders" id="order1">
                 <div class="my_order_profile">
                     <div class="image">
@@ -387,23 +209,25 @@
                     </div>
                 </div>
                 <div class="my_order_details">
-                    <div class="item_name_quantity order_detail">
-                        <div class="item_name">
-                            <p class="label">Item:</p>
-                            <p class="text">Carbonara</p>
+                    <div class=order-details-right>
+                        <div class="item_name_quantity order_detail">
+                            <div class="item_name">
+                                <p class="label">Item:</p>
+                                <p class="text">Carbonara</p>
+                            </div>
+                            <div class="item_quantity">
+                                <p class="label">Quantity:</p>
+                                <p class="text">2</p>
+                            </div>
                         </div>
-                        <div class="item_quantity">
-                            <p class="label">Quantity:</p>
-                            <p class="text">2</p>
+                        <div class="item_others order_detail">
+                            <p class="label">Others:</p>
+                            <p class="text">None</p>
                         </div>
-                    </div>
-                    <div class="item_others order_detail">
-                        <p class="label">Others:</p>
-                        <p class="text">None</p>
                     </div>
                     <div class="my_order_total order_detail">
                         <p class="label">Total:</p>
-                        <p class="text">P 40.00</p>
+                        <h4 class="text">P 40.00</h4>
                     </div>
                 </div>
             </div>
@@ -422,78 +246,29 @@
                     </div>
                 </div>
                 <div class="my_order_details">
-                    <div class="item_name_quantity order_detail">
-                        <div class="item_name">
-                            <p class="label">Item:</p>
-                            <p class="text">FEWA</p>
+                    <div class=order-details-right>
+                        <div class="item_name_quantity order_detail">
+                            <div class="item_name">
+                                <p class="label">Item:</p>
+                                <p class="text">FEWA</p>
+                            </div>
+                            <div class="item_quantity">
+                                <p class="label">Quantity:</p>
+                                <p class="text">4</p>
+                            </div>
                         </div>
-                        <div class="item_quantity">
-                            <p class="label">Quantity:</p>
-                            <p class="text">4</p>
+                        <div class="item_others order_detail">
+                            <p class="label">Others:</p>
+                            <p class="text">None</p>
                         </div>
-                    </div>
-                    <div class="item_others order_detail">
-                        <p class="label">Others:</p>
-                        <p class="text">Hotdog istead of footlong. No Cheese</p>
                     </div>
                     <div class="my_order_total order_detail">
                         <p class="label">Total:</p>
-                        <p class="text">P 80.00</p>
+                        <h4 class="text">P 80.00</h4>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!--POPUP MESSAGE-->
-        <div class="popUp__message__container">
-            <div class="popUp__message">
-                <div class="popUp__item__details">
-                    <div class="image">
-                        <img src="./imgs/CORNDOG.jpg" alt="">
-                    </div>
-                    <div class="name_price">
-                        <h4>Corndog</h4>
-                        <p>Unit Price:<span>&nbsp;</span></p>
-                    </div>
-                    <div class="quantity">
-                        <p id="label">Quantity</p>
-                        <div class="input">
-                            <i class="bi bi-dash"></i>
-                            <p id="text">1</p>
-                            <i class="bi bi-plus"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="other_details">
-                    <p>Other details (please specify)</p>
-                    <input type="text" class="other_details_text" name="Other Details"
-                        placeholder="e.g: no hotdog; additional fork; etc." autocomplete="off">
-                </div>
-                <div class="order_summary">
-                    <p>Summary</p>
-                    <div class="content">
-                        <div class="left">
-                            <div class="top">
-                                <p class="summary_item_name">Item: <span>&nbsp;Corndog</span></p>
-                                <p class="summary_item_quantity">Quantity: <span>&nbsp;2</span></p>
-                            </div>
-                            <div class="bottom">
-                                <p>Others:<span>&nbsp;None</span></p>
-                            </div>
-                        </div>
-                        <div class="right">
-                            <p>Total:</p>
-                            <h4 id="total_price">&nbsp;</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="buttons">
-                    <button type="button" class="order-btn btn" id="close_btn">Cancel</button>
-                    <button type="submit" class="order-btn btn">Place Order</button>
-                </div>
-            </div>
-        </div>
-
     </section>
     <!--================================ END OF CONTAINER ================================-->
 

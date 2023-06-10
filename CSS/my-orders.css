@@ -1,0 +1,172 @@
+.homepage_container {
+    display: flex;
+    flex-direction: column;
+}
+
+.ordersPage-myOrdersSec {
+    height: 100%;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.my_orders_texts {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+    color: var(--color-main2);
+}
+
+.my_orders_texts span{
+    font-size: 2rem;
+}
+
+.my_orders_texts h3 {
+    color: var(--color-main2);
+}
+
+.ordersPage-myOrdersSec .my_orders {
+    background: white;
+    padding: 1rem;  
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    box-shadow: var(--card-shadow);
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    width: 22.875rem;
+}
+
+/*--- BASIC ITEM DETAILS ---*/
+.ordersPage-myOrdersSec .my_orders .my_order_profile {
+   display: flex;
+   gap: .5rem;
+}
+
+.ordersPage-myOrdersSec .my_orders .my_order_profile .image {
+    width: 40%;
+    height: 7rem;
+    overflow: hidden;
+    border-radius: 1rem;
+}
+
+.ordersPage-myOrdersSec .my_orders .my_order_profile .image img{
+    height: 100%;
+}
+
+.ordersPage-myOrdersSec .my_orders .my_order_profile .my_order_profile_details {
+    width: 60%;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    padding-top: .5rem;
+}
+
+.ordersPage-myOrdersSec .my_orders .my_order_profile .my_order_profile_details p {
+    font-weight: 500;
+    padding-top: .5rem;
+}
+
+.ordersPage-myOrdersSec .my_orders .my_order_profile .my_order_profile_details .my_order_price span {
+    color: var(--color-main2);
+}
+
+.ordersPage-myOrdersSec .my_orders .my_order_profile .my_order_profile_details .my_order_stall i {
+    color: var(--color-main1);
+    font-size: 1rem;
+}
+
+.ordersPage-myOrdersSec .my_orders .my_order_profile .my_order_profile_details .my_order_stall {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    color: var(--color-main2);
+    font-size: .8rem;
+}
+
+/*--- ORDER DETAILS ---*/
+.ordersPage-myOrdersSec .my_orders .my_order_details {
+    display: flex;
+    height: 100%;
+    gap: .5rem;
+}
+
+.my_order_details .order-details-right {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    width: 65%;
+}
+
+.ordersPage-myOrdersSec .my_orders .my_order_details p {
+    font-weight: 500;
+}
+
+.ordersPage-myOrdersSec .my_orders .my_order_details .text {
+    color: var(--color-main1);
+}
+
+.ordersPage-myOrdersSec .my_orders .my_order_details .item_name_quantity {
+    display: flex;
+    gap: .5rem;
+    width: 100%;
+    padding: 0 !important;
+}
+
+.ordersPage-myOrdersSec .my_orders .my_order_details .item_name_quantity .item_name {
+    padding: .5rem;
+    min-width: fit-content;
+    box-shadow: var(--card-shadow);
+    border-radius: .4rem;
+    border: .15rem solid var(--color-bg);
+}
+
+.ordersPage-myOrdersSec .my_orders .my_order_details .item_name_quantity .item_quantity {
+    padding: .5rem;
+    min-width: fit-content;
+    border-radius: .4rem;
+    box-shadow: var(--card-shadow);
+    border: .15rem solid var(--color-bg);
+}
+
+.ordersPage-myOrdersSec .my_orders .my_order_details .order_detail {
+    padding: .5rem;
+    border-radius: .4rem;
+    text-align: center;
+    min-width: fit-content;
+}
+
+.ordersPage-myOrdersSec .my_orders .my_order_details .item_name_quantity .item_name {
+    width: 60%;
+    font-weight: 500;   
+}
+
+.ordersPage-myOrdersSec .my_orders .my_order_details .item_name_quantity .item_quantity {
+    width: 35%;
+}
+
+.ordersPage-myOrdersSec .my_orders .my_order_details .item_others {
+    box-shadow: var(--card-shadow);
+    height: 100%;
+    border: .15rem solid var(--color-bg);
+}
+
+.ordersPage-myOrdersSec .my_orders .my_order_details .my_order_total {
+    box-shadow: var(--card-shadow);
+    background: var(--color-gradient2r);
+    width: 40%;
+}
+
+.ordersPage-myOrdersSec .my_orders .my_order_details .my_order_total .text {
+    color: var(--color-white);
+}
+
+.ordersPage-myOrdersSec .my_orders .my_order_details .my_order_total p {
+    color: white;
+}
+
+.ordersPage-myOrdersSec .my_orders .my_order_details .my_order_total .text {
+    font-weight: 600;
+    font-size: 1.4rem;
+}

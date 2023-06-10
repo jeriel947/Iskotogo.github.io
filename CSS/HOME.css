@@ -439,12 +439,14 @@
     padding: .5rem;
     box-shadow: var(--card-shadow);
     border-radius: .4rem;
+    border: .15rem solid var(--color-bg);    
 }
 
 .my_orders_section .my_orders .my_order_details .item_name_quantity .item_quantity {
     padding: .5rem;
     border-radius: .4rem;
     box-shadow: var(--card-shadow);
+    border: .15rem solid var(--color-bg);    
 }
 
 .my_orders_section .my_orders .my_order_details .order_detail {
@@ -463,6 +465,8 @@
 
 .my_orders_section .my_orders .my_order_details .item_others {
     box-shadow: var(--card-shadow);
+    height: 100%;
+    border: .15rem solid var(--color-bg);
 }
 
 .my_orders_section .my_orders .my_order_details .my_order_total {
