@@ -59,15 +59,22 @@
                     $_SESSION['Firstname'] = $row['First_Name'];
 
                     $_SESSION['Middlename'] = $row['Middle_Name'];
+
+                    $_SESSION['Section'] = $row['section'];
+
+                    $_SESSION['Studentid'] = $row['student_id'];
+                    
+                    $imageData = base64_encode($row['user_profile']);
+                    $image = $row['user_profile'] ? "data:image/jpeg;base64, {$imageData}" : '.\profile_pics\UserProfilePlaceholder.png';
+
+                    $_SESSION['user_profile'] = $image;
                     
                     header("Location: HomePage.php");
 
                     exit();
 
-                }else if ($row['User_Name'] === $user_name && $row['password'] === $pass && $row['user_type'] === '1') {
-
+                } else if ($row['User_Name'] === $user_name && $row['password'] === $pass && $row['user_type'] === '1') {
                     echo "Logged in!";
-
                     $_SESSION['user_name'] = $row['user_name'];
 
                     $_SESSION['id'] = $row['user_id'];
@@ -77,10 +84,12 @@
                     $_SESSION['Firstname'] = $row['First_Name'];
 
                     $_SESSION['Middlename'] = $row['Middle_Name'];
-                    
+                
+                    $imageData = base64_encode($row['user_profile']);
+                    $image = $row['user_profile'] ? "data:image/jpeg;base64, {$imageData}" : '.\profile_pics\UserProfilePlaceholder.png';
+                    $_SESSION['user_profile'] = $image;
                     header("Location: AdminPage.php");
-
-                } else{
+                } else {
 
                     //header("Location: index.php?error=Incorect student id or password");
                     header("Location: LoginError.php");
