@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Dashboard</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel="stylesheet" href="dashboardstyle.css">
+<link rel="stylesheet" href="./CSS/dashboardstyle.css">
 
 </head>
 <body>
@@ -201,7 +201,7 @@
     </div>
   </div>
 
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js'></script><script  src="dashboardscript.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js'></script><script  src="./SCRIPTS/dashboardscript.js"></script>
 
 </body>
 </html>

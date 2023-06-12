@@ -638,7 +638,7 @@
 
 
     <!-- JAVASCRIPT -->
-    <script src="./SCRIPT.js"></script>
+    <script src="./SCRIPTS/SCRIPT.js"></script>
     <script src="./SCRIPTS/navbar.js"></script>
     <script src="./SCRIPTS/show-profile.js"></script>
     <script src="./SCRIPTS/place-order.js"></script>
