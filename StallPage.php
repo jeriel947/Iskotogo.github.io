@@ -466,7 +466,7 @@
         </section>
 
     <!-- JAVASCRIPT -->
-    <script src="./SCRIPT.js"></script>
+    <script src="./SCRIPTS/SCRIPT.js"></script>
     <!-- SCROLL EFFECTS -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>

@@ -471,7 +471,7 @@
 
 
     <!-- JAVASCRIPT -->
-    <script src="./SCRIPT.js"></script>
+    <script src="./SCRIPTS/SCRIPT.js"></script>
     <script type="text/javascript">
         var counter = 1;
         setInterval(function () {
