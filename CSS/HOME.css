@@ -669,6 +669,7 @@
     align-items: center;
     gap: .5rem;
     margin-top: .5rem;
+    font-weight: 500;
 }
 
 .popUp__message .buttons button {
@@ -682,4 +683,28 @@
 .popUp__message .buttons #close_btn {
     background: white;
     color: var(--color-dark);
+}
+
+
+/* BUTTONS FOR NOT LOGGED USERS */
+.popUp__message .buttons .not-logged {
+
+}
+
+.popUp__message .buttons span.not-logged {
+    border-radius: .5rem;
+    font-size: 1.6rem;
+    padding: .5rem;
+    cursor: pointer;
+    box-shadow: var(--card-shadow);    
+}
+
+.popUp__message .buttons a.not-logged {
+    width: 100%;
+    background: var(--color-gradient);
+    text-align: center;
+}
+
+.popUp__message .buttons a.not-logged p {
+    color: white;
 }

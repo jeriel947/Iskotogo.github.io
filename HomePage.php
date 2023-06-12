@@ -500,8 +500,17 @@
                     </div>
                 </div>
                 <div class="buttons">
-                    <button type="button" class="order-btn btn" id="close_btn">Cancel</button>
-                    <button type="submit" class="order-btn btn">Place Order</button>
+                    <?php if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) { ?>
+                        <button type="button" class="order-btn btn" id="close_btn">Cancel</button>
+                        <button type="submit" class="order-btn btn">Place Order</button>
+                    <?php } else { ?>
+                        <span class="material-symbols-outlined not-logged" id="close_btn">
+                            close
+                        </span>
+                        <a href="#" onclick="performLogout()" class="not-logged btn">
+                            <p>Please Login to Order</p>
+                        </a>
+                    <?php } ?>
                 </div>
             </div>
         </div>
