@@ -7,3 +7,8 @@ window.addEventListener('scroll', () => {
 document.querySelector('#back-to-prev').addEventListener('click', function() {
     history.back(); 
 });
+
+// LOGOUT FUNCTION
+function performLogout() {
+    window.location.href = "LoginPage.php";
+}

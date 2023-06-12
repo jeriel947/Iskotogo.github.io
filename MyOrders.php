@@ -54,19 +54,13 @@
     <nav>
         <div class="container nav__container">
             <!-- MOBILE NAV -->
-            <button id="back-to-prev">
+            <button id="open_menu_btn">
                 <span class="material-symbols-outlined">
-                    chevron_left
+                    menu
                 </span>
             </button>
 
-            <h3 id="sys_name">
-                <span class="material-symbols-outlined">
-                    receipt
-                </span>
-                <b>My Orders</b>
-            </h3>
-            
+            <h3 id="sys_name"><b>Cafeteria Automation System</b></h3>
             <div class="mobile_nav_container">
                 <div class="container mobile_nav">
                     <div class="capstone_name">
@@ -99,7 +93,7 @@
                             <hr>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="MyOrders.php">
                                 <div class="icons">
                                     <span class="material-symbols-outlined">
                                         receipt
@@ -108,7 +102,7 @@
                                 <p>My Orders</p>
                                 <div id="num-of-orders">
                                     <p>
-                                        0
+                                        2
                                     </p>
                                 </div>
                             </a>
@@ -126,16 +120,20 @@
                         </li>
                     </ul>
                     <div class="side_bar_profile">
-                        <div class="left">
-                            <div class="image">
-                                <img src="profile_pics/<?php echo $_SESSION['Lastname']; ?>_profile.jpg" alt="">
+                        <?php if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) { ?>
+                            <div class="left">
+                                <div class="image">
+                                    <img src="profile_pics/<?php echo $_SESSION['Lastname']; ?>_profile.jpg" alt="">
+                                </div>
+                                <div class="details">
+                                    <p><b>Fname Lname</b></p>
+                                    <p>Section</p>
+                                </div>
                             </div>
-                            <div class="details">
-                                <p><b>Fname Lname</b></p>
-                                <p>Section</p>
-                            </div>
-                        </div>
-                        <i class="bi bi-box-arrow-left" id="log-out-btn"></i>
+                            <a href="#" onclick="performLogout()">
+                                <i class="bi bi-box-arrow-left" id="log-out-btn"></i>
+                            </a>
+                        <?php } ?>
                     </div>
                     <button id="close_menu_btn">
                         <span class="material-symbols-outlined">
@@ -151,7 +149,7 @@
                 <h4>PUP Cafeteria Automation System</h4>
             </a>
             <ul class="nav_menu">
-            <li id="homepage_icon">
+                <li id="homepage_icon">
                     <a href="HomePage.php">
                         <span class="material-symbols-outlined">home</span>
                     </a>
@@ -176,9 +174,17 @@
                         </p>
                     </a>
                 </li>
-                <li id="profile" class="open-profile">
-                    <img src="profile_pics/<?php echo $_SESSION['Lastname']; ?>_profile.jpg" alt="">
-                </li>
+                <?php if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) { ?>
+                    <li id="profile" class="open-profile">
+                        <img src="profile_pics/<?php echo $_SESSION['Lastname']; ?>_profile.jpg" alt="">
+                    </li>
+                <?php } else { ?>
+                    <li id="login-btn">
+                        <a href="LoginPage.php" class="btn">
+                            <p>Login</p>
+                        </a>
+                    </li>
+                <?php } ?>
             </ul>
         </div>
     </nav>

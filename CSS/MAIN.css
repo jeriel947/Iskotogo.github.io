@@ -225,6 +225,38 @@ nav #sys_name,
     padding: .5rem;
 }
 
+.nav_menu #login-btn {
+    background: transparent;
+    border-radius: .7rem;
+}
+
+.nav_menu #login-btn a {
+    width: 100%;
+    border-radius: .7rem;
+    background: var(--color-gradient);
+}
+
+.nav_menu #login-btn p {
+    color: white;
+}
+
+.nav_menu #login-btn:hover {
+    transition: var(--transition);
+    padding: .2rem;
+    background: var(--color-gradient);
+}
+
+.nav_menu #login-btn a:hover {
+    transition: var(--transition);
+    background: rgb(255, 255, 255);
+    box-shadow: none;
+    border-radius: .5rem;
+}
+
+.nav_menu #login-btn a:hover p{
+    color: var(--color-main1) !important;
+}
+
 .nav_menu #order-now a:hover,
 .nav_menu #my-orders a:hover {
     color: white;

@@ -119,16 +119,20 @@
                         </li>
                     </ul>
                     <div class="side_bar_profile">
-                        <div class="left">
-                            <div class="image">
-                                <img src="profile_pics/<?php echo $_SESSION['Lastname']; ?>_profile.jpg" alt="">
+                        <?php if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) { ?>
+                            <div class="left">
+                                <div class="image">
+                                    <img src="profile_pics/<?php echo $_SESSION['Lastname']; ?>_profile.jpg" alt="">
+                                </div>
+                                <div class="details">
+                                    <p><b>Fname Lname</b></p>
+                                    <p>Section</p>
+                                </div>
                             </div>
-                            <div class="details">
-                                <p><b>Fname Lname</b></p>
-                                <p>Section</p>
-                            </div>
-                        </div>
-                        <i class="bi bi-box-arrow-left" id="log-out-btn"></i>
+                            <a href="#" onclick="performLogout()">
+                                <i class="bi bi-box-arrow-left" id="log-out-btn"></i>
+                            </a>
+                        <?php } ?>
                     </div>
                     <button id="close_menu_btn">
                         <span class="material-symbols-outlined">
@@ -169,9 +173,17 @@
                         </p>
                     </a>
                 </li>
-                <li id="profile" class="open-profile">
-                    <img src="profile_pics/<?php echo $_SESSION['Lastname']; ?>_profile.jpg" alt="">
-                </li>
+                <?php if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) { ?>
+                    <li id="profile" class="open-profile">
+                        <img src="profile_pics/<?php echo $_SESSION['Lastname']; ?>_profile.jpg" alt="">
+                    </li>
+                <?php } else { ?>
+                    <li id="login-btn">
+                        <a href="LoginPage.php" class="btn">
+                            <p>Login</p>
+                        </a>
+                    </li>
+                <?php } ?>
             </ul>
         </div>
     </nav>
@@ -502,12 +514,14 @@
     <section class="show-profile">
         <div class="profile-container">
             <i class="bi bi-x-square-fill close-profile"></i>
-            <i class="bi bi-box-arrow-left" id="log-out-btn"></i>
+            <a href="#" onclick="performLogout()">
+                <i class="bi bi-box-arrow-left" id="log-out-btn"></i>
+            </a>
             <div class="profile-header-container">
                 <div class="profile-header">
                     <div class="img-container">
-                        <!-- <img src="./imgs/CORNDOG.jpg" alt=""> -->
-                        <img src="<?php echo $_SESSION['user_profile']; ?>" alt="">
+                        <img src="profile_pics/<?php echo $_SESSION['Lastname']; ?>_profile.jpg" alt="">
+                        <!-- <img src="<?php echo $_SESSION['user_profile']; ?>" alt=""> -->
                     </div>
                     <h4 id="name">
                         <?php echo $_SESSION['Firstname'] . " " . $_SESSION['Lastname'] ?>

@@ -50,7 +50,9 @@
 
                     $_SESSION['stuent_id'] = $row['student_id'];
 
-                    $_SESSION['user_name'] = $row['user_name'];
+                    $_SESSION['password'] = $row['password'];                    
+
+                    $_SESSION['user_name'] = $row['User_Name'];
 
                     $_SESSION['id'] = $row['user_id'];
 
@@ -75,7 +77,9 @@
 
                 } else if ($row['User_Name'] === $user_name && $row['password'] === $pass && $row['user_type'] === '1') {
                     echo "Logged in!";
-                    $_SESSION['user_name'] = $row['user_name'];
+                    $_SESSION['user_name'] = $row['User_Name'];
+
+                    $_SESSION['password'] = $row['password'];                    
 
                     $_SESSION['id'] = $row['user_id'];
 

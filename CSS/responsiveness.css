@@ -244,6 +244,7 @@
     .side_bar_profile #log-out-btn {
         font-size: 24px;
         display: block;
+        color: var(--color-main1);
     }
 
 /* =============== HOME - BODY =============== HOME - BODY =============== HOME - BODY =============== */    
