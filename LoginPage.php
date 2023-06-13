@@ -49,9 +49,33 @@
             <p class="error"><?php echo $errorMessage; ?></p>
         <?php } ?>    
         
+        <!-- MOBILE ELEMENTS -->
+        <div class="round-background">
+            <div class="image">
+                <img src="images/loginBgImg.png">
+            </div>
+        </div>
+        <div class="mobile-elems">
+            <div class="image">
+                <img src="images/logo.png">
+            </div>
+            <div class="text">
+                <h4 id="school-name">
+                    PUP
+                </h4>
+                <h3 id="sys-name">
+                    Cafeteria Automation System
+                </h3>
+            </div>
+        </div>
+        <!-- MOBILE ELEMENTS -->
+
         <div id="left">
             <div class="image">
                 <img src="images/logo.png" id="logo">
+            </div>
+            <div class="text">
+
             </div>
             <div id="input">
                 <input type="text" name="user_name" placeholder="Student number/username" required><br>

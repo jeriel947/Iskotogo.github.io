@@ -358,7 +358,7 @@
         transform: translateY(100%);
     }
 
-    /* =============== MY ORDERS PAGE =============== MY ORDERS PAGE =============== MY ORDERS PAGE =============== */    
+/* =============== MY ORDERS PAGE =============== MY ORDERS PAGE =============== MY ORDERS PAGE =============== */    
     /*  MY ORDERS PAGE */
     .ordersPage-myOrdersSec {
         width: 100%;
@@ -373,5 +373,102 @@
 
     .my_orders_texts {
         display: none;
+    }
+
+/* =============== LOGIN PAGE =============== LOGIN PAGE =============== LOGIN PAGE =============== */    
+    .login-container {
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+    }
+
+    /* FORM */
+    #login-box {
+        background-image: none;
+        background: white;
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+        overflow: hidden;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    #login-box .round-background,
+    #login-box .mobile-elems {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #login-box .mobile-elems {
+        z-index: 5;
+    }
+
+    #login-box .mobile-elems .text {
+        font-weight: 500;
+    }
+
+    #login-box .mobile-elems .text h3,
+    #login-box .mobile-elems .text h4 {
+        color: white;
+        letter-spacing: 2px;
+        word-spacing: 4px;  
+    }
+
+    #login-box .mobile-elems .image {
+        height: 120px;
+    }
+
+    #login-box .mobile-elems .image img {
+        height: 100%;
+        width: unset;
+    }
+
+    #login-box #input {
+        min-width: fit-content;
+        padding-top: 0;
+    }
+
+    #login-box #input input {
+        font-size: .8rem;
+        color: var(--color-dark);
+        font-weight: 500;
+        border-bottom: 2px solid var(--color-main1);
+    }
+
+    #login-box #left {
+        width: 90%;
+        height: fit-content;
+        position: unset;
+        border-radius: 2rem;
+        box-shadow: 0px 0px 31px 7px rgba(46, 46, 46, 0.205);
+        z-index: 5;
+        background: rgba(255, 255, 255, 0.685);
+    }
+
+    #login-box #right {
+        position: absolute;
+        padding: 0;
+        bottom: -15%;
+        right: -50%;
+        height: 20rem;
+    }
+
+    #login-box #right img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+    }
+
+    #login-box .login-btn {
+        border-radius: 5rem;
+    }
+    
+    #login-box button {
+        border-radius: 5rem;
+        padding: 1rem;
     }
 }

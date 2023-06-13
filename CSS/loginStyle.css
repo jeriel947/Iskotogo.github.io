@@ -2,19 +2,12 @@
     box-sizing: padding-box;
 }
 
-body {
-    background: rgb(243, 141, 141);
+.login-container {
     background-image: url(../images/loginBgImg.png);
     background-repeat: no-repeat;
     background-size: cover;
-    margin: 0;
-}
-
-
-.login-container {
     height: 100vh;
     width: 100vw;
-    background: transparent;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,12 +33,42 @@ form {
     position: relative;
 }
 
-#left .image {
+.image {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#left .image {
     position: absolute;
     top: 1rem;
+}
+
+.round-background,
+.mobile-elems {
+    display: none;
+}
+
+.round-background {
+    position: absolute;
+    width: 35rem;
+    height: 35rem;
+    border-radius: 50%;
+    top: -40%;
+    background: var(--color-gradient2);
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+}
+
+.round-background .image {
+    height: 100%;
+    width: 100%;
+}
+
+.round-background .image img {
+    height: 100%;
+    width: 100%;
+    opacity: .2;
 }
 
 #right {
@@ -66,7 +89,7 @@ input {
     display: block;
     border: none;
     background-color: #ffffff00;
-    border-bottom: 3px solid red;
+    border-bottom: 3px solid var(--color-main1);
     width: 100%;
     padding: 10px;
     font-size: 16px;

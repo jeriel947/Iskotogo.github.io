@@ -70,7 +70,7 @@
                     </div>
                     <ul class="menu">
                         <li>
-                            <a href="">
+                            <a href="HomePage.php">
                                 <div class="icons">
                                     <span class="material-symbols-outlined">
                                         home
@@ -91,6 +91,7 @@
                             </a>
                             <hr>
                         </li>
+                        <?php if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) { ?>
                         <li>
                             <a href="MyOrders.php">
                                 <div class="icons">
@@ -117,6 +118,7 @@
                                 <p>My Profile</p>
                             </a>
                         </li>
+                        <?php } ?>
                     </ul>
                     <div class="side_bar_profile">
                         <?php if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) { ?>
@@ -353,7 +355,14 @@
                     </h3>
                 </div>
                 <div class="cafeterias__container">
-                    <?php foreach ($articles as $article): ?>
+                    <?php 
+                        $counter = 0;
+                        foreach ($articles as $article): 
+                            if ($counter >= 3) {
+                                break;
+                            }
+                            $counter++;
+                    ?>
                         <article class="cafeteria">
                             <div class="caf-image">
                                 <img src="<?php echo $article['image']; ?>" alt="">D
@@ -385,6 +394,7 @@
                 <h3>My Orders</h3>
             </div>
 
+            <?php if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) { ?>
             <div class="my_orders" id="order1">
                 <div class="my_order_profile">
                     <div class="image">
@@ -455,6 +465,7 @@
                 </div>
             </div>
         </div>
+        <?php } ?>
 
         <!--POPUP MESSAGE-->
         <div class="popUp__message__container">

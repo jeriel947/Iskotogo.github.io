@@ -54,9 +54,9 @@
     <nav>
         <div class="container nav__container">
             <!-- MOBILE NAV -->
-            <button id="open_menu_btn">
+            <button id="back-to-prev">
                 <span class="material-symbols-outlined">
-                    menu
+                    arrow_back
                 </span>
             </button>
 
@@ -71,7 +71,7 @@
                     </div>
                     <ul class="menu">
                         <li>
-                            <a href="">
+                            <a href="HomePage.php">
                                 <div class="icons">
                                     <span class="material-symbols-outlined">
                                         home
@@ -199,6 +199,7 @@
             <h3>My Orders</h3>
         </div>
         <!--================== HOME - ORDERS ===================-->
+        <?php if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) { ?>        
         <div class="ordersPage-myOrdersSec">
             
             <div class="my_orders" id="order1">
@@ -275,6 +276,8 @@
                 </div>
             </div>
         </div>
+        <?php } ?>
+
     </section>
     <!--================================ END OF CONTAINER ================================-->
 
