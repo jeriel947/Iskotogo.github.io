@@ -25,7 +25,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="./CSS/MAIN.css">
     <link rel="stylesheet" href="./CSS/HOME.css">
-    <link rel="stylesheet" href="./CSS/PROFILE.css">    
+    <link rel="stylesheet" href="./CSS/PROFILE.css">
     <link rel="stylesheet" href="./CSS/responsiveness.css">
     <!-- SCROLL EFFECTS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -92,32 +92,32 @@
                             <hr>
                         </li>
                         <?php if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) { ?>
-                        <li>
-                            <a href="MyOrders.php">
-                                <div class="icons">
-                                    <span class="material-symbols-outlined">
-                                        receipt
-                                    </span>
-                                </div>
-                                <p>My Orders</p>
-                                <div id="num-of-orders">
-                                    <p>
-                                        2
-                                    </p>
-                                </div>
-                            </a>
-                            <hr>
-                        </li>
-                        <li class="open-profile">
-                            <a>
-                                <div class="icons">
-                                    <span class="material-symbols-outlined">
-                                        person
-                                    </span>
-                                </div>
-                                <p>My Profile</p>
-                            </a>
-                        </li>
+                            <li>
+                                <a href="MyOrders.php">
+                                    <div class="icons">
+                                        <span class="material-symbols-outlined">
+                                            receipt
+                                        </span>
+                                    </div>
+                                    <p>My Orders</p>
+                                    <div id="num-of-orders">
+                                        <p>
+                                            2
+                                        </p>
+                                    </div>
+                                </a>
+                                <hr>
+                            </li>
+                            <li class="open-profile">
+                                <a>
+                                    <div class="icons">
+                                        <span class="material-symbols-outlined">
+                                            person
+                                        </span>
+                                    </div>
+                                    <p>My Profile</p>
+                                </a>
+                            </li>
                         <?php } ?>
                     </ul>
                     <div class="side_bar_profile">
@@ -355,14 +355,14 @@
                     </h3>
                 </div>
                 <div class="cafeterias__container">
-                    <?php 
-                        $counter = 0;
-                        foreach ($articles as $article): 
-                            if ($counter >= 3) {
-                                break;
-                            }
-                            $counter++;
-                    ?>
+                    <?php
+                    $counter = 0;
+                    foreach ($articles as $article):
+                        if ($counter >= 3) {
+                            break;
+                        }
+                        $counter++;
+                        ?>
                         <article class="cafeteria">
                             <div class="caf-image">
                                 <img src="<?php echo $article['image']; ?>" alt="">D
@@ -394,77 +394,100 @@
                 <h3>My Orders</h3>
             </div>
 
-            <?php if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) { ?>
-            <div class="my_orders" id="order1">
-                <div class="my_order_profile">
-                    <div class="image">
-                        <img src="./imgs/SUBMARINE.webp" alt="">
-                    </div>
-                    <div class="my_order_profile_details">
-                        <h4>Carbonara</h4>
-                        <p class="my_order_price">Unit Price:<span>&nbsp; P 20.00</span></p>
-                        <p class="my_order_stall"><i class="bi bi-shop-window"></i>
-                            PUP Lagoon Food Stall 1
-                        </p>
-                    </div>
-                </div>
-                <div class="my_order_details">
-                    <div class="item_name_quantity order_detail">
-                        <div class="item_name">
-                            <p class="label">Item:</p>
-                            <p class="text">Carbonara</p>
-                        </div>
-                        <div class="item_quantity">
-                            <p class="label">Quantity:</p>
-                            <p class="text">2</p>
-                        </div>
-                    </div>
-                    <div class="item_others order_detail">
-                        <p class="label">Others:</p>
-                        <p class="text">None</p>
-                    </div>
-                    <div class="my_order_total order_detail">
-                        <p class="label">Total:</p>
-                        <p class="text">P 40.00</p>
-                    </div>
-                </div>
-            </div>
+            <?php
+            $orderquery = "SELECT o.id, o.item_id, o.store_id, o.customer_id, o.quantity, o.date
+                FROM tbl_orders o
+                WHERE id={$_SESSION['id']}
+                JOIN tbl_menu m ON o.item_id = m.id
+                JOIN tbl_users u ON o.customer_id = u.user_id";
 
-            <div class="my_orders" id="order2">
-                <div class="my_order_profile">
-                    <div class="image">
-                        <img src="./imgs/FEWA.webp" alt="">
+            $orderresult = mysqli_query($con, $orderquery);
+
+            $orders = array();
+
+            while ($row = mysqli_fetch_assoc($orderresult)) {
+                $orderID = $row['id'];
+
+                if (!isset($orders[$orderID])) {
+                    $orders[$orderID] = array(
+                        'itemName' => $row['store_name'],
+                        'itemQuantity' => $row['store_name'],
+                    );
+                }
+            }
+            ?>
+
+            <?php if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) { ?>
+                <div class="my_orders" id="order1">
+                    <div class="my_order_profile">
+                        <div class="image">
+                            <img src="./imgs/SUBMARINE.webp" alt="">
+                        </div>
+                        <div class="my_order_profile_details">
+                            <h4>Carbonara</h4>
+                            <p class="my_order_price">Unit Price:<span>&nbsp; P 20.00</span></p>
+                            <p class="my_order_stall"><i class="bi bi-shop-window"></i>
+                                PUP Lagoon Food Stall 1
+                            </p>
+                        </div>
                     </div>
-                    <div class="my_order_profile_details">
-                        <h4>FEWA</h4>
-                        <p class="my_order_price">Unit Price:<span>&nbsp; P 20.00</span></p>
-                        <p class="my_order_stall"><i class="bi bi-shop-window"></i>
-                            FEWA Stall
-                        </p>
+                    <div class="my_order_details">
+                        <div class="item_name_quantity order_detail">
+                            <div class="item_name">
+                                <p class="label">Item:</p>
+                                <p class="text">Carbonara</p>
+                            </div>
+                            <div class="item_quantity">
+                                <p class="label">Quantity:</p>
+                                <p class="text">2</p>
+                            </div>
+                        </div>
+                        <div class="item_others order_detail">
+                            <p class="label">Others:</p>
+                            <p class="text">None</p>
+                        </div>
+                        <div class="my_order_total order_detail">
+                            <p class="label">Total:</p>
+                            <p class="text">P 40.00</p>
+                        </div>
                     </div>
                 </div>
-                <div class="my_order_details">
-                    <div class="item_name_quantity order_detail">
-                        <div class="item_name">
-                            <p class="label">Item:</p>
-                            <p class="text">FEWA</p>
+
+                <div class="my_orders" id="order2">
+                    <div class="my_order_profile">
+                        <div class="image">
+                            <img src="./imgs/FEWA.webp" alt="">
                         </div>
-                        <div class="item_quantity">
-                            <p class="label">Quantity:</p>
-                            <p class="text">4</p>
+                        <div class="my_order_profile_details">
+                            <h4>FEWA</h4>
+                            <p class="my_order_price">Unit Price:<span>&nbsp; P 20.00</span></p>
+                            <p class="my_order_stall"><i class="bi bi-shop-window"></i>
+                                FEWA Stall
+                            </p>
                         </div>
                     </div>
-                    <div class="item_others order_detail">
-                        <p class="label">Others:</p>
-                        <p class="text">Hotdog istead of footlong. No Cheese</p>
-                    </div>
-                    <div class="my_order_total order_detail">
-                        <p class="label">Total:</p>
-                        <p class="text">P 80.00</p>
+                    <div class="my_order_details">
+                        <div class="item_name_quantity order_detail">
+                            <div class="item_name">
+                                <p class="label">Item:</p>
+                                <p class="text">FEWA</p>
+                            </div>
+                            <div class="item_quantity">
+                                <p class="label">Quantity:</p>
+                                <p class="text">4</p>
+                            </div>
+                        </div>
+                        <div class="item_others order_detail">
+                            <p class="label">Others:</p>
+                            <p class="text">Hotdog istead of footlong. No Cheese</p>
+                        </div>
+                        <div class="my_order_total order_detail">
+                            <p class="label">Total:</p>
+                            <p class="text">P 80.00</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         <?php } ?>
 
         <!--POPUP MESSAGE-->
