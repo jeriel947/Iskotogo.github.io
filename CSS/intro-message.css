@@ -1,0 +1,88 @@
+.intro-message-container {
+    position: fixed;
+    top: 0;
+    z-index: 11;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.466);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+
+.intro-message {
+    padding: 1rem;
+    width: 60%;
+    height: fit-content;
+    background: var(--color-bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 2rem;
+}
+
+#close-intro-message {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: var(--color-dark);
+    cursor: pointer;
+    display: flex;
+    border-radius: .2rem;
+    z-index: 20;
+}
+
+.intro-message .circle-elem {
+    height: 25rem;
+    width: 25rem;
+    background: var(--color-gradient);
+    position: absolute;
+    margin: auto;
+    right: 70%;    
+    border-radius: 50%;
+}
+
+.intro-message .image {
+    height: 15rem;
+    width: 15rem;
+    position: absolute;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    right: 3%;
+}
+
+.intro-message .content {
+    z-index: 11;
+    width: 100%;
+    padding-left: 16rem;
+}
+
+.intro-message .texts {
+    margin: 2rem 0;
+}
+
+.intro-message .texts h2 {
+    color: var(--color-main2);
+    font-weight: 400;
+}
+
+.intro-message .texts p {
+    padding-right: 4rem;
+}
+
+.intro-message .btn {
+    background: var(--color-main2);
+    color: white;
+    padding: .5rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    width: fit-content;
+} 
