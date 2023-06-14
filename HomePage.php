@@ -25,7 +25,8 @@
     <!-- CSS -->
     <link rel="stylesheet" href="./CSS/MAIN.css">
     <link rel="stylesheet" href="./CSS/HOME.css">
-    <link rel="stylesheet" href="./CSS/PROFILE.css">    
+    <link rel="stylesheet" href="./CSS/PROFILE.css">
+    <link rel="stylesheet" href="./CSS/intro-message.css">
     <link rel="stylesheet" href="./CSS/responsiveness.css">
     <!-- SCROLL EFFECTS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -191,6 +192,44 @@
     </nav>
     <!--================================ END OF NAVIGATION BAR ================================-->
 
+
+    <!--================================ INTRODUCTORY MESSEAGE ================================-->
+    <?php if (!isset($_SESSION['user_name']) && !isset($_SESSION['password'])) { ?>    
+    <div class="intro-message-container">
+        <article class="intro-message">
+            <button id="close-intro-message">
+                <span class="material-symbols-outlined">
+                    close
+                </span>
+            </button>
+            <div class="circle-elem">
+                <div class="image">
+                    <img src="images/logo.png">
+                </div>
+            </div>
+            <div class="content">
+                <p id="school-name">Polytechnic University of the Philippines</p>
+                <div class="texts">
+                    <h2>
+                        IskoToGo
+                        <br>
+                        Cafeteria Automation System
+                    </h2>
+                    <p>
+                        hassle no more, your centralized university food ordering system is here
+                    </p>
+                </div>
+                <a href="LoginPage.php" class="btn">
+                    Order Now
+                    <span class="material-symbols-outlined">
+                        shopping_cart
+                    </span>
+                </a>
+            </div>
+        </article>         
+    </div>
+    <?php } ?>
+    <!--================================ END INTRODUCTORY MESSEAGE ================================-->
 
 
     <!--================================ CONTAINER ================================-->
@@ -678,6 +717,7 @@
     <script src="./SCRIPTS/place-order.js"></script>
     <script src="./SCRIPTS/profile-section.js"></script>
     <script src="./SCRIPTS/featured-items.js"></script>
+    <script src="./SCRIPTS/intro-message.js"></script>
 
     <script type="text/javascript">
         var counter = 1;
