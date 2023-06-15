@@ -194,40 +194,40 @@
 
 
     <!--================================ INTRODUCTORY MESSEAGE ================================-->
-    <?php if (!isset($_SESSION['user_name']) && !isset($_SESSION['password'])) { ?>
-        <div class="intro-message-container">
-            <article class="intro-message">
-                <button id="close-intro-message">
+    <?php if (!isset($_SESSION['user_name']) && !isset($_SESSION['password'])) { ?>    
+    <div class="intro-message-container">
+        <article class="intro-message">
+            <button id="close-intro-message">
+                <span class="material-symbols-outlined">
+                    close
+                </span>
+            </button>
+            <div class="circle-elem">
+                <div class="image">
+                    <img src="images/logo.png">
+                </div>
+            </div>
+            <div class="content">
+                <p id="school-name">Polytechnic University of the Philippines</p>
+                <div class="texts">
+                    <h2>
+                        IskoToGo
+                        <br>
+                        Cafeteria Automation System
+                    </h2>
+                    <p>
+                        hassle no more, your centralized university food ordering system is here
+                    </p>
+                </div>
+                <a href="LoginPage.php" class="btn">
+                    Order Now
                     <span class="material-symbols-outlined">
-                        close
+                        shopping_cart
                     </span>
-                </button>
-                <div class="circle-elem">
-                    <div class="image">
-                        <img src="images/logo.png">
-                    </div>
-                </div>
-                <div class="content">
-                    <p id="school-name">Polytechnic University of the Philippines</p>
-                    <div class="texts">
-                        <h2>
-                            IskoToGo
-                            <br>
-                            Cafeteria Automation System
-                        </h2>
-                        <p>
-                            hassle no more, your centralized university food ordering system is here
-                        </p>
-                    </div>
-                    <a href="LoginPage.php" class="btn">
-                        Order Now
-                        <span class="material-symbols-outlined">
-                            shopping_cart
-                        </span>
-                    </a>
-                </div>
-            </article>
-        </div>
+                </a>
+            </div>
+        </article>         
+    </div>
     <?php } ?>
     <!--================================ END INTRODUCTORY MESSEAGE ================================-->
 
@@ -434,81 +434,100 @@
             </div>
 
             <?php
-    //         $orderquery = "SELECT o.id, o.item_id, o.store_id, o.customer_id, o.quantity, o.date
-    // FROM tbl_orders o
-    // INNER JOIN tbl_menu m ON o.item_id = m.id
-    // INNER JOIN tbl_users u ON o.customer_id = u.user_id
-    // WHERE o.customer_id = {$_SESSION['id']}";
-    $orderquery = "SELECT o.id, m.item_id, o.store_id, o.customer_id, o.quantity, o.date, m.item_name, m.item_price
-    FROM tbl_orders o
-    INNER JOIN tbl_menu m ON o.item_id = m.item_id
-    INNER JOIN tbl_users u ON o.customer_id = u.user_id
-    WHERE o.customer_id = {$_SESSION['id']}";
+            $orderquery = "SELECT o.id, o.item_id, o.store_id, o.customer_id, o.quantity, o.date
+                FROM tbl_orders o
+                WHERE id={$_SESSION['id']}
+                JOIN tbl_menu m ON o.item_id = m.id
+                JOIN tbl_users u ON o.customer_id = u.user_id";
 
             $orderresult = mysqli_query($con, $orderquery);
-
-            if (!$orderresult) {
-                die("Query failed: " . mysqli_error($con));
-            }
 
             $orders = array();
 
             while ($row = mysqli_fetch_assoc($orderresult)) {
                 $orderID = $row['id'];
+
                 if (!isset($orders[$orderID])) {
                     $orders[$orderID] = array(
-                        'itemName' => $row['item_name'],
-                        'itemQuantity' => $row['quantity'],
-                        'itemPrice' => $row['item_price']
+                        'itemName' => $row['store_name'],
+                        'itemQuantity' => $row['store_name'],
                     );
                 }
             }
             ?>
+
             <?php if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) { ?>
-                <?php foreach ($orders as $order): ?>
-                    <div class="my_orders" id="order1">
-                        <div class="my_order_profile">
-                            <div class="image">
-                                <img src="./imgs/SUBMARINE.webp" alt="">
-                            </div>
-                            <div class="my_order_profile_details">
-                                <h4>
-                                    <?php echo $order['itemName']; ?>
-                                </h4>
-                                <p class="my_order_price">Unit Price:<span>&nbsp; P 20.00</span></p>
-                                <p class="my_order_stall"><i class="bi bi-shop-window"></i>
-                                    PUP Lagoon Food Stall 1
-                                </p>
-                            </div>
+                <div class="my_orders" id="order1">
+                    <div class="my_order_profile">
+                        <div class="image">
+                            <img src="./imgs/SUBMARINE.webp" alt="">
                         </div>
-                        <div class="my_order_details">
-                            <div class="item_name_quantity order_detail">
-                                <div class="item_name">
-                                    <p class="label">Item:</p>
-                                    <p class="text">
-                                        <?php echo $order['itemName']; ?>
-                                    </p>
-                                </div>
-                                <div class="item_quantity">
-                                    <p class="label">Quantity:</p>
-                                    <p class="text">2</p>
-                                </div>
-                            </div>
-                            <div class="item_others order_detail">
-                                <p class="label">Others:</p>
-                                <p class="text">None</p>
-                            </div>
-                            <div class="my_order_total order_detail">
-                                <p class="label">Total:</p>
-                                <p class="text">P 40.00</p>
-                            </div>
+                        <div class="my_order_profile_details">
+                            <h4>Carbonara</h4>
+                            <p class="my_order_price">Unit Price:<span>&nbsp; P 20.00</span></p>
+                            <p class="my_order_stall"><i class="bi bi-shop-window"></i>
+                                PUP Lagoon Food Stall 1
+                            </p>
                         </div>
                     </div>
-                <?php endforeach; ?>
+                    <div class="my_order_details">
+                        <div class="item_name_quantity order_detail">
+                            <div class="item_name">
+                                <p class="label">Item:</p>
+                                <p class="text">Carbonara</p>
+                            </div>
+                            <div class="item_quantity">
+                                <p class="label">Quantity:</p>
+                                <p class="text">2</p>
+                            </div>
+                        </div>
+                        <div class="item_others order_detail">
+                            <p class="label">Others:</p>
+                            <p class="text">None</p>
+                        </div>
+                        <div class="my_order_total order_detail">
+                            <p class="label">Total:</p>
+                            <p class="text">P 40.00</p>
+                        </div>
+                    </div>
+                </div>
 
-            <?php } ?>
-        </div>
-
+                <div class="my_orders" id="order2">
+                    <div class="my_order_profile">
+                        <div class="image">
+                            <img src="./imgs/FEWA.webp" alt="">
+                        </div>
+                        <div class="my_order_profile_details">
+                            <h4>FEWA</h4>
+                            <p class="my_order_price">Unit Price:<span>&nbsp; P 20.00</span></p>
+                            <p class="my_order_stall"><i class="bi bi-shop-window"></i>
+                                FEWA Stall
+                            </p>
+                        </div>
+                    </div>
+                    <div class="my_order_details">
+                        <div class="item_name_quantity order_detail">
+                            <div class="item_name">
+                                <p class="label">Item:</p>
+                                <p class="text">FEWA</p>
+                            </div>
+                            <div class="item_quantity">
+                                <p class="label">Quantity:</p>
+                                <p class="text">4</p>
+                            </div>
+                        </div>
+                        <div class="item_others order_detail">
+                            <p class="label">Others:</p>
+                            <p class="text">Hotdog istead of footlong. No Cheese</p>
+                        </div>
+                        <div class="my_order_total order_detail">
+                            <p class="label">Total:</p>
+                            <p class="text">P 80.00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
 
         <!--POPUP MESSAGE-->
         <div class="popUp__message__container">
