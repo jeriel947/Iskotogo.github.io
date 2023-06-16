@@ -102,8 +102,17 @@
                                     </div>
                                     <p>My Orders</p>
                                     <div id="num-of-orders">
+                                        <?php
+                                            // Assuming you have the customer's id stored in the session variable $_SESSION['id']
+
+                                            // Perform the SQL query to count the orders
+                                            $sql = "SELECT COUNT(*) AS order_count FROM tbl_orders WHERE customer_id = {$_SESSION['id']}";
+                                            $result = mysqli_query($con, $sql);
+                                            $row = mysqli_fetch_assoc($result);
+                                            $order_count = $row['order_count'];
+                                        ?>
                                         <p>
-                                            2
+                                            <?php echo $order_count; ?>
                                         </p>
                                     </div>
                                 </a>
@@ -414,11 +423,11 @@
             <?php if (isset($_SESSION['id'])) { ?>
             <?php
                 $orderquery = "SELECT o.id, o.item_id, o.store_id, o.customer_id, o.quantity, o.date, o.status, m.item_name, m.item_price, m.item_image, s.store_name
-                FROM tbl_orders o
-                JOIN tbl_menu m ON o.item_id = m.id
-                JOIN tbl_users u ON o.customer_id = u.user_id
-                JOIN tbl_stores s ON o.store_id = s.id
-                WHERE o.customer_id = {$_SESSION['id']} AND o.status = '1' ";
+                                FROM tbl_orders o
+                                JOIN tbl_menu m ON o.item_id = m.id
+                                JOIN tbl_users u ON o.customer_id = u.user_id
+                                JOIN tbl_stores s ON o.store_id = s.id
+                                WHERE o.customer_id = {$_SESSION['id']} AND o.status = '1'";
 
                 $orderresult = mysqli_query($con, $orderquery);
 
