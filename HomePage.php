@@ -45,7 +45,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
         integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- SWIPER JS -->
+    <!-- SWIPER CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 </head>
 
@@ -237,49 +237,27 @@
         <!--================== HOME - NAVIGATION ===================-->
         <div class="home_navigation_section">
             <!--CAROUSEL-->
-            <div class="carousel_container">
-                <div class="slider">
-                    <div class="slide">
-                        <input type="radio" name="radio-btn" id="radio1">
-                        <input type="radio" name="radio-btn" id="radio2">
-                        <input type="radio" name="radio-btn" id="radio3">
-                        <input type="radio" name="radio-btn" id="radio4">
-                        <input type="radio" name="radio-btn" id="radio5">
-
-                        <div class="img_container first">
-                            <img src="./imgs/CarItem1.png" alt="...">
-                        </div>
-                        <div class="img_container">
-                            <img src="./imgs/CarItem1.png" alt="...">
-                        </div>
-                        <div class="img_container">
-                            <img src="./imgs/CarItem1.png" alt="...">
-                        </div>
-                        <div class="img_container">
-                            <img src="./imgs/CarItem1.png" alt="...">
-                        </div>
-                        <div class="img_container">
-                            <img src="./imgs/CarItem1.png" alt="...">
-                        </div>
-
-                        <div class="nav_auto">
-                            <div class="a-b1"></div>
-                            <div class="a-b2"></div>
-                            <div class="a-b3"></div>
-                            <div class="a-b4"></div>
-                            <div class="a-b5"></div>
-                        </div>
+            <div class="swiper mySwiper carouselSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="./imgs/CarItem1.png" alt="...">
                     </div>
-
-                    <div class="nav-m">
-                        <label for="radio1" class="m-btn"></label>
-                        <label for="radio2" class="m-btn"></label>
-                        <label for="radio3" class="m-btn"></label>
-                        <label for="radio4" class="m-btn"></label>
-                        <label for="radio5" class="m-btn"></label>
+                    <div class="swiper-slide">
+                        <img src="./imgs/CarItem1.png" alt="...">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./imgs/CarItem1.png" alt="...">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./imgs/CarItem1.png" alt="...">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./imgs/CarItem1.png" alt="...">
                     </div>
                 </div>
-
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination carousel-pagination"></div>
             </div>
 
             <!--FEATURED ITEMS-->
@@ -723,6 +701,8 @@
 
 
     <!-- JAVASCRIPT -->
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="./SCRIPTS/SCRIPT.js"></script>
     <script src="./SCRIPTS/navbar.js"></script>
     <script src="./SCRIPTS/show-profile.js"></script>
@@ -740,10 +720,27 @@
                 counter = 1;
             }
         }, 5000);
+
     </script>
 
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+        var carouselSwiper = new Swiper(".carouselSwiper", {
+            spaceBetween: 30,
+            centeredSlides: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".carousel-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    </script>
 
     <!-- SCROLL EFFECTS -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>

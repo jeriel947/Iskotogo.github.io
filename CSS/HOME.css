@@ -12,132 +12,47 @@
 }
 
 /*===== CAROUSEL =====*/
-.carousel_container {                   /*SECTION*/
+.carouselSwiper {
     width: 100%;
-    height: 300px;
+    height: 100%;
+    border-radius: 1.2rem;
+}
+
+.carouselSwiper .swiper-slide {
+    text-align: center;
+    font-size: 18px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: auto;
-    overflow: hidden;
     border-radius: 1.2rem;
 }
 
-.slider{
+.carouselSwiper .swiper-slide img {
+    display: block;
+    border-radius: 1.2rem;
     width: 100%;
     height: 100%;
-    border-radius: 1.2rem;
-    overflow: hidden;
-    position: relative;
-}
-
-.slide {
-    width: 500%;
-    height: 300px;
-    display: flex;
-}
-
-.slide input {
-    display: none;
-}
-
-.img_container {  /*st*/
-    width: 20%;
-    border-radius: 1.2rem;
-    transition: var(--transition);
-}
-
-.img_container img {
-    width: auto;
-    height: 100%;
-    width: fit-content;
     object-fit: cover;
 }
 
-/* -------------- BUTTONS (FRONT) -------------- */
-.nav-m {
-    position: absolute;
-    width: 100%;
-    margin-top: -50px;
+.carouselSwiper .carousel-pagination {
     display: flex;
+    gap: 1rem;
+    padding: 1rem;
     justify-content: center;
 }
 
-.m-btn {
-    border: 1px solid var(--color-white);
-    padding: 5px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: var(--transition);
+.carouselSwiper .carousel-pagination span {
+    padding: .4rem;
 }
 
-.m-btn:not(:last-child) {
-    margin-right: 30px;
+.carouselSwiper .swiper-button-next,
+.carouselSwiper .swiper-button-prev {
+    color: white;
 }
 
-.m-btn:hover {
-    background: var(--color-white);
-}
-
-#radio1:checked ~.first {
-    margin-left: 0;
-}
-
-#radio2:checked ~.first {
-    margin-left: -20%;
-}
-
-#radio3:checked ~.first {
-    margin-left: -40%;
-}
-
-#radio4:checked ~.first {
-    margin-left: -60%;
-}
-
-#radio5:checked ~.first {
-    margin-left: -80%;
-}
-
-/* -------------- BUTTONS (AUTO) -------------- */
-.nav_auto {
-    position: absolute;
-    width: 100%;
-    margin-top: 250px;
-    display: flex;
-    justify-content: center;
-}
-
-.nav_auto div {
-    border: 1px solid var(--color-white);
-    padding: 5px;
-    border-radius: 10px;
-    transition: var(--transition);
-}
-
-.nav_auto div:not(:last-child) {
-    margin-right: 30px;
-    justify-content: center;    
-}
-
-#radio1:checked ~ .nav_auto .a-b1 {
-    background: var(--color-white);
-}
-
-#radio2:checked ~ .nav_auto .a-b2 {
-    background: var(--color-white);
-}
-
-#radio3:checked ~ .nav_auto .a-b3 {
-    background: var(--color-white);
-}
-
-#radio4:checked ~ .nav_auto .a-b4 {
-    background: var(--color-white);
-}
-
-#radio5:checked ~ .nav_auto .a-b5 {
-    background: var(--color-white);
+.carouselSwiper .swiper-pagination-bullet-active {
+    background: white;
 }
 
 /*===== FEATURED ITEMS =====*/

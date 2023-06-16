@@ -32,8 +32,12 @@
     color: var(--color-dark);
     cursor: pointer;
     display: flex;
-    border-radius: .2rem;
+    align-items: center;
+    justify-content: center;
     z-index: 20;
+    border-radius: .7rem;
+    height: 2.5rem;
+    width: 2.5rem;
 }
 
 .intro-message .circle-elem {
