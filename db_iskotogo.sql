@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 24, 2023 at 05:42 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Jun 16, 2023 at 05:49 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -82,6 +82,16 @@ CREATE TABLE `tbl_orders` (
   `status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `tbl_orders`
+--
+
+INSERT INTO `tbl_orders` (`id`, `item_id`, `store_id`, `customer_id`, `quantity`, `date`, `status`) VALUES
+(1, 2, 1, 4, 2, '2023-06-16 02:04:36', 1),
+(2, 8, 2, 4, 1, '2023-06-16 02:04:36', 1),
+(3, 13, 5, 12, 5, '2023-06-16 04:55:58', 1),
+(4, 19, 6, 4, 7, '2023-06-16 04:59:08', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -152,6 +162,7 @@ ALTER TABLE `tbl_menu`
 -- Indexes for table `tbl_orders`
 --
 ALTER TABLE `tbl_orders`
+  ADD PRIMARY KEY (`id`),
   ADD KEY `item_id` (`item_id`,`store_id`,`customer_id`),
   ADD KEY `customer_id` (`customer_id`),
   ADD KEY `store_id` (`store_id`);
@@ -178,6 +189,12 @@ ALTER TABLE `tbl_users`
 --
 ALTER TABLE `tbl_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT for table `tbl_orders`
+--
+ALTER TABLE `tbl_orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_stores`
