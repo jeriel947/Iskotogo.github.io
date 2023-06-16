@@ -401,7 +401,7 @@
         gap: .5rem;
     }
 
-    .cafeterias .cafeteria .cafeteria_tags p { 
+    .cafeteria_tags p { 
         font-weight: 200;
         padding: .2rem .5rem;
     }
@@ -441,6 +441,19 @@
 
     .my_orders_texts {
         display: none;
+    }
+
+/* =============== ORDER NOW PAGE =============== ORDER NOW PAGE =============== ORDER NOW PAGE =============== */
+    .order_now_texts {
+        display: none;
+    }
+
+    .stall-container-holder .image {
+        width: 100%;
+    }
+
+    .orderNowSec .stall-container-holder {
+        width: 100%;
     }
 
 /* =============== LOGIN PAGE =============== LOGIN PAGE =============== LOGIN PAGE =============== */    

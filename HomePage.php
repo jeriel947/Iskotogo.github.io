@@ -82,7 +82,7 @@
                             <hr>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="OrderNow.php">
                                 <div class="icons">
                                     <span class="material-symbols-outlined">
                                         shopping_cart
@@ -157,7 +157,7 @@
                     </a>
                 </li>
                 <li id="order-now">
-                    <a href="">
+                    <a href="OrderNow.php">
                         <span class="material-symbols-outlined">
                             shopping_cart
                         </span>
@@ -354,37 +354,37 @@
 
 
             <?php
-            // Assuming you have already established a database connection
-            
-            // Retrieve data from tbl_store
-            $query = "SELECT s.id, s.store_image, s.store_name, m.item_name 
-          FROM tbl_stores s
-          JOIN tbl_menu m ON s.id = m.store_id";
+                // Assuming you have already established a database connection
+                
+                // Retrieve data from tbl_store
+                $query = "SELECT s.id, s.store_image, s.store_name, m.item_name 
+                FROM tbl_stores s
+                JOIN tbl_menu m ON s.id = m.store_id";
 
-            $result = mysqli_query($con, $query);
+                $result = mysqli_query($con, $query);
 
-            $articles = array();
+                $articles = array();
 
-            // Fetch the data and organize it into an array
-            while ($row = mysqli_fetch_assoc($result)) {
-                $storeID = $row['id'];
-                $tag = $row['item_name'];
+                // Fetch the data and organize it into an array
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $storeID = $row['id'];
+                    $tag = $row['item_name'];
 
-                // Check if the store already exists in the articles array
-                $imageData = base64_encode($row['store_image']);
-                if (!isset($articles[$storeID])) {
-                    $image = $row['store_image'] ? "data:image/jpeg;base64, {$imageData}" : '.\images\logo.png';
-                    $articles[$storeID] = array(
-                        'image' => $image,
-                        'title' => $row['store_name'],
-                        'tags' => array($tag),
-                    );
-                } else {
-                    if (count($articles[$storeID]['tags']) < 3) {
-                        $articles[$storeID]['tags'][] = $tag;
+                    // Check if the store already exists in the articles array
+                    $imageData = base64_encode($row['store_image']);
+                    if (!isset($articles[$storeID])) {
+                        $image = $row['store_image'] ? "data:image/jpeg;base64, {$imageData}" : '.\images\logo.png';
+                        $articles[$storeID] = array(
+                            'image' => $image,
+                            'title' => $row['store_name'],
+                            'tags' => array($tag),
+                        );
+                    } else {
+                        if (count($articles[$storeID]['tags']) < 3) {
+                            $articles[$storeID]['tags'][] = $tag;
+                        }
                     }
                 }
-            }
 
             ?>
             <div class="cafeterias">
@@ -395,7 +395,12 @@
                 </div>
                 <div class="cafeterias__container">
                     <?php
+                    $counter = 0;
                     foreach ($articles as $article):
+                        if ($counter >=3) {
+                            break;
+                        }
+                        $counter++;
                         ?>
                         <article class="cafeteria">
                             <div class="caf-image">
@@ -421,44 +426,44 @@
                 </div>
             </div>
         </div>
+
         <!--================== HOME - ORDERS ===================-->
-        <?php if (isset($_SESSION['id'])) { ?>
         <div class="my_orders_section">
             <div class="my_orders_texts">
                 <span class="material-symbols-outlined">receipt</span>
                 <h3>My Orders</h3>
             </div>
-
+            <?php if (isset($_SESSION['id'])) { ?>
             <?php
-            $orderquery = "SELECT o.id, o.item_id, o.store_id, o.customer_id, o.quantity, o.date, o.status, m.item_name, m.item_price, m.item_image, s.store_name
-    FROM tbl_orders o
-    JOIN tbl_menu m ON o.item_id = m.id
-    JOIN tbl_users u ON o.customer_id = u.user_id
-    JOIN tbl_stores s ON o.store_id = s.id
-    WHERE o.customer_id = {$_SESSION['id']} AND o.status = '1' ";
+                $orderquery = "SELECT o.id, o.item_id, o.store_id, o.customer_id, o.quantity, o.date, o.status, m.item_name, m.item_price, m.item_image, s.store_name
+                FROM tbl_orders o
+                JOIN tbl_menu m ON o.item_id = m.id
+                JOIN tbl_users u ON o.customer_id = u.user_id
+                JOIN tbl_stores s ON o.store_id = s.id
+                WHERE o.customer_id = {$_SESSION['id']} AND o.status = '1' ";
 
-            $orderresult = mysqli_query($con, $orderquery);
+                $orderresult = mysqli_query($con, $orderquery);
 
-            if (!$orderresult) {
-                die("Query failed: " . mysqli_error($con));
-            }
-
-            $orders = array();
-
-            while ($row = mysqli_fetch_assoc($orderresult)) {
-                $orderID = $row['id'];
-                $oimageData = base64_encode($row['item_image']);
-                $image = $row['item_image'] ? "data:image/jpeg;base64, {$oimageData}" : '.\images\logo.png';
-                if (!isset($orders[$orderID])) {
-                    $orders[$orderID] = array(
-                        'itemName' => $row['item_name'],
-                        'itemQuantity' => $row['quantity'],
-                        'image' => $image,
-                        'itemPrice' => $row['item_price'],
-                        'storeName' => $row['store_name']
-                    );
+                if (!$orderresult) {
+                    die("Query failed: " . mysqli_error($con));
                 }
-            }
+
+                $orders = array();
+
+                while ($row = mysqli_fetch_assoc($orderresult)) {
+                    $orderID = $row['id'];
+                    $oimageData = base64_encode($row['item_image']);
+                    $image = $row['item_image'] ? "data:image/jpeg;base64, {$oimageData}" : '.\images\logo.png';
+                    if (!isset($orders[$orderID])) {
+                        $orders[$orderID] = array(
+                            'itemName' => $row['item_name'],
+                            'itemQuantity' => $row['quantity'],
+                            'image' => $image,
+                            'itemPrice' => $row['item_price'],
+                            'storeName' => $row['store_name']
+                        );
+                    }
+                }
             ?>
 
             <?php if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) { ?>

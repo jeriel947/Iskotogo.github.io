@@ -19,14 +19,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Orders</title>
+    <title>Order Now</title>
     <link rel="shortcut icon" type="image/x-icon" href="./imgs/LOGO.png" />
 
     <!-- CSS -->
     <link rel="stylesheet" href="./CSS/MAIN.css">
     <link rel="stylesheet" href="./CSS/HOME.css">
     <link rel="stylesheet" href="./CSS/PROFILE.css">
-    <link rel="stylesheet" href="./CSS/my-orders.css">
+    <link rel="stylesheet" href="./CSS/order-now.css">
     <link rel="stylesheet" href="./CSS/responsiveness.css">
     <!-- SCROLL EFFECTS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -59,12 +59,12 @@
                     arrow_back
                 </span>
             </button>
-
+            
             <h3 id="sys_name">
                 <span class="material-symbols-outlined">
-                    receipt
+                    shopping_cart
                 </span>
-                <b>My Orders</b>
+                <b>Order Now</b>
             </h3>
 
             <div class="mobile_nav_container">
@@ -88,7 +88,7 @@
                             <hr>
                         </li>
                         <li>
-                            <a href="OrderNow.php">
+                            <a href="">
                                 <div class="icons">
                                     <span class="material-symbols-outlined">
                                         shopping_cart
@@ -161,7 +161,7 @@
                     </a>
                 </li>
                 <li id="order-now">
-                    <a href="OrderNow.php">
+                    <a href="">
                         <span class="material-symbols-outlined">
                             shopping_cart
                         </span>
@@ -200,95 +200,73 @@
 
     <!--================================ CONTAINER ================================-->
     <section class="container homepage_container">
-        <div class="my_orders_texts">
-            <span class="material-symbols-outlined">receipt</span>
-            <h3>My Orders</h3>
+        <div class="order_now_texts">
+            <span class="material-symbols-outlined">
+                shopping_cart
+            </span>
+            <h3>Order Now</h3>
         </div>
         <!--================== HOME - ORDERS ===================-->
-        <?php if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) { ?>    
         <?php
-            $orderquery = "SELECT o.id, o.item_id, o.store_id, o.customer_id, o.quantity, o.date, m.item_name, m.item_price, m.item_image, s.store_name
-            FROM tbl_orders o
-            JOIN tbl_menu m ON o.item_id = m.id
-            JOIN tbl_users u ON o.customer_id = u.user_id
-            JOIN tbl_stores s ON o.store_id = s.id
-            WHERE o.customer_id = {$_SESSION['id']} AND o.status = '1' ";
+            // Retrieve data from tbl_store
+            $query = "SELECT s.id, s.store_image, s.store_name, m.item_name 
+            FROM tbl_stores s
+            JOIN tbl_menu m ON s.id = m.store_id";
 
-            $orderresult = mysqli_query($con, $orderquery);
+            $result = mysqli_query($con, $query);
 
-            if (!$orderresult) {
-                die("Query failed: " . mysqli_error($con));
-            }
+            $stalls = array();
 
-            $orders = array();
+            // Fetch the data and organize it into an array
+            while ($row = mysqli_fetch_assoc($result)) {
+                $storeID = $row['id'];
+                $tag = $row['item_name'];
 
-            while ($row = mysqli_fetch_assoc($orderresult)) {
-                $orderID = $row['id'];
-                $oimageData = base64_encode($row['item_image']);
-                $image = $row['item_image'] ? "data:image/jpeg;base64, {$oimageData}" : '.\images\logo.png';
-                if (!isset($orders[$orderID])) {
-                    $orders[$orderID] = array(
-                        'itemName' => $row['item_name'],
-                        'itemQuantity' => $row['quantity'],
+                // Check if the store already exists in the articles array
+                $imageData = base64_encode($row['store_image']);
+                if (!isset($stalls[$storeID])) {
+                    $image = $row['store_image'] ? "data:image/jpeg;base64, {$imageData}" : '.\images\logo.png';
+                    $stalls[$storeID] = array(
                         'image' => $image,
-                        'itemPrice' => $row['item_price'],
-                        'storeName' => $row['store_name']
+                        'title' => $row['store_name'],
+                        'tags' => array($tag),
                     );
+                } else {
+                    if (count($stalls[$storeID]['tags']) < 3) {
+                        $stalls[$storeID]['tags'][] = $tag;
+                    }
                 }
             }
+
         ?>
 
-        <?php foreach ($orders as $order): ?>
-            <div class="ordersPage-myOrdersSec">
-
-                <div class="my_orders" id="order1">
-                    <div class="my_order_profile">
-                        <div class="image">
-                            <img src="<?php echo $order['image']; ?>" alt="">
-                        </div>
-                        <div class="my_order_profile_details">
-                            <h4>
-                                <?php echo $order['itemName']; ?>
-                            </h4>
-                            <p class="my_order_price">Unit Price:<span>&nbsp; P
-                                    <?php echo $order['itemPrice']; ?>
-                                </span></p>
-                            <p class="my_order_stall"><i class="bi bi-shop-window"></i>
-                                <?php echo $order['storeName']; ?>
-                            </p>
+        <div class="orderNowSec">
+            <?php foreach ($stalls as $stall): ?>   
+            <div class="stall-container-holder">
+                <div class="stall-container">
+                    <div class="image">
+                        <img src="<?php echo $stall['image']; ?>" alt="">
+                    </div>
+                    <div class="texts">
+                        <h3 class="stall-name">
+                            <?php echo $stall['title']; ?>
+                        </h3>
+                        <div class="cafeteria_tags">
+                            <?php foreach ($stall['tags'] as $tag): ?>
+                                <p>
+                                    <?php echo $tag; ?>
+                                </p>
+                            <?php endforeach; ?>
                         </div>
                     </div>
-                    <div class="my_order_details">
-                        <div class=order-details-right>
-                            <div class="item_name_quantity order_detail">
-                                <div class="item_name">
-                                    <p class="label">Item:</p>
-                                    <p class="text">
-                                        <?php echo $order['itemName']; ?>
-                                    </p>
-                                </div>
-                                <div class="item_quantity">
-                                    <p class="label">Quantity:</p>
-                                    <p class="text">
-                                        <?php echo $order['itemQuantity']; ?>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="item_others order_detail">
-                                <p class="label">Others:</p>
-                                <p class="text">None</p>
-                            </div>
-                        </div>
-                        <div class="my_order_total order_detail">
-                            <p class="label">Total:</p>
-                            <h4 class="text">P
-                                <?php echo ($order['itemPrice'] * $order['itemQuantity']); ?>
-                            </h4>
-                        </div>
-                    </div>
+                    <a href="#">
+                        <p>View Stall</p>
+                        <i class="bi bi-arrow-right-circle-fill"></i>
+                    </a>
                 </div>
-            <?php endforeach; ?>
-        <?php } ?>
+            </div>
+            <?php endforeach; ?>    
+        </div>
     </section>
     <!--================================ END OF CONTAINER ================================-->
 

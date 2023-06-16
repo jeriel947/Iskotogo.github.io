@@ -1,0 +1,100 @@
+.homepage_container {
+    display: flex;
+    flex-direction: column;
+}
+
+.orderNowSec {
+    height: 100%;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.order_now_texts {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+    color: var(--color-main2);
+}
+
+.order_now_texts span{
+    font-size: 2rem;
+}
+
+.order_now_texts h3 {
+    color: var(--color-main2);
+}
+
+.orderNowSec .stall-container-holder {
+    background: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    width: fit-content;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition);
+    padding: .2rem;
+}
+
+.orderNowSec .stall-container-holder:hover {
+    background: var(--color-gradient);
+}
+
+.orderNowSec .stall-container {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    background: white;
+}
+
+.stall-container-holder .image {
+    height: 170px;
+    width: 350px;
+    border-radius: .75rem;
+    overflow: hidden;
+}
+
+.stall-container-holder .image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.stall-container-holder .texts {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.stall-container-holder .cafeteria_tags p { 
+    background: var(--color-bg);
+    color: var(--color-dark);
+    padding: .2rem 1rem;
+    border-radius: .2rem;
+    font-size: .8rem;
+}
+
+.stall-container-holder a {
+    background: var(--color-main2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: .2rem;
+    padding: .5rem .7rem;
+    width: 100%;
+    gap: 1rem;
+    margin-top: .5rem;
+    color: white;
+}
+
+.stall-container-holder a p {
+    color: white;
+    font-weight: 400;
+}
+
+.stall-container-holder a i {
+    transform: scale(1.3);
+}

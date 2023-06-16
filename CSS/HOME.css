@@ -294,7 +294,7 @@
     font-weight: 500;
 }
 
-.cafeterias .cafeteria .cafeteria_tags {
+.cafeteria_tags {
     display: flex;
     gap: .5rem;
     z-index: 1;
