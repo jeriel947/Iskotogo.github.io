@@ -395,12 +395,7 @@
                 </div>
                 <div class="cafeterias__container">
                     <?php
-                    $counter = 0;
                     foreach ($articles as $article):
-                        if ($counter >= 3) {
-                            break;
-                        }
-                        $counter++;
                         ?>
                         <article class="cafeteria">
                             <div class="caf-image">
@@ -427,6 +422,7 @@
             </div>
         </div>
         <!--================== HOME - ORDERS ===================-->
+        <?php if (isset($_SESSION['id'])) { ?>
         <div class="my_orders_section">
             <div class="my_orders_texts">
                 <span class="material-symbols-outlined">receipt</span>
@@ -434,16 +430,12 @@
             </div>
 
             <?php
-    //         $orderquery = "SELECT o.id, o.item_id, o.store_id, o.customer_id, o.quantity, o.date
-    // FROM tbl_orders o
-    // INNER JOIN tbl_menu m ON o.item_id = m.id
-    // INNER JOIN tbl_users u ON o.customer_id = u.user_id
-    // WHERE o.customer_id = {$_SESSION['id']}";
-    $orderquery = "SELECT o.id, m.item_id, o.store_id, o.customer_id, o.quantity, o.date, m.item_name, m.item_price
+            $orderquery = "SELECT o.id, o.item_id, o.store_id, o.customer_id, o.quantity, o.date, o.status, m.item_name, m.item_price, m.item_image, s.store_name
     FROM tbl_orders o
-    INNER JOIN tbl_menu m ON o.item_id = m.item_id
-    INNER JOIN tbl_users u ON o.customer_id = u.user_id
-    WHERE o.customer_id = {$_SESSION['id']}";
+    JOIN tbl_menu m ON o.item_id = m.id
+    JOIN tbl_users u ON o.customer_id = u.user_id
+    JOIN tbl_stores s ON o.store_id = s.id
+    WHERE o.customer_id = {$_SESSION['id']} AND o.status = '1' ";
 
             $orderresult = mysqli_query($con, $orderquery);
 
@@ -455,29 +447,36 @@
 
             while ($row = mysqli_fetch_assoc($orderresult)) {
                 $orderID = $row['id'];
+                $oimageData = base64_encode($row['item_image']);
+                $image = $row['item_image'] ? "data:image/jpeg;base64, {$oimageData}" : '.\images\logo.png';
                 if (!isset($orders[$orderID])) {
                     $orders[$orderID] = array(
                         'itemName' => $row['item_name'],
                         'itemQuantity' => $row['quantity'],
-                        'itemPrice' => $row['item_price']
+                        'image' => $image,
+                        'itemPrice' => $row['item_price'],
+                        'storeName' => $row['store_name']
                     );
                 }
             }
             ?>
+
             <?php if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) { ?>
                 <?php foreach ($orders as $order): ?>
                     <div class="my_orders" id="order1">
                         <div class="my_order_profile">
                             <div class="image">
-                                <img src="./imgs/SUBMARINE.webp" alt="">
+                                <img src="<?php echo $order['image']; ?>" alt="">
                             </div>
                             <div class="my_order_profile_details">
                                 <h4>
                                     <?php echo $order['itemName']; ?>
                                 </h4>
-                                <p class="my_order_price">Unit Price:<span>&nbsp; P 20.00</span></p>
+                                <p class="my_order_price">Unit Price:<span>&nbsp; P
+                                        <?php echo $order['itemPrice']; ?>
+                                    </span></p>
                                 <p class="my_order_stall"><i class="bi bi-shop-window"></i>
-                                    PUP Lagoon Food Stall 1
+                                    <?php echo $order['storeName']; ?>
                                 </p>
                             </div>
                         </div>
@@ -491,7 +490,9 @@
                                 </div>
                                 <div class="item_quantity">
                                     <p class="label">Quantity:</p>
-                                    <p class="text">2</p>
+                                    <p class="text">
+                                        <?php echo $order['itemQuantity']; ?>
+                                    </p>
                                 </div>
                             </div>
                             <div class="item_others order_detail">
@@ -500,14 +501,16 @@
                             </div>
                             <div class="my_order_total order_detail">
                                 <p class="label">Total:</p>
-                                <p class="text">P 40.00</p>
+                                <p class="text">P
+                                    <?php echo ($order['itemPrice'] * $order['itemQuantity']); ?>
+                                </p>
                             </div>
                         </div>
                     </div>
                 <?php endforeach; ?>
-
             <?php } ?>
         </div>
+        <?php } ?>
 
 
         <!--POPUP MESSAGE-->

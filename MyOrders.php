@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="./CSS/MAIN.css">
     <link rel="stylesheet" href="./CSS/HOME.css">
     <link rel="stylesheet" href="./CSS/PROFILE.css">
-    <link rel="stylesheet" href="./CSS/my-orders.css">    
+    <link rel="stylesheet" href="./CSS/my-orders.css">
     <link rel="stylesheet" href="./CSS/responsiveness.css">
     <!-- SCROLL EFFECTS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -199,85 +199,128 @@
             <h3>My Orders</h3>
         </div>
         <!--================== HOME - ORDERS ===================-->
-        <?php if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) { ?>        
-        <div class="ordersPage-myOrdersSec">
-            
-            <div class="my_orders" id="order1">
-                <div class="my_order_profile">
-                    <div class="image">
-                        <img src="./imgs/SUBMARINE.webp" alt="">
-                    </div>
-                    <div class="my_order_profile_details">
-                        <h4>Carbonara</h4>
-                        <p class="my_order_price">Unit Price:<span>&nbsp; P 20.00</span></p>
-                        <p class="my_order_stall"><i class="bi bi-shop-window"></i>
-                            PUP Lagoon Food Stall 1
-                        </p>
-                    </div>
-                </div>
-                <div class="my_order_details">
-                    <div class=order-details-right>
-                        <div class="item_name_quantity order_detail">
-                            <div class="item_name">
-                                <p class="label">Item:</p>
-                                <p class="text">Carbonara</p>
-                            </div>
-                            <div class="item_quantity">
-                                <p class="label">Quantity:</p>
-                                <p class="text">2</p>
-                            </div>
-                        </div>
-                        <div class="item_others order_detail">
-                            <p class="label">Others:</p>
-                            <p class="text">None</p>
-                        </div>
-                    </div>
-                    <div class="my_order_total order_detail">
-                        <p class="label">Total:</p>
-                        <h4 class="text">P 40.00</h4>
-                    </div>
-                </div>
-            </div>
+        <?php
+        $orderquery = "SELECT o.id, o.item_id, o.store_id, o.customer_id, o.quantity, o.date, m.item_name, m.item_price, m.item_image, s.store_name
+    FROM tbl_orders o
+    JOIN tbl_menu m ON o.item_id = m.id
+    JOIN tbl_users u ON o.customer_id = u.user_id
+    JOIN tbl_stores s ON o.store_id = s.id
+    WHERE o.customer_id = {$_SESSION['id']} AND o.status = '1' ";
 
-            <div class="my_orders" id="order2">
-                <div class="my_order_profile">
-                    <div class="image">
-                        <img src="./imgs/FEWA.webp" alt="">
-                    </div>
-                    <div class="my_order_profile_details">
-                        <h4>FEWA</h4>
-                        <p class="my_order_price">Unit Price:<span>&nbsp; P 20.00</span></p>
-                        <p class="my_order_stall"><i class="bi bi-shop-window"></i>
-                            FEWA Stall
-                        </p>
-                    </div>
-                </div>
-                <div class="my_order_details">
-                    <div class=order-details-right>
-                        <div class="item_name_quantity order_detail">
-                            <div class="item_name">
-                                <p class="label">Item:</p>
-                                <p class="text">FEWA</p>
+        $orderresult = mysqli_query($con, $orderquery);
+
+        if (!$orderresult) {
+            die("Query failed: " . mysqli_error($con));
+        }
+
+        $orders = array();
+
+        while ($row = mysqli_fetch_assoc($orderresult)) {
+            $orderID = $row['id'];
+            $oimageData = base64_encode($row['item_image']);
+            $image = $row['item_image'] ? "data:image/jpeg;base64, {$oimageData}" : '.\images\logo.png';
+            if (!isset($orders[$orderID])) {
+                $orders[$orderID] = array(
+                    'itemName' => $row['item_name'],
+                    'itemQuantity' => $row['quantity'],
+                    'image' => $image,
+                    'itemPrice' => $row['item_price'],
+                    'storeName' => $row['store_name']
+                );
+            }
+        }
+        ?>
+
+        <?php if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) { ?>
+            <?php foreach ($orders as $order): ?>
+                <div class="ordersPage-myOrdersSec">
+
+                    <div class="my_orders" id="order1">
+                        <div class="my_order_profile">
+                            <div class="image">
+                                <img src="<?php echo $order['image']; ?>" alt="">
                             </div>
-                            <div class="item_quantity">
-                                <p class="label">Quantity:</p>
-                                <p class="text">4</p>
+                            <div class="my_order_profile_details">
+                                <h4>
+                                    <?php echo $order['itemName']; ?>
+                                </h4>
+                                <p class="my_order_price">Unit Price:<span>&nbsp; P
+                                        <?php echo $order['itemPrice']; ?>
+                                    </span></p>
+                                <p class="my_order_stall"><i class="bi bi-shop-window"></i>
+                                    <?php echo $order['storeName']; ?>
+                                </p>
                             </div>
                         </div>
-                        <div class="item_others order_detail">
-                            <p class="label">Others:</p>
-                            <p class="text">None</p>
+                        <div class="my_order_details">
+                            <div class=order-details-right>
+                                <div class="item_name_quantity order_detail">
+                                    <div class="item_name">
+                                        <p class="label">Item:</p>
+                                        <p class="text">
+                                            <?php echo $order['itemName']; ?>
+                                        </p>
+                                    </div>
+                                    <div class="item_quantity">
+                                        <p class="label">Quantity:</p>
+                                        <p class="text">
+                                            <?php echo $order['itemQuantity']; ?>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="item_others order_detail">
+                                    <p class="label">Others:</p>
+                                    <p class="text">None</p>
+                                </div>
+                            </div>
+                            <div class="my_order_total order_detail">
+                                <p class="label">Total:</p>
+                                <h4 class="text">P
+                                    <?php echo ($order['itemPrice'] * $order['itemQuantity']); ?>
+                                </h4>
+                            </div>
                         </div>
                     </div>
-                    <div class="my_order_total order_detail">
-                        <p class="label">Total:</p>
-                        <h4 class="text">P 80.00</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+                    <!-- <div class="my_orders" id="order2">
+                        <div class="my_order_profile">
+                            <div class="image">
+                                <img src="./imgs/FEWA.webp" alt="">
+                            </div>
+                            <div class="my_order_profile_details">
+                                <h4>FEWA</h4>
+                                <p class="my_order_price">Unit Price:<span>&nbsp; P 20.00</span></p>
+                                <p class="my_order_stall"><i class="bi bi-shop-window"></i>
+                                    FEWA Stall
+                                </p>
+                            </div>
+                        </div>
+                        <div class="my_order_details">
+                            <div class=order-details-right>
+                                <div class="item_name_quantity order_detail">
+                                    <div class="item_name">
+                                        <p class="label">Item:</p>
+                                        <p class="text">FEWA</p>
+                                    </div>
+                                    <div class="item_quantity">
+                                        <p class="label">Quantity:</p>
+                                        <p class="text">4</p>
+                                    </div>
+                                </div>
+                                <div class="item_others order_detail">
+                                    <p class="label">Others:</p>
+                                    <p class="text">None</p>
+                                </div>
+                            </div>
+                            <div class="my_order_total order_detail">
+                                <p class="label">Total:</p>
+                                <h4 class="text">P 80.00</h4>
+                            </div>
+                        </div>
+                    </div> 
+                </div>-->
+            <?php endforeach; ?>
         <?php } ?>
-
     </section>
     <!--================================ END OF CONTAINER ================================-->
 
@@ -308,99 +351,99 @@
             <div class="mySwiper profile-history-container">
                 <!-- INFORMATION -->
                 <div class="swiper-wrapper">
-                <div class="swiper-slide profile-information-details-container">
-                    <div class="profile-information-details">
-                        <div class="profile-information">
-                            <i class="bi bi-circle-fill"></i>
-                            <div class="detail">
-                                <p class="label">Name</p>
-                                <p class="name">Mark Zuckerberg</p>
+                    <div class="swiper-slide profile-information-details-container">
+                        <div class="profile-information-details">
+                            <div class="profile-information">
+                                <i class="bi bi-circle-fill"></i>
+                                <div class="detail">
+                                    <p class="label">Name</p>
+                                    <p class="name">Mark Zuckerberg</p>
+                                </div>
                             </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                            </svg>
                         </div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                            class="bi bi-chevron-right" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
-                        </svg>
-                    </div>
-                    <div class="profile-information-details">
-                        <div class="profile-information">
-                            <i class="bi bi-circle-fill"></i>
-                            <div class="detail">
-                                <p class="label">Section</p>
-                                <p class="name">BSIT 2-2</p>
+                        <div class="profile-information-details">
+                            <div class="profile-information">
+                                <i class="bi bi-circle-fill"></i>
+                                <div class="detail">
+                                    <p class="label">Section</p>
+                                    <p class="name">BSIT 2-2</p>
+                                </div>
                             </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                            </svg>
                         </div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                            class="bi bi-chevron-right" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
-                        </svg>
-                    </div>
-                    <div class="profile-information-details">
-                        <div class="profile-information">
-                            <i class="bi bi-circle-fill"></i>
-                            <div class="detail">
-                                <p class="label">Student Number</p>
-                                <p class="name">2024-03201-MN-0</p>
+                        <div class="profile-information-details">
+                            <div class="profile-information">
+                                <i class="bi bi-circle-fill"></i>
+                                <div class="detail">
+                                    <p class="label">Student Number</p>
+                                    <p class="name">2024-03201-MN-0</p>
+                                </div>
                             </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                            </svg>
                         </div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                            class="bi bi-chevron-right" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
-                        </svg>
-                    </div>
-                    <div class="profile-information-details">
-                        <div class="profile-information">
-                            <i class="bi bi-circle-fill"></i>
-                            <div class="detail">
-                                <p class="label">Password</p>
-                                <p class="name">************</p>
+                        <div class="profile-information-details">
+                            <div class="profile-information">
+                                <i class="bi bi-circle-fill"></i>
+                                <div class="detail">
+                                    <p class="label">Password</p>
+                                    <p class="name">************</p>
+                                </div>
                             </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                            </svg>
                         </div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                            class="bi bi-chevron-right" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
-                        </svg>
                     </div>
-                </div>
 
-                <!-- ORDER HISTORY -->
-                <div class="swiper-slide profile-order-details-container">
-                    <div class="order-history-card">
-                        <p class="date">Today 11:12AM</p>
-                        <div class="order-history-details">
-                            <div class="image">
-                                <img src="./imgs/Arroz Caldo.jpg" alt="">
+                    <!-- ORDER HISTORY -->
+                    <div class="swiper-slide profile-order-details-container">
+                        <div class="order-history-card">
+                            <p class="date">Today 11:12AM</p>
+                            <div class="order-history-details">
+                                <div class="image">
+                                    <img src="./imgs/Arroz Caldo.jpg" alt="">
+                                </div>
+                                <div class="details">
+                                    <p class="name"><span>2 </span>Carbonara</p>
+                                    <p class="prize">P 40.00</p>
+                                </div>
+                                <button class="btn">delete</button>
                             </div>
-                            <div class="details">
-                                <p class="name"><span>2 </span>Carbonara</p>
-                                <p class="prize">P 40.00</p>
+                        </div>
+                        <div class="order-history-card">
+                            <p class="date">Today 11:12AM</p>
+                            <div class="order-history-details">
+                                <div class="image">
+                                    <img src="./imgs/Arroz Caldo.jpg" alt="">
+                                </div>
+                                <div class="details">
+                                    <p class="name"><span>2 </span>Carbonara</p>
+                                    <p class="prize">P 40.00</p>
+                                </div>
+                                <button class="btn">delete</button>
                             </div>
-                            <button class="btn">delete</button>
+                        </div>
+                        <div class="end-line">
+                            <div class="line"></div>
+                            <p>end</p>
+                            <div class="line"></div>
                         </div>
                     </div>
-                    <div class="order-history-card">
-                        <p class="date">Today 11:12AM</p>
-                        <div class="order-history-details">
-                            <div class="image">
-                                <img src="./imgs/Arroz Caldo.jpg" alt="">
-                            </div>
-                            <div class="details">
-                                <p class="name"><span>2 </span>Carbonara</p>
-                                <p class="prize">P 40.00</p>
-                            </div>
-                            <button class="btn">delete</button>
-                        </div>
-                    </div>
-                    <div class="end-line">
-                        <div class="line"></div>
-                        <p>end</p>
-                        <div class="line"></div>
-                    </div>
-                </div>
                 </div>
                 <div class="swiper-pagination profile-history-pagination"></div>
 
@@ -438,4 +481,5 @@
         AOS.init();
     </script>
 </body>
+
 </html>
