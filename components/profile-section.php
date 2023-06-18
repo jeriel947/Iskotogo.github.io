@@ -7,8 +7,8 @@
         <div class="profile-header-container">
             <div class="profile-header">
                 <div class="img-container">
-                    <img src="profile_pics/<?php echo $_SESSION['Lastname']; ?>_profile.jpg" alt="">
-                    <!-- <img src="<?php echo $_SESSION['user_profile']; ?>" alt=""> -->
+                    <?php include 'database/profile-pic.php'; ?>
+                    <img src="<?php echo $image; ?>" alt="">
                 </div>
                 <h4 id="name">
                     <?php echo $_SESSION['Firstname'] . " " . $_SESSION['Lastname'] ?>

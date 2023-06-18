@@ -56,19 +56,19 @@
             <div class="swiper mySwiper carouselSwiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <img src="./imgs/CarItem1.png" alt="...">
+                        <img src="./images/carousel/1.png" alt="...">
                     </div>
                     <div class="swiper-slide">
-                        <img src="./imgs/CarItem1.png" alt="...">
+                        <img src="./images/carousel/2.png" alt="...">
                     </div>
                     <div class="swiper-slide">
-                        <img src="./imgs/CarItem1.png" alt="...">
+                        <img src="./images/carousel/3.png" alt="...">
                     </div>
                     <div class="swiper-slide">
-                        <img src="./imgs/CarItem1.png" alt="...">
+                        <img src="./images/carousel/4.png" alt="...">
                     </div>
                     <div class="swiper-slide">
-                        <img src="./imgs/CarItem1.png" alt="...">
+                        <img src="./images/carousel/5.png" alt="...">                    
                     </div>
                 </div>
                 <div class="swiper-button-next"></div>

@@ -248,6 +248,10 @@
     }
 
 /* =============== HOME - BODY =============== HOME - BODY =============== HOME - BODY =============== */    
+    .homepage_container {
+        padding: 3.5rem 0;
+    }
+
     .my_orders_section {
         display: none;
     }
