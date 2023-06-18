@@ -2,19 +2,7 @@
 <html lang="en">
 
 <head>
-
-    <?php
-    session_start();
-
-    $con = mysqli_connect('localhost', 'root', '', 'db_iskotogo'); // For XAMPP
-    //$con = mysqli_connect('localhost', 'iskotogo', '13579','db_iskotogo'); // For GoDaddy
-    
-    // Check if the connection was successful
-    if (!$con) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
-
-    ?>
+    <?php include 'database/db-connection.php'; ?>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,193 +39,11 @@
 
 <body>
     <!--================================ NAVIGATION BAR ================================-->
-    <nav>
-        <div class="container nav__container">
-            <!-- MOBILE NAV -->
-            <button id="open_menu_btn">
-                <span class="material-symbols-outlined">
-                    menu
-                </span>
-            </button>
-
-            <h3 id="sys_name"><b>Cafeteria Automation System</b></h3>
-            <div class="mobile_nav_container">
-                <div class="container mobile_nav">
-                    <div class="capstone_name">
-                        <a href="HomePage.php">
-                            <img src="./imgs/logo.png" alt="" class="logo__img">
-                            <p>PUP Cafeteria Automation System</p>
-                        </a>
-                    </div>
-                    <ul class="menu">
-                        <li>
-                            <a href="HomePage.php">
-                                <div class="icons">
-                                    <span class="material-symbols-outlined">
-                                        home
-                                    </span>
-                                </div>
-                                <p>Home</p>
-                            </a>
-                            <hr>
-                        </li>
-                        <li>
-                            <a href="OrderNow.php">
-                                <div class="icons">
-                                    <span class="material-symbols-outlined">
-                                        shopping_cart
-                                    </span>
-                                </div>
-                                <p>Order Now</p>
-                            </a>
-                            <hr>
-                        </li>
-                        <?php if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) { ?>
-                            <li>
-                                <a href="MyOrders.php">
-                                    <div class="icons">
-                                        <span class="material-symbols-outlined">
-                                            receipt
-                                        </span>
-                                    </div>
-                                    <p>My Orders</p>
-                                    <div id="num-of-orders">
-                                        <?php
-                                            // Assuming you have the customer's id stored in the session variable $_SESSION['id']
-
-                                            // Perform the SQL query to count the orders
-                                            $sql = "SELECT COUNT(*) AS order_count FROM tbl_orders WHERE customer_id = {$_SESSION['id']}";
-                                            $result = mysqli_query($con, $sql);
-                                            $row = mysqli_fetch_assoc($result);
-                                            $order_count = $row['order_count'];
-                                        ?>
-                                        <p>
-                                            <?php echo $order_count; ?>
-                                        </p>
-                                    </div>
-                                </a>
-                                <hr>
-                            </li>
-                            <li class="open-profile">
-                                <a>
-                                    <div class="icons">
-                                        <span class="material-symbols-outlined">
-                                            person
-                                        </span>
-                                    </div>
-                                    <p>My Profile</p>
-                                </a>
-                            </li>
-                        <?php } ?>
-                    </ul>
-                    <div class="side_bar_profile">
-                        <?php if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) { ?>
-                            <div class="left">
-                                <div class="image">
-                                    <img src="profile_pics/<?php echo $_SESSION['Lastname']; ?>_profile.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <p><b>Fname Lname</b></p>
-                                    <p>Section</p>
-                                </div>
-                            </div>
-                            <a href="#" onclick="performLogout()">
-                                <i class="bi bi-box-arrow-left" id="log-out-btn"></i>
-                            </a>
-                        <?php } ?>
-                    </div>
-                    <button id="close_menu_btn">
-                        <span class="material-symbols-outlined">
-                            close
-                        </span>
-                    </button>
-                </div>
-            </div>
-            <!-- END -- MOBILE NAV -->
-
-            <a href="HomePage.php" id="logo">
-                <img src="./imgs/logo.png" alt="" class="logo__img">
-                <h4>PUP Cafeteria Automation System</h4>
-            </a>
-            <ul class="nav_menu">
-                <li id="homepage_icon">
-                    <a href="HomePage.php">
-                        <span class="material-symbols-outlined">home</span>
-                    </a>
-                </li>
-                <li id="order-now">
-                    <a href="OrderNow.php">
-                        <span class="material-symbols-outlined">
-                            shopping_cart
-                        </span>
-                        <p>
-                            Order Now
-                        </p>
-                    </a>
-                </li>
-                <li id="my-orders">
-                    <a href="MyOrders.php">
-                        <span class="material-symbols-outlined">
-                            receipt
-                        </span>
-                        <p>
-                            My Orders
-                        </p>
-                    </a>
-                </li>
-                <?php if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) { ?>
-                    <li id="profile" class="open-profile">
-                        <img src="profile_pics/<?php echo $_SESSION['Lastname']; ?>_profile.jpg" alt="">
-                    </li>
-                <?php } else { ?>
-                    <li id="login-btn">
-                        <a href="LoginPage.php" class="btn">
-                            <p>Login</p>
-                        </a>
-                    </li>
-                <?php } ?>
-            </ul>
-        </div>
-    </nav>
+    <?php include 'components/navbar.php'; ?>
     <!--================================ END OF NAVIGATION BAR ================================-->
 
-
     <!--================================ INTRODUCTORY MESSEAGE ================================-->
-    <?php if (!isset($_SESSION['user_name']) && !isset($_SESSION['password'])) { ?>
-        <div class="intro-message-container">
-            <article class="intro-message">
-                <button id="close-intro-message">
-                    <span class="material-symbols-outlined">
-                        close
-                    </span>
-                </button>
-                <div class="circle-elem">
-                    <div class="image">
-                        <img src="images/logo.png">
-                    </div>
-                </div>
-                <div class="content">
-                    <p id="school-name">Polytechnic University of the Philippines</p>
-                    <div class="texts">
-                        <h2>
-                            IskoToGo
-                            <br>
-                            Cafeteria Automation System
-                        </h2>
-                        <p>
-                            hassle no more, your centralized university food ordering system is here
-                        </p>
-                    </div>
-                    <a href="LoginPage.php" class="btn">
-                        Order Now
-                        <span class="material-symbols-outlined">
-                            shopping_cart
-                        </span>
-                    </a>
-                </div>
-            </article>
-        </div>
-    <?php } ?>
+    <?php include 'components/intro-message.php'; ?>
     <!--================================ END INTRODUCTORY MESSEAGE ================================-->
 
 
@@ -338,8 +144,6 @@
             </div>
 
             <!--CAFETERIAS-->
-
-
             <?php
                 // Assuming you have already established a database connection
                 
@@ -404,7 +208,7 @@
                                     </p>
                                 <?php endforeach; ?>
                             </div>
-                            <a href="#">
+                            <a href="StallPage.php" class="btn-secondary">
                                 <p>View Stall</p>
                                 <i class="bi bi-arrow-right-circle-fill"></i>
                             </a>
@@ -420,292 +224,18 @@
                 <span class="material-symbols-outlined">receipt</span>
                 <h3>My Orders</h3>
             </div>
-            <?php if (isset($_SESSION['id'])) { ?>
-            <?php
-                $orderquery = "SELECT o.id, o.item_id, o.store_id, o.customer_id, o.quantity, o.date, o.status, m.item_name, m.item_price, m.item_image, s.store_name
-                                FROM tbl_orders o
-                                JOIN tbl_menu m ON o.item_id = m.id
-                                JOIN tbl_users u ON o.customer_id = u.user_id
-                                JOIN tbl_stores s ON o.store_id = s.id
-                                WHERE o.customer_id = {$_SESSION['id']} AND o.status = '1'";
-
-                $orderresult = mysqli_query($con, $orderquery);
-
-                if (!$orderresult) {
-                    die("Query failed: " . mysqli_error($con));
-                }
-
-                $orders = array();
-
-                while ($row = mysqli_fetch_assoc($orderresult)) {
-                    $orderID = $row['id'];
-                    $oimageData = base64_encode($row['item_image']);
-                    $image = $row['item_image'] ? "data:image/jpeg;base64, {$oimageData}" : '.\images\logo.png';
-                    if (!isset($orders[$orderID])) {
-                        $orders[$orderID] = array(
-                            'itemName' => $row['item_name'],
-                            'itemQuantity' => $row['quantity'],
-                            'image' => $image,
-                            'itemPrice' => $row['item_price'],
-                            'storeName' => $row['store_name']
-                        );
-                    }
-                }
-            ?>
-
-            <?php if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) { ?>
-                <?php foreach ($orders as $order): ?>
-                    <div class="my_orders" id="order1">
-                        <div class="my_order_profile">
-                            <div class="image">
-                                <img src="<?php echo $order['image']; ?>" alt="">
-                            </div>
-                            <div class="my_order_profile_details">
-                                <h4>
-                                    <?php echo $order['itemName']; ?>
-                                </h4>
-                                <p class="my_order_price">Unit Price:<span>&nbsp; P
-                                        <?php echo $order['itemPrice']; ?>
-                                    </span></p>
-                                <p class="my_order_stall"><i class="bi bi-shop-window"></i>
-                                    <?php echo $order['storeName']; ?>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="my_order_details">
-                            <div class="item_name_quantity order_detail">
-                                <div class="item_name">
-                                    <p class="label">Item:</p>
-                                    <p class="text">
-                                        <?php echo $order['itemName']; ?>
-                                    </p>
-                                </div>
-                                <div class="item_quantity">
-                                    <p class="label">Quantity:</p>
-                                    <p class="text">
-                                        <?php echo $order['itemQuantity']; ?>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="item_others order_detail">
-                                <p class="label">Others:</p>
-                                <p class="text">None</p>
-                            </div>
-                            <div class="my_order_total order_detail">
-                                <p class="label">Total:</p>
-                                <p class="text">P
-                                    <?php echo ($order['itemPrice'] * $order['itemQuantity']); ?>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-            <?php } ?>
+            <?php include 'components/my-orders.php'; ?>
         </div>
-        <?php } ?>
 
-
-        <!--POPUP MESSAGE-->
-        <div class="popUp__message__container">
-            <div class="popUp__message">
-                <div class="popUp__item__details">
-                    <div class="image">
-                        <img src="./imgs/CORNDOG.jpg" alt="">
-                    </div>
-                    <div class="name_price">
-                        <h4>Corndog</h4>
-                        <p>Unit Price:<span>&nbsp;</span></p>
-                    </div>
-                    <div class="quantity">
-                        <p id="label">Quantity</p>
-                        <div class="input">
-                            <i class="bi bi-dash"></i>
-                            <p id="text">1</p>
-                            <i class="bi bi-plus"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="other_details">
-                    <p>Other details (please specify)</p>
-                    <input type="text" class="other_details_text" name="Other Details"
-                        placeholder="e.g: no hotdog; additional fork; etc." autocomplete="off">
-                </div>
-                <div class="order_summary">
-                    <p>Summary</p>
-                    <div class="content">
-                        <div class="left">
-                            <div class="top">
-                                <p class="summary_item_name">Item: <span>&nbsp;Corndog</span></p>
-                                <p class="summary_item_quantity">Quantity: <span>&nbsp;2</span></p>
-                            </div>
-                            <div class="bottom">
-                                <p>Others:<span>&nbsp;None</span></p>
-                            </div>
-                        </div>
-                        <div class="right">
-                            <p>Total:</p>
-                            <h4 id="total_price">&nbsp;</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="buttons">
-                    <?php if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) { ?>
-                        <button type="button" class="order-btn btn" id="close_btn">Cancel</button>
-                        <button type="submit" class="order-btn btn">Place Order</button>
-                    <?php } else { ?>
-                        <span class="material-symbols-outlined not-logged" id="close_btn">
-                            close
-                        </span>
-                        <a href="#" onclick="performLogout()" class="not-logged btn">
-                            <p>Please Login to Order</p>
-                        </a>
-                    <?php } ?>
-                </div>
-            </div>
-        </div>
+        <!-- POPUP MESSAGE -->
+        <?php include 'components/place-order-popup.php'; ?>
 
     </section>
     <!--================================ END OF CONTAINER ================================-->
 
 
     <!--================================ SHOW PROFILE ================================-->
-    <section class="show-profile">
-        <div class="profile-container">
-            <i class="bi bi-x-square-fill close-profile"></i>
-            <a href="#" onclick="performLogout()">
-                <i class="bi bi-box-arrow-left" id="log-out-btn"></i>
-            </a>
-            <div class="profile-header-container">
-                <div class="profile-header">
-                    <div class="img-container">
-                        <img src="profile_pics/<?php echo $_SESSION['Lastname']; ?>_profile.jpg" alt="">
-                        <!-- <img src="<?php echo $_SESSION['user_profile']; ?>" alt=""> -->
-                    </div>
-                    <h4 id="name">
-                        <?php echo $_SESSION['Firstname'] . " " . $_SESSION['Lastname'] ?>
-                    </h4>
-                    <p id="section">
-                        <?php echo $_SESSION['Section'] ?>
-                    </p>
-                    <div class="profile-label">
-                        <p class="information-label">
-                            Information
-                        </p>
-                        <p class="order-history-label">
-                            Order History
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mySwiper profile-history-container">
-                <!-- INFORMATION -->
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide profile-information-details-container">
-                        <div class="profile-information-details">
-                            <div class="profile-information">
-                                <i class="bi bi-circle-fill"></i>
-                                <div class="detail">
-                                    <p class="label">Name</p>
-                                    <p class="name">
-                                        <?php echo $_SESSION['Firstname'] . " " . $_SESSION['Lastname'] ?>
-                                    </p>
-                                </div>
-                            </div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                class="bi bi-chevron-right" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd"
-                                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
-                            </svg>
-                        </div>
-                        <div class="profile-information-details">
-                            <div class="profile-information">
-                                <i class="bi bi-circle-fill"></i>
-                                <div class="detail">
-                                    <p class="label">Section</p>
-                                    <p class="name">
-                                        <?php echo $_SESSION['Section'] ?>
-                                    </p>
-                                </div>
-                            </div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                class="bi bi-chevron-right" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd"
-                                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
-                            </svg>
-                        </div>
-                        <div class="profile-information-details">
-                            <div class="profile-information">
-                                <i class="bi bi-circle-fill"></i>
-                                <div class="detail">
-                                    <p class="label">Student Number</p>
-                                    <p class="name">
-                                        <?php echo $_SESSION['Studentid']; ?>
-                                    </p>
-                                </div>
-                            </div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                class="bi bi-chevron-right" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd"
-                                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
-                            </svg>
-                        </div>
-                        <div class="profile-information-details">
-                            <div class="profile-information">
-                                <i class="bi bi-circle-fill"></i>
-                                <div class="detail">
-                                    <p class="label">Password</p>
-                                    <p class="name">************</p>
-                                </div>
-                            </div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                class="bi bi-chevron-right" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd"
-                                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
-                            </svg>
-                        </div>
-                    </div>
-
-                    <!-- ORDER HISTORY -->
-                    <div class="swiper-slide profile-order-details-container">
-                        <div class="order-history-card">
-                            <p class="date">Today 11:12AM</p>
-                            <div class="order-history-details">
-                                <div class="image">
-                                    <img src="./imgs/Arroz Caldo.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <p class="name"><span>2 </span>Carbonara</p>
-                                    <p class="prize">P 40.00</p>
-                                </div>
-                                <button class="btn">delete</button>
-                            </div>
-                        </div>
-                        <div class="order-history-card">
-                            <p class="date">Today 11:12AM</p>
-                            <div class="order-history-details">
-                                <div class="image">
-                                    <img src="./imgs/Arroz Caldo.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <p class="name"><span>2 </span>Carbonara</p>
-                                    <p class="prize">P 40.00</p>
-                                </div>
-                                <button class="btn">delete</button>
-                            </div>
-                        </div>
-                        <div class="end-line">
-                            <div class="line"></div>
-                            <p>end</p>
-                            <div class="line"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-pagination profile-history-pagination"></div>
-
-            </div>
-        </div>
-    </section>
+    <?php include 'components/profile-section.php'; ?>
     <!--================================ END - SHOW PROFILE ================================-->
 
 
@@ -718,38 +248,8 @@
     <script src="./SCRIPTS/place-order.js"></script>
     <script src="./SCRIPTS/profile-section.js"></script>
     <script src="./SCRIPTS/featured-items.js"></script>
+    <script src="./SCRIPTS/carousel.js"></script>
     <script src="./SCRIPTS/intro-message.js"></script>
-
-    <script type="text/javascript">
-        var counter = 1;
-        setInterval(function () {
-            document.getElementById('radio' + counter).checked = true;
-            counter++;
-            if (counter > 5) {
-                counter = 1;
-            }
-        }, 5000);
-
-    </script>
-
-    <script>
-        var carouselSwiper = new Swiper(".carouselSwiper", {
-            spaceBetween: 30,
-            centeredSlides: true,
-            autoplay: {
-                delay: 2500,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: ".carousel-pagination",
-                clickable: true,
-            },
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-        });
-    </script>
 
     <!-- SCROLL EFFECTS -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
