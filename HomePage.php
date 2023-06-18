@@ -51,6 +51,7 @@
     <section class="container homepage_container">
         <!--================== HOME - NAVIGATION ===================-->
         <div class="home_navigation_section">
+
             <!--CAROUSEL-->
             <div class="swiper mySwiper carouselSwiper">
                 <div class="swiper-wrapper">
@@ -83,36 +84,7 @@
                     </h3>
                 </div>
 
-                <?php
-                $query = "SELECT item_name, item_price, item_image, store_id FROM tbl_menu GROUP BY store_id";
-
-                $result = mysqli_query($con, $query);
-
-                // Check if the query was successful
-                if ($result) {
-                    $items = array();
-                    // Iterate over the result set and populate the $items array
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        $imageData = base64_encode($row['item_image']);
-                        $image = $row['item_image'] ? "data:image/jpeg;base64, {$imageData}" : '.\images\logo.png';
-                        $items[] = array(
-                            'name' => $row['item_name'],
-                            'price' => $row['item_price'],
-                            'image' => $image,
-                            'store_id' => $row['store_id']
-                        );
-                    }
-
-                    // Free the result set
-                    mysqli_free_result($result);
-
-                } else {
-                    // Query execution failed
-                    die("Error executing query: " . mysqli_error($con));
-                }
-
-
-                ?>
+                <?php include 'database/featured-items.php'; ?>
 
                 <div class="swiper mySwiper featured_items_container">
                     <div class="swiper-wrapper content">
@@ -144,40 +116,8 @@
             </div>
 
             <!--CAFETERIAS-->
-            <?php
-                // Assuming you have already established a database connection
-                
-                // Retrieve data from tbl_store
-                $query = "SELECT s.id, s.store_image, s.store_name, m.item_name 
-                FROM tbl_stores s
-                JOIN tbl_menu m ON s.id = m.store_id";
-
-                $result = mysqli_query($con, $query);
-
-                $articles = array();
-
-                // Fetch the data and organize it into an array
-                while ($row = mysqli_fetch_assoc($result)) {
-                    $storeID = $row['id'];
-                    $tag = $row['item_name'];
-
-                    // Check if the store already exists in the articles array
-                    $imageData = base64_encode($row['store_image']);
-                    if (!isset($articles[$storeID])) {
-                        $image = $row['store_image'] ? "data:image/jpeg;base64, {$imageData}" : '.\images\logo.png';
-                        $articles[$storeID] = array(
-                            'image' => $image,
-                            'title' => $row['store_name'],
-                            'tags' => array($tag),
-                        );
-                    } else {
-                        if (count($articles[$storeID]['tags']) < 3) {
-                            $articles[$storeID]['tags'][] = $tag;
-                        }
-                    }
-                }
-
-            ?>
+            <?php include 'database/cafeterias.php'; ?>
+            
             <div class="cafeterias">
                 <div class="cafeterias_texts">
                     <h3>
@@ -186,23 +126,23 @@
                 </div>
                 <div class="cafeterias__container">
                     <?php
-                    $counter = 0;
-                    foreach ($articles as $article):
-                        if ($counter >=3) {
-                            break;
-                        }
+                        $counter = 0;
+                        foreach ($stalls as $stall):
+                            if ($counter >=3) {
+                                break;
+                            }
                         $counter++;
                         ?>
                         <article class="cafeteria">
                             <div class="caf-image">
-                                <img src="<?php echo $article['image']; ?>" alt="">D
+                                <img src="<?php echo $stall['image']; ?>" alt="">D
                             </div>
                             <div class="shadow"></div>
                             <h3>
-                                <?php echo $article['title']; ?>
+                                <?php echo $stall['title']; ?>
                             </h3>
                             <div class="cafeteria_tags">
-                                <?php foreach ($article['tags'] as $tag): ?>
+                                <?php foreach ($stall['tags'] as $tag): ?>
                                     <p>
                                         <?php echo $tag; ?>
                                     </p>
