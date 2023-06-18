@@ -8,6 +8,7 @@
     display: flex;
     gap: 2rem;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .order_now_texts {

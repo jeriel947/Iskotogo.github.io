@@ -51,6 +51,7 @@
             </span>
             <h3>Order Now</h3>
         </div>
+        
         <!--================== HOME - ORDERS ===================-->
         <?php include 'database/cafeterias.php'; ?>
 
