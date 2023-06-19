@@ -201,6 +201,8 @@
         AOS.init();
     </script>
 </body>
+
+<!--================== FOOTER ===================-->
 <footer>
   <div class="container">
     <div class="footer-content">
