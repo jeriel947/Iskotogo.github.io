@@ -74,7 +74,7 @@
                             <?php endforeach; ?>
                         </div>
                     </div>
-                    <a href="StallPage.php" class="btn-secondary">
+                    <a href="StallPage.php?id=<?php echo $stall['id']; ?>&title=<?php echo urlencode($stall['title']); ?>&tags=<?php echo urlencode(implode(',', $stall['tags'])); ?>" class="btn-secondary">                                
                         <p>Select Stall</p>
                         <i class="bi bi-arrow-right-circle-fill"></i>
                     </a>

@@ -543,4 +543,58 @@
         padding: 1rem;
     }
 
+    /* =============== STALL MENU PAGE =============== ORDER NOW PAGE =============== ORDER NOW PAGE =============== */
+    .stallmenu_container {
+        padding: 1rem 0;
+    }
+
+    .stallmenu_navigation_section {
+        width: 100%;
+    }
+
+    .stall_profile {
+        display: none;
+    }
+
+    .stall_menu_title {
+        display: none;
+    }
+   
+    .mobile_header_texts {
+        display: inline-block;
+        padding: 0 1rem 1rem .5rem;
+        width: 100%;
+        display: flex;
+        gap: .5rem;
+        align-items: center;
+        position: relative;
+    }
+
+    .mobile_header_texts h3,
+    .mobile_header_texts .material-symbols-outlined {
+        color: var(--color-dark);
+        font-weight: 100;
+    }
+
+    .mobile_header_texts .material-symbols-outlined {
+        color: var(--color-gray);
+        transition: var(--transition);
+        cursor: pointer;
+        background: var(--color-bg);
+        padding: 0;
+    }
+
+    .mobile_header_texts .material-symbols-outlined:hover {
+        color: var(--color-dark);
+    }
+
+    .mobile_header_texts .bi-heart {
+        position: absolute;
+        right: 1rem;
+        font-size: 1.2rem;
+        background: var(--color-gradient); 
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke: 1px transparent;
+    }
 }

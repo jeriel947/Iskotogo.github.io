@@ -57,10 +57,11 @@
 
                 <div class="profile_details">
                     <div class="profile_details_texts">
+                        <?php include 'database/stallpage-details.php'; ?>                        
                         <div class="stall_name">
                             <h3>
                                 <i class="bi bi-shop-window"></i>
-                                Unlimited and Refillable Lugaw
+                                <?php echo $title; ?>
                             </h3>
                         </div>
                         <div class="stall_location stall_details">
@@ -78,7 +79,6 @@
                     </div>
                     <p class="hearts_num">
                         <i class="bi bi-heart"></i>
-                        1,669
                     </p>
                 </div>
             </div>
@@ -87,112 +87,44 @@
                 <div class="stall_menu_title">
                     <h3>Menu</h3>
                 </div>
+                <div class="mobile_header_texts">
+                    <span class="material-symbols-outlined prev-page-btn">
+                        arrow_back_ios
+                    </span>
+                    <h4>
+                        <?php echo $title; ?>
+                    </h4>
+                    <i class="bi bi-heart"></i>
+                </div>
                 
                 <div class="menu_container">
+                    <?php include 'database/stallpage-menu.php'; ?>                        
 
-                    <div class="menu_item">
-                        <div class="image">
-                            <img src="./imgs/GotoPlain.jpg" alt="">
-                        </div>
-                        <div class="item_details">
-                            <div class="item_texts">
-                                <p id="item_name">Goto</p>
-                                <P id="item_price">P 20.00</P>
+                    <?php foreach ($items as $item): ?>
+                        <div class="menu_item">
+                            <div class="image">
+                                <img src="<?php echo $item['image']; ?>" alt="">
                             </div>
-                        </div>
-                        <button type="button" class="btn-secondary btn order-item-btn">Order</button>
-                    </div>
-                    <div class="menu_item">
-                        <div class="image">
-                            <img src="./imgs/Arroz Caldo.jpg" alt="">
-                        </div>
-                        <div class="item_details">
-                            <div class="item_texts">
-                                <p id="item_name">Arroz Caldo</p>
-                                <P id="item_price">P 30.00</P>
+                            <div class="item_details">
+                                <div class="item_texts">
+                                    <p id="item_name">
+                                        <?php echo $item['name']; ?>
+                                    </p>
+                                    <P id="item_price">
+                                        P <?php echo $item['price']; ?>
+                                    </P>
+                                </div>
                             </div>
+                            <button type="button" class="btn-secondary btn order-item-btn">Order</button>
                         </div>
-                        <button type="button" class="btn-secondary btn order-item-btn">Order</button>
-                    </div>
-                    <div class="menu_item">
-                        <div class="image">
-                            <img src="./imgs/Lumpia Toge.jpg" alt="">
-                        </div>
-                        <div class="item_details">
-                            <div class="item_texts">
-                                <p id="item_name">Lumpia Toge</p>
-                                <P id="item_price">P 15.00</P>
-                            </div>
-                        </div>
-                        <button type="button" class="btn-secondary btn order-item-btn">Order</button>
-                    </div>
-                    <div class="menu_item">
-                        <div class="image">
-                            <img src="./imgs/Tokwat Baboy.webp" alt="">
-                        </div>
-                        <div class="item_details">
-                            <div class="item_texts">
-                                <p id="item_name">Tokwa't Baboy</p>
-                                <P id="item_price">P 55.00</P>
-                            </div>
-                        </div>
-                        <button type="button" class="btn-secondary btn order-item-btn">Order</button>
-                    </div>
-                    <div class="menu_item">
-                        <div class="image">
-                            <img src="./imgs/GotoPlain.jpg" alt="">
-                        </div>
-                        <div class="item_details">
-                            <div class="item_texts">
-                                <p id="item_name">Goto</p>
-                                <P id="item_price">P 20.00</P>
-                            </div>
-                        </div>
-                        <button type="button" class="btn-secondary btn order-item-btn">Order</button>
-                    </div>
-                    <div class="menu_item">
-                        <div class="image">
-                            <img src="./imgs/Arroz Caldo.jpg" alt="">
-                        </div>
-                        <div class="item_details">
-                            <div class="item_texts">
-                                <p id="item_name">Arroz Caldo</p>
-                                <P id="item_price">P 30.00</P>
-                            </div>
-                        </div>
-                        <button type="button" class="btn-secondary btn">Order</button>
-                    </div>
-                    <div class="menu_item">
-                        <div class="image">
-                            <img src="./imgs/Lumpia Toge.jpg" alt="">
-                        </div>
-                        <div class="item_details">
-                            <div class="item_texts">
-                                <p id="item_name">Lumpia Toge</p>
-                                <P id="item_price">P 15.00</P>
-                            </div>
-                        </div>
-                        <button type="button" class="btn-secondary btn order-item-btn">Order</button>
-                    </div>
-                    <div class="menu_item">
-                        <div class="image">
-                            <img src="./imgs/Tokwat Baboy.webp" alt="">
-                        </div>
-                        <div class="item_details">
-                            <div class="item_texts">
-                                <p id="item_name">Tokwa't Baboy</p>
-                                <P id="item_price">P 55.00</P>
-                            </div>
-                        </div>
-                        <button type="button" class="btn-secondary btn order-item-btn">Order</button>
-                    </div>
+                    <?php endforeach; ?>
 
                 </div>
             </div>
 
         </div>
 
-        <!--================== STALL MENU - ORDERS ===================-->
+        <!--================== MY ORDERS ===================-->
         <div class="my_orders_section">
             <div class="my_orders_texts">
                 <span class="material-symbols-outlined">receipt</span>

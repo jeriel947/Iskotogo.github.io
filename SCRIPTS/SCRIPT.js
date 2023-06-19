@@ -4,7 +4,11 @@ window.addEventListener('scroll', () => {
 })
 
 // GO BACK TO THE PREVIOUS PAGE
-document.querySelector('#back-to-prev').addEventListener('click', function() {
+// document.querySelector('#back-to-prev').addEventListener('click', function() {
+//     history.back(); 
+// });
+
+document.querySelector('.prev-page-btn').addEventListener('click', function() {
     history.back(); 
 });
 

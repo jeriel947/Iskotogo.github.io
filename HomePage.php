@@ -152,6 +152,10 @@
                                 <p>View Stall</p>
                                 <i class="bi bi-arrow-right-circle-fill"></i>
                             </a>
+                            <a href="StallPage.php?id=<?php echo $stall['id']; ?>&title=<?php echo urlencode($stall['title']); ?>&tags=<?php echo urlencode(implode(',', $stall['tags'])); ?>" class="btn-secondary">                                
+                                <p>View Stall</p>
+                                <i class="bi bi-arrow-right-circle-fill"></i>
+                            </a>
                         </article>
                     <?php endforeach; ?>
                 </div>

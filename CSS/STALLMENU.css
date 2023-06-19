@@ -1,5 +1,5 @@
 .stallmenu_container {
-    padding: 4rem 0;
+    padding: 2rem 0;
     display: flex;
     gap: 2rem;
     margin-top: 5rem;
@@ -93,12 +93,15 @@
     padding: 2rem 0 1rem;
 }
 
+.mobile_header_texts {
+    display: none;
+}
+
 .menu_container {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: space-between;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .menu_item {
@@ -129,7 +132,7 @@
 }
 
 .item_texts {
-margin-bottom: 1rem;
+    margin-bottom: 1rem;
 }
 
 .menu_item #item_name {

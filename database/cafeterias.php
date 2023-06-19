@@ -18,6 +18,7 @@
         if (!isset($stalls[$storeID])) {
             $image = $row['store_image'] ? "data:image/jpeg;base64, {$imageData}" : '.\images\logo.png';
             $stalls[$storeID] = array(
+                'id' => $row['id'],
                 'image' => $image,
                 'title' => $row['store_name'],
                 'tags' => array($tag),
