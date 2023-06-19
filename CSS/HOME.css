@@ -623,3 +623,38 @@
 .popUp__message .buttons a.not-logged p {
     color: white;
 }
+
+/*FOOTER*/
+footer {
+  background-color: #f9f9f9;
+  padding: 20px 0;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-content {
+  text-align: center;
+}
+
+.footer-logos img {
+  max-width: 150px;
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  text-align: center;
+  color: #777;
+}
+
+.footer-bottom p {
+  margin: 5px 0;
+}
+
+.footer-bottom a {
+  color: #333;
+  text-decoration: none;
+}
