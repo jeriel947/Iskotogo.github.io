@@ -446,6 +446,11 @@
         width: 100%;
     }
 
+    .gapless_container
+    {
+        gap: 0 !important;
+    }
+
 /* =============== LOGIN PAGE =============== LOGIN PAGE =============== LOGIN PAGE =============== */    
     .login-container {
         height: 100vh;

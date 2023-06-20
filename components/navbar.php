@@ -7,7 +7,12 @@
             </span>
         </button>
 
-        <h3 id="sys_name"><b>Cafeteria Automation System</b></h3>
+        <h3 id="sys_name">
+            <span class="material-symbols-outlined"><?php echo $headerIcon; ?></span>
+            <b>
+                <?php echo $mobileHeaderText; ?>
+            </b>
+        </h3>
         <div class="mobile_nav_container">
             <div class="container mobile_nav">
                 <div class="capstone_name">

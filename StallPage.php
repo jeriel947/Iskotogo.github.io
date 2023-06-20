@@ -12,6 +12,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="./CSS/MAIN.css">
+    <link rel="stylesheet" href="./CSS/HOME.css">
     <link rel="stylesheet" href="./CSS/STALLMENU.css">
     <link rel="stylesheet" href="./CSS/PROFILE.css">
     <link rel="stylesheet" href="./CSS/responsiveness.css">
@@ -38,7 +39,12 @@
 
 <body>
     <!--================================ NAVIGATION BAR ================================-->
-    <?php include 'components/navbar.php'; ?>
+    <?php 
+        include 'database/stallpage-menu.php';
+        $headerIcon = "store";
+        $mobileHeaderText = $storeName;
+        include 'components/navbar.php'; 
+    ?>
     <!--================================ END OF NAVIGATION BAR ================================-->
 
     <!--================================ CONTAINER ================================-->
@@ -47,11 +53,13 @@
         <div class="stallmenu_navigation_section">
             <div class="stall_profile">
                 <div class="image">
+                    <?php include 'database/stallpage-details.php'; ?>                        
                     <div class="img_container">
-                        <img src="./imgs/UNLI LUGAW STALL.png" alt="">
+                        <img src="<?php echo $image; ?>" alt="">
                     </div>
                     <div class="profile_image">
-                        <h1>U</h1>
+                        <h1>
+                            <?php echo strtoupper(substr($title, 0, 1)); ?>                        </h1>
                     </div>
                 </div>
 
@@ -91,9 +99,9 @@
                     <span class="material-symbols-outlined prev-page-btn">
                         arrow_back_ios
                     </span>
-                    <h4>
-                        <?php echo $title; ?>
-                    </h4>
+                    <p>
+                        Back
+                    </p>
                     <i class="bi bi-heart"></i>
                 </div>
                 
@@ -101,7 +109,7 @@
                     <?php include 'database/stallpage-menu.php'; ?>                        
 
                     <?php foreach ($items as $item): ?>
-                        <div class="menu_item">
+                        <div class="menu_item" id="order-item-btn">
                             <div class="image">
                                 <img src="<?php echo $item['image']; ?>" alt="">
                             </div>
@@ -115,7 +123,7 @@
                                     </P>
                                 </div>
                             </div>
-                            <button type="button" class="btn-secondary btn order-item-btn">Order</button>
+                            <button class="btn-secondary btn">Order</button>
                         </div>
                     <?php endforeach; ?>
 
@@ -143,6 +151,10 @@
     <?php include 'components/profile-section.php'; ?>
     <!--================================ END - SHOW PROFILE ================================-->
 
+    <!--================================ SHOW PROFILE ================================-->
+    <?php include 'components/footer.php'; ?>
+    <!--================================ END - SHOW PROFILE ================================-->
+
     <!-- JAVASCRIPT -->
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
@@ -158,30 +170,5 @@
         AOS.init();
     </script>
 
-    <!-- SHOW/HIDE POP MESSAGE -->
-    <script>
-        const showPopup = document.querySelectorAll('.order-item-btn');
-        const closePopup = document.querySelector('#close_btn');
-        const popUpMessage = document.querySelector('.popUp__message__container');
-
-        showPopup.forEach(course => {
-            course.addEventListener('click', () => {
-                popUpMessage.style.display = "flex";
-            })
-        })
-
-        closePopup.addEventListener('click', () => {
-            popUpMessage.style.display = "none";
-        })
-
-        var swiper = new Swiper(".profile-history-container", {
-            spaceBetween: 30,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-        });
-    </script>
 </body>
-
 </html>

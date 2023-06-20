@@ -39,7 +39,11 @@
 
 <body>
     <!--================================ NAVIGATION BAR ================================-->
-    <?php include 'components/navbar.php'; ?>
+    <?php 
+        $headerIcon = "";
+        $mobileHeaderText = "IskoToGo";
+        include 'components/navbar.php'; 
+    ?>
     <!--================================ END OF NAVIGATION BAR ================================-->
 
     <!--================================ INTRODUCTORY MESSEAGE ================================-->
@@ -90,7 +94,7 @@
                     <div class="swiper-wrapper content">
                         <?php foreach ($items as $item): ?>
                             <div class="swiper-slide card">
-                                <div class="card_content">
+                                <div class="card_content" id="order-item-btn">
                                     <div class="image">
                                         <img src="<?php echo $item['image']; ?>" alt="">
                                     </div>

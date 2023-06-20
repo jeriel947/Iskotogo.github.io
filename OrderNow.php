@@ -39,12 +39,16 @@
 
 <body>
     <!--================================ NAVIGATION BAR ================================-->
-    <?php include 'components/navbar.php'; ?>
+    <?php
+        $headerIcon = "shopping_cart";
+        $mobileHeaderText = "Order Now";
+        include 'components/navbar.php'; 
+    ?>
     <!--================================ END OF NAVIGATION BAR ================================-->
 
 
     <!--================================ CONTAINER ================================-->
-    <section class="container homepage_container">
+    <section class="container homepage_container gapless_container">
         <div class="order_now_texts">
             <span class="material-symbols-outlined">
                 shopping_cart
@@ -52,8 +56,17 @@
             <h3>Order Now</h3>
         </div>
         
+        <div class="mobile_header_texts">
+            <span class="material-symbols-outlined prev-page-btn">
+                arrow_back_ios
+            </span>
+            <p>
+                Back
+            </p>
+        </div>
         <!--================== HOME - ORDERS ===================-->
         <?php include 'database/cafeterias.php'; ?>
+
 
         <div class="orderNowSec">
             <?php foreach ($stalls as $stall): ?>   
@@ -74,7 +87,7 @@
                             <?php endforeach; ?>
                         </div>
                     </div>
-                    <a href="StallPage.php?id=<?php echo $stall['id']; ?>&title=<?php echo urlencode($stall['title']); ?>&tags=<?php echo urlencode(implode(',', $stall['tags'])); ?>" class="btn-secondary">                                
+                    <a href="StallPage.php?id=<?php echo $stall['id']; ?>&title=<?php echo urlencode($stall['title']); ?>&tags=<?php echo urlencode(implode(',', $stall['tags'])); ?>&image=<?php echo urldecode($stall['image']); ?>" class="btn-secondary">                                
                         <p>Select Stall</p>
                         <i class="bi bi-arrow-right-circle-fill"></i>
                     </a>
@@ -88,6 +101,10 @@
 
     <!--================================ SHOW PROFILE ================================-->
     <?php include 'components/profile-section.php'; ?>
+    <!--================================ END - SHOW PROFILE ================================-->
+
+    <!--================================ SHOW PROFILE ================================-->
+    <?php include 'components/footer.php'; ?>
     <!--================================ END - SHOW PROFILE ================================-->
 
 

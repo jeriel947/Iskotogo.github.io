@@ -39,16 +39,30 @@
 
 <body>
     <!--================================ NAVIGATION BAR ================================-->
-    <?php include 'components/navbar.php'; ?>
+    <?php
+        $headerIcon = "receipt";
+        $mobileHeaderText = "My Orders";    
+        include 'components/navbar.php'; 
+    ?>
     <!--================================ END OF NAVIGATION BAR ================================-->
 
 
     <!--================================ CONTAINER ================================-->
-    <section class="container homepage_container">
+    <section class="container homepage_container gapless_container">
         <div class="my_orders_texts">
             <span class="material-symbols-outlined">receipt</span>
             <h3>My Orders</h3>
         </div>
+
+        <div class="mobile_header_texts">
+            <span class="material-symbols-outlined prev-page-btn">
+                arrow_back_ios
+            </span>
+            <p>
+                Back
+            </p>
+        </div>
+
         <?php if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) { ?>    
         <?php include 'database/my-orders.php'; ?>        
 
@@ -111,6 +125,9 @@
     <?php include 'components/profile-section.php'; ?>
     <!--================================ END - SHOW PROFILE ================================-->
 
+    <!--================================ SHOW PROFILE ================================-->
+    <?php include 'components/footer.php'; ?>
+    <!--================================ END - SHOW PROFILE ================================-->
 
     <!-- JAVASCRIPT -->
     <script src="./SCRIPTS/SCRIPT.js"></script>

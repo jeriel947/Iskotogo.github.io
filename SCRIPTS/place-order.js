@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     /* SHOW/HIDE POP MESSAGE */
-    const showPopup = document.querySelectorAll('.featured_items_container .card_content');
+    const showPopup = document.querySelectorAll('#order-item-btn');
     const closePopup = document.querySelector('.popUp__message #close_btn');
     /* POPUP ELEMENTS */
     const popUpMessage = document.querySelector('.popUp__message__container');
@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
             totalAmount.textContent = price;
             popUpMessage.querySelector('.image img').src = image;
             
+            popUpMessage.style.display = "flex";
             popUpMessage.style.visibility = "visible";
             
             if (window.innerWidth <= 600) {

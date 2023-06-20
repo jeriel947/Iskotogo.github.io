@@ -320,6 +320,10 @@ footer {
     text-decoration: none;
 }
 
+.mobile_header_texts {
+    display: none;
+}
+
 #profile {
     height: 3.5rem;
     width: 3.5rem;
