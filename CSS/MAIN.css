@@ -284,6 +284,42 @@ nav #sys_name,
     color: var(--color-main2);
 }
 
+
+/* =============== FOOTER =============== */
+footer {
+    background-color: white;
+    padding: 20px 0;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-content {
+    text-align: center;
+}
+
+.footer-logos img {
+    max-width: 150px;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    text-align: center;
+    color: #777;
+}
+
+.footer-bottom p {
+    margin: 5px 0;
+}
+
+.footer-bottom a {
+    color: var(--color-dark);
+    text-decoration: none;
+}
+
 #profile {
     height: 3.5rem;
     width: 3.5rem;
