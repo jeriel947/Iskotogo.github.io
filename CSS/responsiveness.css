@@ -593,13 +593,9 @@
         color: var(--color-dark);
     }
 
-    .mobile_header_texts .bi-heart {
+    .mobile_header_texts .bi {
         position: absolute;
         right: 1rem;
-        font-size: 1.2rem;
-        background: var(--color-gradient); 
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        -webkit-text-stroke: 1px transparent;
+        font-size: 1.2rem; 
     }
 }

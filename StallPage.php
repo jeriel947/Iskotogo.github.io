@@ -59,7 +59,8 @@
                     </div>
                     <div class="profile_image">
                         <h1>
-                            <?php echo strtoupper(substr($title, 0, 1)); ?>                        </h1>
+                            <?php echo strtoupper(substr($title, 0, 1)); ?>                        
+                        </h1>
                     </div>
                 </div>
 
@@ -68,25 +69,31 @@
                         <?php include 'database/stallpage-details.php'; ?>                        
                         <div class="stall_name">
                             <h3>
-                                <i class="bi bi-shop-window"></i>
+                                <span class="material-symbols-outlined">
+                                    store
+                                </span>
                                 <?php echo $title; ?>
                             </h3>
                         </div>
                         <div class="stall_location stall_details">
                             <p>
-                                <i class="bi bi-geo-alt"></i>
-                                PUP Main Bldg. Lagoon Food Stall 1
+                            <span class="material-symbols-outlined">
+                                location_on
+                            </span>                                
+                            PUP Main Bldg. Lagoon Food Stall 1
                             </p>
                         </div>
                         <div class="stall_contact stall_details">
                             <p>
-                                <i class="bi bi-telephone"></i>
-                                (541) 754-3010
+                            <span class="material-symbols-outlined">
+                                call
+                            </span>                                
+                            (541) 754-3010
                             </p>
                         </div>
                     </div>
                     <p class="hearts_num">
-                        <i class="bi bi-heart"></i>
+                        <i class="bi bi-heart" id="heartIcon"></i>
                     </p>
                 </div>
             </div>
@@ -102,7 +109,7 @@
                     <p>
                         Back
                     </p>
-                    <i class="bi bi-heart"></i>
+                    <i class="bi bi-heart" id="heartIcon"></i>
                 </div>
                 
                 <div class="menu_container">
