@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <?php include 'database/db-connection.php'; ?>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -10,6 +12,8 @@
     <!-- CSS -->
     <link rel="stylesheet" href="./CSS/MAIN.css">
     <link rel="stylesheet" href="./CSS/ORDERNOW.css">
+    <link rel="stylesheet" href="./CSS/responsiveness.css">
+
     <!-- SCROLL EFFECTS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <!-- BOOTSTRAP ICONS -->
@@ -28,26 +32,11 @@
 </head>
 <body>
     <!--================================ NAVIGATION BAR ================================-->
-    <nav>
-        <div class="container nav__container">
-            <a href="HOME.html" id="logo"><img src="./imgs/logo.png" alt="" class="logo__img"><h4>PUP Cafeteria Automation System</h4></a>
-            <ul class="nav_menu">
-                <li id="search">
-                    <input type="text" class="other_details_text" name="Other Details" placeholder="Type a keyword" autocomplete="off">
-                    <span class="material-symbols-outlined">search</span>
-                </li>
-                <li id="homepage_icon">
-                    <span class="material-symbols-outlined">home</span>
-                </li>
-                <li id="profile">
-                    <!-- <img src="./imgs/CORNDOG.jpg" alt=""> -->
-                    <img src="<?php echo $_SESSION['user_profile']; ?>" alt="">
-                </li>
-            </ul>
-            <button id="open_menu_btn"><i class="bi bi-list"></i></button>
-            <button id="close_menu_btn"><i class="bi bi-x-lg"></i></button>
-        </div>
-    </nav>
+    <?php 
+        $headerIcon = "";
+        $mobileHeaderText = "IskoToGo";
+        include 'components/navbar.php'; 
+    ?>
     <!--================================ END OF NAVIGATION BAR ================================-->
 
 
@@ -277,6 +266,8 @@
 
     <!-- JAVASCRIPT -->
     <script src="./SCRIPTS/SCRIPT.js"></script>
+    <script src="./SCRIPTS/navbar.js"></script>
+    <script src="./SCRIPTS/show-profile.js"></script>
 
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>

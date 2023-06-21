@@ -16,21 +16,39 @@
         <div class="mobile_nav_container">
             <div class="container mobile_nav">
                 <div class="capstone_name">
-                    <a href="HomePage.php">
-                        <img src="./imgs/logo.png" alt="" class="logo__img">
-                        <p>PUP Cafeteria Automation System</p>
-                    </a>
+                    <?php if ($_SESSION['user_type'] === '1') { ?> <!--VENDORS HOMEPAGE-->   
+                        <a href="AdminPage.php">
+                            <img src="./imgs/logo.png" alt="" class="logo__img">
+                            <p>PUP Cafeteria Automation System</p>
+                        </a>
+                    <?php } elseif ($_SESSION['user_type'] === '2') { ?> <!--USERS HOMEPAGE-->
+                        <a href="HomePage.php">
+                            <img src="./imgs/logo.png" alt="" class="logo__img">
+                            <p>PUP Cafeteria Automation System</p>
+                        </a>
+                    <?php } ?>
                 </div>
                 <ul class="menu">
                     <li>
-                        <a href="HomePage.php">
-                            <div class="icons">
-                                <span class="material-symbols-outlined">
-                                    home
-                                </span>
-                            </div>
-                            <p>Home</p>
-                        </a>
+                        <?php if ($_SESSION['user_type'] === '1') { ?> <!--VENDORS HOMEPAGE-->   
+                            <a href="AdminPage.php">
+                                <div class="icons">
+                                    <span class="material-symbols-outlined">
+                                        home
+                                    </span>
+                                </div>
+                                <p>Home</p>
+                            </a>  
+                        <?php } elseif ($_SESSION['user_type'] === '2') { ?> <!--USERS HOMEPAGE-->
+                            <a href="HomePage.php">
+                                <div class="icons">
+                                    <span class="material-symbols-outlined">
+                                        home
+                                    </span>
+                                </div>
+                                <p>Home</p>
+                            </a>    
+                        <?php } ?>
                         <hr>
                     </li>
                     <li>
@@ -106,16 +124,25 @@
             </div>
         </div>
         <!-- END -- MOBILE NAV -->
-
+        <?php if ($_SESSION['user_type'] === '1') { ?> <!--VENDORS HOMEPAGE-->   
+        <a href="AdminPage.php" id="logo">
+        <?php } elseif ($_SESSION['user_type'] === '2') { ?> <!--USERS HOMEPAGE-->
         <a href="HomePage.php" id="logo">
+        <?php } ?>
             <img src="./imgs/logo.png" alt="" class="logo__img">
             <h4>PUP Cafeteria Automation System</h4>
         </a>
         <ul class="nav_menu">
             <li id="homepage_icon">
-                <a href="HomePage.php">
-                    <span class="material-symbols-outlined">home</span>
-                </a>
+                <?php if ($_SESSION['user_type'] === '1') { ?> <!--VENDORS HOMEPAGE-->   
+                    <a href="AdminPage.php">
+                        <span class="material-symbols-outlined">home</span>
+                    </a>
+                <?php } elseif ($_SESSION['user_type'] === '2') { ?> <!--USERS HOMEPAGE-->
+                    <a href="HomePage.php">
+                        <span class="material-symbols-outlined">home</span>
+                    </a>
+                <?php } ?>
             </li>
             <li id="order-now">
                 <a href="OrderNow.php">
