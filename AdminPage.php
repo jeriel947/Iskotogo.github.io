@@ -58,19 +58,25 @@
           <div class="profile_details_texts">
             <div class="stall_name">
               <h3>
-                <i class="bi bi-shop-window"></i>
+				<span class="material-symbols-outlined">
+					store
+				</span>
                 Unlimited and Refillable Lugaw
               </h3>
             </div>
             <div class="stall_location stall_details">
               <p>
-                <i class="bi bi-geo-alt"></i>
-                PUP Main Bldg. Lagoon Food Stall 1
+			  	<span class="material-symbols-outlined">
+					location_on
+				</span>   
+				PUP Main Bldg. Lagoon Food Stall 1
               </p>
             </div>
             <div class="stall_contact stall_details">
               <p>
-                <i class="bi bi-telephone"></i>
+			  	<span class="material-symbols-outlined">
+					call
+				</span>
                 (541) 754-3010
               </p>
             </div>

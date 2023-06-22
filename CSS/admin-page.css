@@ -64,7 +64,17 @@
   gap: .5rem;
 }
 
-.profile_container .left_profile .profile_details .profile_details_texts i { 
+.profile_container .profile_details .profile_details_texts .stall_name h3 { 
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.profile_container .profile_details .profile_details_texts .stall_name span { 
+  font-size: 2.5rem;
+}
+
+.profile_container .left_profile .profile_details_texts span { 
   background: var(--color-gradient2);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -77,6 +87,9 @@
 .profile_container .left_profile .profile_details .profile_details_texts .stall_details p { 
   font-weight: 500;
   color: var(--color-dark-gray);
+  display: flex;
+  align-items: center;
+  gap: .2rem;
 }
 
 .profile_container .left_profile .profile_details button {
