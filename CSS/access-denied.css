@@ -1,0 +1,47 @@
+section {
+    height: 100vh;
+    margin-top: 2rem;
+}
+
+.access-denied-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    flex-direction: column;
+    height: 100%;
+    gap: 1rem;
+}
+
+.image {
+    height: 20rem;
+    width: fit-content;
+    overflow: hidden;
+    border-radius: .7rem;
+    margin-bottom: .5rem;
+}
+
+.image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.text,
+.text h2 {
+    font-weight: 100;
+    text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+    section {
+        margin-top: 0;
+    }
+
+    .access-denied-container {
+        flex-direction: column;
+    }
+
+    .image {
+        height: 15rem;
+    }
+}
