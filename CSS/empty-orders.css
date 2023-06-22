@@ -1,0 +1,44 @@
+.empty-orders-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.empty-orders-container .image {
+    height: 10rem;
+    width: fit-content;
+    overflow: hidden;
+    border-radius: .7rem;
+    margin-bottom: .5rem;
+    
+}
+
+.empty-orders-container .image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.empty-orders-container .text {
+    text-align: center;
+    width: 100%;
+}
+
+.empty-orders-container .text p {
+    color: var(--color-dark-gray);
+}
+
+.empty-orders-container .text a p{
+    color: var(--color-main2);
+    padding: .5rem 2rem;
+    font-weight: 500;
+    width: 100%;
+}
+
+.empty-orders-container .text a:hover {
+    color: var(--color-main1);
+    transition: var(--transition);
+}
