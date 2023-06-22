@@ -11,7 +11,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="./CSS/MAIN.css">
-    <link rel="stylesheet" href="./CSS/ORDERNOW.css">
+    <link rel="stylesheet" href="./CSS/admin-page.css">
     <link rel="stylesheet" href="./CSS/responsiveness.css">
 
     <!-- SCROLL EFFECTS -->
@@ -40,7 +40,7 @@
     <!--================================ END OF NAVIGATION BAR ================================-->
 
 
-
+    <?php if (isset($_SESSION['user_name']) && isset($_SESSION['password']) && ($_SESSION['user_type'] === '1')) { ?>
     <!--================================ CONTENT CONTAINER ================================-->
     <!-- PROFILE CONTAINER -->
     <section class="container profile_container">
@@ -262,7 +262,9 @@
       </div>
     </section>
     <!--================================ END OF CONTENT CONTAINER ================================-->
-
+    <?php } else { ?>
+      <?php include 'components/admin/access-denied.php'; ?>
+    <?php } ?>
 
     <!-- JAVASCRIPT -->
     <script src="./SCRIPTS/SCRIPT.js"></script>

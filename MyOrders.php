@@ -66,7 +66,8 @@
         <?php if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) { ?>    
         <?php include 'database/my-orders.php'; ?>        
 
-        <?php foreach ($orders as $order): ?>
+        <?php if (!empty($orders)): ?>
+            <?php foreach ($orders as $order): ?>
             <div class="ordersPage-myOrdersSec">
 
                 <div class="my_orders" id="order1">
@@ -116,6 +117,19 @@
                     </div>
                 </div>
             <?php endforeach; ?>
+        <?php else: ?>
+            <?php
+                $orderNorHref = "OrderNow.php";
+                $emptyOrdersText = "Click here to order!"; 
+                include 'components/empty-orders.php'; 
+            ?>
+        <?php endif; ?>
+        <?php } else { ?>
+            <?php
+                $orderNorHref = "LoginPage.php";
+                $emptyOrdersText = "Click here to order!"; 
+                include 'components/empty-orders.php'; 
+            ?>
         <?php } ?>
     </section>
     <!--================================ END OF CONTAINER ================================-->
