@@ -111,7 +111,7 @@
                                         <div class="icon">
                                             <i class="bi bi-chevron-right"></i>
                                         </div>
-                                        <p hidden id='item_id'><?php echo $item['id']?></p>
+                                        <p hidden name='item_id'><?php echo $item['id']?></p>
                                     </div>
                                 </div>
                             </div>

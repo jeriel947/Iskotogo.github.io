@@ -1,5 +1,6 @@
 <?php include 'database/featured-items.php'; ?>
 
+<form action="postOrder.php" method="POST">
     <div class="popUp__message__container">
         <div class="popUp__message">
             <div class="popUp__item__details">
@@ -7,9 +8,9 @@
                     <img src="./imgs/CORNDOG.jpg" alt="">
                 </div>
                 <div class="name_price">
-                    <h4>Corndog</h4>
-                    <p>Unit Price:<span>&nbsp;</span></p>
-                    <p hidden id='item_id'></p>
+                    <h4 name="item_name">Corndog</h4>
+                    <p name="unit_price">Unit Price:<span>&nbsp;</span></p>
+                    <p name='item_id'></p>
                 </div>
                 <div class="quantity">
                     <p id="label">Quantity</p>
@@ -58,3 +59,4 @@
             </div>
         </div>
     </div>
+</form>

@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const itemprice = document.querySelector('.popUp__message .name_price p');
 
 
-    const itemid = document.querySelector('.popUp__message #item_id p');
+    const itemid = document.querySelector('.popUp__message .item_id p');
 
 
     /* QUANTITY ELEMENTS */
