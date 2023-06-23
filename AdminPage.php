@@ -58,18 +58,18 @@
           <div class="profile_details_texts">
             <div class="stall_name">
               <h3>
-				<span class="material-symbols-outlined">
-					store
-				</span>
+                <span class="material-symbols-outlined">
+                  store
+                </span>
                 Unlimited and Refillable Lugaw
               </h3>
             </div>
             <div class="stall_location stall_details">
               <p>
-			  	<span class="material-symbols-outlined">
-					location_on
-				</span>   
-				PUP Main Bldg. Lagoon Food Stall 1
+                <span class="material-symbols-outlined">
+                  location_on
+                </span>   
+				        PUP Main Bldg. Lagoon Food Stall 1
               </p>
             </div>
             <div class="stall_contact stall_details">
@@ -85,29 +85,7 @@
         </div>
       </div>
 
-      <div class="right_profile">
-        <div class="top">
-          <div class="border">
-            <div class="views">
-              <p class="label">Views</p>
-              <p class="top_highlight"><i class="bi bi-eye"></i>&nbsp;11,143</p>
-            </div>
-          </div>
-          <div class="border">
-            <div class="hearts">
-              <p class="label">Hearts</p>
-              <p class="top_highlight"><i class="bi bi-heart"></i>&nbsp;1,669</p>
-            </div>
-          </div>
-        </div>
-        <div class="border">
-          <div class="bottom">
-            <p class="label">Today's Sales</p>
-            <p id="value">P 2,576.00</p>
-            <button type="button" class="view-details-btn btn">View Details</button>
-          </div>
-        </div>
-      </div>
+      <?php include 'components/vendor/dashboard.php'; ?>
     </section>
 
     <!-- ORDERS CONTAINER -->
@@ -117,100 +95,7 @@
           <h3>Active Orders</h3>
         </div>
 
-        <div class="active_orders_list">
-          <div class="active_order_container">
-            <div class="date">
-              <p>Today 11:12PM</p>
-            </div>
-            <div class="active_order">
-              <p>Jherdi Ramos | BSIT22</p>
-              <div class="active_order_details">
-                <div class="left">
-                  <p>Item:<span>&nbsp; Carbonara</span></p>
-                  <p>Quantity:<span>&nbsp; 2</span></p>
-                  <p>Others:<span>&nbsp; None</span></p>
-                </div>
-                <div class="right">
-                  <p>Total:<span>&nbsp;P 40.00</span></p>
-                  <button type="button" class="view-details-btn btn btn-secondary">
-                    <p>Take Order</p>
-                    <i class="bi bi-arrow-right-circle-fill"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="active_order_container">
-            <div class="date">
-              <p>Today 11:12PM</p>
-            </div>
-            <div class="active_order">
-              <p>Jherdi Ramos | BSIT22</p>
-              <div class="active_order_details">
-                <div class="left">
-                  <p>Item:<span>&nbsp; Carbonara</span></p>
-                  <p>Quantity:<span>&nbsp; 2</span></p>
-                  <p>Others:<span>&nbsp; None</span></p>
-                </div>
-                <div class="right">
-                  <p>Total:<span>&nbsp;P 40.00</span></p>
-                  <button type="button" class="view-details-btn btn btn-secondary">
-                    <p>Take Order</p>
-                    <i class="bi bi-arrow-right-circle-fill"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="active_order_container">
-            <div class="date">
-              <p>Today 11:12PM</p>
-            </div>
-            <div class="active_order">
-              <p>Jherdi Ramos | BSIT22</p>
-              <div class="active_order_details">
-                <div class="left">
-                  <p>Item:<span>&nbsp; Carbonara</span></p>
-                  <p>Quantity:<span>&nbsp; 2</span></p>
-                  <p>Others:<span>&nbsp; None</span></p>
-                </div>
-                <div class="right">
-                  <p>Total:<span>&nbsp;P 40.00</span></p>
-                  <button type="button" class="view-details-btn btn btn-secondary">
-                    <p>Take Order</p>
-                    <i class="bi bi-arrow-right-circle-fill"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="active_order_container">
-            <div class="date">
-              <p>Today 11:12PM</p>
-            </div>
-            <div class="active_order">
-              <p>Jherdi Ramos | BSIT22</p>
-              <div class="active_order_details">
-                <div class="left">
-                  <p>Item:<span>&nbsp; Fewa</span></p>
-                  <p>Quantity:<span>&nbsp; 4</span></p>
-                  <p>Others:<span>&nbsp; Hotdog instead of footlong</span></p>
-                </div>
-                <div class="right">
-                  <p>Total:<span>&nbsp;P 40.00</span></p>
-                  <button type="button" class="view-details-btn btn btn-secondary">
-                    <p>Take Order</p>
-                    <i class="bi bi-arrow-right-circle-fill"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
+        <?php include 'components/vendor/active-orders.php'; ?>
       </div>
 
       <div class="order_history">
@@ -218,53 +103,7 @@
           <h3>Order History</h3>
         </div>
 
-        <div class="order_history_list">
-          <div class="order_history_container">
-            <div class="date">
-              <p>10-21-21 11:12PM</p>
-            </div>
-            <div class="order_history_details_container">
-              <div class="order_history_details">
-                <p class="name">Albert Einstein | BSPhy31</p>
-                <p>1 Chicken Pesto > P 20.00</p>
-              </div>
-              <div class="order_history_buttons">
-                  <button type="button" class="view-details-btn btn delete-btn">Delete</button>
-                  <button type="button" class="view-details-btn btn btn-secondary review-btn">Review</button>
-              </div>
-            </div>
-          </div>
-          <div class="order_history_container">
-            <div class="date">
-              <p>10-21-21 11:12PM</p>
-            </div>
-            <div class="order_history_details_container">
-              <div class="order_history_details">
-                <p class="name">Albert Einstein | BSPhy31</p>
-                <p>1 Chicken Pesto > P 20.00</p>
-              </div>
-              <div class="order_history_buttons">
-                  <button type="button" class="view-details-btn btn delete-btn">Delete</button>
-                  <button type="button" class="view-details-btn btn btn-secondary review-btn">Review</button>
-              </div>
-            </div>
-          </div>
-          <div class="order_history_container">
-            <div class="date">
-              <p>10-21-21 11:12PM</p>
-            </div>
-            <div class="order_history_details_container">
-              <div class="order_history_details">
-                <p class="name">Albert Einstein | BSPhy31</p>
-                <p>1 Chicken Pesto > P 20.00</p>
-              </div>
-              <div class="order_history_buttons">
-                  <button type="button" class="view-details-btn btn delete-btn">Delete</button>
-                  <button type="button" class="view-details-btn btn btn-secondary review-btn">Review</button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <?php include 'components/vendor/order-history.php'; ?>
       </div>
     </section>
     <!--================================ END OF CONTENT CONTAINER ================================-->

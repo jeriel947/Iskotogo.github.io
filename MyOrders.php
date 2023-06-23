@@ -129,7 +129,7 @@
             <?php
                 $emptyMsg = "Welcome to IskoToGo";
                 $orderNorHref = "LoginPage.php";
-                $emptyOrdersText = "Click here to order!"; 
+                $emptyOrdersText = "Swipe to your fav isko foods here!"; 
                 include 'components/empty-orders.php'; 
             ?>
         <?php } ?>
