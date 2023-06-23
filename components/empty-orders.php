@@ -7,7 +7,7 @@
         </div>
         <div class="text">
             <p>
-                You don't have existing orders.
+                <?php echo $emptyMsg; ?>
             </p>
             <a href="<?php echo $orderNorHref; ?>" >
                 <p>

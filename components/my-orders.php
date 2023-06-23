@@ -51,6 +51,7 @@
         <?php endforeach; ?>
         <?php else: ?>
             <?php
+                $emptyMsg = "You don't have existing orders";
                 $orderNorHref = "OrderNow.php";
                 $emptyOrdersText = "Click here to order!"; 
                 include 'components/empty-orders.php'; 
@@ -59,8 +60,9 @@
     <?php } ?>
 <?php } else { ?>
     <?php
+        $emptyMsg = "Welcome to IskoToGo";
         $orderNorHref = "LoginPage.php";
-        $emptyOrdersText = "Click here to order!"; 
+        $emptyOrdersText = "Swipe to your fav isko foods here!"; 
         include 'components/empty-orders.php'; 
     ?>
 <?php } ?>
