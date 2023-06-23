@@ -99,7 +99,7 @@
                                         <img src="<?php echo $item['image']; ?>" alt="">
                                     </div>
 
-                                    <div class="fItem_details">
+                                    <div class="fItem_details" id=<?php echo $item['id']?> >
                                         <div class="fItem_texts">
                                             <p id="item_name">
                                                 <?php echo $item['name']; ?>
@@ -111,6 +111,7 @@
                                         <div class="icon">
                                             <i class="bi bi-chevron-right"></i>
                                         </div>
+                                        <p hidden id='item_id'><?php echo $item['id']?></p>
                                     </div>
                                 </div>
                             </div>

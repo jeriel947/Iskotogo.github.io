@@ -7,6 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const popUpMessageContent = document.querySelector('.popUp__message');
     const itemname = document.querySelector('.popUp__message .name_price h4');
     const itemprice = document.querySelector('.popUp__message .name_price p');
+
+
+    const itemid = document.querySelector('.popUp__message #item_id p');
+
+
     /* QUANTITY ELEMENTS */
     const subBtn = document.querySelector('.popUp__item__details .quantity .bi-dash');
     const addBtn = document.querySelector('.popUp__item__details .quantity .bi-plus');    
@@ -25,6 +30,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const item = featuredItem.querySelector('#item_name').textContent.trim();
             const price = featuredItem.querySelector('#item_price').textContent.trim();
             const image = featuredItem.querySelector('img').src;
+            
+            const identification = featuredItem.querySelector('#item_id').textContent.trim();
+
             /* -- MODAL DATA */
             const quantity = popUpMessageContent.querySelector('.quantity #text').textContent.trim();
             /* POPULATE THE MODAL*/
@@ -34,6 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
             itemprice.querySelector('span').textContent = "\u00A0" + price;
             totalAmount.textContent = price;
             popUpMessage.querySelector('.image img').src = image;
+
+            itemid.innerHTML = "replace";
             
             popUpMessage.style.display = "flex";
             popUpMessage.style.visibility = "visible";
