@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 16, 2023 at 05:49 AM
+-- Generation Time: Jun 23, 2023 at 05:51 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -79,14 +79,14 @@ CREATE TABLE `tbl_orders` (
   `customer_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
   `date` datetime NOT NULL,
-  `status` tinyint(1) NOT NULL
+  `order_status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_orders`
 --
 
-INSERT INTO `tbl_orders` (`id`, `item_id`, `store_id`, `customer_id`, `quantity`, `date`, `status`) VALUES
+INSERT INTO `tbl_orders` (`id`, `item_id`, `store_id`, `customer_id`, `quantity`, `date`, `order_status`) VALUES
 (1, 2, 1, 4, 2, '2023-06-16 02:04:36', 1),
 (2, 8, 2, 4, 1, '2023-06-16 02:04:36', 1),
 (3, 13, 5, 12, 5, '2023-06-16 04:55:58', 1),
@@ -102,6 +102,9 @@ CREATE TABLE `tbl_stores` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `store_name` varchar(30) NOT NULL,
+  `Location` varchar(100) DEFAULT NULL,
+  `Contact` varchar(100) DEFAULT NULL,
+  `Likes` bigint(20) DEFAULT NULL,
   `store_image` longblob DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -109,12 +112,12 @@ CREATE TABLE `tbl_stores` (
 -- Dumping data for table `tbl_stores`
 --
 
-INSERT INTO `tbl_stores` (`id`, `user_id`, `store_name`, `store_image`) VALUES
-(1, 12, 'Jabee', NULL),
-(2, 7, 'mackdo', NULL),
-(5, 6, 'FFC', NULL),
-(6, 8, 'manang isaw', NULL),
-(7, 4, 'bandoks', NULL);
+INSERT INTO `tbl_stores` (`id`, `user_id`, `store_name`, `Location`, `Contact`, `Likes`, `store_image`) VALUES
+(1, 12, 'Jabee', NULL, NULL, NULL, NULL),
+(2, 7, 'mackdo', NULL, NULL, NULL, NULL),
+(5, 6, 'FFC', NULL, NULL, NULL, NULL),
+(6, 8, 'manang isaw', NULL, NULL, NULL, NULL),
+(7, 4, 'bandoks', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
