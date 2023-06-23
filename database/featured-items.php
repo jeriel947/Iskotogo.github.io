@@ -1,5 +1,5 @@
 <?php
-    $query = "SELECT item_name, item_price, item_image, store_id FROM tbl_menu GROUP BY store_id";
+    $query = "SELECT id, item_name, item_price, item_image, store_id FROM tbl_menu GROUP BY store_id";
 
     $result = mysqli_query($con, $query);
 
@@ -11,6 +11,7 @@
             $imageData = base64_encode($row['item_image']);
             $image = $row['item_image'] ? "data:image/jpeg;base64, {$imageData}" : '.\images\logo.png';
             $items[] = array(
+                'id' => $row['id'],
                 'name' => $row['item_name'],
                 'price' => $row['item_price'],
                 'image' => $image,

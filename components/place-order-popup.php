@@ -1,3 +1,5 @@
+<?php include 'database/featured-items.php'; ?>
+
 <div class="popUp__message__container">
     <div class="popUp__message">
         <div class="popUp__item__details">
