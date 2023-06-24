@@ -38,6 +38,11 @@
 </head>
 
 <body>
+
+    <div class="loader-container">
+        <span class="loader"></span>        
+    </div>
+
     <!--================================ NAVIGATION BAR ================================-->
     <?php
         $headerIcon = "shopping_cart";
@@ -109,21 +114,14 @@
 
 
     <!-- JAVASCRIPT -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="./SCRIPTS/SCRIPT.js"></script>
     <script src="./SCRIPTS/navbar.js"></script>
     <script src="./SCRIPTS/show-profile.js"></script>
     <script src="./SCRIPTS/place-order.js"></script>
     <script src="./SCRIPTS/profile-section.js"></script>
     <script src="./SCRIPTS/featured-items.js"></script>
-
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-
-    <!-- SCROLL EFFECTS -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
 </body>
 
 </html>

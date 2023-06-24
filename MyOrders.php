@@ -38,6 +38,10 @@
 </head>
 
 <body>
+    
+    <div class="loader-container">
+        <span class="loader"></span>        
+    </div>
     <!--================================ NAVIGATION BAR ================================-->
     <?php
         $headerIcon = "receipt";

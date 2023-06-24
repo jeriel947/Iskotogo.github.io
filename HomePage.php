@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="./CSS/HOME.css">
     <link rel="stylesheet" href="./CSS/PROFILE.css">
     <link rel="stylesheet" href="./CSS/intro-message.css">
+    <link rel="stylesheet" href="./CSS/loader.css">
     <link rel="stylesheet" href="./CSS/responsiveness.css">
     <!-- SCROLL EFFECTS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -38,6 +39,11 @@
 </head>
 
 <body>
+
+    <div class="loader-container">
+        <span class="loader"></span>        
+    </div>
+
     <!--================================ NAVIGATION BAR ================================-->
     <?php 
         $headerIcon = "";
@@ -45,6 +51,7 @@
         include 'components/navbar.php'; 
     ?>
     <!--================================ END OF NAVIGATION BAR ================================-->
+
 
     <!--================================ INTRODUCTORY MESSEAGE ================================-->
     <?php include 'components/intro-message.php'; ?>
@@ -111,7 +118,6 @@
                                         <div class="icon">
                                             <i class="bi bi-chevron-right"></i>
                                         </div>
-                                        <p hidden name='item_id'><?php echo $item['id']?></p>
                                     </div>
                                 </div>
                             </div>
@@ -187,12 +193,14 @@
     <?php include 'components/profile-section.php'; ?>
     <!--================================ END - SHOW PROFILE ================================-->
 
+
     <!--================================ SHOW PROFILE ================================-->
     <?php include 'components/footer.php'; ?>
     <!--================================ END - SHOW PROFILE ================================-->
 
 
     <!-- JAVASCRIPT -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="./SCRIPTS/SCRIPT.js"></script>
     <script src="./SCRIPTS/navbar.js"></script>
@@ -202,11 +210,9 @@
     <script src="./SCRIPTS/featured-items.js"></script>
     <script src="./SCRIPTS/carousel.js"></script>
     <script src="./SCRIPTS/intro-message.js"></script>
-
+    
     <!-- SCROLL EFFECTS -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
+    
+
 </body>
 </html>

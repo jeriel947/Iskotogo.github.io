@@ -29,9 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
             /* GET DATA FROM FEATURED ITEM */
             const item = featuredItem.querySelector('#item_name').textContent.trim();
             const price = featuredItem.querySelector('#item_price').textContent.trim();
-            const image = featuredItem.querySelector('img').src;
-            
-            const identification = featuredItem.querySelector('#item_id').textContent.trim();
+            const image = featuredItem.querySelector('img').src;            
 
             /* -- MODAL DATA */
             const quantity = popUpMessageContent.querySelector('.quantity #text').textContent.trim();
@@ -42,9 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
             itemprice.querySelector('span').textContent = "\u00A0" + price;
             totalAmount.textContent = price;
             popUpMessage.querySelector('.image img').src = image;
-
-            itemid.innerHTML = "replace";
             
+            /* DISPLAY THE MODAL */
             popUpMessage.style.display = "flex";
             popUpMessage.style.visibility = "visible";
             
