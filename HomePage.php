@@ -41,7 +41,7 @@
 <body>
 
     <div class="loader-container">
-        <span class="loader"></span>        
+        <span class="loader"></span>
     </div>
 
     <!--================================ NAVIGATION BAR ================================-->

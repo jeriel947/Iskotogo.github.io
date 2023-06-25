@@ -551,6 +551,7 @@
     /* =============== STALL MENU PAGE =============== ORDER NOW PAGE =============== ORDER NOW PAGE =============== */
     .stallmenu_container {
         padding: 1rem 0;
+        gap: 0;
     }
 
     .stallmenu_navigation_section {
@@ -563,6 +564,14 @@
 
     .stall_menu_title {
         display: none;
+    }
+
+    .stallmenu_container .menu_item {
+        width: 10rem;
+    }
+
+    .stallmenu_container .menu_item .image {
+        height: 7rem;
     }
    
     .mobile_header_texts {
