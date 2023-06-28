@@ -133,6 +133,14 @@
                     <h3>
                         Cafeterias/Stalls
                     </h3>
+                    <a href="OrderNow.php">
+                        <h3>
+                            See All
+                        </h3>
+                        <span class="material-symbols-outlined">
+                            arrow_forward
+                        </span>
+                    </a>
                 </div>
                 <div class="cafeterias__container">
                     <?php

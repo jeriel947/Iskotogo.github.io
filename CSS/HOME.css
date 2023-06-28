@@ -161,6 +161,30 @@
 
 .cafeterias .cafeterias_texts {
     padding: 2rem 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cafeterias .cafeterias_texts a {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    transition: var(--transition);
+}
+
+.cafeterias .cafeterias_texts a:hover {
+    gap: 1rem;
+    color: var(--color-main1);
+}
+
+.cafeterias .cafeterias_texts a:hover h3 {
+    color: var(--color-main1);
+}
+
+.cafeterias .cafeterias_texts a,
+.cafeterias .cafeterias_texts a h3 {
+    color: var(--color-main2);
 }
 
 .cafeterias__container {
