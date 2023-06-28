@@ -413,6 +413,13 @@
     transition: var(--transition);
 }
 
+.popUp__message__container form {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 .popUp__message {
     background: var(--color-white);
     padding: 1rem;

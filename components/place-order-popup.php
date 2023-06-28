@@ -1,7 +1,7 @@
 <?php include 'database/featured-items.php'; ?>
 
-<form action="postOrder.php" method="POST">
-    <div class="popUp__message__container">
+<div class="popUp__message__container">
+    <form action="postOrder.php" method="POST">
         <div class="popUp__message">
             <div class="popUp__item__details">
                 <div class="image">
@@ -58,5 +58,5 @@
             </div>
         </div>
 
-    </div>
-</form>
+    </form>
+</div>
