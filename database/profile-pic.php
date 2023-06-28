@@ -9,10 +9,14 @@
 
         // Check if 'user_profile' field exists and is not null
         if (isset($row['user_profile']) && $row['user_profile'] !== null) {
-            $imageData = base64_encode($row['user_profile']);
-            $image = "data:image/jpeg;base64,{$imageData}";
+            $image = '<img src="' . $row['user_profile'] . '" alt="">';
+            // $image = "data:image/jpeg;base64,{$imageData}";
         } else {
-            $image = './images/blank-user-image.png';
+            $image ='
+                        <span class="material-symbols-outlined">
+                            account_circle
+                        </span>
+                    ';
         }
     }
 ?>

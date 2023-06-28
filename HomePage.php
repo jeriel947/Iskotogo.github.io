@@ -8,14 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>HOME</title>
-    <link rel="shortcut icon" type="image/x-icon" href="./imgs/LOGO.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="./images/LOGO.png" />
 
     <!-- CSS -->
     <link rel="stylesheet" href="./CSS/MAIN.css">
     <link rel="stylesheet" href="./CSS/HOME.css">
     <link rel="stylesheet" href="./CSS/PROFILE.css">
     <link rel="stylesheet" href="./CSS/intro-message.css">
-    <link rel="stylesheet" href="./CSS/loader.css">
     <link rel="stylesheet" href="./CSS/responsiveness.css">
     <!-- SCROLL EFFECTS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -206,10 +205,10 @@
     <script src="./SCRIPTS/navbar.js"></script>
     <script src="./SCRIPTS/show-profile.js"></script>
     <script src="./SCRIPTS/place-order.js"></script>
-    <script src="./SCRIPTS/profile-section.js"></script>
     <script src="./SCRIPTS/featured-items.js"></script>
     <script src="./SCRIPTS/carousel.js"></script>
     <script src="./SCRIPTS/intro-message.js"></script>
+    <script src="./SCRIPTS/profile-section.js"></script>
     
     <!-- SCROLL EFFECTS -->
     

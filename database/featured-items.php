@@ -1,29 +1,35 @@
 <?php
     $query = "SELECT id, item_name, item_price, item_image, store_id FROM tbl_menu GROUP BY store_id";
+    $statement = mysqli_prepare($con, $query);
 
-    $result = mysqli_query($con, $query);
+    // Check if the statement was prepared successfully
+    if ($statement) {
+        // Execute the statement
+        mysqli_stmt_execute($statement);
 
-    // Check if the query was successful
-    if ($result) {
+        // Bind the result variables
+        mysqli_stmt_bind_result($statement, $id, $name, $price, $image, $store_id);
+
         $items = array();
-        // Iterate over the result set and populate the $items array
-        while ($row = mysqli_fetch_assoc($result)) {
-            $imageData = base64_encode($row['item_image']);
-            $image = $row['item_image'] ? "data:image/jpeg;base64, {$imageData}" : '.\images\logo.png';
+
+        // Fetch the rows and populate the $items array
+        while (mysqli_stmt_fetch($statement)) {
+            $imageData = base64_encode($image);
+            $image = $image ? "data:image/jpeg;base64, {$imageData}" : './images/logo.png';
+
             $items[] = array(
-                'id' => $row['id'],
-                'name' => $row['item_name'],
-                'price' => $row['item_price'],
+                'id' => $id,
+                'name' => $name,
+                'price' => $price,
                 'image' => $image,
-                'store_id' => $row['store_id']
+                'store_id' => $store_id
             );
         }
 
-        // Free the result set
-        mysqli_free_result($result);
-
+        // Close the statement
+        mysqli_stmt_close($statement);
     } else {
-        // Query execution failed
-        die("Error executing query: " . mysqli_error($con));
+        // Statement preparation failed
+        die("Error preparing statement: " . mysqli_error($con));
     }
 ?>

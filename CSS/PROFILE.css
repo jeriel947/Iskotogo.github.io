@@ -64,11 +64,50 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
-.profile-container .img-container img {
+.profile-container .img-container .img-holder {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-container .img-container .img-holder img {
     height: 100%;
     object-fit: cover;
+}
+
+.profile-container .img-container .img-holder span {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10rem;
+    font-weight: 100;
+}
+
+/* EDIT USER IMAGE */
+.profile-container .img-container .edit-user-image {
+    position: absolute;
+    padding: .2rem;
+    display: flex;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.466);
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    cursor: pointer;
+}
+
+.profile-container .img-container:hover .edit-user-image{
+    visibility: visible;
 }
 
 .profile-container .profile-label {
@@ -86,7 +125,7 @@
 }
 
 .profile-history-container {
-    height: 63%;
+    height: auto;
     width: 100%;
     display: flex;
     position: relative;
@@ -130,12 +169,13 @@
 }
 
 .profile-history-container .swiper-pagination {
-    transform: translateY(-1315%);
     position: absolute;
     z-index: 100;
     display: flex;
     justify-content: center;
     gap: .6rem;    
+    top: -2rem !important;
+    height: fit-content;
 }
 
 .profile-history-container .swiper-pagination .swiper-pagination-bullet {
@@ -223,4 +263,83 @@
 .show-profile #log-out-btn:hover {
     transition: var(--transition);
     box-shadow: var(--card-shadow);
+}
+
+/* UPDATE IMAGE */
+.process-status-message {
+    position: fixed;
+    bottom: 2rem;
+    z-index: 9999;   
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.update-message {
+    background: white;
+    padding: 1rem 1rem;
+    display: none;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: .5rem;
+    box-shadow: var(--card-shadow);
+    margin: 0 1rem;
+    position: relative;
+}
+
+.update-message span.success,
+.update-message span.error {
+    font-size: 2.5rem;
+}
+
+.update-message .texts {
+    display: flex;
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 0 !important;
+}
+
+.update-message .texts h4,
+.update-message .texts p {
+    line-height: 1.4rem;
+    color: var(--color-dark);
+}
+
+.update-message .texts h4 {
+    font-weight: 500;
+}
+
+.update-message .texts p {
+    color: var(--color-dark-gray);
+}
+
+/* SUCCESS */
+.success-message {
+    border: .15rem solid var(--color-success);
+}
+
+.success-message span.success {
+    color: var(--color-success);
+}
+
+/* ERROR */
+.error-message {
+    border: .15rem solid var(--color-danger);
+}
+
+.error-message span.error {
+    color: var(--color-danger);
+}
+
+/* CLOSE STATUS MESSAGE */
+.update-message .close{
+    position: absolute;
+    right: .5rem;
+    top: .5rem;
+    color: var(--color-dark);
+    font-size: 1.1rem;
+    cursor: pointer;
 }

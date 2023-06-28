@@ -1,3 +1,41 @@
+<?php include 'database/profile-pic.php'; ?>
+
+<div class="process-status-message">
+    <div class="success-message update-message">
+        <span class="material-symbols-outlined close">
+            close
+        </span>
+        <span class="material-symbols-outlined success">
+            mood
+        </span>
+        <div class="texts">
+            <h4>
+                Success!
+            </h4>
+            <p>
+                Your process has been completed.
+            </p>
+        </div>
+    </div>
+
+    <div class="error-message update-message">
+        <span class="material-symbols-outlined close">
+            close
+        </span>
+        <span class="material-symbols-outlined error">
+            mood_bad
+        </span>
+        <div class="texts">
+            <h4>
+                Error!
+            </h4>
+            <p>
+                An error occured.
+            </p>
+        </div>
+    </div>
+</div>
+
 <section class="show-profile">
     <div class="profile-container">
         <i class="bi bi-x-square-fill close-profile"></i>
@@ -7,8 +45,14 @@
         <div class="profile-header-container">
             <div class="profile-header">
                 <div class="img-container">
-                    <?php include 'database/profile-pic.php'; ?>
-                    <img src="<?php echo $image; ?>" alt="">
+                    <div class="img-holder">
+                        <?php echo $image; ?>
+                    </div>
+                    <div class="edit-user-image">
+                        <span class="material-symbols-outlined">
+                            edit
+                        </span>
+                    </div>
                 </div>
                 <h4 id="name">
                     <?php echo $_SESSION['Firstname'] . " " . $_SESSION['Lastname'] ?>
@@ -101,7 +145,7 @@
                         <p class="date">Today 11:12AM</p>
                         <div class="order-history-details">
                             <div class="image">
-                                <img src="./imgs/Arroz Caldo.jpg" alt="">
+                                <img src="./images/Arroz Caldo.jpg" alt="">
                             </div>
                             <div class="details">
                                 <p class="name"><span>2 </span>Carbonara</p>
@@ -114,7 +158,7 @@
                         <p class="date">Today 11:12AM</p>
                         <div class="order-history-details">
                             <div class="image">
-                                <img src="./imgs/Arroz Caldo.jpg" alt="">
+                                <img src="./images/Arroz Caldo.jpg" alt="">
                             </div>
                             <div class="details">
                                 <p class="name"><span>2 </span>Carbonara</p>

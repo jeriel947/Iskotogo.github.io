@@ -404,10 +404,6 @@
     .profile-container {
         width: 100%;
     }
-
-    .profile-history-container .swiper-pagination {
-        transform: translateY(-1295%);
-    }
     
     /* POP MESSAGE - PLACE ORDER */
     .popUp__message {

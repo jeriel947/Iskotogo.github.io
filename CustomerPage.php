@@ -38,7 +38,7 @@
     <nav>
         <div class="container nav__container">
             <a href="HOME.html" id="logo"><img src="./imgs/logo.png" alt="" class="logo__img">
-                <h4>PUP Cafeteria Automation System</h4>
+                <h4>IskoToGo</h4>
             </a>
             <ul class="nav_menu">
                 <li id="search">

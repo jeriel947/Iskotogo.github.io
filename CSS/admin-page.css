@@ -14,6 +14,7 @@
   flex-direction: column;
   border-radius: 1.2rem;
   box-shadow: var(--card-shadow);
+  background: white;
 }
 
 .profile_container .left_profile .image {
@@ -213,27 +214,27 @@
   width: 70%;
 }
 
-.orders_container .active_orders .active_orders_list {
+.active_orders_list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   width: 100%;
 }
 
-.orders_container .active_orders .active_orders_list .active_order_container {
+.active_order_container {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: .5rem;
 }
 
-.orders_container .active_orders .active_orders_list .active_order_container .date p {
+.active_orders_list .active_order_container .date p {
   font-weight: 500;
   padding-left: .5rem;
   color: var(--color-dark-gray);
 }
 
-.orders_container .active_orders .active_orders_list .active_order_container .active_order {
+.active_orders_list .active_order_container .active_order {
   display: flex;
   flex-direction: column;
   border-radius: .4rem;
@@ -242,7 +243,7 @@
   background: white;
 }
 
-.orders_container .active_orders .active_orders_list .active_order > p {
+.active_orders_list .active_order > p {
   text-align: center;
   background: var(--color-gradient);
   color: white;
@@ -250,14 +251,14 @@
   font-weight: 500;
 }
 
-.orders_container .active_orders .active_orders_list .active_order_container .active_order_details {
+.active_orders_list .active_order_container .active_order_details {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   gap: 1rem;
 }
 
-.orders_container .active_orders .active_orders_list .active_order_details p {
+.active_orders_list .active_order_details p {
   font-weight: 500;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -265,13 +266,13 @@
   max-width: 14rem;
 }
 
-.orders_container .active_orders .active_orders_list .active_order_details span {
+.active_orders_list .active_order_details span {
   background: var(--color-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.orders_container .active_orders .active_orders_list .active_order_details button {
+.active_orders_list .active_order_details button {
   background: var(--color-main2);
   color: white;
   display: flex;
@@ -282,12 +283,12 @@
   width: max-content;
 }
 
-.orders_container .active_orders .active_orders_list .active_order_details button p {
+.active_orders_list .active_order_details button p {
   color: white;
   font-weight: 500;
 }
 
-.orders_container .active_orders .active_orders_list .active_order_details button i {
+.active_orders_list .active_order_details button i {
   transform: scale(1.3);
 }
 
@@ -296,20 +297,20 @@
   width: 30%;
 }
 
-.orders_container .order_history .order_history_container {
+.order_history_container {
   display: flex;
   flex-direction: column;
   gap: .5rem;
   margin-bottom: 1rem;
 }
 
-.orders_container .order_history .order_history_container .date p {
+.order_history_container .date p {
   font-weight: 500;
   padding-left: .5rem;
   color: var(--color-dark-gray);
 }
 
-.orders_container .order_history .order_history_container .order_history_details_container {
+.order_history_container .order_history_details_container {
   display: flex;
   flex-direction: row;
   gap: .5rem;
@@ -321,30 +322,30 @@
   background: white;
 }
 
-.orders_container .order_history .order_history_container .order_history_details {
+.order_history_container .order_history_details {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
   width: 80%;
 }
 
-.orders_container .order_history .order_history_container .order_history_details_container .name {
+.order_history_container .order_history_details_container .name {
   font-weight: 500;
 }
 
-.orders_container .order_history .order_history_container .order_history_details_container div {
+.order_history_container .order_history_details_container div {
   display: flex;
   flex-direction: column;
   gap: .5rem;
 }
 
-.orders_container .order_history .order_history_container .order_history_details_container p {
+.order_history_container .order_history_details_container p {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
 
-.orders_container .order_history .order_history_container .order_history_details_container .review-btn {
+.order_history_container .order_history_details_container .review-btn {
   color: white;
   background: var(--color-main2);
 }

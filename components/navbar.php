@@ -1,3 +1,5 @@
+<?php include 'database/profile-pic.php'; ?>
+
 <nav>
     <div class="container nav__container">
         <!-- MOBILE NAV -->
@@ -19,18 +21,18 @@
                     <?php if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) { ?>
                         <?php if ($_SESSION['user_type'] === '1') { ?> <!--VENDORS HOMEPAGE-->   
                             <a href="AdminPage.php">
-                                <img src="./imgs/logo.png" alt="" class="logo__img">
+                                <img src="./images/LOGO.png" alt="" class="logo__img">
                                 <p>PUP Cafeteria Automation System</p>
                             </a>
                         <?php } elseif ($_SESSION['user_type'] === '2') { ?> <!--USERS HOMEPAGE-->
                             <a href="HomePage.php">
-                                <img src="./imgs/logo.png" alt="" class="logo__img">
+                                <img src="./images/LOGO.png" alt="" class="logo__img">
                                 <p>PUP Cafeteria Automation System</p>
                             </a>
                         <?php } ?>
                     <?php } else { ?>
                         <a href="HomePage.php">
-                            <img src="./imgs/logo.png" alt="" class="logo__img">
+                            <img src="./images/LOGO.png" alt="" class="logo__img">
                             <p>PUP Cafeteria Automation System</p>
                         </a>
                     <?php } ?>
@@ -122,7 +124,7 @@
                     <?php if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) { ?>
                         <div class="left">
                             <div class="image">
-                                <img src="profile_pics/<?php echo $_SESSION['Lastname']; ?>_profile.jpg" alt="">
+                                <?php echo $image; ?>
                             </div>
                             <div class="details">
                                 <p><b>Fname Lname</b></p>
@@ -151,8 +153,8 @@
         <?php } else { ?>
             <a href="HomePage.php" id="logo">
         <?php } ?>        
-            <img src="./imgs/logo.png" alt="" class="logo__img">
-            <h4>PUP Cafeteria Automation System</h4>
+            <img src="./images/LOGO.png" alt="" class="logo__img">
+            <h4>IskoToGo</h4>
         </a>
         <ul class="nav_menu">
             <li id="homepage_icon">
@@ -195,7 +197,7 @@
             </li>
             <?php if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) { ?>
                 <li id="profile" class="open-profile">
-                    <img src="profile_pics/<?php echo $_SESSION['Lastname']; ?>_profile.jpg" alt="">
+                    <?php echo $image; ?>                    
                 </li>
             <?php } else { ?>
                 <li id="login-btn">
