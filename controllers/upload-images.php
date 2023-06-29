@@ -27,14 +27,14 @@
             // Return the HTML for the updated image container
             // Construct the image path
 
+            $imageHTML = '<img src="' . $destination . '" alt="Uploaded Image">';
+            echo $imageHTML;
+
             // Update the user_profile column in the database
             $updateQuery = "UPDATE tbl_users SET user_profile = ? WHERE user_id = ?";
             $stmt = mysqli_prepare($con, $updateQuery);
             mysqli_stmt_bind_param($stmt, "ss", $destination, $userId);
             mysqli_stmt_execute($stmt);
-
-            $imageHTML = '<img src="' . $destination . '" alt="Uploaded Image">';
-            echo $imageHTML;
         } else {
             // Image upload failed
             // You can handle the error case here

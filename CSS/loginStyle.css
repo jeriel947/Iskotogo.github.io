@@ -98,12 +98,15 @@ input {
 .login-btn {
     background: transparent;
     padding: 0;
+    border-radius: 5rem;
 }
 
-button {
+.btn button {
     width: 100%;
     background: var(--color-gradient);
     color: white;
+    border-radius: 5rem;
+    padding: 1rem;
 }
 
 button:hover{
