@@ -1,5 +1,5 @@
 <footer>
-    <div class="inner-footer flex">
+    <div class="inner-footer footer-flex">
     <div class="footer-logo">
         <img src="images/logo.png" alt="Iskotogo Logo">
     </div>
@@ -27,7 +27,7 @@
     </div>
     <!--Waves end-->
 
-    <div class="content flex">
+    <div class="footer-b-text footer-flex">
         <p>&copy; 2023 Iskotogo. All rights reserved.</p>
     </div>
 </footer>
