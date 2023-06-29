@@ -66,10 +66,7 @@
 
                     $_SESSION['Studentid'] = $row['student_id'];
                     
-                    $imageData = base64_encode($row['user_profile']);
-                    $image = $row['user_profile'] ? "data:image/jpeg;base64, {$imageData}" : '.\profile_pics\UserProfilePlaceholder.png';
-
-                    $_SESSION['user_profile'] = $image;
+                    $_SESSION['user_profile'] = $row['user_profile'];
 
                     $_SESSION['user_type'] = $row['user_type'];
                     
