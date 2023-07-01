@@ -79,8 +79,8 @@
 
             </div>
             <div id="input">
-                <input type="text" name="user_name" placeholder="Student number/username" required><br>
-                <input type="password" name="password" placeholder="Password" required><br> 
+                <input type="text" name="user_name" placeholder="Student number/username" required>
+                <input type="password" name="password" placeholder="Password" required>
                 <div class="btn login-btn">
                     <button class="btn" type="submit">Login</button>
                 </div>

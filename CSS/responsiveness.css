@@ -535,9 +535,6 @@
 
     #login-box #input input {
         font-size: .8rem;
-        color: var(--color-dark);
-        font-weight: 500;
-        border-bottom: 2px solid var(--color-main1);
     }
 
     #login-box #left {

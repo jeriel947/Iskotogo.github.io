@@ -556,7 +556,7 @@
     display: flex;
     flex-direction: column;
     gap: .5rem;
-    width: fit-content;
+    width: 70%;
 }
 
 .popUp__message .order_summary .content .left .top {
