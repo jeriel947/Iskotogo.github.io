@@ -113,6 +113,9 @@
                                             <P id="item_price">
                                                 <?php echo $item['price']; ?>
                                             </P>
+                                            <P id="item_id" hidden>
+                                                <?php echo $item['id']; ?>
+                                            </P>
                                         </div>
                                         <div class="icon">
                                             <i class="bi bi-chevron-right"></i>

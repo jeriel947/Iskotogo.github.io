@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $itemName = $_POST['item_name'];
     $unitPrice = $_POST['unit_price'];
 
-    $sql = "INSERT INTO tbl_orders (item_id, store_id, customer_id, quantity, order_status) VALUES ()";
+    $sql = "INSERT INTO tbl_orders (item_id, customer_id, quantity, order_status) VALUES ($_POST[item_id], $_POST[])";
 
     if (mysqli_query($conn, $sql)) {
         echo "New record created successfully";

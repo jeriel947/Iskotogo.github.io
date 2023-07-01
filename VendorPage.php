@@ -96,7 +96,7 @@
     </section>
 
     <!-- ORDERS CONTAINER -->
-    <!-- <section class="container orders_container">
+    <section class="container orders_container">
       <div class="active_orders">
         <div class="title">
           <h3>Active Orders</h3>
@@ -112,7 +112,7 @@
 
         <?php include 'components/vendor/order-history.php'; ?>
       </div>
-    </section> -->
+    </section>
     <!--================================ END OF CONTENT CONTAINER ================================-->
     <?php } else { ?>
       <?php include 'components/admin/access-denied.php'; ?>

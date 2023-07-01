@@ -6,10 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const popUpMessage = document.querySelector('.popUp__message__container');
     const popUpMessageContent = document.querySelector('.popUp__message');
     const itemname = document.querySelector('.popUp__message .name_price h4');
-    const itemprice = document.querySelector('.popUp__message .name_price p');
+    const itemprice = document.querySelector(".popUp__message .name_price p");
 
-
-    const itemid = document.querySelector('.popUp__message .item_id p');
+    /* TEST AREA @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+    const itemid = document.querySelector(".popUp__message .name_price p[name='item_id']");
+    /* TEST AREA @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 
 
     /* QUANTITY ELEMENTS */
@@ -30,6 +31,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const item = featuredItem.querySelector('#item_name').textContent.trim();
             const price = featuredItem.querySelector('#item_price').textContent.trim();
             const image = featuredItem.querySelector('img').src;            
+            
+            /* TEST AREA @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+            const identification = featuredItem.querySelector('#item_id').textContent.trim();
+            /* TEST AREA @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 
             /* -- MODAL DATA */
             const quantity = popUpMessageContent.querySelector('.quantity #text').textContent.trim();
@@ -40,6 +45,10 @@ document.addEventListener('DOMContentLoaded', () => {
             itemprice.querySelector('span').textContent = "\u00A0" + price;
             totalAmount.textContent = price;
             popUpMessage.querySelector('.image img').src = image;
+
+            /* TEST AREA @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+            itemid.textContent = identification;
+            /* TEST AREA @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
             
             /* DISPLAY THE MODAL */
             popUpMessage.style.display = "flex";

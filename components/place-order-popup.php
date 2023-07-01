@@ -10,6 +10,9 @@
                 <div class="name_price">
                     <h4 name="item_name">Corndog</h4>
                     <p name="unit_price">Unit Price:<span>&nbsp;</span></p>
+
+                    <p name="item_id" hidden></p>
+
                 </div>
                 <div class="quantity">
                     <p id="label">Quantity</p>

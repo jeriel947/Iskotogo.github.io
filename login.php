@@ -1,8 +1,5 @@
 <?php 
-    session_start();
-
-    $conn = mysqli_connect('localhost', 'root', '','db_iskotogo'); // For XAMPP
-    // $conn = mysqli_connect('localhost', 'iskotogo', '13579','db_iskotogo'); // For GoDaddy
+    include 'database/db-connection.php';
 
     if (isset($_POST['user_name']) && isset($_POST['password'])) {
 
@@ -38,7 +35,7 @@
 
             $sql = "SELECT * FROM tbl_users WHERE User_Name='$user_name' AND password='$pass'";
 
-            $result = mysqli_query($conn, $sql);
+            $result = mysqli_query($con, $sql);
 
             if (mysqli_num_rows($result) === 1) {
 
