@@ -157,7 +157,7 @@
                             </div>
                             <div class="shadow"></div>
                             <h3>
-                                <?php echo $stall['title']; ?>
+                                <?php echo $stall['store_name']; ?>
                             </h3>
                             <div class="cafeteria_tags">
                                 <?php foreach ($stall['tags'] as $tag): ?>
@@ -170,7 +170,7 @@
                                 <p>View Stall</p>
                                 <i class="bi bi-arrow-right-circle-fill"></i>
                             </a>
-                            <a href="StallPage.php?id=<?php echo $stall['id']; ?>&title=<?php echo urlencode($stall['title']); ?>&tags=<?php echo urlencode(implode(',', $stall['tags'])); ?>" class="btn-secondary">                                
+                            <a href="StallPage.php?id=<?php echo $stall['id']; ?>&store_name=<?php echo urlencode($stall['store_name']); ?>&tags=<?php echo urlencode(implode(',', $stall['tags'])); ?>" class="btn-secondary">                                
                                 <p>View Stall</p>
                                 <i class="bi bi-arrow-right-circle-fill"></i>
                             </a>

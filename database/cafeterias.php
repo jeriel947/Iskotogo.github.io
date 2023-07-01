@@ -20,7 +20,7 @@
             $stalls[$storeID] = array(
                 'id' => $row['id'],
                 'image' => $image,
-                'title' => $row['store_name'],
+                'store_name' => $row['store_name'],
                 'tags' => array($tag),
             );
         } else {

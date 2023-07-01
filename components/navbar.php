@@ -20,7 +20,7 @@
                 <div class="capstone_name">
                     <?php if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) { ?>
                         <?php if ($_SESSION['user_type'] === '1') { ?> <!--VENDORS HOMEPAGE-->   
-                            <a href="AdminPage.php">
+                            <a href="VendorPage.php">
                                 <img src="./images/LOGO.png" alt="" class="logo__img">
                                 <p>PUP Cafeteria Automation System</p>
                             </a>
@@ -41,7 +41,7 @@
                     <li>
                         <?php if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) { ?>
                             <?php if ($_SESSION['user_type'] === '1') { ?> <!--VENDORS HOMEPAGE-->   
-                                <a href="AdminPage.php">
+                                <a href="VendorPage.php">
                                     <div class="icons">
                                         <span class="material-symbols-outlined">
                                             home
@@ -146,7 +146,7 @@
         <!-- END -- MOBILE NAV -->
         <?php if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) { ?>
             <?php if ($_SESSION['user_type'] === '1') { ?> <!--VENDORS HOMEPAGE-->   
-                <a href="AdminPage.php" id="logo">
+                <a href="VendorPage.php" id="logo">
             <?php } elseif ($_SESSION['user_type'] === '2') { ?> <!--USERS HOMEPAGE-->
                 <a href="HomePage.php" id="logo">
             <?php } ?>
@@ -161,7 +161,7 @@
             <?php if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) { ?>
 
                 <?php if ($_SESSION['user_type'] === '1') { ?> <!--VENDORS HOMEPAGE-->   
-                    <a href="AdminPage.php">
+                    <a href="VendorPage.php">
                         <span class="material-symbols-outlined">home</span>
                     </a>
                 <?php } elseif ($_SESSION['user_type'] === '2') { ?> <!--USERS HOMEPAGE-->

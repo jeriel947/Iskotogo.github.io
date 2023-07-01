@@ -92,7 +92,7 @@
 
                     $_SESSION['user_type'] = $row['user_type'];
                 
-                    header("Location: AdminPage.php");
+                    header("Location: VendorPage.php");
                 } else {
 
                     //header("Location: index.php?error=Incorect student id or password");

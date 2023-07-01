@@ -12,7 +12,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="./CSS/MAIN.css">
-    <link rel="stylesheet" href="./CSS/admin-page.css">
+    <link rel="stylesheet" href="./CSS/vendor-page.css">
     <link rel="stylesheet" href="./CSS/responsiveness.css">
 
     <!-- SCROLL EFFECTS -->

@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><?php echo $title; ?></title>
+    <title><?php echo $store_name; ?></title>
     <link rel="shortcut icon" type="image/x-icon" href="./images/LOGO.png" />
 
     <!-- CSS -->
@@ -59,26 +59,24 @@
         <div class="stallmenu_navigation_section">
             <div class="stall_profile">
                 <div class="image">
-                    <?php include 'database/stallpage-details.php'; ?>                        
                     <div class="img_container">
                         <img src="<?php echo $image; ?>" alt="">
                     </div>
                     <div class="profile_image">
                         <h1>
-                            <?php echo strtoupper(substr($title, 0, 1)); ?>                        
+                            <?php echo strtoupper(substr($store_name, 0, 1)); ?>                        
                         </h1>
                     </div>
                 </div>
 
                 <div class="profile_details">
                     <div class="profile_details_texts">
-                        <?php include 'database/stallpage-details.php'; ?>                        
                         <div class="stall_name">
                             <h3>
                                 <span class="material-symbols-outlined">
                                     store
                                 </span>
-                                <?php echo $title; ?>
+                                <?php echo $store_name; ?>
                             </h3>
                         </div>
                         <div class="stall_location stall_details">
@@ -86,7 +84,7 @@
                             <span class="material-symbols-outlined">
                                 location_on
                             </span>                                
-                            PUP Main Bldg. Lagoon Food Stall 1
+                                <?php echo $location; ?>
                             </p>
                         </div>
                         <div class="stall_contact stall_details">
@@ -94,7 +92,7 @@
                             <span class="material-symbols-outlined">
                                 call
                             </span>                                
-                            (541) 754-3010
+                                <?php echo $contact; ?>
                             </p>
                         </div>
                     </div>

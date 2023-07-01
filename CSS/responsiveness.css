@@ -371,10 +371,40 @@
         padding: 1.5rem 0 .8rem;
     }
 
+    .featured_items .swiper-slide.card {
+        padding: .5rem;
+    }
+
     .featured_items .card .image {
         height: 7rem;
         width: 100%;
         overflow: hidden;
+    }
+
+    .featured_items_container .card_content .fItem_details .fItem_texts {
+        padding-left: 0;
+        width: 100%;
+    }
+
+    .featured_items_container .card_content .fItem_details #item_price,
+    .featured_items_container .card_content p {
+        margin: 0 !important;
+        padding: 0;
+    }
+
+    .featured_items_container .card_content p {
+        line-height: unset;
+    }
+
+    .featured_items_container .card_content .fItem_details {
+        flex-direction: column;
+    }
+
+    .featured_items_container .card_content .fItem_details .icon {
+        padding: .3rem;
+        width: 100%;
+        margin: 0;
+        border-radius: .5rem;
     }
 
     /* CAFETERIAS */
@@ -392,7 +422,7 @@
     }
 
     .cafeteria_tags p { 
-        font-weight: 200;
+        font-weight: 200 !important;
         padding: .2rem .5rem;
     }
 

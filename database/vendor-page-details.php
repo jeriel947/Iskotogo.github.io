@@ -23,7 +23,8 @@
     $storeId = $row['id'];
     $storeName = $row['store_name'];
     $location = $row['Location'];
-    $contact = $row['Likes'];
+    $contact = $row['Contacts'];
+    $likes = $row['Likes'];
 
     if (isset($row['store_image']) && $row['store_image'] !== null) {
         $imageData = base64_encode($row['store_image']);
