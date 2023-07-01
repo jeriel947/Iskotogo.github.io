@@ -23,7 +23,7 @@
     $storeId = $row['id'];
     $storeName = $row['store_name'];
     $location = $row['Location'];
-    $contact = $row['Contacts'];
+    $contact = $row['Contact'];
     $likes = $row['Likes'];
 
     if (isset($row['store_image']) && $row['store_image'] !== null) {
