@@ -77,7 +77,7 @@
                 <div class="my_orders" id="order1">
                     <div class="my_order_profile">
                         <div class="image">
-                            <img src="<?php echo $order['image']; ?>" alt="">
+                            <?php echo $order['image']; ?>
                         </div>
                         <div class="my_order_profile_details">
                             <h4>

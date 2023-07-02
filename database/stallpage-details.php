@@ -32,5 +32,14 @@
     $location = $row['Location'];
     $contact = $row['Contact'];
     $likes = $row['Likes'];
+    if (isset($row['store_image']) && $row['store_image'] !== null && $row['store_image'] !== "") {
+        $storeImage = '<img src="' . $row['store_image'] . '" alt="">';
+    } else {
+        $storeImage ='
+                        <span class="material-symbols-outlined">
+                            store
+                        </span>
+                    ';
+    }  
     // Display the retrieved stall details
 ?>

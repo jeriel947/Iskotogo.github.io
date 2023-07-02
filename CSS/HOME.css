@@ -107,10 +107,39 @@
     margin-bottom: .5rem;        
 }
 
+.featured_items .card span {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    background: var(--color-gradient2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: var(--transition);
+    border: 2px solid var(--color-main2);
+    border-radius: .7rem;
+}
+
 .featured_items .card .image img {
     height: 100%;
     width: 100%;
     object-fit: cover;
+}
+
+.featured_items .card:hover span {
+    font-size: 3.5rem;
+    border: 2px solid white;    
+    background: white;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: var(--transition);
+}
+
+.featured_items .card:hover img {
+    transform: scale(1.2);
+    transition: var(--transition);
 }
 
 .featured_items_container .card_content p{
@@ -225,6 +254,31 @@
 
 .caf-image img {
     height: 100%;
+    transition: var(--transition);
+}
+
+.caf-image span {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.5rem;
+    background: var(--color-gradient2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: var(--transition);
+    border: 2px solid var(--color-main2);
+    border-radius: 1rem;
+    transition: var(--transition);
+}
+
+.cafeteria:hover .caf-image img {
+    transform: scale(1.2);
+}
+
+.cafeteria:hover .caf-image span {
+    font-size: 4rem;
 }
 
 .cafeterias .cafeteria h3 {
@@ -318,8 +372,26 @@
     border-radius: 1rem;
 }
 
-.my_orders_section .my_orders .my_order_profile .image img{
+.my_orders_section .my_orders .my_order_profile .image span {
+    width: 100%;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    background: var(--color-gradient2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: var(--transition);
+    border: 2px solid var(--color-main2);
+    border-radius: 1rem;
+    transition: var(--transition);
+}
+
+.my_orders_section .my_orders .my_order_profile .image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
 .my_orders_section .my_orders .my_order_profile .my_order_profile_details {
@@ -471,8 +543,33 @@
     border-radius: 1rem;
 }
 
-.popUp__message .popUp__item__details .image img {
+.popUp__message .popUp__item__details .image div {
+    width: 100%;
     height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popUp__message .popUp__item__details .image div span {
+    width: 100%;
+    height: 100%;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    background: var(--color-gradient2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border: 2px solid var(--color-main2);
+    border-radius: 1rem;
+}
+
+.popUp__message .popUp__item__details .image div img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
 .popUp__message .popUp__item__details .name_price {

@@ -102,7 +102,7 @@
                             <div class="swiper-slide card">
                                 <div class="card_content" id="order-item-btn">
                                     <div class="image">
-                                        <img src="<?php echo $item['image']; ?>" alt="">
+                                        <?php echo $item['image']; ?>
                                     </div>
 
                                     <div class="fItem_details" id=<?php echo $item['id']?> >
@@ -156,7 +156,7 @@
                         ?>
                         <article class="cafeteria">
                             <div class="caf-image">
-                                <img src="<?php echo $stall['image']; ?>" alt="">D
+                                <?php echo $stall['store_image']; ?>
                             </div>
                             <div class="shadow"></div>
                             <h3>

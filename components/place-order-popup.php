@@ -5,7 +5,7 @@
         <div class="popUp__message">
             <div class="popUp__item__details">
                 <div class="image">
-                    <img src="./images/CORNDOG.jpg" alt="">
+
                 </div>
                 <div class="name_price">
                     <h4 name="item_name">Corndog</h4>

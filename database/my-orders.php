@@ -16,13 +16,22 @@
 
     while ($row = mysqli_fetch_assoc($orderresult)) {
         $orderID = $row['id'];
-        $oimageData = base64_encode($row['item_image']);
-        $image = $row['item_image'] ? "data:image/jpeg;base64, {$oimageData}" : '.\images\logo.png';
+        
+        if (isset($row['item_image']) && $row['item_image'] !== null && $row['item_image'] !== "") {
+            $menuImage = '<img src="' . $row['item_image'] . '" alt="">';
+        } else {
+            $menuImage ='
+                            <span class="material-symbols-outlined">
+                                fastfood
+                            </span>
+                        ';
+        } 
+
         if (!isset($orders[$orderID])) {
             $orders[$orderID] = array(
                 'itemName' => $row['item_name'],
                 'itemQuantity' => $row['quantity'],
-                'image' => $image,
+                'image' => $menuImage,
                 'itemPrice' => $row['item_price'],
                 'storeName' => $row['store_name']
             );

@@ -78,7 +78,7 @@
             <div class="stall-container-holder">
                 <div class="stall-container">
                     <div class="image">
-                        <img src="<?php echo $stall['image']; ?>" alt="">
+                        <?php echo $stall['store_image']; ?>
                     </div>
                     <div class="texts">
                         <h3 class="stall-name">
@@ -92,7 +92,7 @@
                             <?php endforeach; ?>
                         </div>
                     </div>
-                    <a href="StallPage.php?id=<?php echo $stall['id']; ?>&store_name=<?php echo urlencode($stall['store_name']); ?>&tags=<?php echo urlencode(implode(',', $stall['tags'])); ?>&image=<?php echo urldecode($stall['image']); ?>" class="btn-secondary">                                
+                    <a href="StallPage.php?id=<?php echo $stall['id']; ?>&store_name=<?php echo urlencode($stall['store_name']); ?>&tags=<?php echo urlencode(implode(',', $stall['tags'])); ?>" class="btn-secondary">                                
                         <p>Select Stall</p>
                         <i class="bi bi-arrow-right-circle-fill"></i>
                     </a>

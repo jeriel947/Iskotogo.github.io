@@ -14,12 +14,20 @@
         $tag = $row['item_name'];
 
         // Check if the store already exists in the articles array
-        $imageData = base64_encode($row['store_image']);
-        if (!isset($stalls[$storeID])) {
-            $image = $row['store_image'] ? "data:image/jpeg;base64, {$imageData}" : '.\images\logo.png';
+        if (!isset($stalls[$storeID])) {            
+            if (isset($row['store_image']) && $row['store_image'] !== null && $row['store_image'] !== "") {
+                $storeImage = '<img src="' . $row['store_image'] . '" alt="">';
+            } else {
+                $storeImage ='
+                                <span class="material-symbols-outlined">
+                                store
+                                </span>
+                            ';
+            }  
+            
             $stalls[$storeID] = array(
                 'id' => $row['id'],
-                'image' => $image,
+                'store_image' => $storeImage,
                 'store_name' => $row['store_name'],
                 'tags' => array($tag),
             );

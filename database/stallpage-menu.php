@@ -10,7 +10,6 @@
     mysqli_stmt_bind_param($stmt, "i", $id);
     mysqli_stmt_execute($stmt);
 
-
     $result = mysqli_stmt_get_result($stmt);
 
     // Check if the query was successful
@@ -19,12 +18,21 @@
         // Iterate over the result set and populate the $items array
         while ($row = mysqli_fetch_assoc($result)) {
             $storeName = $row['store_name'];
-            $imageData = base64_encode($row['item_image']);
-            $image = $row['item_image'] ? "data:image/jpeg;base64, {$imageData}" : '.\images\logo.png';
+
+            if (isset($row['item_image']) && $row['item_image'] !== null && $row['item_image'] !== "") {
+                $menuImage = '<img src="' . $row['item_image'] . '" alt="">';
+            } else {
+                $menuImage ='
+                                <span class="material-symbols-outlined">
+                                    fastfood
+                                </span>
+                            ';
+            }            
+            
             $items[] = array(
                 'name' => $row['item_name'],
                 'price' => $row['item_price'],
-                'image' => $image,
+                'menu_image' => $menuImage,
                 'store_id' => $row['store_id'],
             );
         }

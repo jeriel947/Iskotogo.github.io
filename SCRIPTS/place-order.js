@@ -30,8 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
             /* GET DATA FROM FEATURED ITEM */
             const item = featuredItem.querySelector('#item_name').textContent.trim();
             const price = featuredItem.querySelector('#item_price').textContent.trim();
-            const image = featuredItem.querySelector('img').src;            
-            
+            const image = featuredItem.querySelector('.image').innerHTML;               
+            const popupImage = document.createElement('div');
+            popupImage.innerHTML = image;
+
             /* TEST AREA @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
             const identification = featuredItem.querySelector('#item_id').textContent.trim();
             /* TEST AREA @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
@@ -44,7 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
             summaryItemname.querySelector('span').textContent = "\u00A0" + item;        
             itemprice.querySelector('span').textContent = "\u00A0" + price;
             totalAmount.textContent = price;
-            popUpMessage.querySelector('.image img').src = image;
+            popUpMessage.querySelector('.image').innerHTML = '';
+            popUpMessage.querySelector('.image').appendChild(popupImage);
 
             /* TEST AREA @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
             itemid.textContent = identification;

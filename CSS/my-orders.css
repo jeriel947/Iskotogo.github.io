@@ -51,8 +51,26 @@
     border-radius: 1rem;
 }
 
+.ordersPage-myOrdersSec .my_orders .my_order_profile .image span {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    background: var(--color-gradient2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: var(--transition);
+    border: 2px solid var(--color-main2);
+    border-radius: 1rem;
+    transition: var(--transition);
+}
+
 .ordersPage-myOrdersSec .my_orders .my_order_profile .image img{
     height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
 .ordersPage-myOrdersSec .my_orders .my_order_profile .my_order_profile_details {

@@ -60,7 +60,7 @@
             <div class="stall_profile">
                 <div class="image">
                     <div class="img_container">
-                        <img src="<?php echo $image; ?>" alt="">
+                        <?php echo $storeImage; ?>
                     </div>
                     <div class="profile_image">
                         <h1>
@@ -122,7 +122,7 @@
                     <?php foreach ($items as $item): ?>
                         <div class="menu_item" id="order-item-btn">
                             <div class="image">
-                                <img src="<?php echo $item['image']; ?>" alt="">
+                                <?php echo $item['menu_image']; ?>
                             </div>
                             <div class="item_details">
                                 <div class="item_texts">
