@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 28, 2023 at 06:03 PM
+-- Generation Time: Jul 02, 2023 at 09:26 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -41,8 +41,8 @@ CREATE TABLE `tbl_menu` (
 --
 
 INSERT INTO `tbl_menu` (`id`, `store_id`, `item_name`, `item_price`, `item_availability`, `item_image`) VALUES
-(1, 2, 'burgir', 75, 1, ''),
-(2, 1, 'prech price', 55, 1, ''),
+(1, 2, 'burgir', 75, 1, NULL),
+(2, 1, 'prech price', 55, 1, 'images/users/6-image.jpg'),
 (3, 1, 'spaghetti', 30, 1, ''),
 (4, 1, 'carbonara', 35, 1, ''),
 (5, 1, 'pansit', 40, 1, ''),
@@ -113,11 +113,11 @@ CREATE TABLE `tbl_stores` (
 --
 
 INSERT INTO `tbl_stores` (`id`, `user_id`, `store_name`, `Location`, `Contact`, `Likes`, `store_image`) VALUES
-(1, 12, 'Jabee', NULL, NULL, NULL, NULL),
-(2, 7, 'mackdo', NULL, NULL, NULL, NULL),
-(5, 6, 'FFC', NULL, NULL, NULL, NULL),
-(6, 8, 'manang isaw', NULL, NULL, NULL, NULL),
-(7, 4, 'bandoks', NULL, NULL, NULL, NULL);
+(1, 12, 'Jabee', 'PUP Main Bldg. Lagoon', NULL, NULL, 'images/users/6-image.jpg'),
+(2, 7, 'mackdo', 'PUP Main Lagoon', NULL, NULL, NULL),
+(5, 6, 'FFC', 'PUP Main Bldg. Lagoon', NULL, NULL, NULL),
+(6, 8, 'manang isaw', 'PUP Main Bldg. Lagoon', NULL, NULL, NULL),
+(7, 4, 'bandoks', 'PUP Main Bldg. Lagoon', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -150,6 +150,26 @@ INSERT INTO `tbl_users` (`user_id`, `Last_Name`, `First_Name`, `Middle_name`, `U
 (11, 'Doe', 'John', NULL, 'Admin', NULL, 1, 1111, NULL, NULL),
 (12, 'Pontillas', 'Harvy', NULL, 'Developer', NULL, 1, 2222, NULL, NULL);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_usertype`
+--
+
+CREATE TABLE `tbl_usertype` (
+  `user_type_num` int(5) NOT NULL,
+  `user_type_category` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_usertype`
+--
+
+INSERT INTO `tbl_usertype` (`user_type_num`, `user_type_category`) VALUES
+(1, 'Vendor'),
+(2, 'Customer'),
+(3, 'Admin');
+
 --
 -- Indexes for dumped tables
 --
@@ -181,7 +201,14 @@ ALTER TABLE `tbl_stores`
 -- Indexes for table `tbl_users`
 --
 ALTER TABLE `tbl_users`
-  ADD PRIMARY KEY (`user_id`);
+  ADD PRIMARY KEY (`user_id`),
+  ADD KEY `user_type` (`user_type`);
+
+--
+-- Indexes for table `tbl_usertype`
+--
+ALTER TABLE `tbl_usertype`
+  ADD KEY `user_type_num` (`user_type_num`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -234,6 +261,12 @@ ALTER TABLE `tbl_orders`
 --
 ALTER TABLE `tbl_stores`
   ADD CONSTRAINT `tbl_stores_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `tbl_users` (`user_id`);
+
+--
+-- Constraints for table `tbl_users`
+--
+ALTER TABLE `tbl_users`
+  ADD CONSTRAINT `tbl_users_ibfk_1` FOREIGN KEY (`user_type`) REFERENCES `tbl_usertype` (`user_type_num`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
