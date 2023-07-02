@@ -117,8 +117,30 @@
                                 </div>
                                 <p>My Profile</p>
                             </a>
+                            <hr>
                         </li>
                     <?php } ?>
+                    <li>
+                        <a href="AboutUs.php">
+                            <div class="icons">
+                                <span class="material-symbols-outlined">
+                                    groups
+                                </span>
+                            </div>
+                            <p>About Us</p>
+                        </a>
+                        <hr>
+                    </li>
+                    <li>
+                        <a href="ContactUs.php">
+                            <div class="icons">
+                                <span class="material-symbols-outlined">
+                                    call
+                                </span>
+                            </div>
+                            <p>Contact Us</p>
+                        </a>
+                    </li>
                 </ul>
                 <div class="side_bar_profile">
                     <?php if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) { ?>
@@ -156,6 +178,28 @@
             <img src="./images/LOGO.png" alt="" class="logo__img">
             <h4>IskoToGo</h4>
         </a>
+        <ul class="nav_menu generic-homepage-nav-menu">
+            <li id="about-us">
+                <a href="AboutUs.php">
+                    <span class="material-symbols-outlined">
+                        groups
+                    </span>
+                    <p>
+                        About Us
+                    </p>
+                </a>
+            </li>
+            <li id="contact-us">
+                <a href="ContactUs.php">
+                    <span class="material-symbols-outlined">
+                        call
+                    </span>
+                    <p>
+                        Contact Us
+                    </p>
+                </a>
+            </li>
+        </ul>
         <ul class="nav_menu">
             <li id="homepage_icon">
             <?php if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) { ?>

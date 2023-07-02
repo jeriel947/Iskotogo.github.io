@@ -170,6 +170,27 @@ nav #sys_name,
     gap: 1rem;
     justify-content: space-evenly;
     height: 100%;   
+    transition: var(--transition);
+}
+
+.generic-homepage-nav-menu span {
+    color: var(--color-dark);
+}
+
+.generic-homepage-nav-menu li {
+    padding: .5rem;
+}
+
+.generic-homepage-nav-menu p {
+    color: var(--color-dark) !important;
+}
+
+.generic-homepage-nav-menu #about-us:hover p,
+.generic-homepage-nav-menu #contact-us:hover p,
+.generic-homepage-nav-menu #about-us:hover span,
+.generic-homepage-nav-menu #contact-us:hover span {
+    color: var(--color-main1) !important;
+    transition: var(--transition);
 }
 
 .nav_menu li a {
@@ -378,7 +399,8 @@ nav #sys_name,
 
 /* =============== FOOTER =============== */
 footer {
-  position:relative;
+  position: relative;
+  bottom: 0;
   text-align:center;
   background: var(--color-gradient);
   color:white;
