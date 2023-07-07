@@ -1,7 +1,11 @@
-<?php include 'database/featured-items.php'; ?>
+<?php 
+include 'database/featured-items.php';
+?>
+
 
 <div class="popUp__message__container">
-    <form action="postOrder.php" method="POST">
+    <!-- <form action="components/postOrder.php" method="POST"> -->
+    <form action="" method="POST">
         <div class="popUp__message">
             <div class="popUp__item__details">
                 <div class="image">
@@ -11,14 +15,14 @@
                     <h4 name="item_name">Corndog</h4>
                     <p name="unit_price">Unit Price:<span>&nbsp;</span></p>
 
-                    <p name="item_id" hidden></p>
+                    <p name="item_id"></p>
 
                 </div>
                 <div class="quantity">
                     <p id="label">Quantity</p>
                     <div class="input">
                         <i class="bi bi-dash"></i>
-                        <p id="text">1</p>
+                        <p id="text" name="quantity_text">1</p>
                         <i class="bi bi-plus"></i>
                     </div>
                 </div>
