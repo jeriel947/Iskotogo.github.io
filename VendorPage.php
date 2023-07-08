@@ -76,7 +76,7 @@
                 <span class="material-symbols-outlined">
                   location_on
                 </span>   
-				        PUP Main Bldg. Lagoon Food Stall 1
+				        <?php echo $location; ?>
               </p>
             </div>
             <div class="stall_contact stall_details">
@@ -84,7 +84,7 @@
 			  	<span class="material-symbols-outlined">
 					call
 				</span>
-                (541) 754-3010
+                <?php echo $contact; ?>
               </p>
             </div>
           </div>
@@ -118,41 +118,10 @@
       <?php include 'components/admin/access-denied.php'; ?>
     <?php } ?>
     
-    <button id="active-orders" class="active-button">Active Orders</button>
-    <button id="order-history">Order History</button>
+    <!--================================ FOOTER ================================-->
+    <?php include 'components/footer.php'; ?>
+    <!--================================ END - FOOTER ================================-->
 
-    <div id="orders-content">
-        <?php include 'components/vendor/active-orders.php'; ?>
-    </div>
-    
-    <script type="text/javascript">
-        console.log("Hitting the order script");
-        // Get the buttons and content container
-        const activeOrdersButton = document.querySelector("#active-orders");
-        const orderHistoryButton = document.querySelector("#order-history");
-        const ordersContent = document.querySelector("#orders-content");
-
-        // Add click event listeners to the buttons
-        activeOrdersButton.addEventListener("click", () => {
-            console.log("Active Orders Button Clicked");
-            // Toggle active class on buttons
-            activeOrdersButton.classList.add("active-button");
-            orderHistoryButton.classList.remove("active-button");
-
-            // Load active orders content
-            ordersContent.innerHTML = '<?php include "components/vendor/active-orders.php"; ?>';
-        });
-
-        orderHistoryButton.addEventListener("click", () => {
-            console.log("Order History Button Clicked");
-            // Toggle active class on buttons
-            activeOrdersButton.classList.remove("active-button");
-            orderHistoryButton.classList.add("active-button");
-
-            // Load order history content
-            ordersContent.innerHTML = '<?php include "components/vendor/order-history.php"; ?>';
-        });
-    </script>
     <!-- JAVASCRIPT -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
