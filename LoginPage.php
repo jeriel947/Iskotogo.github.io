@@ -4,7 +4,7 @@
 
 <head>
     <title>LOGIN</title>
-    <link rel="shortcut icon" type="image/x-icon" href="./images/LOGO.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="images/logo.png" />
     <!-- CSS -->
     <link rel="stylesheet" href="./CSS/MAIN.css">
     <link rel="stylesheet" href="./CSS/loginStyle.css">

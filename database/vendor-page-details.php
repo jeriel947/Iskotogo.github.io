@@ -30,6 +30,6 @@
         $imageData = base64_encode($row['store_image']);
         $store_image = "data:image/jpeg;base64,{$imageData}";
     } else {
-        $store_image = './images/logo.png';
+        $store_image = 'images/logo.png';
     }
 ?>

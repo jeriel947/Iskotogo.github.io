@@ -21,18 +21,18 @@
                     <?php if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) { ?>
                         <?php if ($_SESSION['user_type'] === '1') { ?> <!--VENDORS HOMEPAGE-->   
                             <a href="VendorPage.php">
-                                <img src="./images/LOGO.png" alt="" class="logo__img">
+                                <img src="images/logo.png" alt="" class="logo__img">
                                 <p>PUP Cafeteria Automation System</p>
                             </a>
                         <?php } elseif ($_SESSION['user_type'] === '2') { ?> <!--USERS HOMEPAGE-->
                             <a href="HomePage.php">
-                                <img src="./images/LOGO.png" alt="" class="logo__img">
+                                <img src="images/logo.png" alt="" class="logo__img">
                                 <p>PUP Cafeteria Automation System</p>
                             </a>
                         <?php } ?>
                     <?php } else { ?>
                         <a href="HomePage.php">
-                            <img src="./images/LOGO.png" alt="" class="logo__img">
+                            <img src="images/logo.png" alt="" class="logo__img">
                             <p>PUP Cafeteria Automation System</p>
                         </a>
                     <?php } ?>
@@ -175,7 +175,7 @@
         <?php } else { ?>
             <a href="HomePage.php" id="logo">
         <?php } ?>        
-            <img src="./images/LOGO.png" alt="" class="logo__img">
+            <img src="images/logo.png" alt="" class="logo__img">
             <h4>IskoToGo</h4>
         </a>
         <ul class="nav_menu generic-homepage-nav-menu">
