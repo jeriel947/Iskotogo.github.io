@@ -37,82 +37,108 @@
     </div>
 
     <!--================================ NAVIGATION BAR ================================-->
-    <?php 
-        $headerIcon = "";
-        $mobileHeaderText = "IskoToGo";
-        include 'components/navbar.php'; 
-    ?>
+
     <!--================================ END OF NAVIGATION BAR ================================-->
 
 
     <?php if (isset($_SESSION['user_name']) && isset($_SESSION['password']) && ($_SESSION['user_type'] === '1')) { ?>
     <!--================================ VENDORS CONTAINER ================================-->
-    <!-- PROFILE CONTAINER -->
-    <section class="container profile_container">
-      <div class="left_profile">
-        <div class="image">
-          <div class="img_container">
-            <img src="./images/UNLI LUGAW STALL.png" alt="">
-          </div>
-          <div class="profile_image">
-            <h1>
-              <?php echo strtoupper(substr($storeName, 0, 1)); ?>                        
-            </h1>
-          </div>
-        </div>
 
-        <div class="profile_details">
-          <div class="profile_details_texts">
-            <div class="stall_name">
-              <h3>
-                <span class="material-symbols-outlined">
-                  store
+    <div class="vendor-page-container">
+      <div class="vendor-navbar">
+        <div class="vendor-profile">
+        </div>
+        <ul>
+          <li>
+            <span class="material-symbols-outlined">
+              overview_key
+            </span>
+            <a href="VendorPage.php">Overview</a>
+          </li>
+          <li>
+            <span class="material-symbols-outlined">
+              receipt
+            </span>
+            <a href="VendorPage.php">Orders</a>
+          </li>
+          <li>
+            <span class="material-symbols-outlined">
+              inventory_2
+            </span>
+            <a href="VendorPage.php">Stocks</a>
+          </li>
+          <li>
+            <span class="material-symbols-outlined">
+              dashboard
+            </span>
+            <a href="VendorPage.php">Dashboard</a>
+          </li>
+        </ul>
+      </div>
+      <div class="overview-section">
+        <section class="profile_container">
+          <div class="page-title">
+            <h3>Overview</h3>
+          </div>
+          <div class="left_profile">
+            <div class="image">
+              <div class="img_container">
+                <img src="./images/UNLI LUGAW STALL.png" alt="">
+                <div class="profile_details">
+                  <div class="profile_image">
+                    <h1>
+                      <?php echo strtoupper(substr($storeName, 0, 1)); ?>                        
+                    </h1>
+                  </div>
+                  <div class="profile_details_texts">
+                    <div class="stall_name stall_details">
+                      <p>
+                        <span class="material-symbols-outlined">
+                          store
+                        </span>
+                        <?php echo $storeName; ?>
+                      </p>
+                    </div>
+                    <div class="stall_location stall_details">
+                      <p>
+                        <span class="material-symbols-outlined">
+                          location_on
+                        </span>   
+                        <?php echo $location; ?>
+                      </p>
+                    </div>
+                    <div class="stall_contact stall_details">
+                      <p>
+                  <span class="material-symbols-outlined">
+                  call
                 </span>
-                <?php echo $storeName; ?>
-              </h3>
-            </div>
-            <div class="stall_location stall_details">
-              <p>
-                <span class="material-symbols-outlined">
-                  location_on
-                </span>   
-				        <?php echo $location; ?>
-              </p>
-            </div>
-            <div class="stall_contact stall_details">
-              <p>
-			  	<span class="material-symbols-outlined">
-					call
-				</span>
-                <?php echo $contact; ?>
-              </p>
+                        <?php echo $contact; ?>
+                      </p>
+                    </div>
+                  </div>
+                  <button type="button" class="edit-profile-btn btn">Edit Profile</button>
+                </div>
+              </div>
             </div>
           </div>
-          <button type="button" class="edit-profile-btn btn">Edit Profile</button>
-        </div>
+
+          <?php include 'components/vendor/dashboard.php'; ?>
+        </section>
+
+        <!-- ORDERS CONTAINER -->
+        <section class="orders_container">
+          <div class="active_orders">
+            <div class="title">
+              <h3>Active Orders</h3>
+            </div>
+
+            <?php include 'components/vendor/active-orders.php'; ?>
+          </div>
+
+          </div>
+        </section>
       </div>
-
-      <?php include 'components/vendor/dashboard.php'; ?>
-    </section>
-
-    <!-- ORDERS CONTAINER -->
-    <section class="container orders_container">
-      <div class="active_orders">
-        <div class="title">
-          <h3>Active Orders</h3>
-        </div>
-
-        <?php include 'components/vendor/active-orders.php'; ?>
-      </div>
-
-      <div class="order_history">
-        <div class="title">
-          <h3>Order History</h3>
-        </div>
-
-        <?php include 'components/vendor/order-history.php'; ?>
-      </div>
-    </section>
+    </div>
     <!--================================ END OF CONTENT CONTAINER ================================-->
     <?php } else { ?>
       <?php include 'components/admin/access-denied.php'; ?>
