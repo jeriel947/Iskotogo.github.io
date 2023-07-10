@@ -46,70 +46,15 @@
 
     <div class="vendor-page-container">
       <?php
-          $navId = "overview-nav";    
+          $navId = "products-nav";    
           include 'components/vendor/vendor-navbar.php'; 
       ?>
       <div class="overview-section">
         <section class="profile_container">
           <div class="page-title">
-            <h3>Overview</h3>
-          </div>
-          <div class="left_profile">
-            <div class="image">
-              <div class="img_container">
-                <img src="./images/UNLI LUGAW STALL.png" alt="">
-                <div class="profile_details">
-                  <div class="profile_image">
-                    <h1>
-                      <?php echo strtoupper(substr($storeName, 0, 1)); ?>                        
-                    </h1>
-                  </div>
-                  <div class="profile_details_texts">
-                    <div class="stall_name stall_details">
-                      <p>
-                        <span class="material-symbols-outlined">
-                          store
-                        </span>
-                        <?php echo $storeName; ?>
-                      </p>
-                    </div>
-                    <div class="stall_location stall_details">
-                      <p>
-                        <span class="material-symbols-outlined">
-                          location_on
-                        </span>   
-                        <?php echo $location; ?>
-                      </p>
-                    </div>
-                    <div class="stall_contact stall_details">
-                      <p>
-                  <span class="material-symbols-outlined">
-                  call
-                </span>
-                        <?php echo $contact; ?>
-                      </p>
-                    </div>
-                  </div>
-                  <button type="button" class="edit-profile-btn btn">Edit Profile</button>
-                </div>
-              </div>
-            </div>
+            <h3>Products</h3>
           </div>
 
-          <?php include 'components/vendor/dashboard.php'; ?>
-        </section>
-
-        <!-- ORDERS CONTAINER -->
-        <section class="orders_container">
-          <div class="active_orders">
-            <div class="title">
-              <h3>Active Orders</h3>
-            </div>
-
-            <?php include 'components/vendor/active-orders.php'; ?>
-          </div>
-
-          </div>
         </section>
       </div>
     </div>

@@ -6,6 +6,7 @@
 .overview-section {
   width: 80%;
   margin-left: calc(20% + 1rem);
+  margin-right: 1rem;
 }
 /*=================     PROFILE CONTAINER     =================*/
 .profile_container {
@@ -373,7 +374,7 @@
   background: var(--color-main2);
 }
 
-/* ------------------- VENDOR NAVBAR -------------------*/
+/* ------------------- VENDOR NAVBAR ------------------- */
 .vendor-navbar {
   width: 20%;
   background: white;
@@ -384,10 +385,53 @@
 }
 
 .vendor-navbar .vendor-profile {
-  background: lime;
+  background: var(--color-bg);
+  border-radius: .7rem;
   height: 10rem;
   width: 100%;
   margin-bottom: .5rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.vendor-navbar .vendor-profile .image-background,
+.vendor-navbar .vendor-profile .blurred-effect {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  position: absolute;
+}
+
+.vendor-navbar .vendor-profile .image-background img {
+  height: 100%;
+}
+
+.vendor-navbar .vendor-profile .blurred-effect {
+  background: rgba(0, 0, 0, 0.253);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.vendor-navbar .vendor-profile .blurred-effect .image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  background: var(--color-gradient);
+  border: solid 2px white;
+}
+
+.vendor-navbar .vendor-profile .blurred-effect .image p {
+  color: white;
+  font-weight: 500;
+}
+
+.vendor-navbar .vendor-profile .blurred-effect .stall-name {
+  color: white;
 }
 
 .vendor-navbar ul {
@@ -398,13 +442,93 @@
 }
 
 .vendor-navbar ul li {
-  display: flex;
   width: 100%;
-  align-items: center;
-  padding: 1rem;
-  background: lime;
+  border-radius: .7rem;
+  background: var(--color-bg);
 }
 
+.vendor-navbar ul li a {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.vendor-navbar ul li p {
+  font-weight: 500;
+}
+
+.vendor-navbar ul li:hover {
+  background: white;
+  transition: var(--transition);
+}
+
+.vendor-navbar ul li:hover span {
+  background: var(--color-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: var(--transition);
+}
+
+.vendor-navbar ul li:hover p {
+  background: var(--color-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: var(--transition);
+}
+
+#overview-nav li:nth-child(1),
+#orders-nav li:nth-child(2),
+#products-nav li:nth-child(3),
+#dashboard-nav li:nth-child(4) {
+  background: white;
+}
+
+#overview-nav li:nth-child(1) span,
+#overview-nav li:nth-child(1) p,
+#orders-nav li:nth-child(2) span,
+#orders-nav li:nth-child(2) p,
+#products-nav li:nth-child(3) span,
+#products-nav li:nth-child(3) p,
+#dashboard-nav li:nth-child(4) span,
+#dashboard-nav li:nth-child(4) p {
+  background: var(--color-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.vendor-navbar .logout-area a {
+  position: absolute;
+  bottom: 0;
+  right: .5rem;
+  left: .5rem;
+  bottom: .5rem;
+  background: var(--color-main1);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  border-radius: .7rem;
+  font-weight: 500;
+}
+
+.vendor-navbar .logout-area a p,
+.vendor-navbar .logout-area a span {
+  color: white;
+}
+
+.vendor-navbar .logout-area a p {
+  font-weight: 500;
+}
+
+.vendor-navbar .logout-area:hover a {
+  background: var(--color-main2);
+  transition: var(--transition);  
+}
+
+/* ------------------- VENDOR NAVBAR ------------------- */
 footer {
   margin-left: 20%;
   width: 80%;
