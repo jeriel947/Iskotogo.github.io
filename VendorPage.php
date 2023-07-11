@@ -108,8 +108,6 @@
 
             <?php include 'components/vendor/active-orders.php'; ?>
           </div>
-
-          </div>
         </section>
       </div>
     </div>
