@@ -53,7 +53,7 @@
 
     <!--================================ CONTAINER ================================-->
     <!---------------------------------- PROMO VID ---------------------------------->
-    <section class="promo_container">
+    <section class="promo_container homepage_container gapless_container">
         <div class="video-container">
         <video src="images/aboutus_pics/promo.mp4" autoplay muted loop></video>
 			</div>
