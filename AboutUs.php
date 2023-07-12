@@ -52,9 +52,82 @@
 
 
     <!--================================ CONTAINER ================================-->
-    <section class="container homepage_container gapless_container">
+    <!---------------------------------- PROMO VID ---------------------------------->
+    <section class="promo_container">
+        <div class="video-container">
+        <video src="images/aboutus_pics/promo.mp4" autoplay muted loop></video>
+			</div>
+        </div>
+    </section>
 
-
+    <!---------------------------------- ABOUT ------------------------------------>
+    <section class="about_container">
+        <div class="about">
+            <div class="about-text">
+              <h1>IskoToGo </h1>
+              <p>A web-based school cafeteria automation system designed for PUP students to optimize the overall transactions and handle multiple cafeterias in to a centralized platform.</p>
+            </div>
+            <div class="about-image">
+              <img src="images/aboutus_pics/bgg.png" alt="">
+            </div>
+        </div>
+    </section>
+    <!----------------------------- OUR TEAM ------------------------------------>
+    <section class="team_container homepage_container gapless_container">
+        <div>
+        <h1>MEET OUR TEAM</h1>
+        <div class="card-grid">
+            <div class="card">
+                <img src="images/aboutus_pics/silva.jpg" alt="Harvy Pontillas">
+                <div class="card-info">
+                  <h3>Harvy Pontillas</h3>
+                  <p>Merielle Cruz</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/aboutus_pics/silva.jpg" alt="Jeriel Ledesma">
+                <div class="card-info">
+                  <h3>Jeriel Ledesma</h3>
+                  <p>Merielle Cruz</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/aboutus_pics/silva.jpg" alt="Jherdi Ramos">
+                <div class="card-info">
+                  <h3>Jherdi Ramos</h3>
+                  <p>Merielle Cruz</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/aboutus_pics/silva.jpg" alt="Matthew Silva">
+                <div class="card-info">
+                  <h3>Matthew Silva</h3>
+                  <p>Merielle Cruz</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/aboutus_pics/cruz.jpg" alt="Merielle Cruz">
+                <div class="card-info">
+                  <h3>Merielle Cruz</h3>
+                  <p>Merielle Cruz</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/aboutus_pics/mia.jpg" alt="Mia Capili">
+                <div class="card-info">
+                  <h3>Mia Capili</h3>
+                  <p>Merielle Cruz</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/aboutus_pics/cruz.jpg" alt="Jesse Eriguel">
+                <div class="card-info">
+                  <h3>Jesse Eriguel</h3>
+                  <p>Merielle Cruz</p>
+                </div>
+            </div>
+            </div>
+        </div>
     </section>
     <!--================================ END OF CONTAINER ================================-->
 
