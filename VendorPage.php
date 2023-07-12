@@ -13,6 +13,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="./CSS/MAIN.css">
     <link rel="stylesheet" href="./CSS/vendor-page.css">
+    <link rel="stylesheet" href="./CSS/take-order.css">
     <link rel="stylesheet" href="./CSS/responsiveness.css">
 
     <!-- SCROLL EFFECTS -->
@@ -126,6 +127,7 @@
 
     <script src="./SCRIPTS/SCRIPT.js"></script>
     <script src="./SCRIPTS/navbar.js"></script>
+    <script src="./SCRIPTS/take-order.js"></script>
     <script src="./SCRIPTS/show-profile.js"></script>
 </body>
 </html>

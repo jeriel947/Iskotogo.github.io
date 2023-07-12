@@ -1,94 +1,46 @@
 <div class="active_orders_list">
-    <div class="active_order_container">
-    <div class="date">
-        <p>Today 11:12PM</p>
-    </div>
-    <div class="active_order">
-        <p>Jherdi Ramos | BSIT22</p>
-        <div class="active_order_details">
-        <div class="left">
-            <p>Item:<span>&nbsp; Carbonara</span></p>
-            <p>Quantity:<span>&nbsp; 2</span></p>
-            <p>Others:<span>&nbsp; None</span></p>
-        </div>
-        <div class="right">
-            <p>Total:<span>&nbsp;P 40.00</span></p>
-            <button type="button" class="view-details-btn btn btn-secondary">
-            <p>Take Order</p>
-            <i class="bi bi-arrow-right-circle-fill"></i>
-            </button>
-        </div>
-        </div>
-    </div>
-    </div>
+    <?php include 'database/active-orders.php'; ?>
 
-    <div class="active_order_container">
-    <div class="date">
-        <p>Today 11:12PM</p>
-    </div>
-    <div class="active_order">
-        <p>Jherdi Ramos | BSIT22</p>
-        <div class="active_order_details">
-        <div class="left">
-            <p>Item:<span>&nbsp; Carbonara</span></p>
-            <p>Quantity:<span>&nbsp; 2</span></p>
-            <p>Others:<span>&nbsp; None</span></p>
+    <?php if (!empty($active_orders)): ?>
+    <?php foreach ($active_orders as $order): ?>
+        <div class="active_order_container">
+            <div class="date">
+                <p>
+                    <?php echo $order['date']; ?>
+                </p>
+            </div>
+            <div class="active_order">
+                <div class="order-image image">
+                    <?php echo $order['menuImage']; ?>
+                </div>
+                <div class="active_order_details">
+                    <h4 class="item-name">
+                        <?php echo $order['itemName']; ?>
+                    </h4>
+                    <div class="customer">
+                        <div class="image">
+                            <?php echo $order['customerImage']; ?>
+                        </div>
+                        <p class="customer-name">
+                            <?php echo $order['customerName']; ?>
+                        </p>
+                    </div>
+                    <div class="total-price">
+                        <span>Total:</span>
+                        <p>
+                            <?php echo $order['totalPrice']; ?>                                                    
+                        </p>
+                    </div>
+                </div>
+                <button type="button" class="view-details-btn btn btn-secondary">
+                    <p>Take Order</p>
+                    <i class="bi bi-arrow-right-circle-fill"></i>
+                </button>
+            </div>
+            <?php include 'components/vendor/take-order.php'; ?>
         </div>
-        <div class="right">
-            <p>Total:<span>&nbsp;P 40.00</span></p>
-            <button type="button" class="view-details-btn btn btn-secondary">
-            <p>Take Order</p>
-            <i class="bi bi-arrow-right-circle-fill"></i>
-            </button>
-        </div>
-        </div>
-    </div>
-    </div>
-
-    <div class="active_order_container">
-    <div class="date">
-        <p>Today 11:12PM</p>
-    </div>
-    <div class="active_order">
-        <p>Jherdi Ramos | BSIT22</p>
-        <div class="active_order_details">
-        <div class="left">
-            <p>Item:<span>&nbsp; Carbonara</span></p>
-            <p>Quantity:<span>&nbsp; 2</span></p>
-            <p>Others:<span>&nbsp; None</span></p>
-        </div>
-        <div class="right">
-            <p>Total:<span>&nbsp;P 40.00</span></p>
-            <button type="button" class="view-details-btn btn btn-secondary">
-            <p>Take Order</p>
-            <i class="bi bi-arrow-right-circle-fill"></i>
-            </button>
-        </div>
-        </div>
-    </div>
-    </div>
-
-    <div class="active_order_container">
-    <div class="date">
-        <p>Today 11:12PM</p>
-    </div>
-    <div class="active_order">
-        <p>Jherdi Ramos | BSIT22</p>
-        <div class="active_order_details">
-        <div class="left">
-            <p>Item:<span>&nbsp; Fewa</span></p>
-            <p>Quantity:<span>&nbsp; 4</span></p>
-            <p>Others:<span>&nbsp; Hotdog instead of footlong</span></p>
-        </div>
-        <div class="right">
-            <p>Total:<span>&nbsp;P 40.00</span></p>
-            <button type="button" class="view-details-btn btn btn-secondary">
-            <p>Take Order</p>
-            <i class="bi bi-arrow-right-circle-fill"></i>
-            </button>
-        </div>
-        </div>
-    </div>
-    </div>
-
+    <?php endforeach; ?>
+    <?php else: ?>
+        <p>Empty Orders</p>
+    <?php endif; ?>
 </div>
