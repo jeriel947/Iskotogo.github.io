@@ -1,7 +1,7 @@
 <div class="vendor-navbar" id="<?php echo $navId; ?>">
     <div class="vendor-profile">
         <div class="image-background">
-            <img src="./images/UNLI LUGAW STALL.png" alt="">
+            <img src="images/UNLI LUGAW STALL.png" alt="">
         </div>
         <div class="blurred-effect">
             <div class="image">
@@ -38,10 +38,10 @@
         <li>
         <a href="VendorProducts.php">
             <span class="material-symbols-outlined">
-            inventory_2
+                fastfood
             </span>
             <p>
-            Products
+                Inventory
             </p>
         </a>
         </li>

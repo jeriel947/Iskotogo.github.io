@@ -253,67 +253,123 @@
 }
 
 .active_orders_list .active_order_container .date p {
-  font-weight: 500;
   padding-left: .5rem;
   color: var(--color-dark-gray);
 }
 
 .active_orders_list .active_order_container .active_order {
   display: flex;
-  flex-direction: column;
-  border-radius: .4rem;
-  padding: .4rem;
+  align-items: center;
+  border-radius: .7rem !important;
+  gap: .5rem;
+  padding: .5rem;
   box-shadow: var(--card-shadow);
   background: white;
+  position: relative;
 }
 
-.active_orders_list .active_order > p {
-  text-align: center;
-  background: var(--color-gradient);
-  color: white;
-  border-radius: .2rem;
-  font-weight: 500;
+.active_order .order-image {
+  width: 6rem;
+  height: 6rem;
+  overflow: hidden;
+  border-radius: .5rem;
 }
 
-.active_orders_list .active_order_container .active_order_details {
+.active_order .order-image img {
+  height: 100%;
+}
+
+.active_order .order-image span {
+  width: 100%;
+  height: 100%;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  background: var(--color-gradient2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: var(--transition);
+  border: 2px solid var(--color-main2);
+  border-radius: .5rem;
 }
 
-.active_orders_list .active_order_details p {
-  font-weight: 500;
+.active_orders_list .active_order_details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: .5rem;
+}
+
+.active_orders_list .active_order_details .item-name {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  max-width: 14rem;
+  color: var(--color-main2);
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  font-weight: 400;
 }
 
-.active_orders_list .active_order_details span {
-  background: var(--color-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.active_orders_list .active_order_details .total-price {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
 }
 
-.active_orders_list .active_order_details button {
+.active_orders_list .active_order_details .total-price span {
+  font-weight: 100;
+}
+
+.active_orders_list .active_order_details .total-price p {
   background: var(--color-main2);
-  color: white;
+  border-radius: .7rem;
+  padding: 0 .7rem;
+  color: var(--color-dark);
+}
+
+.active_order .customer {
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+}
+
+.active_order .customer .image {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.active_order .customer .image img {
+  height: 100%;
+}
+
+.active_order .customer .customer-name {
+  color: var(--color-dark-gray);
+}
+
+.active_orders_list button {
+  background: var(--color-white);
+  color: var(--color-main2);
   display: flex;
   gap: .5rem;
   justify-content: center;
-  cursor: pointer;
   align-items: center;
-  width: max-content;
+  cursor: pointer;
   border-radius: .7rem;
+  padding: .5rem 1rem;
+  margin-left: auto;
+  box-shadow: none !important;
+  height: fit-content;
 }
 
-.active_orders_list .active_order_details button p {
-  color: white;
+.active_orders_list button p {
+  color: var(--color-main2);
   font-weight: 500;
 }
 
-.active_orders_list .active_order_details button i {
+.active_orders_list button i {
   transform: scale(1.3);
 }
 

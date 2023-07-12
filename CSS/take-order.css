@@ -1,0 +1,128 @@
+.take-order-container {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.466);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.take-order-card {
+    padding: 1rem;
+    background: white;
+    border-radius: 1rem;
+}
+
+.take-order-card .order-basic-details {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding-bottom: .5rem;
+    border-bottom: 1px solid var(--color-dark-gray);
+}
+
+.take-order-card .order-basic-details .image {
+    height: 100%;
+    width: 5rem;
+    border-radius: .7rem;
+    overflow: hidden;
+}
+
+.take-order-card .order-basic-details .item-name-price {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.take-order-card .order-basic-details .item-name-price h4 {
+    font-weight: 500;
+    color: var(--color-dark);
+}
+
+/* --------------- CUSTOMER DETAILS --------------- */
+.take-order-card .customer-details {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    border-top: 1px solid var(--color-dark-gray);
+    padding: .5rem 0 0 .5rem;
+    margin-top: .5rem;
+}
+
+.take-order-card .customer-details .image {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.take-order-card .customer-details .customer-name {
+    color: var(--color-dark-gray);
+    font-size: .8rem;
+}
+
+/* --------------- ORDER DETAILS --------------- */
+.take-order-card .order-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.take-order-card .order-details .detail-container:first-child {
+    border-bottom: 1px solid var(--color-dark-gray);
+}
+
+.take-order-card .detail-container {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.take-order-card .order-details .detail-container {
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.take-order-card .order-details .order-total {
+    background: var(--color-gradient);
+    color: white;
+    border-radius: .7rem;
+}
+
+.take-order-card .order-details .order-total p {
+    background: white;
+    color: var(--color-dark);
+    padding: 0 1rem;
+    border-radius: 1rem;
+}
+
+.take-order-btns {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.take-order-btns button {
+    width: 50%;
+    gap: .5rem;
+    padding: .5rem;
+    margin-top: .5rem;
+    transition: var(--transition);
+}
+
+.take-order-btns .cancel-btn {
+    color: var(--color-dark-gray);
+}
+
+.take-order-btns .cancel-btn:hover {
+    background: var(--color-gray);
+    color: white;
+}
+
+.take-order-btns .take-order-btn:hover {
+    background: var(--color-main2);
+    color: white;
+}
