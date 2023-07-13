@@ -1,3 +1,8 @@
+<?php 
+    $successMessage = "Order is ready for pickup.";
+    $failMessage = "Error delivering the order. Please try again.";
+    include 'components/process-message.php'; 
+?>
 <div class="take-order-container">
     <div class="take-order-card">
         <div class="order-basic-details">
@@ -9,8 +14,8 @@
                     Item Name
                 </h4>
                 <div class="detail-container base-price">
-                    <span>Base Price: </span>
-                    <p>Php 55.00</p>
+                    <span>Unit Price:</span>
+                    <p></p>
                 </div>
                 <div class="customer-details">
                     <div class="image">

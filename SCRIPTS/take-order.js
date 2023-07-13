@@ -1,57 +1,61 @@
 document.addEventListener('DOMContentLoaded', () => {
     /* SHOW/HIDE POP MESSAGE */
-    const showOrder = document.querySelectorAll('.active_order');
+    const showOrder = document.querySelectorAll('.active_order_container .active_order');
     const closeOrder = document.querySelector('.take-order-container .cancel-btn');
+
     /* POPUP ELEMENTS */
-    const popUpMessage = document.querySelector('.take-order-container');
-    const popUpMessageContent = document.querySelector('.take-order-card');
-    const itemname = document.querySelector('.popUp__message .name_price h4');
-    const itemprice = document.querySelector(".popUp__message .name_price p");
-
-    /* TEST AREA @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
-    const itemid = document.querySelector(".popUp__message .name_price p[name='item_id']");
-    /* TEST AREA @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
-
-
-    /* QUANTITY ELEMENTS */
-    const subBtn = document.querySelector('.popUp__item__details .quantity .bi-dash');
-    const addBtn = document.querySelector('.popUp__item__details .quantity .bi-plus');    
-    const itemQuantity = document.querySelector('.popUp__message .popUp__item__details .quantity #text');
-    const otherDetailsInput = document.querySelector('.popUp__message .other_details input');
-    /* SUMMARY DETAILS (POPUP MESSAGE)*/
-    const summaryItemquantity = document.querySelector('.order_summary .summary_item_quantity')
-    const summaryItemname = document.querySelector('.order_summary .summary_item_name');
-    const otherDetailsValue = document.querySelector('.order_summary .bottom p');
-    const totalAmount = document.querySelector('.order_summary .right #total_price')
+    const takeOrderContainer = document.querySelector('.take-order-container');
+    const takeOrderCard = document.querySelector('.take-order-card');
+    const itemname = document.querySelector('.take-order-card .item-name-price h4');
+    const itemBasePrice = document.querySelector(".take-order-card .item-name-price .base-price p");
+    const itemQuantity = document.querySelector('.take-order-card .order-details .order-quantity p');
+    const otherDetails = document.querySelector('.take-order-card .order-details .order-others p');
+    const totalAmount = document.querySelector('.take-order-card .order-details .order-total p');
+    /* CUSTOMER ELEMENTS */
+    const customerName = document.querySelector('.take-order-card .customer-details .customer-name');
     
+    /* TAKE ORDER BUTTON */
+    const receiveOrderBtn = document.querySelector('.take-order-container .take-order-btn');
+    
+    let orderId = null;
     /** OPEN THE MODAL */
-    showOrder.forEach(featuredItem => {
-        featuredItem.addEventListener('click', () => {
-            /* GET DATA FROM FEATURED ITEM */
-            const item = featuredItem.querySelector('#item_name').textContent.trim();
-            const price = featuredItem.querySelector('#item_price').textContent.trim();
-            const image = featuredItem.querySelector('.image').innerHTML;               
+    showOrder.forEach(activeOrder => {
+        activeOrder.addEventListener('click', () => {
+            /* GET DATA FROM ACTIVE ORDERS */
+            const item = activeOrder.querySelector('.item-name').textContent.trim();
+            const total = activeOrder.querySelector('.total-price .item-total-price').textContent.trim();
+            const orderPrice = activeOrder.querySelector('.total-price .base-price').textContent.trim();
+            const orderQuantity = activeOrder.querySelector('.total-price .order-quantity').textContent.trim();
+            const orderCustName = activeOrder.querySelector('.customer .customer-name').textContent.trim();
+            const itemImage = activeOrder.querySelector('.order-image').innerHTML;               
             const popupImage = document.createElement('div');
-            popupImage.innerHTML = image;
-
-            /* -- MODAL DATA */
-            const quantity = popUpMessageContent.querySelector('.quantity #text').textContent.trim();
+            popupImage.innerHTML = itemImage;
+            const customerImage = activeOrder.querySelector('.customer .image').innerHTML;
+            const customerImageContainer = document.createElement('div');
+            customerImageContainer.innerHTML = customerImage;
+            
+            
             /* POPULATE THE MODAL*/
             itemname.textContent = item;
-            summaryItemquantity.querySelector('span').textContent = "\u00A0" + quantity;
-            summaryItemname.querySelector('span').textContent = "\u00A0" + item;        
-            itemprice.querySelector('span').textContent = "\u00A0" + price;
-            totalAmount.textContent = price;
-            popUpMessage.querySelector('.image').innerHTML = '';
-            popUpMessage.querySelector('.image').appendChild(popupImage);
-
+            itemBasePrice.textContent = "Php" + " " + orderPrice + ".00";
+            itemQuantity.textContent = orderQuantity;
+            totalAmount.textContent = "Php" + " " + total + ".00";
+            otherDetails.textContent = "None";
+            takeOrderContainer.querySelector('.image').innerHTML = '';
+            takeOrderContainer.querySelector('.image').appendChild(popupImage);
+            customerName.textContent = orderCustName;
+            takeOrderContainer.querySelector('.customer-details .image').innerHTML = '';
+            takeOrderContainer.querySelector('.customer-details .image').appendChild(customerImageContainer);
+            
+            orderId = activeOrder.querySelector('.order-id').textContent.trim();
+            
             /* DISPLAY THE MODAL */
-            popUpMessage.style.display = "flex";
-            popUpMessage.style.visibility = "visible";
+            takeOrderContainer.style.display = "flex";
+            takeOrderContainer.style.visibility = "visible";
             
             if (window.innerWidth <= 600) {
-                popUpMessageContent.style.transform = 'translateY(0%)';
-                popUpMessage.style.opacity = "1";        
+                takeOrderCard.style.transform = 'translateY(0%)';
+                takeOrderContainer.style.opacity = "1";        
             }
         })
     })
@@ -59,47 +63,72 @@ document.addEventListener('DOMContentLoaded', () => {
     /* CLOSE THE MODAL */
     closeOrder.addEventListener('click', () => { 
         if (window.innerWidth <= 600) {
-            popUpMessageContent.style.transform = 'translateY(100%)';
+            takeOrderCard.style.transform = 'translateY(100%)';
             
             setTimeout(() => {
-                popUpMessage.style.opacity = "0";
+                takeOrderContainer.style.opacity = "0";
             }, 500);
 
             setTimeout(() => {
-                popUpMessage.style.visibility = "hidden";
+                takeOrderContainer.style.visibility = "hidden";
             }, 510);
         } else {
-            popUpMessage.style.visibility = "hidden";
+            takeOrderContainer.style.display = "none";
         }
     })
 
-    /* QUANTITY LOGIC */
-    subBtn.addEventListener('click', () => {
-        let quantityControl = parseInt(itemQuantity.textContent);
-        if (quantityControl > 1) {
-            quantityControl--;
-            itemQuantity.textContent = quantityControl.toString();
-            summaryItemquantity.querySelector('span').textContent = "\u00A0" + quantityControl.toString();
-            updateTotalPrice(quantityControl, itemprice.textContent);        
-        }
+    const successMessage = document.querySelector('.process-status-message .success-message');
+    const errorMessage = document.querySelector('.process-status-message .error-message');
+    const closeStatMgsBtn = document.querySelectorAll('.process-status-message .close');
+
+    /* RECEIVE ORDER  */
+    receiveOrderBtn.addEventListener('click', () => {
+        // Create a new XMLHttpRequest object
+        const xhr = new XMLHttpRequest();
+        
+        // Set up the AJAX request
+        xhr.open('POST', 'controllers/receive-order.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        
+        // Create the data to be sent in the request body
+        const data = `orderId=${orderId}`;
+
+        // Set up the callback function to handle the response
+        xhr.onload = () => {
+            if (xhr.status === 200) {
+                const response = JSON.parse(xhr.responseText);
+                if (response.success) {
+                    console.log(response.message);
+                    errorMessage.style.display = "none";                    
+                    successMessage.style.display = "flex";
+                    setTimeout(function() {
+                        takeOrderContainer.style.display = "none";
+                    }, 300);
+                } else {
+                    console.log(response.message);
+                }
+            } else {
+                console.log('Error: ' + xhr.status);
+                successMessage.style.display = "none";
+                errorMessage.style.display = "flex";
+                setTimeout(function() {
+                    takeOrderContainer.style.display = "none";
+                }, 300);
+            }
+        };
+        xhr.send(data);
     })
 
-    addBtn.addEventListener('click', () => {
-        let quantityControl = parseInt(itemQuantity.textContent);
-        if (quantityControl < 9) {
-            quantityControl++;
-            itemQuantity.textContent = quantityControl.toString();
-            summaryItemquantity.querySelector('span').textContent = "\u00A0" + quantityControl.toString();            
-            updateTotalPrice(quantityControl, itemprice.textContent);
-        }
+    /* Close message */
+    closeStatMgsBtn.forEach(closeStatBtn => {
+        closeStatBtn.addEventListener('click', () => {
+            const processStatMgsContainer = closeStatBtn.closest('.process-status-message .update-message');
+            processStatMgsContainer.style.display = "none";
+            setTimeout(function() {
+                location.reload();
+            }, 100);
+        })
     })
-
-    /* CALCULATE TOTAL PRICE */
-    function updateTotalPrice(quantity, price) {
-        const priceValue = extractNumericValue(price);
-        const totalPrice = quantity * priceValue;
-        totalAmount.textContent = formatPrice(totalPrice);
-    }
 
     /* REMOVE CURRENCY SIGNS BEFORE CALCULATING */
     function extractNumericValue(price) {
@@ -114,11 +143,5 @@ document.addEventListener('DOMContentLoaded', () => {
     /* FORMAT DISPLAY FOR TOTAL PRICE */
     function formatPrice(price) {
         return 'P ' + price.toFixed(2);
-    }
-
-    /* 'OTHERS' INPUT */
-    otherDetailsInput.addEventListener('input', () => {
-        const inputValue = otherDetailsInput.value.trim();
-        otherDetailsValue.querySelector('span').textContent = inputValue === '' ? 'None' : inputValue;s
-    })    
+    } 
 });

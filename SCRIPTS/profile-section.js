@@ -36,12 +36,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (xhr.status === 200) {
                     // Update the image container with the newly uploaded image
                     imageContainer.innerHTML = xhr.responseText;
-                    successMessage.querySelector('.texts p').textContent = "Image updated successfully.";        
                     errorMessage.style.display = "none";                    
                     successMessage.style.display = "flex";
                 } else {
                     // Handle the error case
-                    errorMessage.querySelector('.texts p').textContent = "Error uploading image. Please try again.";        
                     successMessage.style.display = "none";
                     errorMessage.style.display = "flex";
                 }

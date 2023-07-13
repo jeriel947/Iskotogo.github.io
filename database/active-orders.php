@@ -41,6 +41,7 @@
 
         if (!isset($active_orders[$orderID])) {
             $active_orders[$orderID] = array(
+                'orderId' => $orderID,
                 'date' => $row['date'],
                 'itemName' => $row['item_name'],
                 'itemQuantity' => $row['quantity'],

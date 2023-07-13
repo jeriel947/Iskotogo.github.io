@@ -126,8 +126,6 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
     <script src="./SCRIPTS/SCRIPT.js"></script>
-    <script src="./SCRIPTS/navbar.js"></script>
     <script src="./SCRIPTS/take-order.js"></script>
-    <script src="./SCRIPTS/show-profile.js"></script>
 </body>
 </html>

@@ -1,40 +1,10 @@
 <?php include 'database/profile-pic.php'; ?>
 
-<div class="process-status-message">
-    <div class="success-message update-message">
-        <span class="material-symbols-outlined close">
-            close
-        </span>
-        <span class="material-symbols-outlined success">
-            mood
-        </span>
-        <div class="texts">
-            <h4>
-                Success!
-            </h4>
-            <p>
-                Your process has been completed.
-            </p>
-        </div>
-    </div>
-
-    <div class="error-message update-message">
-        <span class="material-symbols-outlined close">
-            close
-        </span>
-        <span class="material-symbols-outlined error">
-            mood_bad
-        </span>
-        <div class="texts">
-            <h4>
-                Error!
-            </h4>
-            <p>
-                An error occured.
-            </p>
-        </div>
-    </div>
-</div>
+<?php 
+    $successMessage = "Image successfully uploaded.";
+    $failMessage = "Error uploading image. Please try again.";
+    include 'components/process-message.php'; 
+?>
 
 <section class="show-profile">
     <div class="profile-container">

@@ -27,20 +27,29 @@
                     </div>
                     <div class="total-price">
                         <span>Total:</span>
-                        <p>
+                        <p class="item-total-price">
                             <?php echo $order['totalPrice']; ?>                                                    
+                        </p>
+                        <p class="base-price" hidden>
+                            <?php echo $order['itemPrice']; ?>
+                        </p>
+                        <p class="order-quantity" hidden>
+                            <?php echo $order['itemQuantity']; ?>
+                        </p>
+                        <p class="order-id" hidden>
+                            <?php echo $order['orderId']; ?>                        
                         </p>
                     </div>
                 </div>
                 <button type="button" class="view-details-btn btn btn-secondary">
-                    <p>Take Order</p>
+                    <p>View Order</p>
                     <i class="bi bi-arrow-right-circle-fill"></i>
                 </button>
             </div>
-            <?php include 'components/vendor/take-order.php'; ?>
         </div>
     <?php endforeach; ?>
     <?php else: ?>
         <p>Empty Orders</p>
     <?php endif; ?>
+    <?php include 'components/vendor/take-order.php'; ?>
 </div>
