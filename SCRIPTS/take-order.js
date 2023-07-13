@@ -34,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const customerImageContainer = document.createElement('div');
             customerImageContainer.innerHTML = customerImage;
             
-            
             /* POPULATE THE MODAL*/
             itemname.textContent = item;
             itemBasePrice.textContent = "Php" + " " + orderPrice + ".00";

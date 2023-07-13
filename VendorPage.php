@@ -73,6 +73,12 @@
                         </span>
                         <?php echo $storeName; ?>
                       </p>
+                      <div class="input">
+                        <span class="material-symbols-outlined">
+                          store
+                        </span>
+                        <input type="text" class="form-control" placeholder="Store Name" value="<?php echo $storeName; ?>">
+                      </div>
                     </div>
                     <div class="stall_location stall_details">
                       <p>
@@ -81,17 +87,33 @@
                         </span>   
                         <?php echo $location; ?>
                       </p>
+                      <div class="input">
+                        <span class="material-symbols-outlined">
+                          location_on
+                        </span>
+                        <input type="text" class="form-control" placeholder="Store Location" value="<?php echo $location; ?>">
+                      </div>
                     </div>
                     <div class="stall_contact stall_details">
                       <p>
-                  <span class="material-symbols-outlined">
-                  call
-                </span>
+                        <span class="material-symbols-outlined">
+                          phone
+                        </span>
                         <?php echo $contact; ?>
                       </p>
+                      <div class="input">
+                        <span class="material-symbols-outlined">
+                          phone
+                        </span>
+                        <input type="text" class="form-control" placeholder="Contact Number" value="<?php echo $contact; ?>">
+                      </div>
                     </div>
                   </div>
-                  <button type="button" class="edit-profile-btn btn">Edit Profile</button>
+                  <div class="buttons">
+                    <button type="button" class="edit-profile-btn btn">Edit Profile</button>
+                    <button type="button" class="cancel-btn btn" hidden>Cancel</button>      
+                    <button type="button" class="save-profile-btn btn" hidden>Save Changes</button>  
+                  </div>              
                 </div>
               </div>
             </div>
@@ -126,6 +148,7 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
     <script src="./SCRIPTS/SCRIPT.js"></script>
+    <script src="./SCRIPTS/vendor-edit-profile.js"></script>
     <script src="./SCRIPTS/take-order.js"></script>
 </body>
 </html>

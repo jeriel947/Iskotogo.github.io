@@ -78,7 +78,8 @@
 
 .profile_container .left_profile .profile_details .profile_details_texts { 
   display: flex;
-  gap: .5rem;
+  align-items: center;
+  gap: 2rem;
 }
 
 .profile_container .profile_details .profile_details_texts .stall_name h3 { 
@@ -96,15 +97,28 @@
   -webkit-text-fill-color: transparent;
 }
 
-.profile_container .left_profile .profile_details .profile_details_texts .stall_details { 
-  margin-left: 2rem;
-}
-
 .profile_container .left_profile .profile_details .profile_details_texts .stall_details p { 
   color: white;
   display: flex;
   align-items: center;
   gap: .2rem;
+}
+
+/* EDIT INPUTS */
+.profile_details_texts .input {
+  display: none;
+  align-items: center;
+  background: white;
+  gap: .5rem;
+  border-radius: .5rem;
+  padding: .5rem;
+  font-size: 1rem;
+  overflow: hidden;
+}
+
+.profile_container .left_profile .profile_details .buttons {
+  display: flex;
+  gap: .5rem;
 }
 
 .profile_container .left_profile .profile_details button {
@@ -113,6 +127,11 @@
   cursor: pointer;
   padding: .5rem 4rem;
   border-radius: .7rem;
+}
+
+.profile_container .left_profile .profile_details .buttons .cancel-btn {
+  background: transparent !important;
+  border: 2px solid white;
 }
 
 .profile_container .right_profile {
@@ -225,6 +244,7 @@
   gap: 2rem;
   margin-bottom: 2rem;
   padding-top: 2rem;
+  width: 100%;
 }
 
 .orders_container .title h3 {

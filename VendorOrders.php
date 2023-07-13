@@ -13,6 +13,8 @@
     <!-- CSS -->
     <link rel="stylesheet" href="./CSS/MAIN.css">
     <link rel="stylesheet" href="./CSS/vendor-page.css">
+    <link rel="stylesheet" href="./CSS/take-order.css">
+    <link rel="stylesheet" href="./CSS/vendor-orders-page.css">
     <link rel="stylesheet" href="./CSS/responsiveness.css">
 
     <!-- SCROLL EFFECTS -->
@@ -54,7 +56,12 @@
           <div class="page-title">
             <h3>Orders</h3>
           </div>
-
+          <!-- ORDERS CONTAINER -->
+          <div class="orders_container">
+            <div class="active_orders">
+              <?php include 'components/vendor/active-orders.php'; ?>
+            </div>
+          </div>
         </section>
       </div>
     </div>
@@ -72,7 +79,7 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
     <script src="./SCRIPTS/SCRIPT.js"></script>
-    <script src="./SCRIPTS/navbar.js"></script>
+    <script src="./SCRIPTS/take-order.js"></script>
     <script src="./SCRIPTS/show-profile.js"></script>
 </body>
 </html>
