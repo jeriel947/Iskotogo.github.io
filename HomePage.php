@@ -116,6 +116,9 @@
                                             <P id="item_id" hidden>
                                                 <?php echo $item['id']; ?>
                                             </P>
+                                            <P id="store_id" hidden>
+                                                <?php echo $item['store_id']; ?>
+                                            </P>
                                         </div>
                                         <div class="icon">
                                             <i class="bi bi-chevron-right"></i>

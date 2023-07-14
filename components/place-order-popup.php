@@ -4,32 +4,31 @@ include 'database/featured-items.php';
 
 
 <div class="popUp__message__container">
-    <!-- <form action="components/postOrder.php" method="POST"> -->
-    <form action="" method="POST">
+    <form action="components/postOrder.php" method="POST">
+    <!-- <form action="" method="POST"> -->
         <div class="popUp__message">
             <div class="popUp__item__details">
-                <div class="image">
-
-                </div>
+                <div class="image"></div>
                 <div class="name_price">
-                    <h4 name="item_name">Corndog</h4>
-                    <p name="unit_price">Unit Price:<span>&nbsp;</span></p>
+                    <h4 id="item_name">Corndog</h4>
+                    <p id="unit_price">Unit Price:<span>&nbsp;</span></p>
 
-                    <p name="item_id"></p>
+                    <p id="item_id" hidden>1111</p>
+                    <p id="store_id" hidden></p>
 
                 </div>
                 <div class="quantity">
                     <p id="label">Quantity</p>
                     <div class="input">
                         <i class="bi bi-dash"></i>
-                        <p id="text" name="quantity_text">1</p>
+                        <p id="text" id="quantity_text">1</p>
                         <i class="bi bi-plus"></i>
                     </div>
                 </div>
             </div>
             <div class="other_details">
                 <p>Other details (please specify)</p>
-                <input type="text" class="other_details_text" name="Other Details"
+                <input type="text" class="other_details_text" id="Other Details"
                     placeholder="e.g: no hotdog; additional fork; etc." autocomplete="off">
             </div>
             <div class="order_summary">
@@ -53,7 +52,7 @@ include 'database/featured-items.php';
             <div class="buttons">
                 <?php if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) { ?>
                     <button type="button" class="order-btn btn" id="close_btn">Cancel</button>
-                    <button type="submit" class="order-btn btn">Place Order</button>
+                    <button type="submit" class="order-btn btn" id="submit_btn">>Place Order</button>
                 <?php } else { ?>
                     <span class="material-symbols-outlined not-logged" id="close_btn">
                         close

@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 4.9.11
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jul 02, 2023 at 09:26 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.0.28
+-- Host: localhost:3306
+-- Generation Time: Jul 07, 2023 at 10:57 PM
+-- Server version: 5.6.51-cll-lve
+-- PHP Version: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -34,7 +35,7 @@ CREATE TABLE `tbl_menu` (
   `item_price` int(11) NOT NULL,
   `item_availability` tinyint(1) NOT NULL,
   `item_image` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_menu`
@@ -80,7 +81,7 @@ CREATE TABLE `tbl_orders` (
   `quantity` int(11) NOT NULL,
   `date` datetime NOT NULL,
   `order_status` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_orders`
@@ -106,14 +107,14 @@ CREATE TABLE `tbl_stores` (
   `Contact` varchar(100) DEFAULT NULL,
   `Likes` bigint(20) DEFAULT NULL,
   `store_image` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_stores`
 --
 
 INSERT INTO `tbl_stores` (`id`, `user_id`, `store_name`, `Location`, `Contact`, `Likes`, `store_image`) VALUES
-(1, 12, 'Jabee', 'PUP Main Bldg. Lagoon', NULL, NULL, 'images/users/6-image.jpg'),
+(1, 12, 'Jabee', 'PUP Main Bldg. Lagoon', NULL, NULL, ''),
 (2, 7, 'mackdo', 'PUP Main Lagoon', NULL, NULL, NULL),
 (5, 6, 'FFC', 'PUP Main Bldg. Lagoon', NULL, NULL, NULL),
 (6, 8, 'manang isaw', 'PUP Main Bldg. Lagoon', NULL, NULL, NULL),
@@ -136,7 +137,7 @@ CREATE TABLE `tbl_users` (
   `password` int(30) NOT NULL,
   `section` varchar(9) DEFAULT NULL,
   `user_profile` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_users`
@@ -148,7 +149,8 @@ INSERT INTO `tbl_users` (`user_id`, `Last_Name`, `First_Name`, `Middle_name`, `U
 (7, 'Cruz', 'Marielle Nicole', 'Hayag', '2020-02278-MN-0', '2020-02278-MN-0', 2, 1234, NULL, NULL),
 (8, 'Silva', 'Matthew Jericho', 'Pangilinan', '2020-01973-MN-0', '2020-01973-MN-0', 2, 1234, NULL, NULL),
 (11, 'Doe', 'John', NULL, 'Admin', NULL, 1, 1111, NULL, NULL),
-(12, 'Pontillas', 'Harvy', NULL, 'Developer', NULL, 1, 2222, NULL, NULL);
+(12, 'Pontillas', 'Harvy', NULL, 'Developer', NULL, 1, 2222, NULL, NULL),
+(14, 'Eriguel', 'Jesse Renne', NULL, '2020-02170-MN-0', '2020-02170-MN-0', 2, 1234, 'DICT 3-2', NULL);
 
 -- --------------------------------------------------------
 
@@ -159,7 +161,7 @@ INSERT INTO `tbl_users` (`user_id`, `Last_Name`, `First_Name`, `Middle_name`, `U
 CREATE TABLE `tbl_usertype` (
   `user_type_num` int(5) NOT NULL,
   `user_type_category` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_usertype`
@@ -236,7 +238,7 @@ ALTER TABLE `tbl_stores`
 -- AUTO_INCREMENT for table `tbl_users`
 --
 ALTER TABLE `tbl_users`
-  MODIFY `user_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `user_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Constraints for dumped tables
