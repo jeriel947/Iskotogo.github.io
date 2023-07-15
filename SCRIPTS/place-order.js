@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalAmount = document.querySelector('.order_summary .right #total_price')
 
     /** OPEN THE MODAL */
+    let itemId = null;
     showPopup.forEach(featuredItem => {
         featuredItem.addEventListener('click', () => {
             /* GET DATA FROM FEATURED ITEM */
@@ -56,6 +57,8 @@ document.addEventListener('DOMContentLoaded', () => {
             storeid_set.textContent = storeid_get;
             /* TEST AREA @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 
+            itemId = featuredItem.querySelector('#item_id').textContent.trim();
+            
             /* DISPLAY THE MODAL */
             popUpMessage.style.display = "flex";
             popUpMessage.style.visibility = "visible";
@@ -132,36 +135,55 @@ document.addEventListener('DOMContentLoaded', () => {
         const inputValue = otherDetailsInput.value.trim();
         otherDetailsValue.querySelector('span').textContent = inputValue === '' ? 'None' : inputValue; s
     })
+    
+    const item = document.getElementById('item_id').textContent.trim();
+    const store = document.getElementById('store_id').textContent.trim();
+    const quantity = document.getElementById('quantity_text').textContent.trim();
+    const price = document.getElementById('item_price').textContent.trim();
+    
+    
+
+    // submit button is clicked
+    document.getElementById('submit_btn').addEventListener('click', function () {
+        // Send the data to the server using AJAX
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'components/postOrder.php', true);
+
+        // Set up the AJAX request
+        xhr.setRequestHeader('Content-Type', 'application/json');
+
+        // Create an object with the data
+        const orderData = {
+          item: item,
+          price: price,
+          quantity: quantity
+        };
+
+        xhr.onload = () => {
+            if (xhr.status === 200) {
+                const response = JSON.parse(xhr.responseText);
+                if (response.success) {
+                    console.log(response.message);
+                    errorMessage.style.display = "none";                    
+                    successMessage.style.display = "flex";
+                    setTimeout(function() {
+                        takeOrderContainer.style.display = "none";
+                    }, 300);
+                } else {
+                    console.log(response.message);
+                }
+            } else {
+                console.log('Error: ' + xhr.status);
+                successMessage.style.display = "none";
+                errorMessage.style.display = "flex";
+                setTimeout(function() {
+                    takeOrderContainer.style.display = "none";
+                }, 300);
+            }
+        };
+
+        xhr.send(JSON.stringify(orderData));
+    });
 });
 
-// submit button is clicked
-document.getElementById('submit_btn').addEventListener('click', function () {
-    const item = document.getElementById('item_name').textContent.trim();
-    const price = document.getElementById('item_price').textContent.trim();
-    const quantity = document.getElementById('quantity_text').textContent.trim();
-  
-    // Create an object with the data
-    const orderData = {
-      item: item,
-      price: price,
-      quantity: quantity
-    };
-  
-    // Send the data to the server using AJAX
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', 'components/postOrder.php', true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.onload = function() {
-      if (xhr.status === 200) {
-        console.log(xhr.responseText);
-        // Handle the response here (e.g., display a success message)
-      } else {
-        console.error('Error: ' + xhr.status);
-        // Handle the error here (e.g., display an error message)
-      }
-    };
-    xhr.send(JSON.stringify(orderData));
-  
-    // Rest of your code...
-  });
-  
+

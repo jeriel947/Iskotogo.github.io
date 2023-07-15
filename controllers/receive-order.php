@@ -1,33 +1,38 @@
 <?php
-    include '../database/db-connection.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/capstone/Prototype/database/db-connection.php';
 
-    // Retrieve the orderId from the request
-    $orderId = $_POST['orderId'];
+// Retrieve the data from the AJAX request
+$data = json_decode(file_get_contents('php://input'), true);
 
-    // Prepare the update query
-    $updateQuery = "UPDATE tbl_orders SET order_status = 0 WHERE id = ?";
-    $stmt = mysqli_prepare($con, $updateQuery);
-    mysqli_stmt_bind_param($stmt, "s", $orderId);
+// Extract the data
+$item = $data['item'];
+$price = $data['price'];
+$quantity = $data['quantity'];
 
-    // Execute the update query
-    if (mysqli_stmt_execute($stmt)) {
-        $rowsAffected = mysqli_stmt_affected_rows($stmt);
+// Perform the database update
+$query = "INSERT INTO tbl_orders (item, price, quantity) VALUES (?, ?, ?)";
+$stmt = mysqli_prepare($con, $query);
 
-        if ($rowsAffected > 0) {
-            // Order was successfully updated
-            $response = array('success' => true, 'message' => "Order {$orderId} received successfully");
-        } else {
-            // No rows were affected, order ID may not exist
-            $response = array('success' => false, 'message' => "Unable to update order. Order ID may not exist.");
-        }
-    } else {
-        // Error executing the update query
-        $response = array('success' => false, 'message' => "Error updating order: " . mysqli_stmt_error($stmt));
-    }
+if ($stmt) {
+  mysqli_stmt_bind_param($stmt, "sss", $item, $price, $quantity);
+  mysqli_stmt_execute($stmt);
 
-    // Close the statement
-    mysqli_stmt_close($stmt);
+  // Check if the database update was successful
+  if (mysqli_stmt_affected_rows($stmt) > 0) {
+    // Database update successful
+    $response = array('success' => true, 'message' => 'Order inserted successfully');
+  } else {
+    // Database update failed
+    $response = array('success' => false, 'message' => 'Failed to insert order');
+  }
 
-    // Send the response back to the client
-    echo json_encode($response);
+  mysqli_stmt_close($stmt);
+} else {
+  // Error preparing the statement
+  $response = array('success' => false, 'message' => 'Failed to prepare statement');
+}
+
+// Send the response back to the client as JSON
+header('Content-Type: application/json');
+echo json_encode($response);
 ?>
