@@ -46,7 +46,7 @@
             <div class="swiper-wrapper">
                 <div class="swiper-slide profile-information-details-container">
                     <div class="profile-information-details">
-                        <div class="profile-information">
+                        <div class="profile-information user-name-container">
                             <i class="bi bi-circle-fill"></i>
                             <div class="detail">
                                 <p class="label">Name</p>
@@ -62,7 +62,7 @@
                         </svg>
                     </div>
                     <div class="profile-information-details">
-                        <div class="profile-information">
+                        <div class="profile-information user-section-container">
                             <i class="bi bi-circle-fill"></i>
                             <div class="detail">
                                 <p class="label">Section</p>
@@ -78,7 +78,7 @@
                         </svg>
                     </div>
                     <div class="profile-information-details">
-                        <div class="profile-information">
+                        <div class="profile-information user-studnum-container">
                             <i class="bi bi-circle-fill"></i>
                             <div class="detail">
                                 <p class="label">Student Number</p>
@@ -94,11 +94,13 @@
                         </svg>
                     </div>
                     <div class="profile-information-details">
-                        <div class="profile-information">
+                        <div class="profile-information user-pass-container">
                             <i class="bi bi-circle-fill"></i>
                             <div class="detail">
                                 <p class="label">Password</p>
-                                <p class="name">************</p>
+                                <p class="name">
+                                    <?php echo $_SESSION['password']; ?>
+                                </p>
                             </div>
                         </div>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
@@ -147,5 +149,33 @@
             <div class="swiper-pagination profile-history-pagination"></div>
 
         </div>
+
+        <form id="edit-user-profile-form" method="POST" action="controllers/update-user-details.php">
+            <div class="image">
+                <img src="images/messages/edit-profile.svg" alt="">
+            </div>
+            <div class="form-input">
+                <label for="user-name">Name</label>
+                <input type="text" id="user-name" name="user-name" placeholder="" required disabled>
+            </div>
+            <div class="group-form-input">
+                <div class="form-input">
+                    <label for="user-section">Section</label>
+                    <input type="text" id="user-section" name="user-section" placeholder="BSIT 1-1">
+                </div>
+                <div class="form-input">
+                    <label for="stud-number">Student Number</label>
+                    <input type="text" id="stud-number" name="stud-number" placeholder="0" required disabled>
+                </div>
+            </div>
+            <div class="form-input">
+                <label for="user-password">Password</label>
+                <input type="text" id="user-password" name="user-password" required>
+            </div>
+            <div class="buttons">
+                <button type="button" class="cancel-btn btn">Cancel</button>
+                <button type="submit" class="save-btn btn">Save</button>
+            </div>
+        </form>
     </div>
 </section>
