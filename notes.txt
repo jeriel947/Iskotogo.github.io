@@ -94,3 +94,40 @@ in home page fix the phone view of the featured item card
                         </article>
                     </div>
                 <?php endforeach; ?> -->D
+
+                  <!-- <?php
+
+
+  //   // Check connection
+// // if ($con->connect_error) {
+// //     die("Connection failed: " . $con->connect_error);
+// // }
+  
+  //   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+//     // Get the JSON data sent from the client
+//     $jsonData = file_get_contents('php://input');
+  
+  //     // Decode the JSON data into an associative array
+//     $data = json_decode($jsonData, true);
+  
+  //     // Retrieve the HTML text from the data
+//     $itemId = $_POST['item_id'];
+//     $storeId = $_POST['store_id'];
+//     $userId = $_SESSION['id'];
+//     $quantity = $_POST['quantity'];
+  
+
+  //     // Perform further processing or store the HTML text in the database
+//     $sql = "INSERT INTO tbl_orders (item_id, store_id, customer_id, quantity) VALUES ($itemId, $storeId, $userId, $quantity)";
+  
+  //     if (mysqli_query($con, $sql)) {
+//       echo "New record created successfully";
+//     } else {
+//       echo "Error: " . $sql . "<br>" . mysqli_error($con);
+//     }
+  
+
+  //     // Send a response back to the client
+//     // ...
+//   }
+  ?> -->
