@@ -4,8 +4,8 @@ include 'database/featured-items.php';
 
 
 <div class="popUp__message__container">
-    <!-- <form action="components/postOrder.php" method="POST"> -->
-    <form action="" method="POST">
+    <form action="components/postOrder.php" method="POST">
+    <!-- <form action="" method="POST"> -->
         <div class="popUp__message">
             <div class="popUp__item__details">
                 <div class="image"></div>
