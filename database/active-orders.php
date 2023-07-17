@@ -16,6 +16,7 @@
 
     while ($row = mysqli_fetch_assoc($orderresult)) {
         $orderID = $row['id'];
+        $menuId = $row['item_id'];
         $totalPrice = $row['item_price'] * $row['quantity'];
         $customerName = $row['First_Name'] . ' ' . $row['Last_Name'];
 
@@ -42,6 +43,7 @@
         if (!isset($active_orders[$orderID])) {
             $active_orders[$orderID] = array(
                 'orderId' => $orderID,
+                'menuId' => $menuId,
                 'date' => $row['date'],
                 'itemName' => $row['item_name'],
                 'itemQuantity' => $row['quantity'],
