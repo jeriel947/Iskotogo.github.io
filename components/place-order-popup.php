@@ -1,11 +1,15 @@
 <?php 
-include 'database/featured-items.php';
+    include 'database/featured-items.php';
 ?>
 
+<?php 
+    $successMessage = "Item ordered successfully.";
+    $failMessage = "Error ordering the item. Please try again.";
+    include 'components/process-message.php'; 
+?>
 
 <div class="popUp__message__container">
-    <form action="components/postOrder.php" method="POST">
-    <!-- <form action="" method="POST"> -->
+    <form id="place-order-form" method="POST" action="controllers/place-order.php">
         <div class="popUp__message">
             <div class="popUp__item__details">
                 <div class="image"></div>
@@ -13,7 +17,7 @@ include 'database/featured-items.php';
                     <h4 id="item_name">Corndog</h4>
                     <p id="unit_price">Unit Price:<span>&nbsp;</span></p>
 
-                    <p id="item_id" hidden>1111</p>
+                    <p id="item_id" hidden></p>
                     <p id="store_id" hidden></p>
 
                 </div>
@@ -52,7 +56,7 @@ include 'database/featured-items.php';
             <div class="buttons">
                 <?php if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) { ?>
                     <button type="button" class="order-btn btn" id="close_btn">Cancel</button>
-                    <button type="submit" class="order-btn btn" id="submit_btn">>Place Order</button>
+                    <button type="submit" class="order-btn btn" id="submit_btn">Place Order</button>
                 <?php } else { ?>
                     <span class="material-symbols-outlined not-logged" id="close_btn">
                         close
@@ -63,6 +67,5 @@ include 'database/featured-items.php';
                 <?php } ?>
             </div>
         </div>
-
     </form>
 </div>

@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const storeid_set = document.querySelector(".popUp__message .name_price #store_id");
     /* TEST AREA @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 
-
     /* QUANTITY ELEMENTS */
     const subBtn = document.querySelector('.popUp__item__details .quantity .bi-dash');
     const addBtn = document.querySelector('.popUp__item__details .quantity .bi-plus');
@@ -25,8 +24,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const otherDetailsValue = document.querySelector('.order_summary .bottom p');
     const totalAmount = document.querySelector('.order_summary .right #total_price')
 
-    /** OPEN THE MODAL */
+    // SUCESS AND ERROR MESSAGES
+    const successMessage = document.querySelector('.process-status-message .success-message');
+    const errorMessage = document.querySelector('.process-status-message .error-message');
+    const closeStatMgsBtn = document.querySelectorAll('.process-status-message .close');
+
+    // OPEN THE MODAL
     let itemId = null;
+    let storeId = null
     showPopup.forEach(featuredItem => {
         featuredItem.addEventListener('click', () => {
             /* GET DATA FROM FEATURED ITEM */
@@ -58,6 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
             /* TEST AREA @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 
             itemId = featuredItem.querySelector('#item_id').textContent.trim();
+            storeId = featuredItem.querySelector('#store_id').textContent.trim();
             
             /* DISPLAY THE MODAL */
             popUpMessage.style.display = "flex";
@@ -67,6 +73,85 @@ document.addEventListener('DOMContentLoaded', () => {
                 popUpMessageContent.style.transform = 'translateY(0%)';
                 popUpMessage.style.opacity = "1";
             }
+        })
+    })
+
+    // GET CURRENT DATE
+    function getCurrentDateTime() {
+        const now = new Date();
+      
+        const year = now.getFullYear();
+        const month = padNumber(now.getMonth() + 1); // Months are zero-based
+        const day = padNumber(now.getDate());
+        const hours = padNumber(now.getHours());
+        const minutes = padNumber(now.getMinutes());
+        const seconds = padNumber(now.getSeconds());
+      
+        return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+    }
+      
+    function padNumber(number) {
+        return String(number).padStart(2, '0');
+    }
+          
+    // PLACE ORDER FORM
+    const placeOrderForm = popUpMessage.querySelector('#place-order-form');
+
+    placeOrderForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        
+        // Get the summary item name and quantity values
+        const itemQuantity = placeOrderForm.querySelector('.order_summary .summary_item_quantity span').textContent.trim();
+        const currentDateTime = getCurrentDateTime();
+
+        // Create a new FormData object
+        const formData = new FormData(placeOrderForm);
+
+        // Append the summary item name and quantity to the FormData
+        formData.append('itemQuantity', itemQuantity);
+        formData.append('itemId', itemId);
+        formData.append('storeId', storeId);
+        formData.append('date', currentDateTime);
+        
+        console.log(formData);
+
+        // Send the data to the server using AJAX
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', placeOrderForm.action, true);
+
+        xhr.onload = () => {
+            if (xhr.status === 200) {
+                const response = JSON.parse(xhr.responseText);
+                if (response.success) {
+                    console.log(response.message);
+                    errorMessage.style.display = "none";                    
+                    successMessage.style.display = "flex";
+                    setTimeout(function() {
+                        popUpMessage.style.display = "none";
+                    }, 300);
+                } else {
+                    console.log(response.message);
+                }
+            } else {
+                console.log('Error: ' + xhr.status);
+                successMessage.style.display = "none";
+                errorMessage.style.display = "flex";
+                setTimeout(function() {
+                    popUpMessage.style.display = "none";
+                }, 300);
+            }
+        };
+        xhr.send(formData);
+    })
+
+    // CLOSE SUCCESS / ERROR MESSAGES
+    closeStatMgsBtn.forEach(closeStatBtn => {
+        closeStatBtn.addEventListener('click', () => {
+            const processStatMgsContainer = closeStatBtn.closest('.process-status-message .update-message');
+            processStatMgsContainer.style.display = "none";
+            setTimeout(function() {
+                location.reload();
+            }, 100);
         })
     })
 
@@ -135,55 +220,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const inputValue = otherDetailsInput.value.trim();
         otherDetailsValue.querySelector('span').textContent = inputValue === '' ? 'None' : inputValue; s
     })
-    
-    const item = document.getElementById('item_id').textContent.trim();
-    const store = document.getElementById('store_id').textContent.trim();
-    const quantity = document.getElementById('quantity_text').textContent.trim();
-    const price = document.getElementById('item_price').textContent.trim();
-    
-    
-
-    // submit button is clicked
-    document.getElementById('submit_btn').addEventListener('click', function () {
-        // Send the data to the server using AJAX
-        const xhr = new XMLHttpRequest();
-        xhr.open('POST', 'components/postOrder.php', true);
-
-        // Set up the AJAX request
-        xhr.setRequestHeader('Content-Type', 'application/json');
-
-        // Create an object with the data
-        const orderData = {
-          item: item,
-          price: price,
-          quantity: quantity
-        };
-
-        xhr.onload = () => {
-            if (xhr.status === 200) {
-                const response = JSON.parse(xhr.responseText);
-                if (response.success) {
-                    console.log(response.message);
-                    errorMessage.style.display = "none";                    
-                    successMessage.style.display = "flex";
-                    setTimeout(function() {
-                        takeOrderContainer.style.display = "none";
-                    }, 300);
-                } else {
-                    console.log(response.message);
-                }
-            } else {
-                console.log('Error: ' + xhr.status);
-                successMessage.style.display = "none";
-                errorMessage.style.display = "flex";
-                setTimeout(function() {
-                    takeOrderContainer.style.display = "none";
-                }, 300);
-            }
-        };
-
-        xhr.send(JSON.stringify(orderData));
-    });
 });
 
 
