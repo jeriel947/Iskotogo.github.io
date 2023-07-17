@@ -343,3 +343,91 @@
     font-size: 1.1rem;
     cursor: pointer;
 }
+
+/* EDIT USER MODAL */
+#edit-user-profile-form {
+    background: white;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 1rem;
+    height: 100%;
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translateX(100%);
+    transition: transform 500ms ease-in-out;
+}
+
+#edit-user-profile-form .image {
+    margin-bottom: 1rem; 
+}
+
+#edit-user-profile-form .form-input {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+#edit-user-profile-form .group-form-input {
+    width: 100%;
+    display: flex;
+    gap: .5rem;
+}
+
+label {
+    font-weight: 100;
+    padding-left: .5rem;
+}
+
+#edit-user-profile-form .group-form-input .form-input {
+    width: 50%;
+}
+
+#edit-user-profile-form input {
+    border-radius: .5rem;
+    border: 0.15rem solid var(--color-gray);
+    padding: .7rem 1rem;
+    transition: var(--transition);
+}
+
+#edit-user-profile-form input:focus {
+    border: 0.15rem solid var(--color-main1);
+    color: var(--color-main1);
+}
+
+#edit-user-profile-form .buttons {
+    display: flex;
+    gap: .5rem;
+    width: 100%;
+    padding: .5rem;
+}
+
+#edit-user-profile-form .buttons button {
+    width: 50%;
+    box-shadow: none;
+    border-radius: .7rem;
+    transition: var(--transition);
+}
+
+#edit-user-profile-form .cancel-btn {
+    color: var(--color-dark-gray);
+    background: none;
+}
+
+#edit-user-profile-form .save-btn {
+    color: var(--color-white);
+    background: var(--color-main2);
+}
+
+#edit-user-profile-form .cancel-btn:hover {
+    background: var(--color-dark-gray);
+    color: white;
+}
+
+#edit-user-profile-form .save-btn:hover {
+    background: var(--color-main1);
+}
