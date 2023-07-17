@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const receiveOrderBtn = document.querySelector('.take-order-container .take-order-btn');
     
     let orderId = null;
+    let menuId = null;
     /** OPEN THE MODAL */
     showOrder.forEach(activeOrder => {
         activeOrder.addEventListener('click', () => {
@@ -47,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
             takeOrderContainer.querySelector('.customer-details .image').appendChild(customerImageContainer);
             
             orderId = activeOrder.querySelector('.order-id').textContent.trim();
+            menuId = activeOrder.querySelector('.menu-id').textContent.trim();
             
             /* DISPLAY THE MODAL */
             takeOrderContainer.style.display = "flex";
@@ -90,24 +92,27 @@ document.addEventListener('DOMContentLoaded', () => {
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         
         // Create the data to be sent in the request body
-        const data = `orderId=${orderId}`;
-
+        const data = `orderId=${orderId}&menuId=${menuId}`;
         // Set up the callback function to handle the response
         xhr.onload = () => {
             if (xhr.status === 200) {
+                console.log(xhr.responseText);
                 const response = JSON.parse(xhr.responseText);
                 if (response.success) {
-                    console.log(response.message);
+                    successMessage.querySelector('.texts p').innerHTML = response.message;
                     errorMessage.style.display = "none";                    
                     successMessage.style.display = "flex";
                     setTimeout(function() {
                         takeOrderContainer.style.display = "none";
                     }, 300);
                 } else {
-                    console.log(response.message);
+                    errorMessage.querySelector('.texts p').innerHTML = response.message;
+                    successMessage.style.display = "none";
+                    errorMessage.style.display = "flex";
                 }
             } else {
                 console.log('Error: ' + xhr.status);
+                errorMessage.querySelector('.texts p').innerHTML = xhr.status;                
                 successMessage.style.display = "none";
                 errorMessage.style.display = "flex";
                 setTimeout(function() {

@@ -13,6 +13,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="./CSS/MAIN.css">
     <link rel="stylesheet" href="./CSS/vendor-page.css">
+    <link rel="stylesheet" href="./CSS/vendor-products.css">
     <link rel="stylesheet" href="./CSS/responsiveness.css">
 
     <!-- SCROLL EFFECTS -->
@@ -49,12 +50,13 @@
           $navId = "products-nav";    
           include 'components/vendor/vendor-navbar.php'; 
       ?>
-      <div class="overview-section">
+      <div class="inventory-section">
         <section class="profile_container">
           <div class="page-title">
             <h3>Products</h3>
           </div>
 
+          <?php include 'components/vendor/inventory.php'; ?>
         </section>
       </div>
     </div>
@@ -72,7 +74,6 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
     <script src="./SCRIPTS/SCRIPT.js"></script>
-    <script src="./SCRIPTS/navbar.js"></script>
-    <script src="./SCRIPTS/show-profile.js"></script>
-</body>
+    <script src="./SCRIPTS/vendor-inventory.js"></script>
+  </body>
 </html>

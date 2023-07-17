@@ -1,38 +1,46 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . '/capstone/Prototype/database/db-connection.php';
+    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
-// Retrieve the data from the AJAX request
-$data = json_decode(file_get_contents('php://input'), true);
+    include '../database/db-connection.php';
 
-// Extract the data
-$item = $data['item'];
-$price = $data['price'];
-$quantity = $data['quantity'];
+    // Retrieve the orderId from the request
+    $orderId = $_POST['orderId'];
+    $menuId = $_POST['menuId'];
 
-// Perform the database update
-$query = "INSERT INTO tbl_orders (item, price, quantity) VALUES (?, ?, ?)";
-$stmt = mysqli_prepare($con, $query);
+    try {
+        mysqli_begin_transaction($con);
 
-if ($stmt) {
-  mysqli_stmt_bind_param($stmt, "sss", $item, $price, $quantity);
-  mysqli_stmt_execute($stmt);
+        // Update tbl_orders
+        $updateOrderQuery = "UPDATE tbl_orders SET order_status = 0 WHERE id = ?";
+        $stmtOrder = mysqli_prepare($con, $updateOrderQuery);
+        mysqli_stmt_bind_param($stmtOrder, "s", $orderId);
+        mysqli_stmt_execute($stmtOrder);
 
-  // Check if the database update was successful
-  if (mysqli_stmt_affected_rows($stmt) > 0) {
-    // Database update successful
-    $response = array('success' => true, 'message' => 'Order inserted successfully');
-  } else {
-    // Database update failed
-    $response = array('success' => false, 'message' => 'Failed to insert order');
-  }
+        // Update tbl_menu
+        $updateMenuQuery = "UPDATE tbl_menu SET inventory = inventory - 1 WHERE id = ?";
+        $stmtMenu = mysqli_prepare($con, $updateMenuQuery);
+        mysqli_stmt_bind_param($stmtMenu, "s", $menuId);
+        mysqli_stmt_execute($stmtMenu);
 
-  mysqli_stmt_close($stmt);
-} else {
-  // Error preparing the statement
-  $response = array('success' => false, 'message' => 'Failed to prepare statement');
-}
+        // Commit the transaction
+        mysqli_commit($con);
 
-// Send the response back to the client as JSON
-header('Content-Type: application/json');
-echo json_encode($response);
+        // Handle the response
+        $response = array('success' => true, 'message' => "Order {$orderId} received successfully");
+        echo json_encode($response);
+
+        // Close the statement
+        mysqli_stmt_close($stmtOrder);
+        mysqli_stmt_close($stmtMenu);
+    } catch (Exception $e) {
+        // Rollback the transaction in case of any error
+        mysqli_rollback($con);
+
+        // Handle the error
+        $response = array('success' => false, 'message' => 'Error occurred during updates');
+        echo json_encode($response);
+    }
+
+    // Close the the database connection
+    mysqli_close($con);
 ?>

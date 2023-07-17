@@ -39,6 +39,9 @@
                         <p class="order-id" hidden>
                             <?php echo $order['orderId']; ?>                        
                         </p>
+                        <p class="menu-id" hidden>
+                            <?php echo $order['menuId']; ?>                        
+                        </p>
                     </div>
                 </div>
                 <button type="button" class="view-details-btn btn btn-secondary">

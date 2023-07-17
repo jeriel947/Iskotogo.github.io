@@ -1,0 +1,386 @@
+.inventory-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 5rem;
+}
+
+label {
+    color: var(--color-dark);
+}
+
+/* CARDS */
+.inventory-card {
+    box-shadow: var(--card-shadow);
+    background: white;
+    display: flex;
+    flex-direction: column;
+    padding: .7rem;
+    border-radius: 1rem;
+    width: fit-content;
+    height: fit-content;
+}
+
+.inventory-card .image {
+    width: 10rem;
+    height: 10rem;
+    overflow: hidden; 
+    border-radius: .7rem;
+}
+
+.inventory-card .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.inventory-card .image span {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    background: var(--color-gradient2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: var(--transition);
+    border: 2px solid var(--color-main2);
+    border-radius: .7rem;
+}
+
+.inventory-card .item-name {
+    font-weight: 500;
+}
+/* END - CARDS */
+
+/* ADD ITEM BUTTON */
+.inventory-section .add-item-btn {
+    position: fixed;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 5rem;
+    right: 5rem;
+    z-index: 9999;
+    cursor: pointer;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition);
+}
+
+.inventory-section .add-item-btn span {
+    height: 3rem;
+    width: 3rem;
+    font-size: 3rem;
+    background: var(--color-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: var(--transition);
+}
+
+.inventory-section .add-item-btn:hover {
+    background: var(--color-main1);
+    transition: var(--transition);
+}
+
+.inventory-section .add-item-btn:hover span {
+    background: white;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: white;
+}
+
+/* END - ADD ITEM BUTTON */
+
+/* BUTTONS */
+.inventory-card .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5rem;
+}
+
+.inventory-card button {
+    box-shadow: none;
+}
+
+.inventory-card .buttons .delete-item-btn {
+    background: white;
+    color: var(--color-main1);
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+.inventory-card .buttons .delete-item-btn:hover {
+    color: var(--color-dark);
+    transition: var(--transition);
+}
+
+.inventory-card .buttons .edit-item-btn {
+    width: 50%;
+    background: var(--color-main2);
+    color: white;
+    width: 70%;
+}
+
+.inventory-card .buttons .edit-item-btn:hover {
+    background: var(--color-main1);
+    transition: var(--transition);
+}
+/* END - BUTTONS */
+
+/* EDIT MODAL */
+.edit-item-modal {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.466);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit-item-modal .edit-item-container {
+    background: white;
+    padding: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit-item-modal .save-image {
+    height: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.edit-item-modal .save-image img {
+    height: 100%;
+    width: auto;
+}
+
+.edit-item-btn .edit-item-container .item-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-item-modal .edit-item-container .form-input {
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    color: var(--color-dark);
+}
+
+input {
+    border-radius: .5rem;
+    border: 0.15rem solid var(--color-gray);
+    padding: .7rem 1rem;
+    transition: var(--transition);
+}
+
+input:focus {
+    border: 0.15rem solid var(--color-main1);
+    color: var(--color-main1);
+}
+
+.edit-item-modal .edit-item-container .buttons {
+    display: flex;
+    gap: .5rem;
+    width: 100%;
+}
+
+.edit-item-modal .edit-item-container .buttons button {
+    width: 50%;
+    box-shadow: none;
+    border-radius: .7rem;
+    transition: var(--transition);
+}
+
+.edit-item-modal .edit-item-container .cancel-btn {
+    color: var(--color-dark-gray);
+    background: none;
+}
+
+.edit-item-modal .edit-item-container .save-btn {
+    color: var(--color-white);
+    background: var(--color-main2);
+}
+
+.edit-item-modal .edit-item-container .cancel-btn:hover {
+    background: var(--color-dark-gray);
+    color: white;
+}
+
+.edit-item-modal .edit-item-container .save-btn:hover {
+    background: var(--color-main1);
+}
+
+/* DELETE ITEM MODAL */
+.delete-item-modal {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.466);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-item-modal .delete-item-container {
+    background: white;
+    padding: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete-item-modal .delete-item-container .image {
+    height: 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-item-modal .delete-item-container .image img {
+    height: 100%;
+    width: auto;
+}
+
+.delete-item-modal .texts {
+    width: 15rem;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.delete-item-modal .buttons {
+    width: 100%;
+    display: flex;
+    gap: .5rem;
+}
+
+.delete-item-modal .buttons button {
+    width: 50%;
+    border-radius: .7rem;
+    box-shadow: none;
+    transition: var(--transition);
+}
+
+.delete-item-modal .buttons .cancel-btn {
+    color: var(--color-dark-gray);
+    background: none;
+}
+
+.delete-item-modal .buttons .confirm-btn {
+    color: var(--color-white);
+    background: var(--color-main2);
+}
+
+.delete-item-modal .buttons .cancel-btn:hover {
+    background: var(--color-dark-gray);
+    color: white;
+}
+
+.delete-item-modal .buttons .confirm-btn:hover {
+    background: var(--color-main1);
+}
+
+/* ADD ITEM MODAL */
+.add-item-modal {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.466);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-item-modal .add-item-container {
+    background: var(--color-bg);
+    display: flex;
+    align-items: center;
+    border-radius: 1rem;
+    padding-left: 1rem;
+    gap: 1rem;
+}
+
+.add-item-modal .illustration {
+    height: 15rem;
+}
+
+.add-item-modal .illustration img {
+    height: 100%;
+    width: auto;
+}
+
+.add-item-modal form {
+    background: white;
+    padding: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: -6px 6px 15px -6px rgba(0, 0, 0, 0.219)
+}
+
+.add-item-modal form .form-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.add-item-modal form .buttons {
+    width: 100%;
+    display: flex;
+    gap: .5rem;
+}
+
+.add-item-modal form .buttons button {
+    width: 50%;
+    border-radius: .7rem;
+    box-shadow: none;
+    transition: var(--transition);
+}
+
+.add-item-modal form .buttons .cancel-btn {
+    color: var(--color-dark-gray);
+    background: none;
+}
+
+.add-item-modal form .buttons .save-btn {
+    color: var(--color-white);
+    background: var(--color-main2);
+}
+
+.add-item-modal form .buttons .cancel-btn:hover {
+    background: var(--color-dark-gray);
+    color: white;
+}
+
+.add-item-modal form .buttons .save-btn:hover {
+    background: var(--color-main1);
+}

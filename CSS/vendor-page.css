@@ -3,7 +3,8 @@
   gap: 1rem;
 }
 
-.overview-section {
+.overview-section,
+.inventory-section {
   width: 80%;
   margin-left: calc(20% + 1rem);
   margin-right: 1rem;
