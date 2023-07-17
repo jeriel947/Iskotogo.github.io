@@ -132,6 +132,8 @@
                                     <P id="item_price">
                                         P <?php echo $item['price']; ?>
                                     </P>
+                                    <p id="item_id" hidden><?php echo $item['id']; ?> </P>
+                                    <p id="store_id" hidden><?php echo $item['store_id']; ?> </p>
                                 </div>
                             </div>
                             <button class="btn-secondary btn">Order</button>

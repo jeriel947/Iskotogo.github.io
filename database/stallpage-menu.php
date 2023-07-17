@@ -1,7 +1,7 @@
 <?php
     include 'database/stallpage-details.php';
                             
-    $query = "SELECT m.item_name, m.item_price, m.item_image, m.store_id, s.store_name 
+    $query = "SELECT m.item_name, m.item_price, m.item_image, m.store_id, s.store_name, m.id
                 FROM tbl_menu m
                 JOIN tbl_stores s ON m.store_id = s.id
                 WHERE m.store_id = ?";
@@ -30,6 +30,7 @@
             }            
             
             $items[] = array(
+                'id' => $row['id'],
                 'name' => $row['item_name'],
                 'price' => $row['item_price'],
                 'menu_image' => $menuImage,
