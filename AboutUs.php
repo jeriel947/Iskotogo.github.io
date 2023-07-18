@@ -78,52 +78,52 @@
         <h1>MEET OUR TEAM</h1>
         <div class="card-grid">
             <div class="card">
-                <img src="images/aboutus_pics/silva.jpg" alt="Harvy Pontillas">
+                <img src="images/aboutus_pics/harvy.jpg" alt="Harvy Pontillas">
                 <div class="card-info">
                   <h3>Harvy Pontillas</h3>
-                  <p>Merielle Cruz</p>
+                  <p>Full-stack Developer</p>
                 </div>
             </div>
             <div class="card">
-                <img src="images/aboutus_pics/silva.jpg" alt="Jeriel Ledesma">
+                <img src="images/aboutus_pics/ledesma.jpg" alt="Jeriel Ledesma">
                 <div class="card-info">
                   <h3>Jeriel Ledesma</h3>
-                  <p>Merielle Cruz</p>
+                  <p>Backend Developer</p>
                 </div>
             </div>
             <div class="card">
-                <img src="images/aboutus_pics/silva.jpg" alt="Jherdi Ramos">
+                <img src="images/aboutus_pics/jherdi.jpg" alt="Jherdi Ramos">
                 <div class="card-info">
                   <h3>Jherdi Ramos</h3>
-                  <p>Merielle Cruz</p>
+                  <p>UI Designer</p>
                 </div>
             </div>
             <div class="card">
                 <img src="images/aboutus_pics/silva.jpg" alt="Matthew Silva">
                 <div class="card-info">
                   <h3>Matthew Silva</h3>
-                  <p>Merielle Cruz</p>
+                  <p>Product Designer</p>
                 </div>
             </div>
             <div class="card">
                 <img src="images/aboutus_pics/cruz.jpg" alt="Merielle Cruz">
                 <div class="card-info">
                   <h3>Merielle Cruz</h3>
-                  <p>Merielle Cruz</p>
+                  <p>Frontend Developer</p>
                 </div>
             </div>
             <div class="card">
                 <img src="images/aboutus_pics/mia.jpg" alt="Mia Capili">
                 <div class="card-info">
                   <h3>Mia Capili</h3>
-                  <p>Merielle Cruz</p>
+                  <p>Documentation</p>
                 </div>
             </div>
             <div class="card">
-                <img src="images/aboutus_pics/cruz.jpg" alt="Jesse Eriguel">
+                <img src="images/aboutus_pics/eriguel.jpg" alt="Jesse Eriguel">
                 <div class="card-info">
                   <h3>Jesse Eriguel</h3>
-                  <p>Merielle Cruz</p>
+                  <p>Documentation</p>
                 </div>
             </div>
             </div>
