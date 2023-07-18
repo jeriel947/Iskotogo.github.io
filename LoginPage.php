@@ -44,11 +44,12 @@
             }
         }
     ?>
+    
+    <?php if (!empty($errorMessage)) { ?>
+        <p class="error"><?php echo $errorMessage; ?></p>
+    <?php } ?>    
 
     <form action="login.php" method="post" id="login-box">        
-        <?php if (!empty($errorMessage)) { ?>
-            <p class="error"><?php echo $errorMessage; ?></p>
-        <?php } ?>    
         
         <!-- MOBILE ELEMENTS -->
         <div class="round-background">
@@ -94,6 +95,14 @@
     </form>
 </div>
 
-</body>
+<script type="text/javascript">
+    const errorMsg = document.querySelector('.error');
+    const input = document.querySelector('input');
 
+    input.addEventListener('input', function() {
+        errorMsg.style.display = 'none';
+    });
+</script>
+
+</body>
 </html>

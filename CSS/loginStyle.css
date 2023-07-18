@@ -170,3 +170,15 @@ a {
 a:hover{
     opacity: .7;
 }
+
+/* LOGIN PAGE */
+.error{
+    position: fixed;
+    width: fit-content;
+    z-index: 9999;
+    text-align: center;
+    top: 5rem;
+    padding: 1rem 2rem;
+    background: var(--color-danger);
+    color: white;
+}

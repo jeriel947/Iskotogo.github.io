@@ -93,18 +93,16 @@
                 } else {
 
                     //header("Location: index.php?error=Incorect student id or password");
-                    header("Location: LoginError.php");
-
-                    exit();
+                    header("Location: LoginPage.php?error=Incorrect student ID or password");
+                    exit();                    
 
                 }
 
             }else{
 
                 //header("Location: index.php?error=Incorect student id or password");
-                header("Location: LoginError.php");
-
-                exit();
+                header("Location: LoginPage.php?error=Incorrect student ID or password");
+                exit();                
 
             }
 
