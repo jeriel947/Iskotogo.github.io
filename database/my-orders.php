@@ -1,4 +1,5 @@
 <?php
+if (isset($_SESSION['id'])) {
     $orderquery = "SELECT o.id, o.item_id, o.store_id, o.customer_id, o.quantity, o.date, o.order_status, m.item_name, m.item_price, m.item_image, s.store_name
                     FROM tbl_orders o
                     JOIN tbl_menu m ON o.item_id = m.id
@@ -39,4 +40,5 @@
             );
         }
     }
+}
 ?>

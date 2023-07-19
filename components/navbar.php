@@ -89,20 +89,24 @@
                         <li>
                             <a href="MyOrders.php">
                                 <div class="icons">
-                                    <?php
-                                        $sql = "SELECT COUNT(*) AS order_count FROM tbl_orders WHERE customer_id = {$_SESSION['id']} AND order_status = '2'";
-                                        $result = mysqli_query($con, $sql);
-                                        $row = mysqli_fetch_assoc($result);
-                                        $order_count = $row['order_count'];
-                                    ?>
+                                    <?php if (isset($_SESSION['id'])) { ?>
+                                        <?php
+                                            $sql = "SELECT COUNT(*) AS order_count FROM tbl_orders WHERE customer_id = {$_SESSION['id']} AND order_status = '2'";
+                                            $result = mysqli_query($con, $sql);
+                                            $row = mysqli_fetch_assoc($result);
+                                            $order_count = $row['order_count'];
+                                        ?>
+                                    <?php }  ?>
                                     <span class="material-symbols-outlined">
                                         receipt
                                     </span>
-                                    <?php if ($order_count > 0): ?>
-                                        <div class="receive-notif-icon">
-                                            
-                                        </div>
-                                    <?php endif; ?>
+                                    <?php if (isset($_SESSION['id'])) { ?>
+                                        <?php if ($order_count > 0): ?>
+                                            <div class="receive-notif-icon">
+                                                
+                                            </div>
+                                        <?php endif; ?>
+                                    <?php } ?>
                                 </div>
                                 <p>My Orders</p>
                                 <div id="num-of-orders">
@@ -243,23 +247,27 @@
             </li>
             <li id="my-orders">
                 <a href="MyOrders.php">
+                    <?php if (isset($_SESSION['id'])) { ?>
                     <?php
                         $sql = "SELECT COUNT(*) AS order_count FROM tbl_orders WHERE customer_id = {$_SESSION['id']} AND order_status = '2'";
                         $result = mysqli_query($con, $sql);
                         $row = mysqli_fetch_assoc($result);
                         $order_count = $row['order_count'];
                     ?>
+                    <?php } ?> 
                     <span class="material-symbols-outlined">
                         receipt
                     </span>
                     <p>
                         My Orders
                     </p>
+                    <?php if (isset($_SESSION['id'])) { ?>                    
                     <?php if ($order_count > 0): ?>
                         <div class="receive-notif-icon">
                             
                         </div>
                     <?php endif; ?>
+                    <?php } ?>
                 </a>
             </li>
             <?php if (isset($_SESSION['user_name']) && isset($_SESSION['password'])) { ?>
