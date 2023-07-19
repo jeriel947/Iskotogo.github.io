@@ -54,7 +54,8 @@
     <!--================================ CONTAINER ================================-->
     <section class="container homepage_container gapless_container">
 
-
+    <?php include 'components/under-construction.php'; ?>
+    
     </section>
     <!--================================ END OF CONTAINER ================================-->
 
