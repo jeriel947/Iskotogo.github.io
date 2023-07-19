@@ -71,10 +71,31 @@
         <?php include 'database/my-orders.php'; ?>        
 
         <?php if (!empty($orders)): ?>
-            <?php foreach ($orders as $order): ?>
             <div class="ordersPage-myOrdersSec">
+            <?php foreach ($orders as $order): ?>
 
                 <div class="my_orders" id="order1">
+                    <?php if ($order['orderStatus'] === "2"): ?>
+                        <form id="receive-myorder-form" method="POST" class="pickup-container" action="controllers/receive-myorder.php">
+                            <div class="content">
+                                <span class="material-symbols-outlined">
+                                    box
+                                </span>
+                                <p>ready for pickup</p>
+                                <p id="order-id" hidden>
+                                    <?php echo $order['orderId']; ?>
+                                </p>
+                            </div>
+                            <button type="submit" class="btn">
+                                <p>
+                                    receive
+                                </p>
+                                <span class="material-symbols-outlined">
+                                    arrow_forward
+                                </span>
+                            </button>
+                        </form>     
+                    <?php endif; ?>
                     <div class="my_order_profile">
                         <div class="image">
                             <?php echo $order['image']; ?>
@@ -155,7 +176,7 @@
     <script src="./SCRIPTS/show-profile.js"></script>
     <script src="./SCRIPTS/place-order.js"></script>
     <script src="./SCRIPTS/profile-section.js"></script>
-    <script src="./SCRIPTS/featured-items.js"></script>
+    <script src="./SCRIPTS/receive-myorders.js"></script>   
 
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>

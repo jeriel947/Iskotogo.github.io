@@ -299,13 +299,34 @@ nav #sys_name,
     font-size: 1rem;
     font-weight: 500;
     transition: var(--transition); 
+    position: relative;
 }
 
 .nav_menu a:hover {
     color: var(--color-main2);
 }
 
+/* ORDER RECEIVE NOTIF */
 
+.nav_menu a .receive-notif-icon {
+    background: lime;
+    width: .8rem;
+    height: .8rem;
+    border-radius: 50%;
+    position: absolute;
+    top: .3rem;
+    left: 1.39rem;
+}
+
+.mobile_nav_container .menu li a .receive-notif-icon {
+    background: lime;
+    width: .8rem;
+    height: .8rem;
+    border-radius: 50%;
+    position: absolute;
+    top: .4rem;
+    left: 2.8rem;
+}
 
 .mobile_header_texts {
     display: none;
@@ -593,4 +614,74 @@ footer {
     color: var(--color-dark);
     font-size: 1.1rem;
     cursor: pointer;
+}
+
+/* UNDER CONSTRUCTION STYLE */
+.under-construction-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+}
+
+.under-construction-container .image {
+   width: 50%; 
+}
+
+.under-construction-container .text {
+    width: 60%;
+    margin-top: 2rem;
+}
+
+/* PICKUP CONTAINER */
+.pickup-container {
+    display: flex;
+    background: var(--color-main2);
+    padding: .5rem;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: .5rem;
+}
+
+.pickup-container p {
+    color: white;
+}
+
+.pickup-container .content {
+    display: flex;
+    gap: .5rem;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.pickup-container button {
+    display: flex;
+    gap: .5rem;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    box-shadow: none;
+    background: var(--color-main2);
+    padding: 0 !important;
+}
+
+.pickup-container button span {
+    font-weight: 100;
+}
+
+.pickup-container:hover {
+    background: var(--color-main1);
+    transition: var(--transition);
+}
+
+.pickup-container:hover button {
+    background: var(--color-main1);
+    transition: var(--transition);
+}
+
+.pickup-container button:hover {
+    gap: 1rem;
 }

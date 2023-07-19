@@ -35,7 +35,7 @@
     box-shadow: var(--card-shadow);
     border-radius: 1rem;
     margin-bottom: 2rem;
-    width: 22.875rem;
+    width: 23.5rem;
 }
 
 /*--- BASIC ITEM DETAILS ---*/
@@ -114,7 +114,7 @@
     display: flex;
     flex-direction: column;
     gap: .5rem;
-    width: 65%;
+    width: 60%;
 }
 
 .ordersPage-myOrdersSec .my_orders .my_order_details p {
@@ -123,6 +123,9 @@
 
 .ordersPage-myOrdersSec .my_orders .my_order_details .text {
     color: var(--color-main1);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .ordersPage-myOrdersSec .my_orders .my_order_details .item_name_quantity {

@@ -54,7 +54,7 @@
           <div class="page-title">
             <h3>Dashboard</h3>
           </div>
-
+          <?php include 'components/under-construction.php'; ?>
         </section>
       </div>
     </div>

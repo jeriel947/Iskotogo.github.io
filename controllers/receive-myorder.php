@@ -5,16 +5,15 @@
 
     // Retrieve the orderId from the request
     $orderId = $_POST['orderId'];
-    $menuId = $_POST['menuId'];
 
     try {
         mysqli_begin_transaction($con);
 
         // Update tbl_orders
-        $updateOrderQuery = "UPDATE tbl_orders SET order_status = 2 WHERE id = ?";
-        $stmtOrder = mysqli_prepare($con, $updateOrderQuery);
-        mysqli_stmt_bind_param($stmtOrder, "s", $orderId);
-        mysqli_stmt_execute($stmtOrder);
+        $receiveMyOrderQuery = "UPDATE tbl_orders SET order_status = 0 WHERE id = ?";
+        $stmtMyOrder = mysqli_prepare($con, $receiveMyOrderQuery);
+        mysqli_stmt_bind_param($stmtMyOrder, "i", $orderId);
+        mysqli_stmt_execute($stmtMyOrder);
 
         // Commit the transaction
         mysqli_commit($con);
@@ -24,13 +23,13 @@
         echo json_encode($response);
 
         // Close the statement
-        mysqli_stmt_close($stmtOrder);
+        mysqli_stmt_close($stmtMyOrder);
     } catch (Exception $e) {
         // Rollback the transaction in case of any error
         mysqli_rollback($con);
 
         // Handle the error
-        $response = array('success' => false, 'message' => 'Error occurred during updates');
+        $response = array('success' => false, 'message' => 'Error occurred while receiving your order');
         echo json_encode($response);
     }
 

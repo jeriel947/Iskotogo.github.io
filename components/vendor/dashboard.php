@@ -17,7 +17,9 @@
         <div class="bottom">
         <p class="label">Today's Sales</p>
         <p id="value">-</p>
-        <button type="button" class="view-details-btn btn">View Details</button>
+        <a href="VendorDashboard.php">
+            <button type="button" class="view-details-btn btn">View Details</button>
+        </a>
         </div>
     </div>
 </div>

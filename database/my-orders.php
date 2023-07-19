@@ -4,7 +4,7 @@
                     JOIN tbl_menu m ON o.item_id = m.id
                     JOIN tbl_users u ON o.customer_id = u.user_id
                     JOIN tbl_stores s ON o.store_id = s.id
-                    WHERE o.customer_id = {$_SESSION['id']} AND o.order_status = '1'";
+                    WHERE o.customer_id = {$_SESSION['id']} AND o.order_status != '0'";
 
     $orderresult = mysqli_query($con, $orderquery);
 
@@ -29,11 +29,13 @@
 
         if (!isset($orders[$orderID])) {
             $orders[$orderID] = array(
+                'orderId' => $row['id'],
                 'itemName' => $row['item_name'],
                 'itemQuantity' => $row['quantity'],
                 'image' => $menuImage,
                 'itemPrice' => $row['item_price'],
-                'storeName' => $row['store_name']
+                'storeName' => $row['store_name'],
+                'orderStatus' => $row['order_status']
             );
         }
     }

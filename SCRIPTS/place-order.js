@@ -113,8 +113,6 @@ document.addEventListener('DOMContentLoaded', () => {
         formData.append('storeId', storeId);
         formData.append('date', currentDateTime);
         
-        console.log(formData);
-
         // Send the data to the server using AJAX
         const xhr = new XMLHttpRequest();
         xhr.open('POST', placeOrderForm.action, true);

@@ -223,6 +223,7 @@
     <script src="./SCRIPTS/carousel.js"></script>
     <script src="./SCRIPTS/intro-message.js"></script>
     <script src="./SCRIPTS/profile-section.js"></script>
+    <script src="./SCRIPTS/receive-myorders.js"></script>   
     
     <!-- SCROLL EFFECTS -->
     

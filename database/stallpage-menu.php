@@ -1,10 +1,10 @@
 <?php
     include 'database/stallpage-details.php';
                             
-    $query = "SELECT m.item_name, m.item_price, m.item_image, m.store_id, s.store_name, m.id
+    $query = "SELECT m.item_name, m.item_price, m.item_image, m.store_id, s.store_name, m.id, m.inventory, m.item_availability
                 FROM tbl_menu m
                 JOIN tbl_stores s ON m.store_id = s.id
-                WHERE m.store_id = ?";
+                WHERE m.store_id = ? AND m.inventory != '0'";
     
     $stmt = mysqli_prepare($con, $query);
     mysqli_stmt_bind_param($stmt, "i", $id);
