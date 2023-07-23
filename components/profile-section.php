@@ -28,7 +28,7 @@
                     <?php echo $_SESSION['Firstname'] . " " . $_SESSION['Lastname'] ?>
                 </h4>
                 <p id="section">
-                    <?php echo $_SESSION['Section'] ?>
+                    <?php echo $_SESSION['section'] ?>
                 </p>
                 <div class="profile-label">
                     <p class="information-label">
@@ -67,7 +67,7 @@
                             <div class="detail">
                                 <p class="label">Section</p>
                                 <p class="name">
-                                    <?php echo $_SESSION['Section'] ?>
+                                    <?php echo $_SESSION['section'] ?>
                                 </p>
                             </div>
                         </div>
@@ -83,7 +83,7 @@
                             <div class="detail">
                                 <p class="label">Student Number</p>
                                 <p class="name">
-                                    <?php echo $_SESSION['Studentid']; ?>
+                                    <?php echo $_SESSION['studentId']; ?>
                                 </p>
                             </div>
                         </div>
