@@ -99,7 +99,11 @@
                             <div class="detail">
                                 <p class="label">Password</p>
                                 <p class="name">
-                                    <?php echo $_SESSION['password']; ?>
+                                    <?php 
+                                        $password = $_SESSION['password']; 
+                                        $maskedPassword = str_repeat('*', strlen($password));
+                                        echo $maskedPassword;
+                                    ?>
                                 </p>
                             </div>
                         </div>
@@ -170,7 +174,7 @@
             </div>
             <div class="form-input">
                 <label for="user-password">Password</label>
-                <input type="text" id="user-password" name="user-password" required>
+                <input type="password" id="user-password" name="user-password" required>
             </div>
             <div class="buttons">
                 <button type="button" class="cancel-btn btn">Cancel</button>

@@ -5,6 +5,13 @@
 <head>
     <title>LOGIN</title>
     <link rel="shortcut icon" type="image/x-icon" href="images/logo.png" />
+    <!-- BOOTSTRAP CSS-->
+    <link 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+        rel="stylesheet" 
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" 
+        crossorigin="anonymous"
+    >
     <!-- CSS -->
     <link rel="stylesheet" href="./CSS/MAIN.css">
     <link rel="stylesheet" href="./CSS/loginStyle.css">
@@ -83,7 +90,9 @@
                 <input type="text" name="user_name" placeholder="Student number/username" required>
                 <input type="password" name="password" placeholder="Password" required>
                 <div class="btn login-btn">
-                    <button class="btn" type="submit">Login</button>
+                    <button class="btn btn-primary" type="submit">
+                        <p>Login</p>
+                    </button>
                 </div>
             </div>
         </div>
@@ -103,6 +112,8 @@
         errorMsg.style.display = 'none';
     });
 </script>
+<!-- BOOTSTRAP JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
 </body>
 </html>

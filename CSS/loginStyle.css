@@ -114,33 +114,6 @@ input:focus ~ form.input, input:not(:placeholder-shown) {
     color: var(--color-main1);
 }
 
-.login-btn {
-    background: transparent;
-    padding: 0;
-    border-radius: 5rem;
-}
-
-.btn button {
-    width: 100%;
-    background: var(--color-gradient);
-    color: white;
-    border-radius: 5rem;
-    padding: 1rem;
-}
-
-button:hover{
-    transition: var(--transition);
-    background: rgb(255, 255, 255);
-    color: var(--color-main1);
-    box-shadow: none;
-}
-
-.login-btn:hover {
-    transition: var(--transition);
-    padding: .2rem;
-    background: var(--color-gradient);
-}
-
 .error {
    background: #F2DEDE;
    color: #0c0101;
@@ -169,6 +142,41 @@ a {
 
 a:hover{
     opacity: .7;
+}
+
+/* BUTTON STYLE */
+.login-btn {
+    padding: 2px;
+    border-radius: 2rem;
+    background: var(--color-gradient);
+}
+
+.login-btn .btn {
+    width: 100%;
+    height: 100%;
+    box-shadow: none !important;
+    border-radius: 2rem !important;
+    padding: .75rem;
+    background: transparent;
+    border: none;
+    font-weight: 100;
+}
+
+.login-btn .btn p {
+    margin: 0;
+    color: white;
+}
+
+.login-btn:hover .btn {
+    background: white;
+    transition: var(--transition);
+}
+
+.login-btn:hover .btn p{
+    background: var(--color-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: var(--transition);
 }
 
 /* LOGIN PAGE */
