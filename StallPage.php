@@ -3,12 +3,14 @@
 
 <head>
     <?php include 'database/db-connection.php'; ?>
-    <?php include 'database/stallpage-details.php'; ?>                        
-    
+    <?php include 'database/stallpage-details.php'; ?>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><?php echo $store_name; ?></title>
+    <title>
+        <?php echo $store_name; ?>
+    </title>
     <link rel="shortcut icon" type="image/x-icon" href="images/logo.png" />
 
     <!-- CSS -->
@@ -41,15 +43,15 @@
 <body>
 
     <div class="loader-container">
-        <span class="loader"></span>        
+        <span class="loader"></span>
     </div>
 
     <!--================================ NAVIGATION BAR ================================-->
-    <?php 
-        include 'database/stallpage-menu.php';
-        $headerIcon = "store";
-        $mobileHeaderText = $storeName;
-        include 'components/navbar.php'; 
+    <?php
+    include 'database/stallpage-menu.php';
+    $headerIcon = "store";
+    $mobileHeaderText = $storeName;
+    include 'components/navbar.php';
     ?>
     <!--================================ END OF NAVIGATION BAR ================================-->
 
@@ -64,7 +66,7 @@
                     </div>
                     <div class="profile_image">
                         <h1>
-                            <?php echo strtoupper(substr($store_name, 0, 1)); ?>                        
+                            <?php echo strtoupper(substr($store_name, 0, 1)); ?>
                         </h1>
                     </div>
                 </div>
@@ -81,24 +83,35 @@
                         </div>
                         <div class="stall_location stall_details">
                             <p>
-                            <span class="material-symbols-outlined">
-                                location_on
-                            </span>                                
+                                <span class="material-symbols-outlined">
+                                    location_on
+                                </span>
                                 <?php echo $location; ?>
                             </p>
                         </div>
                         <div class="stall_contact stall_details">
                             <p>
-                            <span class="material-symbols-outlined">
-                                call
-                            </span>                                
+                                <span class="material-symbols-outlined">
+                                    call
+                                </span>
                                 <?php echo $contact; ?>
                             </p>
                         </div>
                     </div>
+                    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+                    <!-- <p class="hearts_num">
+                        <i class="bi bi-heart" id="heartIcon"></i>
+                    </p> -->
+                    
                     <p class="hearts_num">
+                        <!-- Ensure the likesCount element has the appropriate ID -->
+                        Likes: <span id="likesCount">
+                            <?php echo $likes; ?>
+                        </span>
                         <i class="bi bi-heart" id="heartIcon"></i>
                     </p>
+                    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
                 </div>
             </div>
             <!--  MENU  -->
@@ -115,9 +128,9 @@
                     </p>
                     <i class="bi bi-heart" id="heartIcon"></i>
                 </div>
-                
+
                 <div class="menu_container">
-                    <?php include 'database/stallpage-menu.php'; ?>                        
+                    <?php include 'database/stallpage-menu.php'; ?>
 
                     <?php foreach ($items as $item): ?>
                         <div class="menu_item" id="order-item-btn">
@@ -130,10 +143,15 @@
                                         <?php echo $item['name']; ?>
                                     </p>
                                     <P id="item_price">
-                                        P <?php echo $item['price']; ?>
+                                        P
+                                        <?php echo $item['price']; ?>
                                     </P>
-                                    <p id="item_id" hidden><?php echo $item['id']; ?> </P>
-                                    <p id="store_id" hidden><?php echo $item['store_id']; ?> </p>
+                                    <p id="item_id" hidden>
+                                        <?php echo $item['id']; ?>
+                                    </P>
+                                    <p id="store_id" hidden>
+                                        <?php echo $item['store_id']; ?>
+                                    </p>
                                 </div>
                             </div>
                             <button class="btn-secondary btn">Order</button>
@@ -151,7 +169,7 @@
                 <span class="material-symbols-outlined">receipt</span>
                 <h3>My Orders</h3>
             </div>
-            <?php include 'components/my-orders.php'; ?>    
+            <?php include 'components/my-orders.php'; ?>
         </div>
 
         <!--POPUP MESSAGE-->
@@ -159,7 +177,7 @@
 
     </section>
     <!--================================ END OF CONTAINER ================================-->
-    
+
     <!--================================ SHOW PROFILE ================================-->
     <?php include 'components/profile-section.php'; ?>
     <!--================================ END - SHOW PROFILE ================================-->
@@ -176,6 +194,7 @@
     <script src="./SCRIPTS/show-profile.js"></script>
     <script src="./SCRIPTS/profile-section.js"></script>
     <script src="./SCRIPTS/place-order.js"></script>
+    <script src="./SCRIPTS/likes.js"></script>
 
     <!-- SCROLL EFFECTS -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -184,4 +203,5 @@
     </script>
 
 </body>
+
 </html>
